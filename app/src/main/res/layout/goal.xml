@@ -4,7 +4,7 @@
               android:layout_height="match_parent"
               android:minWidth="300dp"
               android:orientation="vertical"
-              tools:context="utils.GoalDialog"
+              tools:context="ui.fragments.GoalDialog"
               android:background="@color/settings_background"
               android:paddingTop="@dimen/activity_vertical_margin">
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/action_music"
+          android:title="Music"
+          android:icon="@drawable/ic_music"
+          android:showAsAction="always"/>
+
+</menu><!-- From: file:/D:/Android/Projects/DreamFit/app/src/main/res/menu/menu_run.xml -->

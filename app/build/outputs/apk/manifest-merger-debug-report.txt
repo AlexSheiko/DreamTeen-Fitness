@@ -56,7 +56,7 @@ MERGED from com.android.support:support-v4:21.0.3:16:5
 		ADDED from AndroidManifest.xml:20:9
 	android:logo
 		ADDED from AndroidManifest.xml:19:9
-activity#utils.SplashScreen
+activity#ui.fragments.SplashScreen
 ADDED from AndroidManifest.xml:21:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:24:13
@@ -76,7 +76,7 @@ category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:29:17
 	android:name
 		ADDED from AndroidManifest.xml:29:27
-activity#ui.MainActivity
+activity#ui.activities.MainActivity
 ADDED from AndroidManifest.xml:32:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:35:13
@@ -84,7 +84,7 @@ ADDED from AndroidManifest.xml:32:9
 		ADDED from AndroidManifest.xml:34:13
 	android:name
 		ADDED from AndroidManifest.xml:33:13
-activity#ui.RunActivity
+activity#ui.activities.RunActivity
 ADDED from AndroidManifest.xml:37:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:41:13
@@ -100,7 +100,7 @@ ADDED from AndroidManifest.xml:42:13
 		ADDED from AndroidManifest.xml:43:17
 	android:value
 		ADDED from AndroidManifest.xml:44:17
-activity#ui.SummaryActivity
+activity#ui.activities.SummaryActivity
 ADDED from AndroidManifest.xml:46:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:50:13
@@ -110,7 +110,7 @@ ADDED from AndroidManifest.xml:46:9
 		ADDED from AndroidManifest.xml:49:13
 	android:name
 		ADDED from AndroidManifest.xml:47:13
-activity#ui.FriendsActivity
+activity#ui.activities.FriendsActivity
 ADDED from AndroidManifest.xml:55:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:59:13
@@ -120,7 +120,7 @@ ADDED from AndroidManifest.xml:55:9
 		ADDED from AndroidManifest.xml:58:13
 	android:name
 		ADDED from AndroidManifest.xml:56:13
-activity#ui.SettingsActivity
+activity#ui.activities.SettingsActivity
 ADDED from AndroidManifest.xml:64:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:68:13
@@ -138,7 +138,7 @@ ADDED from AndroidManifest.xml:74:9
 		ADDED from AndroidManifest.xml:76:13
 	android:name
 		ADDED from AndroidManifest.xml:75:13
-activity#utils.BodyParamsInput
+activity#ui.fragments.BodyParamsInput
 ADDED from AndroidManifest.xml:78:9
 	android:label
 		ADDED from AndroidManifest.xml:80:13
@@ -146,7 +146,7 @@ ADDED from AndroidManifest.xml:78:9
 		ADDED from AndroidManifest.xml:81:13
 	android:name
 		ADDED from AndroidManifest.xml:79:13
-activity#utils.GoalDialog
+activity#ui.fragments.GoalDialog
 ADDED from AndroidManifest.xml:83:9
 	android:label
 		ADDED from AndroidManifest.xml:85:13

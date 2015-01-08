@@ -4,7 +4,7 @@
               android:layout_height="match_parent"
               android:background="@color/window_background"
               android:orientation="vertical"
-              tools:context="ui.RunActivity">
+              tools:context="ui.activities.RunActivity">
 
     <!--Map container (with button)-->
     <LinearLayout

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:key="pref_units"
+        android:title="@string/pref_units"
+        android:defaultValue="1"
+        android:dialogTitle="@string/pref_distance_units_dialog_title"
+        android:entries="@array/pref_units"
+        android:entryValues="@array/pref_units_values"/>
+
+    <CheckBoxPreference
+        android:key="pref_notifications"
+        android:title="@string/pref_notifications"
+        android:summary="@string/pref_notifications_summary"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:key="pref_keep_screen"
+        android:title="@string/pref_keep_screen"
+        android:summary="@string/pref_keep_screen_summary"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:key="pref_track_calories"
+        android:title="@string/pref_calories"
+        android:defaultValue="true"/>
+
+</PreferenceScreen><!-- From: file:/D:/Android/Projects/DreamFit/app/src/main/res/xml/preferences.xml -->

@@ -9,13 +9,6 @@
         <dex dex="D:\Android\Projects\DreamFit\app\build\intermediates\pre-dexed\debug\Parse-1.8.0-b30f0ca61147bb46b979c2beee70aedc3eb0363d.jar" />
     </item>
     <item
-        jar="D:\Android\Projects\DreamFit\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="D:\Android\Projects\DreamFit\app\build\intermediates\pre-dexed\debug\classes-dc581e3d0f04fe808b426502f73b9608537cf7cf.jar" />
-    </item>
-    <item
         jar="D:\Android\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.1.2\91c20388c9a45f62b5ed8fe0502bb76ff6251fc7\bolts-android-1.1.2.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -30,6 +23,13 @@
         <dex dex="D:\Android\Projects\DreamFit\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-0dfe20f0e003db29e759983c86f5e521dd7420da.jar" />
     </item>
     <item
+        jar="D:\Android\Projects\DreamFit\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="D:\Android\Projects\DreamFit\app\build\intermediates\pre-dexed\debug\classes-dc581e3d0f04fe808b426502f73b9608537cf7cf.jar" />
+    </item>
+    <item
         jar="D:\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -40,7 +40,7 @@
         jar="D:\Android\Projects\DreamFit\app\build\intermediates\exploded-aar\com.facebook.android\facebook\3.21.1\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="a3419fa0dc62165bde7251c0f0060d08dcc8ec2e">
+        sha1="a0623195125a8882290bb354025be947addc9552">
         <dex dex="D:\Android\Projects\DreamFit\app\build\intermediates\pre-dexed\debug\classes-97fbaf9efd26f3ff2a6ab738eaa1417987b7a93a.jar" />
     </item>
     <item
@@ -49,13 +49,6 @@
         revision="21.1.2"
         sha1="0f6d5c1ef2e982c3b7858408e3df389cf5d202da">
         <dex dex="D:\Android\Projects\DreamFit\app\build\intermediates\pre-dexed\debug\classes-327217e7c258dd053fccecdf41da3d744a222523.jar" />
-    </item>
-    <item
-        jar="D:\Android\Projects\DreamFit\app\libs\guava-18.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="cce0823396aa693798f8882e64213b1772032b09">
-        <dex dex="D:\Android\Projects\DreamFit\app\build\intermediates\pre-dexed\debug\guava-18.0-520116d8ef10f9ebdf91aff9792880d5860f656e.jar" />
     </item>
 
 </items>

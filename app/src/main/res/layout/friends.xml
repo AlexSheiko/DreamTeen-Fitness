@@ -6,7 +6,7 @@
               android:background="@color/white"
               android:gravity="center_horizontal"
               android:orientation="vertical"
-              tools:context="ui.FriendsActivity">
+              tools:context="ui.activities.FriendsActivity">
 
     <TextView
         android:layout_width="match_parent"

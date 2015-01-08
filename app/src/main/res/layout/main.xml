@@ -30,28 +30,19 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        style="@style/CardImage"
-                        android:layout_height="fill_parent"
-                        android:layout_width="0dp"
+                    <ui.SquareImageView
+                        android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:scaleType="fitCenter"
-                        android:adjustViewBounds="true"
-                        android:clickable="true"
-                        android:onClick="navigateToAerobic"
+                        android:layout_width="wrap_content"
                         android:src="@drawable/aerobic"
-                        class = "bellamica.tech.dreamfit.utils.SquareImageView"/>
+                        class = "ui.SquareImageView"/>
 
-                    <ImageView
-                        style="@style/CardImage"
-                        android:layout_height="fill_parent"
-                        android:layout_width="0dp"
+                    <ui.SquareImageView
+                        android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:scaleType="fitXY"
-                        android:adjustViewBounds="true"
-                        android:clickable="true"
-                        android:onClick="navigateToRunning"
-                        class = "bellamica.tech.dreamfit.utils.SquareImageView"/>
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/running"
+                        class = "ui.SquareImageView"/>
 
                 </LinearLayout>
 

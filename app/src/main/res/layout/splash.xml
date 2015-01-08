@@ -9,7 +9,7 @@
                 android:background="@drawable/splash_background"
                 android:orientation="vertical"
                 android:gravity="center"
-                tools:context="utils.SplashScreen">
+                tools:context="ui.fragments.SplashScreen">
 
     <LinearLayout
         android:layout_width="match_parent"
