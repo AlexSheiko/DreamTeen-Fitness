@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="action_titles">
+        <item>@string/action_dashboard</item>
+        <item>@string/action_invite_friends</item>
+        <item>@string/action_challenges</item>
+        <item>@string/action_settings</item>
+        <item>@string/action_logout</item>
+    </string-array>
+    <string-array name="action_categories">
+        <item>Aerobic workout</item>
+        <item>Running</item>
+        <item>oal</item>
+        <item>Challenges</item>
+    </string-array>
+    <string-array name="pref_units">
+        <item>Imperial</item>
+        <item>Metric</item>
+    </string-array>
+    <string-array name="pref_units_values">
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="height_spinner_units">
+        <item>inch</item>
+        <item>cm</item>
+    </string-array>
+    <string-array name="weight_spinner_values">
+        <item>lb</item>
+        <item>kg</item>
+    </string-array>
+    <string-array name="activity_type_spinner_values">
+        <item>Lose</item>
+        <item>Gain</item>
+    </string-array>
+    <string-array name="goal_weight_values">
+        <item>1 kg</item>
+        <item>2 kg</item>
+        <item>3 kg</item>
+        <item>4 kg</item>
+        <item>5 kg</item>
+        <item>6 kg</item>
+        <item>7 kg</item>
+        <item>8 kg</item>
+        <item>9 kg</item>
+        <item>10 kg</item>
+    </string-array>
+    <string-array name="goal_date_values">
+        <item>2 weeks</item>
+        <item>1 month</item>
+        <item>2 month</item>
+        <item>3 month</item>
+        <item>6 month</item>
+        <item>12 month</item>
+    </string-array>
+</resources>

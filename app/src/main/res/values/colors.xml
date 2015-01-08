@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="actionbar_background">#69a8d2</color>
+    <color name="actionbar_shadow">#5096c5</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="card_text">#7a7575</color>
+    <color name="card_background">@color/white</color>
+    <color name="window_background">#e0eaef</color>
+    <color name="settings_background">#eff4f7</color>
+
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:bottom="1px">
+        <shape android:shape="rectangle">
+            <solid android:color="#febc24"/>
+        </shape>
+    </item>
+
+</layer-list><!-- From: file:/D:/Android/Projects/DreamFit/app/src/main/res/drawable/drawer_list_item_pressed.xml -->

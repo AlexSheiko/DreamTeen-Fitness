@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--Shadow-->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#ecf0f1"/>
+        </shape>
+    </item>
+
+    <!--Icon container-->
+    <item
+        android:bottom="1px"
+        android:left="1px"
+        android:right="1px"
+        android:top="1px"
+        >
+        <shape android:shape="oval">
+            <stroke android:color="#dadddf" android:width="1px"/>
+            <solid android:color="#fafbfb"/>
+        </shape>
+    </item>
+
+</layer-list>
