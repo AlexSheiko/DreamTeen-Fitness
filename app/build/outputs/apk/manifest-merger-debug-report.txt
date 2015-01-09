@@ -56,7 +56,7 @@ MERGED from com.android.support:support-v4:21.0.3:16:5
 		ADDED from AndroidManifest.xml:20:9
 	android:logo
 		ADDED from AndroidManifest.xml:19:9
-activity#ui.fragments.SplashScreen
+activity#ui.activities.SplashActivity
 ADDED from AndroidManifest.xml:21:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:24:13
