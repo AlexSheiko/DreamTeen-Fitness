@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.provider.Settings.Secure;
+import android.util.Log;
 
 import com.parse.FindCallback;
 import com.parse.Parse;
@@ -33,6 +34,7 @@ public class SplashActivity extends Activity {
                 "IGTbu2n4KePoggvgXmBUS4k6cg5wQH8lQOA3Uo3k");
 
         mDeviceId = Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID);
+        Log.i("DeviceId", mDeviceId);
         registerDeviceId();
     }
 

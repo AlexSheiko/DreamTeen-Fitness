@@ -3,17 +3,14 @@ package ui.activities;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.IntentSender.SendIntentException;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.Settings.Secure;
-import android.support.annotation.NonNull;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,15 +19,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.common.Scopes;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.GoogleApiClient.Builder;
-import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
-import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
-import com.google.android.gms.common.api.Scope;
-import com.google.android.gms.fitness.Fitness;
 import com.parse.GetCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
@@ -43,16 +31,11 @@ import java.util.Date;
 
 import adapters.NavigationAdapter;
 import bellamica.tech.dreamfit.R;
+import ui.fragments.BodyParamsInput;
 import ui.fragments.GoalDialog;
 
 
 public class MainActivity extends Activity {
-    public static final String TAG = MainActivity.class.getSimpleName();
-
-    private static final int REQUEST_OAUTH = 1;
-    private static final String AUTH_PENDING = "auth_state_pending";
-    private boolean authInProgress = false;
-    private GoogleApiClient mClient = null;
 
     private SharedPreferences sharedPrefs;
 
@@ -65,13 +48,8 @@ public class MainActivity extends Activity {
                 "ygyWodAYEDqiQ795p1V4Jxs2yRm9KTiBKsGSnakD",
                 "IGTbu2n4KePoggvgXmBUS4k6cg5wQH8lQOA3Uo3k");
 
-        if (savedInstanceState != null) {
-            authInProgress = savedInstanceState.getBoolean(AUTH_PENDING);
-        }
-
         setCaloriesNorm();
         addSideNavigation();
-//TODO        buildFitnessClient();
     }
 
     @Override
@@ -81,62 +59,10 @@ public class MainActivity extends Activity {
             findViewById(R.id.caloriesContainer).setVisibility(View.GONE);
     }
 
-    /**
-     * Build a {@link GoogleApiClient} that will authenticate the user and allow the application
-     * to connect to Fitness APIs.
-     */
-    private void buildFitnessClient() {
-        // Create the Google API Client
-        mClient = new Builder(this)
-                .addApi(Fitness.API)
-                .addScope(new Scope(Scopes.FITNESS_LOCATION_READ))
-                .addScope(new Scope(Scopes.FITNESS_BODY_READ_WRITE))
-                .addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
-                .addConnectionCallbacks(
-                        new ConnectionCallbacks() {
-                            @Override
-                            public void onConnected(Bundle bundle) {
-                                // Log.i(TAG, "Connected!!!");
-                            }
-
-                            @Override
-                            public void onConnectionSuspended(int i) {
-                                    Log.i(TAG, "Connection lost.");
-                            }
-                        }
-                )
-                .addOnConnectionFailedListener(
-                        new OnConnectionFailedListener() {
-                            // Called whenever the API client fails to connect.
-                            @Override
-                            public void onConnectionFailed(ConnectionResult result) {
-                                Log.i(TAG, "Connection failed. Cause: " + result.toString());
-                                if (!result.hasResolution()) {
-                                    // Show the localized error dialog
-                                    GooglePlayServicesUtil.getErrorDialog(result.getErrorCode(),
-                                            MainActivity.this, 0).show();
-                                    return;
-                                }
-                                // The failure has a resolution. Resolve it.
-                                // Called typically when the app is not yet authorized, and an
-                                // authorization dialog is displayed to the user.
-                                if (!authInProgress) {
-                                    try {
-                                        Log.i(TAG, "Attempting to resolve failed connection");
-                                        authInProgress = true;
-                                        result.startResolutionForResult(MainActivity.this,
-                                                REQUEST_OAUTH);
-                                    } catch (SendIntentException e) {
-                                        Log.e(TAG,
-                                                "Exception while starting resolution activity", e);
-                                    }
-                                }
-                            }
-                        }
-                )
-                .useDefaultAccount()
-                .build();
-    }
+    private int mAge;
+    private int mHeight;
+    private int mWeight;
+    private String mGender;
 
     public Void setCaloriesNorm() {
         if (sharedPrefs.getString("pref_units", "1").equals("1"))
@@ -150,12 +76,13 @@ public class MainActivity extends Activity {
             @Override
             public void done(ParseObject parseObject, ParseException e) {
                 if (e == null) {
-                    int mAge = parseObject.getInt("age");
-                    int mHeight = parseObject.getInt("height");
-                    int mWeight = parseObject.getInt("weight");
-                    String mGender = parseObject.getString("gender");
+                    mAge = parseObject.getInt("age");
+                    mHeight = parseObject.getInt("height");
+                    mWeight = parseObject.getInt("weight");
+                    mGender = parseObject.getString("gender");
 
-                    updateProgressBar(calculateDailyCaloriesNorm(mAge, mHeight, mWeight, mGender));
+                    if (mAge != 0 && mHeight != 0 && mWeight != 0 && !mGender.equals(""))
+                        updateProgressBar(calculateDailyCaloriesNorm(mAge, mHeight, mWeight, mGender));
 
                     if (parseObject.getBoolean("isGoalSet")) {
                         findViewById(R.id.goalWeightContainer).setVisibility(View.VISIBLE);
@@ -186,10 +113,12 @@ public class MainActivity extends Activity {
     }
 
     private int calculateDailyCaloriesNorm(int age, float height, float weight, String gender) {
-        if (gender.equals("male")) {
-            return (int) (65 + (6.2 * weight) + (12.7 * height) - (6.8 * age));
-        } else if (gender.equals("female")) {
-            return (int) (655 + (4.3 * weight) + (4.3 * height) - (4.7 * age));
+        if (gender != null) {
+            if (gender.equals("male")) {
+                return (int) (65 + (6.2 * weight) + (12.7 * height) - (6.8 * age));
+            } else if (gender.equals("female")) {
+                return (int) (655 + (4.3 * weight) + (4.3 * height) - (4.7 * age));
+            }
         }
         return -1;
     }
@@ -210,34 +139,13 @@ public class MainActivity extends Activity {
     }
 
     public void addFitnessGoal(View view) {
-        startActivity(new Intent(this, GoalDialog.class));
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-//TODO        mClient.connect();
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_OAUTH) {
-            authInProgress = false;
-            if (resultCode == RESULT_OK) {
-                // Make sure the app is not already connected or attempting to connect
-                if (!mClient.isConnecting() && !mClient.isConnected()) {
-                    mClient.connect();
-                }
-            }
+        if (mAge != 0 && mHeight != 0 && mWeight != 0 && !mGender.equals("")) {
+            startActivity(new Intent(this, GoalDialog.class));
+        } else {
+            startActivity(new Intent(this, BodyParamsInput.class));
+            Toast.makeText(this, "Please enter body params first", Toast.LENGTH_SHORT).show();
         }
     }
-
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putBoolean(AUTH_PENDING, authInProgress);
-    }
-
 
     // Navigation drawer
     private ActionBar mActionBar;
