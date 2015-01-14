@@ -124,7 +124,7 @@ public final class R {
 		public static final int selectionDetails = 0x7f0c000b;
 		public static final int strict_sandbox = 0x7f0c0009;
 		public static final int terrain = 0x7f0c0004;
-		public static final int text1 = 0x7f0c0050;
+		public static final int text1 = 0x7f0c006a;
 		public static final int wrap_content = 0x7f0c000d;
 	}
 	public static final class integer {
@@ -165,7 +165,7 @@ public final class R {
 		public static final int decline = 0x7f09004f;
 		public static final int store_picture_message = 0x7f090080;
 		public static final int store_picture_title = 0x7f090081;
-		public static final int wallet_buy_button_place_holder = 0x7f09008b;
+		public static final int wallet_buy_button_place_holder = 0x7f09008c;
 	}
 	public static final class style {
 		public static final int Theme_IAPTheme = 0x7f0a000b;

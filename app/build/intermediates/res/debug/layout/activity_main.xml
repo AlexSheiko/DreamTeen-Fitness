@@ -30,21 +30,21 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ui.SquareImageView
+                    <ui.utils.SquareImageView
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:src="@drawable/aerobic"
                         android:onClick="navigateToAerobic"
-                        class = "ui.SquareImageView"/>
+                        class = "ui.utils.SquareImageView"/>
 
-                    <ui.SquareImageView
+                    <ui.utils.SquareImageView
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:src="@drawable/running"
                         android:onClick="navigateToRunning"
-                        class = "ui.SquareImageView"/>
+                        class = "ui.utils.SquareImageView"/>
 
                 </LinearLayout>
 
@@ -227,22 +227,6 @@
                 android:paddingLeft="12dp"
                 android:paddingRight="12dp">
 
-                <!--Icon-->
-                <FrameLayout
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/icon_container">
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_scales"/>
-
-                </FrameLayout>
-
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -257,7 +241,9 @@
                 <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="12dp">
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="12dp">
 
                     <Button
                         android:id="@+id/setGoalButton"
@@ -292,3 +278,4 @@
         android:dividerHeight="1dp"/>
 
 </android.support.v4.widget.DrawerLayout>
+<!-- From: file:/D:/DreamTeen%20Fitness/app/src/main/res/layout/activity_main.xml -->

@@ -12,14 +12,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 
-import com.parse.GetCallback;
-import com.parse.Parse;
-import com.parse.ParseException;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
-import com.parse.SaveCallback;
-
-import bellamica.tech.dreamfit.R;
+import bellamica.tech.dreamteenfitness.R;
 import ui.activities.MainActivity;
 
 public class BodyParamsInput extends Activity {
@@ -32,10 +25,7 @@ public class BodyParamsInput extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.body_params);
-        Parse.initialize(this,
-                "ygyWodAYEDqiQ795p1V4Jxs2yRm9KTiBKsGSnakD",
-                "IGTbu2n4KePoggvgXmBUS4k6cg5wQH8lQOA3Uo3k");
+        setContentView(R.layout.activity_body_params);
 
         initializeSpinners();
     }
@@ -104,29 +94,6 @@ public class BodyParamsInput extends Activity {
 
         if (mWeightSpinner.getSelectedItem().toString().equals("kg"))
             mWeight = (int) (mWeight * 2.205);
-
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("PhoneReg");
-        query.whereEqualTo("deviceId", mDeviceId);
-        query.getFirstInBackground(new GetCallback<ParseObject>() {
-            @Override
-            public void done(ParseObject parseObject, ParseException e) {
-                if (e == null) {
-                    // parseObject.put("caloriesToExpandDaily", getDailyNormCalories());
-
-                    parseObject.put("age", mAge);
-                    parseObject.put("height", mHeight);
-                    parseObject.put("weight", mWeight);
-                    parseObject.put("gender", mGender);
-
-                    parseObject.saveInBackground(new SaveCallback() {
-                        @Override
-                        public void done(ParseException e) {
-                            navigateToMainScreen();
-                        }
-                    });
-                }
-            }
-        });
     }
 
     private void navigateToMainScreen() {

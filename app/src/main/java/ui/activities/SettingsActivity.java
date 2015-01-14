@@ -3,7 +3,7 @@ package ui.activities;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
-import bellamica.tech.dreamfit.R;
+import bellamica.tech.dreamteenfitness.R;
 
 public class SettingsActivity extends PreferenceActivity {
 

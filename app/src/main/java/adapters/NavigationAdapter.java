@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import bellamica.tech.dreamfit.R;
+import bellamica.tech.dreamteenfitness.R;
 
 
 public class NavigationAdapter extends ArrayAdapter<String> {

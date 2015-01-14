@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.ShareActionProvider;
 import android.widget.TextView;
 
-import bellamica.tech.dreamfit.R;
+import bellamica.tech.dreamteenfitness.R;
 
 public class SummaryActivity extends Activity {
 
@@ -27,7 +27,7 @@ public class SummaryActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.summary);
+        setContentView(R.layout.activity_summary);
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         if (sharedPrefs.getString("pref_units", "1").equals("1")) {

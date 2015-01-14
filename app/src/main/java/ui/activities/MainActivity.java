@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.provider.Settings.Secure;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -19,18 +18,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.parse.GetCallback;
-import com.parse.Parse;
-import com.parse.ParseException;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
-
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 import adapters.NavigationAdapter;
-import bellamica.tech.dreamfit.R;
+import bellamica.tech.dreamteenfitness.R;
 import ui.fragments.BodyParamsInput;
 import ui.fragments.GoalDialog;
 
@@ -42,11 +33,8 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_main);
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        Parse.initialize(MainActivity.this,
-                "ygyWodAYEDqiQ795p1V4Jxs2yRm9KTiBKsGSnakD",
-                "IGTbu2n4KePoggvgXmBUS4k6cg5wQH8lQOA3Uo3k");
 
         setCaloriesNorm();
         addSideNavigation();
@@ -68,47 +56,6 @@ public class MainActivity extends Activity {
         if (sharedPrefs.getString("pref_units", "1").equals("1"))
             ((TextView) findViewById(R.id.weightToGoLabel)).setText("lb to go");
 
-        String mDeviceId = Secure.getString(this.getContentResolver(), Secure.ANDROID_ID);
-
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("PhoneReg");
-        query.whereEqualTo("deviceId", mDeviceId);
-        query.getFirstInBackground(new GetCallback<ParseObject>() {
-            @Override
-            public void done(ParseObject parseObject, ParseException e) {
-                if (e == null) {
-                    mAge = parseObject.getInt("age");
-                    mHeight = parseObject.getInt("height");
-                    mWeight = parseObject.getInt("weight");
-                    mGender = parseObject.getString("gender");
-
-                    if (mAge != 0 && mHeight != 0 && mWeight != 0 && !mGender.equals(""))
-                        updateProgressBar(calculateDailyCaloriesNorm(mAge, mHeight, mWeight, mGender));
-
-                    if (parseObject.getBoolean("isGoalSet")) {
-                        findViewById(R.id.goalWeightContainer).setVisibility(View.VISIBLE);
-                        findViewById(R.id.setGoalWeightContainer).setVisibility(View.GONE);
-                        ((TextView) findViewById(R.id.weightDeltaToGo)).setText(parseObject.getInt("weightDelta") + "");
-
-                        String DATE_FORMAT = "dd MMM";
-                        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
-
-                        Calendar cal = Calendar.getInstance();
-                        Date now = new Date();
-                        cal.setTime(now);
-                        cal.add(Calendar.DAY_OF_YEAR, parseObject.getInt("daysLeft"));
-                        long endTime = cal.getTimeInMillis();
-
-                        if (sharedPrefs.getString("pref_units", "1").equals("1")) {
-                            ((TextView) findViewById(R.id.goalHintLabel)).setText(
-                                    mWeight + " " + "lb" + " until " + dateFormat.format(endTime).toLowerCase());
-                        } else {
-                            ((TextView) findViewById(R.id.goalHintLabel)).setText(
-                                    Math.round(mWeight * 0.45) + " " + "kg" + " until " + dateFormat.format(endTime).toLowerCase());
-                        }
-                    }
-                }
-            }
-        });
         return null;
     }
 
@@ -248,5 +195,4 @@ public class MainActivity extends Activity {
     public void navigateToAerobic(View view) {
         Toast.makeText(this, "Coming soon", Toast.LENGTH_SHORT).show();
     }
-
 }

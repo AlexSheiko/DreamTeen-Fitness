@@ -40,7 +40,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
-import bellamica.tech.dreamfit.R;
+import bellamica.tech.dreamteenfitness.R;
 
 
 public class RunActivity extends Activity
@@ -75,7 +75,7 @@ public class RunActivity extends Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.run);
+        setContentView(R.layout.activity_run);
         initializeViews();
 
         createMap();

@@ -14,10 +14,10 @@
     <string name="aerobic">Aerobic</string>
     <string name="run_activity_title">Run</string>
     <string name="kg_left">kg to go</string>
-    <string name="kg_test_value">8</string>
-    <string name="target">55 kg until 21th may</string>
-    <string name="track_exercise">Track exercise</string>
-    <string name="app_slogan">Makes fitness better</string>
+    <string name="kg_test_value" translatable="false">8</string>
+    <string name="target" translatable="false">55 kg until 21th may</string>
+    <string name="track_exercise">Track Exercise</string>
+    <string name="app_slogan">Make Fitness Better</string>
     <string name="login_button_label">Connect to Google Fit</string>
     <string name="login_skip">Skip</string>
     <string name="calories_default_value">0</string>
@@ -72,11 +72,12 @@
     <string name="save_button_label">Save</string>
     <string name="age_field_hint">Age</string>
     <string name="add_goal_button_label">Add</string>
-    <string name="add_fitness_goal_hint">No fitness goal</string>
+    <string name="add_fitness_goal_hint">New fitness goal</string>
     <string name="title_activity_goal_dialog">Fitness goal</string>
     <string name="i_want_label">I want to</string>
     <string name="goal_date_label">in</string>
     <string name="set">Set</string>
     <string name="request_sended_toast">Request successfully sent</string>
+    <string name="title_activity_login">LoginActivity</string>
 
 </resources>

@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package bellamica.tech.dreamfit;
+package bellamica.tech.dreamteenfitness;
 
 public final class R {
     public static final class array {
@@ -715,146 +715,146 @@ containing a value of this type.
         public static final int yellow_button_selector=0x7f020081;
     }
     public static final class id {
-        public static final int TripLabelDistance=0x7f0c0063;
-        public static final int TripLabelHeader=0x7f0c0062;
-        public static final int TripLabelUnits=0x7f0c0064;
+        public static final int TripLabelDistance=0x7f0c0044;
+        public static final int TripLabelHeader=0x7f0c0043;
+        public static final int TripLabelUnits=0x7f0c0045;
         public static final int action_music=0x7f0c006c;
         public static final int action_share=0x7f0c006d;
         public static final int action_skip=0x7f0c006b;
-        public static final int activityTypeSpinner=0x7f0c0041;
+        public static final int activityTypeSpinner=0x7f0c0064;
         public static final int ageField=0x7f0c001f;
         public static final int book_now=0x7f0c000e;
         public static final int bottom=0x7f0c0017;
         public static final int box_count=0x7f0c0014;
         public static final int button=0x7f0c0015;
-        public static final int button_container=0x7f0c0059;
+        public static final int button_container=0x7f0c003b;
         public static final int buyButton=0x7f0c000a;
         public static final int buy_now=0x7f0c000f;
         public static final int buy_with_google=0x7f0c0010;
-        public static final int caloriesContainer=0x7f0c0045;
-        public static final int caloriesValueLabel=0x7f0c0046;
+        public static final int caloriesContainer=0x7f0c002a;
+        public static final int caloriesValueLabel=0x7f0c002b;
         public static final int center=0x7f0c001a;
         public static final int classic=0x7f0c0011;
-        public static final int com_facebook_body_frame=0x7f0c0038;
-        public static final int com_facebook_button_xout=0x7f0c003a;
-        public static final int com_facebook_login_activity_progress_bar=0x7f0c0028;
-        public static final int com_facebook_picker_activity_circle=0x7f0c0027;
-        public static final int com_facebook_picker_checkbox=0x7f0c002a;
-        public static final int com_facebook_picker_checkbox_stub=0x7f0c002e;
-        public static final int com_facebook_picker_divider=0x7f0c0032;
-        public static final int com_facebook_picker_done_button=0x7f0c0031;
-        public static final int com_facebook_picker_image=0x7f0c002b;
-        public static final int com_facebook_picker_list_section_header=0x7f0c002f;
-        public static final int com_facebook_picker_list_view=0x7f0c0026;
-        public static final int com_facebook_picker_profile_pic_stub=0x7f0c002c;
-        public static final int com_facebook_picker_row_activity_circle=0x7f0c0029;
-        public static final int com_facebook_picker_search_text=0x7f0c0037;
-        public static final int com_facebook_picker_title=0x7f0c002d;
-        public static final int com_facebook_picker_title_bar=0x7f0c0034;
-        public static final int com_facebook_picker_title_bar_stub=0x7f0c0033;
-        public static final int com_facebook_picker_top_bar=0x7f0c0030;
-        public static final int com_facebook_search_bar_view=0x7f0c0036;
-        public static final int com_facebook_tooltip_bubble_view_bottom_pointer=0x7f0c003c;
-        public static final int com_facebook_tooltip_bubble_view_text_body=0x7f0c003b;
-        public static final int com_facebook_tooltip_bubble_view_top_pointer=0x7f0c0039;
-        public static final int com_facebook_usersettingsfragment_login_button=0x7f0c003f;
-        public static final int com_facebook_usersettingsfragment_logo_image=0x7f0c003d;
-        public static final int com_facebook_usersettingsfragment_profile_name=0x7f0c003e;
-        public static final int counters_container=0x7f0c0051;
-        public static final int discardButton=0x7f0c0068;
-        public static final int distanceUnitsLabel=0x7f0c0057;
-        public static final int distance_counter=0x7f0c0056;
-        public static final int distance_counter_container=0x7f0c0054;
-        public static final int distance_label=0x7f0c0055;
-        public static final int drawer_layout=0x7f0c0044;
-        public static final int duration_counter=0x7f0c0053;
-        public static final int duration_label=0x7f0c0052;
-        public static final int finishButton=0x7f0c005f;
-        public static final int finish_button_label=0x7f0c0060;
-        public static final int goalDateSpinner=0x7f0c0043;
-        public static final int goalHintLabel=0x7f0c004b;
-        public static final int goalWeightContainer=0x7f0c0048;
-        public static final int goalWeightSpinner=0x7f0c0042;
+        public static final int com_facebook_body_frame=0x7f0c005c;
+        public static final int com_facebook_button_xout=0x7f0c005e;
+        public static final int com_facebook_login_activity_progress_bar=0x7f0c004c;
+        public static final int com_facebook_picker_activity_circle=0x7f0c004b;
+        public static final int com_facebook_picker_checkbox=0x7f0c004e;
+        public static final int com_facebook_picker_checkbox_stub=0x7f0c0052;
+        public static final int com_facebook_picker_divider=0x7f0c0056;
+        public static final int com_facebook_picker_done_button=0x7f0c0055;
+        public static final int com_facebook_picker_image=0x7f0c004f;
+        public static final int com_facebook_picker_list_section_header=0x7f0c0053;
+        public static final int com_facebook_picker_list_view=0x7f0c004a;
+        public static final int com_facebook_picker_profile_pic_stub=0x7f0c0050;
+        public static final int com_facebook_picker_row_activity_circle=0x7f0c004d;
+        public static final int com_facebook_picker_search_text=0x7f0c005b;
+        public static final int com_facebook_picker_title=0x7f0c0051;
+        public static final int com_facebook_picker_title_bar=0x7f0c0058;
+        public static final int com_facebook_picker_title_bar_stub=0x7f0c0057;
+        public static final int com_facebook_picker_top_bar=0x7f0c0054;
+        public static final int com_facebook_search_bar_view=0x7f0c005a;
+        public static final int com_facebook_tooltip_bubble_view_bottom_pointer=0x7f0c0060;
+        public static final int com_facebook_tooltip_bubble_view_text_body=0x7f0c005f;
+        public static final int com_facebook_tooltip_bubble_view_top_pointer=0x7f0c005d;
+        public static final int com_facebook_usersettingsfragment_login_button=0x7f0c0063;
+        public static final int com_facebook_usersettingsfragment_logo_image=0x7f0c0061;
+        public static final int com_facebook_usersettingsfragment_profile_name=0x7f0c0062;
+        public static final int counters_container=0x7f0c0033;
+        public static final int discardButton=0x7f0c0049;
+        public static final int distanceUnitsLabel=0x7f0c0039;
+        public static final int distance_counter=0x7f0c0038;
+        public static final int distance_counter_container=0x7f0c0036;
+        public static final int distance_label=0x7f0c0037;
+        public static final int drawer_layout=0x7f0c0029;
+        public static final int duration_counter=0x7f0c0035;
+        public static final int duration_label=0x7f0c0034;
+        public static final int finishButton=0x7f0c0041;
+        public static final int finish_button_label=0x7f0c0042;
+        public static final int goalDateSpinner=0x7f0c0066;
+        public static final int goalHintLabel=0x7f0c002f;
+        public static final int goalWeightContainer=0x7f0c002c;
+        public static final int goalWeightSpinner=0x7f0c0065;
         public static final int grayscale=0x7f0c0012;
         public static final int heightField=0x7f0c0020;
         public static final int heightSpinner=0x7f0c0021;
         public static final int holo_dark=0x7f0c0005;
         public static final int holo_light=0x7f0c0006;
         public static final int hybrid=0x7f0c0000;
-        public static final int image1=0x7f0c004f;
+        public static final int image1=0x7f0c0069;
         public static final int inline=0x7f0c0018;
         public static final int large=0x7f0c001d;
         public static final int left=0x7f0c001b;
-        public static final int left_drawer=0x7f0c004e;
-        public static final int login_button=0x7f0c0040;
-        public static final int login_title=0x7f0c0061;
-        public static final int map=0x7f0c0058;
+        public static final int left_drawer=0x7f0c0032;
+        public static final int login_button=0x7f0c0026;
+        public static final int login_title=0x7f0c0027;
+        public static final int map=0x7f0c003a;
         public static final int match_parent=0x7f0c000c;
         public static final int monochrome=0x7f0c0013;
         public static final int none=0x7f0c0001;
         public static final int normal=0x7f0c0002;
-        public static final int pauseButton=0x7f0c005b;
-        public static final int pause_button_label=0x7f0c005d;
-        public static final int picker_subtitle=0x7f0c0035;
-        public static final int picture=0x7f0c0069;
+        public static final int pauseButton=0x7f0c003d;
+        public static final int pause_button_label=0x7f0c003f;
+        public static final int picker_subtitle=0x7f0c0059;
+        public static final int picture=0x7f0c0067;
         public static final int production=0x7f0c0007;
-        public static final int progressBar=0x7f0c0047;
+        public static final int progressBar=0x7f0c0028;
         public static final int radio_female=0x7f0c0025;
         public static final int radio_male=0x7f0c0024;
         public static final int right=0x7f0c001c;
         public static final int sandbox=0x7f0c0008;
         public static final int satellite=0x7f0c0003;
-        public static final int saveButton=0x7f0c0067;
+        public static final int saveButton=0x7f0c0048;
         public static final int selectionDetails=0x7f0c000b;
-        public static final int setGoalButton=0x7f0c004d;
-        public static final int setGoalWeightContainer=0x7f0c004c;
-        public static final int slide_button_container=0x7f0c005e;
+        public static final int setGoalButton=0x7f0c0031;
+        public static final int setGoalWeightContainer=0x7f0c0030;
+        public static final int slide_button_container=0x7f0c0040;
         public static final int small=0x7f0c001e;
         public static final int standard=0x7f0c0016;
-        public static final int startButton=0x7f0c005a;
-        public static final int start_button_label=0x7f0c005c;
+        public static final int startButton=0x7f0c003c;
+        public static final int start_button_label=0x7f0c003e;
         public static final int strict_sandbox=0x7f0c0009;
         public static final int terrain=0x7f0c0004;
-        public static final int text=0x7f0c006a;
-        public static final int text1=0x7f0c0050;
+        public static final int text=0x7f0c0068;
+        public static final int text1=0x7f0c006a;
         public static final int top=0x7f0c0019;
-        public static final int tripNameField=0x7f0c0065;
-        public static final int tripNotesField=0x7f0c0066;
-        public static final int weightDeltaToGo=0x7f0c0049;
+        public static final int tripNameField=0x7f0c0046;
+        public static final int tripNotesField=0x7f0c0047;
+        public static final int weightDeltaToGo=0x7f0c002d;
         public static final int weightField=0x7f0c0022;
         public static final int weightSpinner=0x7f0c0023;
-        public static final int weightToGoLabel=0x7f0c004a;
+        public static final int weightToGoLabel=0x7f0c002e;
         public static final int wrap_content=0x7f0c000d;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f080000;
     }
     public static final class layout {
-        public static final int body_params=0x7f030000;
-        public static final int com_facebook_friendpickerfragment=0x7f030001;
-        public static final int com_facebook_login_activity_layout=0x7f030002;
-        public static final int com_facebook_picker_activity_circle_row=0x7f030003;
-        public static final int com_facebook_picker_checkbox=0x7f030004;
-        public static final int com_facebook_picker_image=0x7f030005;
-        public static final int com_facebook_picker_list_row=0x7f030006;
-        public static final int com_facebook_picker_list_section_header=0x7f030007;
-        public static final int com_facebook_picker_search_box=0x7f030008;
-        public static final int com_facebook_picker_title_bar=0x7f030009;
-        public static final int com_facebook_picker_title_bar_stub=0x7f03000a;
-        public static final int com_facebook_placepickerfragment=0x7f03000b;
-        public static final int com_facebook_placepickerfragment_list_row=0x7f03000c;
-        public static final int com_facebook_search_bar_layout=0x7f03000d;
-        public static final int com_facebook_tooltip_bubble=0x7f03000e;
-        public static final int com_facebook_usersettingsfragment=0x7f03000f;
-        public static final int friends=0x7f030010;
-        public static final int goal=0x7f030011;
-        public static final int main=0x7f030012;
-        public static final int nav_item=0x7f030013;
-        public static final int nav_item_small=0x7f030014;
-        public static final int run=0x7f030015;
-        public static final int splash=0x7f030016;
-        public static final int summary=0x7f030017;
-        public static final int template_grid_item=0x7f030018;
+        public static final int activity_body_params=0x7f030000;
+        public static final int activity_friends=0x7f030001;
+        public static final int activity_login=0x7f030002;
+        public static final int activity_main=0x7f030003;
+        public static final int activity_run=0x7f030004;
+        public static final int activity_summary=0x7f030005;
+        public static final int com_facebook_friendpickerfragment=0x7f030006;
+        public static final int com_facebook_login_activity_layout=0x7f030007;
+        public static final int com_facebook_picker_activity_circle_row=0x7f030008;
+        public static final int com_facebook_picker_checkbox=0x7f030009;
+        public static final int com_facebook_picker_image=0x7f03000a;
+        public static final int com_facebook_picker_list_row=0x7f03000b;
+        public static final int com_facebook_picker_list_section_header=0x7f03000c;
+        public static final int com_facebook_picker_search_box=0x7f03000d;
+        public static final int com_facebook_picker_title_bar=0x7f03000e;
+        public static final int com_facebook_picker_title_bar_stub=0x7f03000f;
+        public static final int com_facebook_placepickerfragment=0x7f030010;
+        public static final int com_facebook_placepickerfragment_list_row=0x7f030011;
+        public static final int com_facebook_search_bar_layout=0x7f030012;
+        public static final int com_facebook_tooltip_bubble=0x7f030013;
+        public static final int com_facebook_usersettingsfragment=0x7f030014;
+        public static final int dialog_goal=0x7f030015;
+        public static final int grid_item_category=0x7f030016;
+        public static final int nav_item=0x7f030017;
+        public static final int nav_item_small=0x7f030018;
     }
     public static final class menu {
         public static final int menu_body_params=0x7f0b0000;
@@ -996,13 +996,14 @@ containing a value of this type.
         public static final int title_activity_dispatch=0x7f090083;
         public static final int title_activity_friends=0x7f090084;
         public static final int title_activity_goal_dialog=0x7f090085;
-        public static final int title_activity_settings=0x7f090086;
-        public static final int title_activity_summary=0x7f090087;
-        public static final int title_basic_information=0x7f090088;
-        public static final int title_facebook_login=0x7f090089;
-        public static final int track_exercise=0x7f09008a;
-        public static final int wallet_buy_button_place_holder=0x7f09008b;
-        public static final int weight_field_hint=0x7f09008c;
+        public static final int title_activity_login=0x7f090086;
+        public static final int title_activity_settings=0x7f090087;
+        public static final int title_activity_summary=0x7f090088;
+        public static final int title_basic_information=0x7f090089;
+        public static final int title_facebook_login=0x7f09008a;
+        public static final int track_exercise=0x7f09008b;
+        public static final int wallet_buy_button_place_holder=0x7f09008c;
+        public static final int weight_field_hint=0x7f09008d;
     }
     public static final class style {
         public static final int AppTheme=0x7f0a0000;
@@ -1038,9 +1039,9 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #AdsAttrs_adSize bellamica.tech.dreamfit:adSize}</code></td><td></td></tr>
-           <tr><td><code>{@link #AdsAttrs_adSizes bellamica.tech.dreamfit:adSizes}</code></td><td></td></tr>
-           <tr><td><code>{@link #AdsAttrs_adUnitId bellamica.tech.dreamfit:adUnitId}</code></td><td></td></tr>
+           <tr><td><code>{@link #AdsAttrs_adSize bellamica.tech.dreamteenfitness:adSize}</code></td><td></td></tr>
+           <tr><td><code>{@link #AdsAttrs_adSizes bellamica.tech.dreamteenfitness:adSizes}</code></td><td></td></tr>
+           <tr><td><code>{@link #AdsAttrs_adUnitId bellamica.tech.dreamteenfitness:adUnitId}</code></td><td></td></tr>
            </table>
            @see #AdsAttrs_adSize
            @see #AdsAttrs_adSizes
@@ -1050,7 +1051,7 @@ containing a value of this type.
             0x7f010000, 0x7f010001, 0x7f010002
         };
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#adSize}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#adSize}
           attribute's value can be found in the {@link #AdsAttrs} array.
 
 
@@ -1060,11 +1061,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:adSize
+          @attr name bellamica.tech.dreamteenfitness:adSize
         */
         public static final int AdsAttrs_adSize = 0;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#adSizes}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#adSizes}
           attribute's value can be found in the {@link #AdsAttrs} array.
 
 
@@ -1074,11 +1075,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:adSizes
+          @attr name bellamica.tech.dreamteenfitness:adSizes
         */
         public static final int AdsAttrs_adSizes = 1;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#adUnitId}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#adUnitId}
           attribute's value can be found in the {@link #AdsAttrs} array.
 
 
@@ -1088,7 +1089,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:adUnitId
+          @attr name bellamica.tech.dreamteenfitness:adUnitId
         */
         public static final int AdsAttrs_adUnitId = 2;
         /** Attributes that can be used with a MapAttrs.
@@ -1097,20 +1098,20 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #MapAttrs_cameraBearing bellamica.tech.dreamfit:cameraBearing}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_cameraTargetLat bellamica.tech.dreamfit:cameraTargetLat}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_cameraTargetLng bellamica.tech.dreamfit:cameraTargetLng}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_cameraTilt bellamica.tech.dreamfit:cameraTilt}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_cameraZoom bellamica.tech.dreamfit:cameraZoom}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_mapType bellamica.tech.dreamfit:mapType}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_uiCompass bellamica.tech.dreamfit:uiCompass}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_uiRotateGestures bellamica.tech.dreamfit:uiRotateGestures}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_uiScrollGestures bellamica.tech.dreamfit:uiScrollGestures}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_uiTiltGestures bellamica.tech.dreamfit:uiTiltGestures}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_uiZoomControls bellamica.tech.dreamfit:uiZoomControls}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_uiZoomGestures bellamica.tech.dreamfit:uiZoomGestures}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_useViewLifecycle bellamica.tech.dreamfit:useViewLifecycle}</code></td><td></td></tr>
-           <tr><td><code>{@link #MapAttrs_zOrderOnTop bellamica.tech.dreamfit:zOrderOnTop}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_cameraBearing bellamica.tech.dreamteenfitness:cameraBearing}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_cameraTargetLat bellamica.tech.dreamteenfitness:cameraTargetLat}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_cameraTargetLng bellamica.tech.dreamteenfitness:cameraTargetLng}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_cameraTilt bellamica.tech.dreamteenfitness:cameraTilt}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_cameraZoom bellamica.tech.dreamteenfitness:cameraZoom}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_mapType bellamica.tech.dreamteenfitness:mapType}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiCompass bellamica.tech.dreamteenfitness:uiCompass}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiRotateGestures bellamica.tech.dreamteenfitness:uiRotateGestures}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiScrollGestures bellamica.tech.dreamteenfitness:uiScrollGestures}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiTiltGestures bellamica.tech.dreamteenfitness:uiTiltGestures}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiZoomControls bellamica.tech.dreamteenfitness:uiZoomControls}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiZoomGestures bellamica.tech.dreamteenfitness:uiZoomGestures}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_useViewLifecycle bellamica.tech.dreamteenfitness:useViewLifecycle}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_zOrderOnTop bellamica.tech.dreamteenfitness:zOrderOnTop}</code></td><td></td></tr>
            </table>
            @see #MapAttrs_cameraBearing
            @see #MapAttrs_cameraTargetLat
@@ -1134,7 +1135,7 @@ containing a value of this type.
             0x7f01000f, 0x7f010010
         };
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#cameraBearing}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#cameraBearing}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1144,11 +1145,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:cameraBearing
+          @attr name bellamica.tech.dreamteenfitness:cameraBearing
         */
         public static final int MapAttrs_cameraBearing = 1;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#cameraTargetLat}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#cameraTargetLat}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1158,11 +1159,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:cameraTargetLat
+          @attr name bellamica.tech.dreamteenfitness:cameraTargetLat
         */
         public static final int MapAttrs_cameraTargetLat = 2;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#cameraTargetLng}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#cameraTargetLng}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1172,11 +1173,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:cameraTargetLng
+          @attr name bellamica.tech.dreamteenfitness:cameraTargetLng
         */
         public static final int MapAttrs_cameraTargetLng = 3;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#cameraTilt}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#cameraTilt}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1186,11 +1187,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:cameraTilt
+          @attr name bellamica.tech.dreamteenfitness:cameraTilt
         */
         public static final int MapAttrs_cameraTilt = 4;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#cameraZoom}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#cameraZoom}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1200,11 +1201,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:cameraZoom
+          @attr name bellamica.tech.dreamteenfitness:cameraZoom
         */
         public static final int MapAttrs_cameraZoom = 5;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#mapType}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#mapType}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1220,11 +1221,11 @@ containing a value of this type.
 <tr><td><code>terrain</code></td><td>3</td><td></td></tr>
 <tr><td><code>hybrid</code></td><td>4</td><td></td></tr>
 </table>
-          @attr name bellamica.tech.dreamfit:mapType
+          @attr name bellamica.tech.dreamteenfitness:mapType
         */
         public static final int MapAttrs_mapType = 0;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#uiCompass}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#uiCompass}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1234,11 +1235,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:uiCompass
+          @attr name bellamica.tech.dreamteenfitness:uiCompass
         */
         public static final int MapAttrs_uiCompass = 6;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#uiRotateGestures}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#uiRotateGestures}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1248,11 +1249,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:uiRotateGestures
+          @attr name bellamica.tech.dreamteenfitness:uiRotateGestures
         */
         public static final int MapAttrs_uiRotateGestures = 7;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#uiScrollGestures}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#uiScrollGestures}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1262,11 +1263,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:uiScrollGestures
+          @attr name bellamica.tech.dreamteenfitness:uiScrollGestures
         */
         public static final int MapAttrs_uiScrollGestures = 8;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#uiTiltGestures}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#uiTiltGestures}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1276,11 +1277,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:uiTiltGestures
+          @attr name bellamica.tech.dreamteenfitness:uiTiltGestures
         */
         public static final int MapAttrs_uiTiltGestures = 9;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#uiZoomControls}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#uiZoomControls}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1290,11 +1291,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:uiZoomControls
+          @attr name bellamica.tech.dreamteenfitness:uiZoomControls
         */
         public static final int MapAttrs_uiZoomControls = 10;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#uiZoomGestures}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#uiZoomGestures}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1304,11 +1305,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:uiZoomGestures
+          @attr name bellamica.tech.dreamteenfitness:uiZoomGestures
         */
         public static final int MapAttrs_uiZoomGestures = 11;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#useViewLifecycle}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#useViewLifecycle}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1318,11 +1319,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:useViewLifecycle
+          @attr name bellamica.tech.dreamteenfitness:useViewLifecycle
         */
         public static final int MapAttrs_useViewLifecycle = 12;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#zOrderOnTop}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#zOrderOnTop}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1332,7 +1333,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:zOrderOnTop
+          @attr name bellamica.tech.dreamteenfitness:zOrderOnTop
         */
         public static final int MapAttrs_zOrderOnTop = 13;
         /** Attributes that can be used with a WalletFragmentOptions.
@@ -1341,10 +1342,10 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #WalletFragmentOptions_appTheme bellamica.tech.dreamfit:appTheme}</code></td><td></td></tr>
-           <tr><td><code>{@link #WalletFragmentOptions_environment bellamica.tech.dreamfit:environment}</code></td><td></td></tr>
-           <tr><td><code>{@link #WalletFragmentOptions_fragmentMode bellamica.tech.dreamfit:fragmentMode}</code></td><td></td></tr>
-           <tr><td><code>{@link #WalletFragmentOptions_fragmentStyle bellamica.tech.dreamfit:fragmentStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentOptions_appTheme bellamica.tech.dreamteenfitness:appTheme}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentOptions_environment bellamica.tech.dreamteenfitness:environment}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentOptions_fragmentMode bellamica.tech.dreamteenfitness:fragmentMode}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentOptions_fragmentStyle bellamica.tech.dreamteenfitness:fragmentStyle}</code></td><td></td></tr>
            </table>
            @see #WalletFragmentOptions_appTheme
            @see #WalletFragmentOptions_environment
@@ -1355,7 +1356,7 @@ containing a value of this type.
             0x7f010011, 0x7f010012, 0x7f010013, 0x7f010014
         };
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#appTheme}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#appTheme}
           attribute's value can be found in the {@link #WalletFragmentOptions} array.
 
 
@@ -1368,11 +1369,11 @@ containing a value of this type.
 <tr><td><code>holo_dark</code></td><td>0</td><td></td></tr>
 <tr><td><code>holo_light</code></td><td>1</td><td></td></tr>
 </table>
-          @attr name bellamica.tech.dreamfit:appTheme
+          @attr name bellamica.tech.dreamteenfitness:appTheme
         */
         public static final int WalletFragmentOptions_appTheme = 0;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#environment}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#environment}
           attribute's value can be found in the {@link #WalletFragmentOptions} array.
 
 
@@ -1386,11 +1387,11 @@ containing a value of this type.
 <tr><td><code>sandbox</code></td><td>0</td><td></td></tr>
 <tr><td><code>strict_sandbox</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name bellamica.tech.dreamfit:environment
+          @attr name bellamica.tech.dreamteenfitness:environment
         */
         public static final int WalletFragmentOptions_environment = 1;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#fragmentMode}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#fragmentMode}
           attribute's value can be found in the {@link #WalletFragmentOptions} array.
 
 
@@ -1403,17 +1404,17 @@ containing a value of this type.
 <tr><td><code>buyButton</code></td><td>1</td><td></td></tr>
 <tr><td><code>selectionDetails</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name bellamica.tech.dreamfit:fragmentMode
+          @attr name bellamica.tech.dreamteenfitness:fragmentMode
         */
         public static final int WalletFragmentOptions_fragmentMode = 3;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#fragmentStyle}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#fragmentStyle}
           attribute's value can be found in the {@link #WalletFragmentOptions} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name bellamica.tech.dreamfit:fragmentStyle
+          @attr name bellamica.tech.dreamteenfitness:fragmentStyle
         */
         public static final int WalletFragmentOptions_fragmentStyle = 2;
         /** Attributes that can be used with a WalletFragmentStyle.
@@ -1422,17 +1423,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #WalletFragmentStyle_buyButtonAppearance bellamica.tech.dreamfit:buyButtonAppearance}</code></td><td></td></tr>
-           <tr><td><code>{@link #WalletFragmentStyle_buyButtonHeight bellamica.tech.dreamfit:buyButtonHeight}</code></td><td></td></tr>
-           <tr><td><code>{@link #WalletFragmentStyle_buyButtonText bellamica.tech.dreamfit:buyButtonText}</code></td><td></td></tr>
-           <tr><td><code>{@link #WalletFragmentStyle_buyButtonWidth bellamica.tech.dreamfit:buyButtonWidth}</code></td><td></td></tr>
-           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsBackground bellamica.tech.dreamfit:maskedWalletDetailsBackground}</code></td><td></td></tr>
-           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsButtonBackground bellamica.tech.dreamfit:maskedWalletDetailsButtonBackground}</code></td><td></td></tr>
-           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsButtonTextAppearance bellamica.tech.dreamfit:maskedWalletDetailsButtonTextAppearance}</code></td><td></td></tr>
-           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsHeaderTextAppearance bellamica.tech.dreamfit:maskedWalletDetailsHeaderTextAppearance}</code></td><td></td></tr>
-           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsLogoImageType bellamica.tech.dreamfit:maskedWalletDetailsLogoImageType}</code></td><td></td></tr>
-           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsLogoTextColor bellamica.tech.dreamfit:maskedWalletDetailsLogoTextColor}</code></td><td></td></tr>
-           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsTextAppearance bellamica.tech.dreamfit:maskedWalletDetailsTextAppearance}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_buyButtonAppearance bellamica.tech.dreamteenfitness:buyButtonAppearance}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_buyButtonHeight bellamica.tech.dreamteenfitness:buyButtonHeight}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_buyButtonText bellamica.tech.dreamteenfitness:buyButtonText}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_buyButtonWidth bellamica.tech.dreamteenfitness:buyButtonWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsBackground bellamica.tech.dreamteenfitness:maskedWalletDetailsBackground}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsButtonBackground bellamica.tech.dreamteenfitness:maskedWalletDetailsButtonBackground}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsButtonTextAppearance bellamica.tech.dreamteenfitness:maskedWalletDetailsButtonTextAppearance}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsHeaderTextAppearance bellamica.tech.dreamteenfitness:maskedWalletDetailsHeaderTextAppearance}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsLogoImageType bellamica.tech.dreamteenfitness:maskedWalletDetailsLogoImageType}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsLogoTextColor bellamica.tech.dreamteenfitness:maskedWalletDetailsLogoTextColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsTextAppearance bellamica.tech.dreamteenfitness:maskedWalletDetailsTextAppearance}</code></td><td></td></tr>
            </table>
            @see #WalletFragmentStyle_buyButtonAppearance
            @see #WalletFragmentStyle_buyButtonHeight
@@ -1452,7 +1453,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f01001d, 0x7f01001e, 0x7f01001f
         };
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#buyButtonAppearance}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#buyButtonAppearance}
           attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
@@ -1466,11 +1467,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>grayscale</code></td><td>2</td><td></td></tr>
 <tr><td><code>monochrome</code></td><td>3</td><td></td></tr>
 </table>
-          @attr name bellamica.tech.dreamfit:buyButtonAppearance
+          @attr name bellamica.tech.dreamteenfitness:buyButtonAppearance
         */
         public static final int WalletFragmentStyle_buyButtonAppearance = 3;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#buyButtonHeight}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#buyButtonHeight}
           attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
@@ -1491,11 +1492,11 @@ containing a value of this type.
 <tr><td><code>match_parent</code></td><td>-1</td><td></td></tr>
 <tr><td><code>wrap_content</code></td><td>-2</td><td></td></tr>
 </table>
-          @attr name bellamica.tech.dreamfit:buyButtonHeight
+          @attr name bellamica.tech.dreamteenfitness:buyButtonHeight
         */
         public static final int WalletFragmentStyle_buyButtonHeight = 0;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#buyButtonText}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#buyButtonText}
           attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
@@ -1509,11 +1510,11 @@ containing a value of this type.
 <tr><td><code>buy_now</code></td><td>2</td><td></td></tr>
 <tr><td><code>book_now</code></td><td>3</td><td></td></tr>
 </table>
-          @attr name bellamica.tech.dreamfit:buyButtonText
+          @attr name bellamica.tech.dreamteenfitness:buyButtonText
         */
         public static final int WalletFragmentStyle_buyButtonText = 2;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#buyButtonWidth}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#buyButtonWidth}
           attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
@@ -1534,11 +1535,11 @@ containing a value of this type.
 <tr><td><code>match_parent</code></td><td>-1</td><td></td></tr>
 <tr><td><code>wrap_content</code></td><td>-2</td><td></td></tr>
 </table>
-          @attr name bellamica.tech.dreamfit:buyButtonWidth
+          @attr name bellamica.tech.dreamteenfitness:buyButtonWidth
         */
         public static final int WalletFragmentStyle_buyButtonWidth = 1;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#maskedWalletDetailsBackground}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#maskedWalletDetailsBackground}
           attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
@@ -1546,11 +1547,11 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          @attr name bellamica.tech.dreamfit:maskedWalletDetailsBackground
+          @attr name bellamica.tech.dreamteenfitness:maskedWalletDetailsBackground
         */
         public static final int WalletFragmentStyle_maskedWalletDetailsBackground = 6;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#maskedWalletDetailsButtonBackground}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#maskedWalletDetailsButtonBackground}
           attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
@@ -1558,31 +1559,31 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          @attr name bellamica.tech.dreamfit:maskedWalletDetailsButtonBackground
+          @attr name bellamica.tech.dreamteenfitness:maskedWalletDetailsButtonBackground
         */
         public static final int WalletFragmentStyle_maskedWalletDetailsButtonBackground = 8;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#maskedWalletDetailsButtonTextAppearance}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#maskedWalletDetailsButtonTextAppearance}
           attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name bellamica.tech.dreamfit:maskedWalletDetailsButtonTextAppearance
+          @attr name bellamica.tech.dreamteenfitness:maskedWalletDetailsButtonTextAppearance
         */
         public static final int WalletFragmentStyle_maskedWalletDetailsButtonTextAppearance = 7;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#maskedWalletDetailsHeaderTextAppearance}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#maskedWalletDetailsHeaderTextAppearance}
           attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name bellamica.tech.dreamfit:maskedWalletDetailsHeaderTextAppearance
+          @attr name bellamica.tech.dreamteenfitness:maskedWalletDetailsHeaderTextAppearance
         */
         public static final int WalletFragmentStyle_maskedWalletDetailsHeaderTextAppearance = 5;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#maskedWalletDetailsLogoImageType}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#maskedWalletDetailsLogoImageType}
           attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
@@ -1595,11 +1596,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>classic</code></td><td>1</td><td></td></tr>
 <tr><td><code>monochrome</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name bellamica.tech.dreamfit:maskedWalletDetailsLogoImageType
+          @attr name bellamica.tech.dreamteenfitness:maskedWalletDetailsLogoImageType
         */
         public static final int WalletFragmentStyle_maskedWalletDetailsLogoImageType = 10;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#maskedWalletDetailsLogoTextColor}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#maskedWalletDetailsLogoTextColor}
           attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
@@ -1610,17 +1611,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:maskedWalletDetailsLogoTextColor
+          @attr name bellamica.tech.dreamteenfitness:maskedWalletDetailsLogoTextColor
         */
         public static final int WalletFragmentStyle_maskedWalletDetailsLogoTextColor = 9;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#maskedWalletDetailsTextAppearance}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#maskedWalletDetailsTextAppearance}
           attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name bellamica.tech.dreamfit:maskedWalletDetailsTextAppearance
+          @attr name bellamica.tech.dreamteenfitness:maskedWalletDetailsTextAppearance
         */
         public static final int WalletFragmentStyle_maskedWalletDetailsTextAppearance = 4;
         /** Attributes that can be used with a com_facebook_friend_picker_fragment.
@@ -1629,7 +1630,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #com_facebook_friend_picker_fragment_multi_select bellamica.tech.dreamfit:multi_select}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_friend_picker_fragment_multi_select bellamica.tech.dreamteenfitness:multi_select}</code></td><td></td></tr>
            </table>
            @see #com_facebook_friend_picker_fragment_multi_select
          */
@@ -1637,7 +1638,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f010020
         };
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#multi_select}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#multi_select}
           attribute's value can be found in the {@link #com_facebook_friend_picker_fragment} array.
 
 
@@ -1647,7 +1648,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:multi_select
+          @attr name bellamica.tech.dreamteenfitness:multi_select
         */
         public static final int com_facebook_friend_picker_fragment_multi_select = 0;
         /** Attributes that can be used with a com_facebook_like_view.
@@ -1656,11 +1657,11 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #com_facebook_like_view_auxiliary_view_position bellamica.tech.dreamfit:auxiliary_view_position}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_like_view_foreground_color bellamica.tech.dreamfit:foreground_color}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_like_view_horizontal_alignment bellamica.tech.dreamfit:horizontal_alignment}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_like_view_object_id bellamica.tech.dreamfit:object_id}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_like_view_style bellamica.tech.dreamfit:style}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_like_view_auxiliary_view_position bellamica.tech.dreamteenfitness:auxiliary_view_position}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_like_view_foreground_color bellamica.tech.dreamteenfitness:foreground_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_like_view_horizontal_alignment bellamica.tech.dreamteenfitness:horizontal_alignment}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_like_view_object_id bellamica.tech.dreamteenfitness:object_id}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_like_view_style bellamica.tech.dreamteenfitness:style}</code></td><td></td></tr>
            </table>
            @see #com_facebook_like_view_auxiliary_view_position
            @see #com_facebook_like_view_foreground_color
@@ -1673,7 +1674,7 @@ containing a value of this type.
             0x7f010025
         };
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#auxiliary_view_position}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#auxiliary_view_position}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
 
 
@@ -1687,11 +1688,11 @@ containing a value of this type.
 <tr><td><code>inline</code></td><td>1</td><td></td></tr>
 <tr><td><code>top</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name bellamica.tech.dreamfit:auxiliary_view_position
+          @attr name bellamica.tech.dreamteenfitness:auxiliary_view_position
         */
         public static final int com_facebook_like_view_auxiliary_view_position = 3;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#foreground_color}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#foreground_color}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
 
 
@@ -1702,11 +1703,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:foreground_color
+          @attr name bellamica.tech.dreamteenfitness:foreground_color
         */
         public static final int com_facebook_like_view_foreground_color = 0;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#horizontal_alignment}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#horizontal_alignment}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
 
 
@@ -1720,11 +1721,11 @@ containing a value of this type.
 <tr><td><code>left</code></td><td>1</td><td></td></tr>
 <tr><td><code>right</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name bellamica.tech.dreamfit:horizontal_alignment
+          @attr name bellamica.tech.dreamteenfitness:horizontal_alignment
         */
         public static final int com_facebook_like_view_horizontal_alignment = 4;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#object_id}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#object_id}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
 
 
@@ -1734,11 +1735,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:object_id
+          @attr name bellamica.tech.dreamteenfitness:object_id
         */
         public static final int com_facebook_like_view_object_id = 1;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#style}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#style}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
 
 
@@ -1752,7 +1753,7 @@ containing a value of this type.
 <tr><td><code>button</code></td><td>1</td><td></td></tr>
 <tr><td><code>box_count</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name bellamica.tech.dreamfit:style
+          @attr name bellamica.tech.dreamteenfitness:style
         */
         public static final int com_facebook_like_view_style = 2;
         /** Attributes that can be used with a com_facebook_login_view.
@@ -1761,10 +1762,10 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #com_facebook_login_view_confirm_logout bellamica.tech.dreamfit:confirm_logout}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_login_view_fetch_user_info bellamica.tech.dreamfit:fetch_user_info}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_login_view_login_text bellamica.tech.dreamfit:login_text}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_login_view_logout_text bellamica.tech.dreamfit:logout_text}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_login_view_confirm_logout bellamica.tech.dreamteenfitness:confirm_logout}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_login_view_fetch_user_info bellamica.tech.dreamteenfitness:fetch_user_info}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_login_view_login_text bellamica.tech.dreamteenfitness:login_text}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_login_view_logout_text bellamica.tech.dreamteenfitness:logout_text}</code></td><td></td></tr>
            </table>
            @see #com_facebook_login_view_confirm_logout
            @see #com_facebook_login_view_fetch_user_info
@@ -1775,7 +1776,7 @@ containing a value of this type.
             0x7f010026, 0x7f010027, 0x7f010028, 0x7f010029
         };
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#confirm_logout}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#confirm_logout}
           attribute's value can be found in the {@link #com_facebook_login_view} array.
 
 
@@ -1785,11 +1786,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:confirm_logout
+          @attr name bellamica.tech.dreamteenfitness:confirm_logout
         */
         public static final int com_facebook_login_view_confirm_logout = 0;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#fetch_user_info}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#fetch_user_info}
           attribute's value can be found in the {@link #com_facebook_login_view} array.
 
 
@@ -1799,11 +1800,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:fetch_user_info
+          @attr name bellamica.tech.dreamteenfitness:fetch_user_info
         */
         public static final int com_facebook_login_view_fetch_user_info = 1;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#login_text}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#login_text}
           attribute's value can be found in the {@link #com_facebook_login_view} array.
 
 
@@ -1813,11 +1814,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:login_text
+          @attr name bellamica.tech.dreamteenfitness:login_text
         */
         public static final int com_facebook_login_view_login_text = 2;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#logout_text}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#logout_text}
           attribute's value can be found in the {@link #com_facebook_login_view} array.
 
 
@@ -1827,7 +1828,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:logout_text
+          @attr name bellamica.tech.dreamteenfitness:logout_text
         */
         public static final int com_facebook_login_view_logout_text = 3;
         /** Attributes that can be used with a com_facebook_picker_fragment.
@@ -1836,13 +1837,13 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #com_facebook_picker_fragment_done_button_background bellamica.tech.dreamfit:done_button_background}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_picker_fragment_done_button_text bellamica.tech.dreamfit:done_button_text}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_picker_fragment_extra_fields bellamica.tech.dreamfit:extra_fields}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_picker_fragment_show_pictures bellamica.tech.dreamfit:show_pictures}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_picker_fragment_show_title_bar bellamica.tech.dreamfit:show_title_bar}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_picker_fragment_title_bar_background bellamica.tech.dreamfit:title_bar_background}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_picker_fragment_title_text bellamica.tech.dreamfit:title_text}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_picker_fragment_done_button_background bellamica.tech.dreamteenfitness:done_button_background}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_picker_fragment_done_button_text bellamica.tech.dreamteenfitness:done_button_text}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_picker_fragment_extra_fields bellamica.tech.dreamteenfitness:extra_fields}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_picker_fragment_show_pictures bellamica.tech.dreamteenfitness:show_pictures}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_picker_fragment_show_title_bar bellamica.tech.dreamteenfitness:show_title_bar}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_picker_fragment_title_bar_background bellamica.tech.dreamteenfitness:title_bar_background}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_picker_fragment_title_text bellamica.tech.dreamteenfitness:title_text}</code></td><td></td></tr>
            </table>
            @see #com_facebook_picker_fragment_done_button_background
            @see #com_facebook_picker_fragment_done_button_text
@@ -1857,17 +1858,17 @@ containing a value of this type.
             0x7f01002e, 0x7f01002f, 0x7f010030
         };
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#done_button_background}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#done_button_background}
           attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name bellamica.tech.dreamfit:done_button_background
+          @attr name bellamica.tech.dreamteenfitness:done_button_background
         */
         public static final int com_facebook_picker_fragment_done_button_background = 6;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#done_button_text}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#done_button_text}
           attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
 
 
@@ -1877,11 +1878,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:done_button_text
+          @attr name bellamica.tech.dreamteenfitness:done_button_text
         */
         public static final int com_facebook_picker_fragment_done_button_text = 4;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#extra_fields}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#extra_fields}
           attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
 
 
@@ -1891,11 +1892,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:extra_fields
+          @attr name bellamica.tech.dreamteenfitness:extra_fields
         */
         public static final int com_facebook_picker_fragment_extra_fields = 1;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#show_pictures}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#show_pictures}
           attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
 
 
@@ -1905,11 +1906,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:show_pictures
+          @attr name bellamica.tech.dreamteenfitness:show_pictures
         */
         public static final int com_facebook_picker_fragment_show_pictures = 0;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#show_title_bar}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#show_title_bar}
           attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
 
 
@@ -1919,21 +1920,21 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:show_title_bar
+          @attr name bellamica.tech.dreamteenfitness:show_title_bar
         */
         public static final int com_facebook_picker_fragment_show_title_bar = 2;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#title_bar_background}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#title_bar_background}
           attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name bellamica.tech.dreamfit:title_bar_background
+          @attr name bellamica.tech.dreamteenfitness:title_bar_background
         */
         public static final int com_facebook_picker_fragment_title_bar_background = 5;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#title_text}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#title_text}
           attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
 
 
@@ -1943,7 +1944,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:title_text
+          @attr name bellamica.tech.dreamteenfitness:title_text
         */
         public static final int com_facebook_picker_fragment_title_text = 3;
         /** Attributes that can be used with a com_facebook_place_picker_fragment.
@@ -1952,10 +1953,10 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #com_facebook_place_picker_fragment_radius_in_meters bellamica.tech.dreamfit:radius_in_meters}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_place_picker_fragment_results_limit bellamica.tech.dreamfit:results_limit}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_place_picker_fragment_search_text bellamica.tech.dreamfit:search_text}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_place_picker_fragment_show_search_box bellamica.tech.dreamfit:show_search_box}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_place_picker_fragment_radius_in_meters bellamica.tech.dreamteenfitness:radius_in_meters}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_place_picker_fragment_results_limit bellamica.tech.dreamteenfitness:results_limit}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_place_picker_fragment_search_text bellamica.tech.dreamteenfitness:search_text}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_place_picker_fragment_show_search_box bellamica.tech.dreamteenfitness:show_search_box}</code></td><td></td></tr>
            </table>
            @see #com_facebook_place_picker_fragment_radius_in_meters
            @see #com_facebook_place_picker_fragment_results_limit
@@ -1966,7 +1967,7 @@ containing a value of this type.
             0x7f010031, 0x7f010032, 0x7f010033, 0x7f010034
         };
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#radius_in_meters}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#radius_in_meters}
           attribute's value can be found in the {@link #com_facebook_place_picker_fragment} array.
 
 
@@ -1976,11 +1977,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:radius_in_meters
+          @attr name bellamica.tech.dreamteenfitness:radius_in_meters
         */
         public static final int com_facebook_place_picker_fragment_radius_in_meters = 0;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#results_limit}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#results_limit}
           attribute's value can be found in the {@link #com_facebook_place_picker_fragment} array.
 
 
@@ -1990,11 +1991,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:results_limit
+          @attr name bellamica.tech.dreamteenfitness:results_limit
         */
         public static final int com_facebook_place_picker_fragment_results_limit = 1;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#search_text}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#search_text}
           attribute's value can be found in the {@link #com_facebook_place_picker_fragment} array.
 
 
@@ -2004,11 +2005,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:search_text
+          @attr name bellamica.tech.dreamteenfitness:search_text
         */
         public static final int com_facebook_place_picker_fragment_search_text = 2;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#show_search_box}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#show_search_box}
           attribute's value can be found in the {@link #com_facebook_place_picker_fragment} array.
 
 
@@ -2018,7 +2019,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:show_search_box
+          @attr name bellamica.tech.dreamteenfitness:show_search_box
         */
         public static final int com_facebook_place_picker_fragment_show_search_box = 3;
         /** Attributes that can be used with a com_facebook_profile_picture_view.
@@ -2027,8 +2028,8 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #com_facebook_profile_picture_view_is_cropped bellamica.tech.dreamfit:is_cropped}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_profile_picture_view_preset_size bellamica.tech.dreamfit:preset_size}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_profile_picture_view_is_cropped bellamica.tech.dreamteenfitness:is_cropped}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_profile_picture_view_preset_size bellamica.tech.dreamteenfitness:preset_size}</code></td><td></td></tr>
            </table>
            @see #com_facebook_profile_picture_view_is_cropped
            @see #com_facebook_profile_picture_view_preset_size
@@ -2037,7 +2038,7 @@ containing a value of this type.
             0x7f010035, 0x7f010036
         };
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#is_cropped}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#is_cropped}
           attribute's value can be found in the {@link #com_facebook_profile_picture_view} array.
 
 
@@ -2047,11 +2048,11 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name bellamica.tech.dreamfit:is_cropped
+          @attr name bellamica.tech.dreamteenfitness:is_cropped
         */
         public static final int com_facebook_profile_picture_view_is_cropped = 1;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#preset_size}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#preset_size}
           attribute's value can be found in the {@link #com_facebook_profile_picture_view} array.
 
 
@@ -2065,7 +2066,7 @@ containing a value of this type.
 <tr><td><code>normal</code></td><td>-3</td><td></td></tr>
 <tr><td><code>large</code></td><td>-4</td><td></td></tr>
 </table>
-          @attr name bellamica.tech.dreamfit:preset_size
+          @attr name bellamica.tech.dreamteenfitness:preset_size
         */
         public static final int com_facebook_profile_picture_view_preset_size = 0;
     };

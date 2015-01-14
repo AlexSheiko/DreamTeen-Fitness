@@ -13,7 +13,7 @@ import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
 import com.facebook.widget.WebDialog;
 
-import bellamica.tech.dreamfit.R;
+import bellamica.tech.dreamteenfitness.R;
 
 
 public class FriendsActivity extends Activity {
@@ -24,7 +24,7 @@ public class FriendsActivity extends Activity {
 
         uiHelper = new UiLifecycleHelper(this, callback);
         uiHelper.onCreate(savedInstanceState);
-        setContentView(R.layout.friends);
+        setContentView(R.layout.activity_friends);
     }
 
     private UiLifecycleHelper uiHelper;

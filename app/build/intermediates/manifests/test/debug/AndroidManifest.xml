@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="bellamica.tech.dreamfit.test">
+    package="bellamica.tech.dreamteenfitness.test">
 
     <uses-sdk android:minSdkVersion="15" android:targetSdkVersion="21" />
 
@@ -9,8 +9,8 @@
     </application>
 
     <instrumentation android:name="android.test.InstrumentationTestRunner"
-                     android:targetPackage="bellamica.tech.dreamfit"
+                     android:targetPackage="bellamica.tech.dreamteenfitness"
                      android:handleProfiling="false"
                      android:functionalTest="false"
-                     android:label="Tests for bellamica.tech.dreamfit"/>
+                     android:label="Tests for bellamica.tech.dreamteenfitness"/>
 </manifest>

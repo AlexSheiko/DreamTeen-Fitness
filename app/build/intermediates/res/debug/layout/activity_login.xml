@@ -9,7 +9,7 @@
                 android:background="@drawable/splash_background"
                 android:orientation="vertical"
                 android:gravity="center"
-                tools:context="ui.activities.SplashActivity">
+                tools:context="ui.activities.SigninActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -52,3 +52,4 @@
     </LinearLayout>
 
 </LinearLayout>
+<!-- From: file:/D:/DreamTeen%20Fitness/app/src/main/res/layout/activity_login.xml -->

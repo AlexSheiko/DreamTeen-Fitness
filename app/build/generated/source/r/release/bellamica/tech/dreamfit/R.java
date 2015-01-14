@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package bellamica.tech.dreamfit;
+package bellamica.tech.dreamteenfitness;
 
 public final class R {
     public static final class array {
@@ -1050,7 +1050,7 @@ containing a value of this type.
             0x7f010000, 0x7f010001, 0x7f010002
         };
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#adSize}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#adSize}
           attribute's value can be found in the {@link #AdsAttrs} array.
 
 
@@ -1064,7 +1064,7 @@ containing a value of this type.
         */
         public static final int AdsAttrs_adSize = 0;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#adSizes}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#adSizes}
           attribute's value can be found in the {@link #AdsAttrs} array.
 
 
@@ -1078,7 +1078,7 @@ containing a value of this type.
         */
         public static final int AdsAttrs_adSizes = 1;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#adUnitId}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#adUnitId}
           attribute's value can be found in the {@link #AdsAttrs} array.
 
 
@@ -1134,7 +1134,7 @@ containing a value of this type.
             0x7f01000f, 0x7f010010
         };
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#cameraBearing}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#cameraBearing}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1148,7 +1148,7 @@ containing a value of this type.
         */
         public static final int MapAttrs_cameraBearing = 1;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#cameraTargetLat}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#cameraTargetLat}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1162,7 +1162,7 @@ containing a value of this type.
         */
         public static final int MapAttrs_cameraTargetLat = 2;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#cameraTargetLng}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#cameraTargetLng}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1176,7 +1176,7 @@ containing a value of this type.
         */
         public static final int MapAttrs_cameraTargetLng = 3;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#cameraTilt}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#cameraTilt}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1190,7 +1190,7 @@ containing a value of this type.
         */
         public static final int MapAttrs_cameraTilt = 4;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#cameraZoom}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#cameraZoom}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1204,7 +1204,7 @@ containing a value of this type.
         */
         public static final int MapAttrs_cameraZoom = 5;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#mapType}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#mapType}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1224,7 +1224,7 @@ containing a value of this type.
         */
         public static final int MapAttrs_mapType = 0;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#uiCompass}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#uiCompass}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1238,7 +1238,7 @@ containing a value of this type.
         */
         public static final int MapAttrs_uiCompass = 6;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#uiRotateGestures}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#uiRotateGestures}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1252,7 +1252,7 @@ containing a value of this type.
         */
         public static final int MapAttrs_uiRotateGestures = 7;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#uiScrollGestures}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#uiScrollGestures}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1266,7 +1266,7 @@ containing a value of this type.
         */
         public static final int MapAttrs_uiScrollGestures = 8;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#uiTiltGestures}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#uiTiltGestures}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1280,7 +1280,7 @@ containing a value of this type.
         */
         public static final int MapAttrs_uiTiltGestures = 9;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#uiZoomControls}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#uiZoomControls}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1294,7 +1294,7 @@ containing a value of this type.
         */
         public static final int MapAttrs_uiZoomControls = 10;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#uiZoomGestures}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#uiZoomGestures}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1308,7 +1308,7 @@ containing a value of this type.
         */
         public static final int MapAttrs_uiZoomGestures = 11;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#useViewLifecycle}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#useViewLifecycle}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1322,7 +1322,7 @@ containing a value of this type.
         */
         public static final int MapAttrs_useViewLifecycle = 12;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#zOrderOnTop}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#zOrderOnTop}
           attribute's value can be found in the {@link #MapAttrs} array.
 
 
@@ -1355,7 +1355,7 @@ containing a value of this type.
             0x7f010011, 0x7f010012, 0x7f010013, 0x7f010014
         };
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#appTheme}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#appTheme}
           attribute's value can be found in the {@link #WalletFragmentOptions} array.
 
 
@@ -1372,7 +1372,7 @@ containing a value of this type.
         */
         public static final int WalletFragmentOptions_appTheme = 0;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#environment}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#environment}
           attribute's value can be found in the {@link #WalletFragmentOptions} array.
 
 
@@ -1390,7 +1390,7 @@ containing a value of this type.
         */
         public static final int WalletFragmentOptions_environment = 1;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#fragmentMode}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#fragmentMode}
           attribute's value can be found in the {@link #WalletFragmentOptions} array.
 
 
@@ -1407,7 +1407,7 @@ containing a value of this type.
         */
         public static final int WalletFragmentOptions_fragmentMode = 3;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#fragmentStyle}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#fragmentStyle}
           attribute's value can be found in the {@link #WalletFragmentOptions} array.
 
 
@@ -1452,7 +1452,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f01001d, 0x7f01001e, 0x7f01001f
         };
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#buyButtonAppearance}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#buyButtonAppearance}
           attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
@@ -1470,7 +1470,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         */
         public static final int WalletFragmentStyle_buyButtonAppearance = 3;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#buyButtonHeight}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#buyButtonHeight}
           attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
@@ -1495,7 +1495,7 @@ containing a value of this type.
         */
         public static final int WalletFragmentStyle_buyButtonHeight = 0;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#buyButtonText}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#buyButtonText}
           attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
@@ -1513,7 +1513,7 @@ containing a value of this type.
         */
         public static final int WalletFragmentStyle_buyButtonText = 2;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#buyButtonWidth}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#buyButtonWidth}
           attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
@@ -1538,7 +1538,7 @@ containing a value of this type.
         */
         public static final int WalletFragmentStyle_buyButtonWidth = 1;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#maskedWalletDetailsBackground}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#maskedWalletDetailsBackground}
           attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
@@ -1550,7 +1550,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         */
         public static final int WalletFragmentStyle_maskedWalletDetailsBackground = 6;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#maskedWalletDetailsButtonBackground}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#maskedWalletDetailsButtonBackground}
           attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
@@ -1562,7 +1562,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         */
         public static final int WalletFragmentStyle_maskedWalletDetailsButtonBackground = 8;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#maskedWalletDetailsButtonTextAppearance}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#maskedWalletDetailsButtonTextAppearance}
           attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
@@ -1572,7 +1572,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         */
         public static final int WalletFragmentStyle_maskedWalletDetailsButtonTextAppearance = 7;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#maskedWalletDetailsHeaderTextAppearance}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#maskedWalletDetailsHeaderTextAppearance}
           attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
@@ -1582,7 +1582,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         */
         public static final int WalletFragmentStyle_maskedWalletDetailsHeaderTextAppearance = 5;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#maskedWalletDetailsLogoImageType}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#maskedWalletDetailsLogoImageType}
           attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
@@ -1599,7 +1599,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         */
         public static final int WalletFragmentStyle_maskedWalletDetailsLogoImageType = 10;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#maskedWalletDetailsLogoTextColor}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#maskedWalletDetailsLogoTextColor}
           attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
@@ -1614,7 +1614,7 @@ containing a value of this type.
         */
         public static final int WalletFragmentStyle_maskedWalletDetailsLogoTextColor = 9;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#maskedWalletDetailsTextAppearance}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#maskedWalletDetailsTextAppearance}
           attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
@@ -1637,7 +1637,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f010020
         };
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#multi_select}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#multi_select}
           attribute's value can be found in the {@link #com_facebook_friend_picker_fragment} array.
 
 
@@ -1673,7 +1673,7 @@ containing a value of this type.
             0x7f010025
         };
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#auxiliary_view_position}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#auxiliary_view_position}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
 
 
@@ -1691,7 +1691,7 @@ containing a value of this type.
         */
         public static final int com_facebook_like_view_auxiliary_view_position = 3;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#foreground_color}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#foreground_color}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
 
 
@@ -1706,7 +1706,7 @@ containing a value of this type.
         */
         public static final int com_facebook_like_view_foreground_color = 0;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#horizontal_alignment}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#horizontal_alignment}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
 
 
@@ -1724,7 +1724,7 @@ containing a value of this type.
         */
         public static final int com_facebook_like_view_horizontal_alignment = 4;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#object_id}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#object_id}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
 
 
@@ -1738,7 +1738,7 @@ containing a value of this type.
         */
         public static final int com_facebook_like_view_object_id = 1;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#style}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#style}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
 
 
@@ -1775,7 +1775,7 @@ containing a value of this type.
             0x7f010026, 0x7f010027, 0x7f010028, 0x7f010029
         };
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#confirm_logout}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#confirm_logout}
           attribute's value can be found in the {@link #com_facebook_login_view} array.
 
 
@@ -1789,7 +1789,7 @@ containing a value of this type.
         */
         public static final int com_facebook_login_view_confirm_logout = 0;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#fetch_user_info}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#fetch_user_info}
           attribute's value can be found in the {@link #com_facebook_login_view} array.
 
 
@@ -1803,7 +1803,7 @@ containing a value of this type.
         */
         public static final int com_facebook_login_view_fetch_user_info = 1;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#login_text}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#login_text}
           attribute's value can be found in the {@link #com_facebook_login_view} array.
 
 
@@ -1817,7 +1817,7 @@ containing a value of this type.
         */
         public static final int com_facebook_login_view_login_text = 2;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#logout_text}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#logout_text}
           attribute's value can be found in the {@link #com_facebook_login_view} array.
 
 
@@ -1857,7 +1857,7 @@ containing a value of this type.
             0x7f01002e, 0x7f01002f, 0x7f010030
         };
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#done_button_background}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#done_button_background}
           attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
 
 
@@ -1867,7 +1867,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         */
         public static final int com_facebook_picker_fragment_done_button_background = 6;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#done_button_text}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#done_button_text}
           attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
 
 
@@ -1881,7 +1881,7 @@ containing a value of this type.
         */
         public static final int com_facebook_picker_fragment_done_button_text = 4;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#extra_fields}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#extra_fields}
           attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
 
 
@@ -1895,7 +1895,7 @@ containing a value of this type.
         */
         public static final int com_facebook_picker_fragment_extra_fields = 1;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#show_pictures}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#show_pictures}
           attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
 
 
@@ -1909,7 +1909,7 @@ containing a value of this type.
         */
         public static final int com_facebook_picker_fragment_show_pictures = 0;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#show_title_bar}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#show_title_bar}
           attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
 
 
@@ -1923,7 +1923,7 @@ containing a value of this type.
         */
         public static final int com_facebook_picker_fragment_show_title_bar = 2;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#title_bar_background}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#title_bar_background}
           attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
 
 
@@ -1933,7 +1933,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         */
         public static final int com_facebook_picker_fragment_title_bar_background = 5;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#title_text}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#title_text}
           attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
 
 
@@ -1966,7 +1966,7 @@ containing a value of this type.
             0x7f010031, 0x7f010032, 0x7f010033, 0x7f010034
         };
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#radius_in_meters}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#radius_in_meters}
           attribute's value can be found in the {@link #com_facebook_place_picker_fragment} array.
 
 
@@ -1980,7 +1980,7 @@ containing a value of this type.
         */
         public static final int com_facebook_place_picker_fragment_radius_in_meters = 0;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#results_limit}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#results_limit}
           attribute's value can be found in the {@link #com_facebook_place_picker_fragment} array.
 
 
@@ -1994,7 +1994,7 @@ containing a value of this type.
         */
         public static final int com_facebook_place_picker_fragment_results_limit = 1;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#search_text}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#search_text}
           attribute's value can be found in the {@link #com_facebook_place_picker_fragment} array.
 
 
@@ -2008,7 +2008,7 @@ containing a value of this type.
         */
         public static final int com_facebook_place_picker_fragment_search_text = 2;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#show_search_box}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#show_search_box}
           attribute's value can be found in the {@link #com_facebook_place_picker_fragment} array.
 
 
@@ -2037,7 +2037,7 @@ containing a value of this type.
             0x7f010035, 0x7f010036
         };
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#is_cropped}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#is_cropped}
           attribute's value can be found in the {@link #com_facebook_profile_picture_view} array.
 
 
@@ -2051,7 +2051,7 @@ containing a value of this type.
         */
         public static final int com_facebook_profile_picture_view_is_cropped = 1;
         /**
-          <p>This symbol is the offset where the {@link bellamica.tech.dreamfit.R.attr#preset_size}
+          <p>This symbol is the offset where the {@link bellamica.tech.dreamteenfitness.R.attr#preset_size}
           attribute's value can be found in the {@link #com_facebook_profile_picture_view} array.
 
 

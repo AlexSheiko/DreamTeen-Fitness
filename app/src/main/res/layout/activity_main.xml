@@ -1,0 +1,280 @@
+<android.support.v4.widget.DrawerLayout
+    android:id="@+id/drawer_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/window_background">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Main container -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <!--Cards container-->
+            <LinearLayout
+                style="@style/CardsContainer"
+                android:background="@drawable/target_container">
+
+                <!--Card images-->
+                <LinearLayout
+                    style="@style/CardContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ui.utils.SquareImageView
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/aerobic"
+                        android:onClick="navigateToAerobic"
+                        class = "ui.utils.SquareImageView"/>
+
+                    <ui.utils.SquareImageView
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/running"
+                        android:onClick="navigateToRunning"
+                        class = "ui.utils.SquareImageView"/>
+
+                </LinearLayout>
+
+                <!--Card labels-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/CardText"
+                        android:clickable="true"
+                        android:onClick="navigateToAerobic"
+                        android:text="@string/aerobic"/>
+
+                    <TextView
+                        style="@style/CardText"
+                        android:clickable="true"
+                        android:onClick="navigateToRunning"
+                        android:text="@string/run_activity_title"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--Calories container-->
+            <LinearLayout
+                android:id="@+id/caloriesContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/target_container"
+                android:orientation="horizontal"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:orientation="vertical"
+                    android:paddingBottom="25dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/caloriesValueLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="bottom"
+                            android:text="@string/calories_default_value"
+                            android:textColor="@color/black"
+                            android:textSize="28sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="bottom"
+                            android:text="@string/calories_burned"
+                            android:textColor="@color/black"
+                            android:textSize="24sp"/>
+
+                    </LinearLayout>
+
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:paddingLeft="0dp"
+                        android:paddingRight="0dp"
+                        android:progressDrawable="@drawable/progress_bar_calories"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--Target weight container-->
+            <LinearLayout
+                android:id="@+id/goalWeightContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/target_container"
+                android:orientation="horizontal"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:visibility="gone"
+                android:clickable="true"
+                android:onClick="addFitnessGoal">
+
+                <!--Icon-->
+                <FrameLayout
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginTop="25dp"
+                    android:background="@drawable/icon_container">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_scales"/>
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/weightDeltaToGo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="bottom"
+                            android:text="@string/kg_test_value"
+                            android:textColor="@color/black"
+                            android:textSize="28sp"/>
+
+                        <TextView
+                            android:id="@+id/weightToGoLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="bottom"
+                            android:text="@string/kg_left"
+                            android:textColor="@color/black"
+                            android:textSize="24sp"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/goalHintLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="center_vertical"
+                        android:text="@string/target"
+                        android:textColor="#22282c"
+                        android:textSize="16sp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Set goal container-->
+            <LinearLayout
+                android:id="@+id/setGoalWeightContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/target_container"
+                android:orientation="horizontal"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/add_fitness_goal_hint"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="#4a4a4a"
+                    android:textSize="18sp"/>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="12dp">
+
+                    <Button
+                        android:id="@+id/setGoalButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right"
+                        android:paddingLeft="12dp"
+                        android:background="@drawable/set_goal_button"
+                        android:fontFamily="sans-serif-bold"
+                        android:paddingRight="12dp"
+                        android:onClick="addFitnessGoal"
+                        android:text="@string/add_goal_button_label"/>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <!-- Navigation drawer -->
+    <ListView
+        android:id="@+id/left_drawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/white"
+        android:choiceMode="singleChoice"
+        android:divider="#e9e9e9"
+        android:dividerHeight="1dp"/>
+
+</android.support.v4.widget.DrawerLayout>
