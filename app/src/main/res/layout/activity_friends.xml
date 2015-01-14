@@ -30,4 +30,10 @@
         custom:logout_text="Find on Facebook"
         android:layout_marginBottom="30dp" />
 
+    <Button
+        android:id="@+id/share_button"
+        android:layout_width="192dp"
+        android:layout_height="wrap_content"
+        android:text="Share interactive post on Google+"/>
+
 </LinearLayout>

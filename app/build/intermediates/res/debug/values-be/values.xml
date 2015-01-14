@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/D:/DreamTeen%20Fitness/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/values-be/common_strings.xml -->
+    <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/values-be/common_strings.xml -->
     <eat-comment/>
     <string msgid="4181637455539816337" name="common_google_play_services_enable_button">"Уключыць службы Google Play"</string>
     <string msgid="7627896071867667758" name="common_google_play_services_enable_text">"Гэта прыкладанне не будзе працаваць, пакуль вы не ўключыце службы Google Play."</string>

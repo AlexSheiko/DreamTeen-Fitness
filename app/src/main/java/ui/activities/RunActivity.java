@@ -1,17 +1,18 @@
 package ui.activities;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
+import android.os.PowerManager.WakeLock;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationCompat.Builder;
@@ -19,6 +20,7 @@ import android.support.v4.app.TaskStackBuilder;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -34,17 +36,14 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.PolygonOptions;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 
 import bellamica.tech.dreamteenfitness.R;
 
 
 public class RunActivity extends Activity
-        implements ConnectionCallbacks, LocationListener {
+        implements ConnectionCallbacks, LocationListener, OnClickListener {
 
     // Time counter
     private LinearLayout countersContainer;
@@ -63,104 +62,105 @@ public class RunActivity extends Activity
     private static final int UPDATE_INTERVAL = 60 * 1000;
     private static final int FASTEST_INTERVAL = 10 * 1000;
     private SharedPreferences sharedPrefs;
-    private Editor editor;
 
     // Control buttons
     private Button startButton, pauseButton, finishButton;
-    private TextView startButtonLabel, pauseButtonLabel, finishButtonLabel;
 
-    // Utils
-    protected PowerManager.WakeLock mWakeLock;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_run);
-        initializeViews();
 
-        createMap();
-        createLocationClient();
-        buildNotification();
+        disableMapUiControls(
+                getFragmentManager().findFragmentById(R.id.map));
 
-        // Start button listener
-        startButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        startButton = (Button) findViewById(R.id.startButton);
+        startButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.startButton:
                 updateUiOnStart();
 
-                mLocationClient.connect();
+                createLocationClient(this).connect();
 
-                startTimer();
-            }
+                startUiStopwatch();
 
-            private void updateUiOnStart() {
-                if (getActionBar() != null)
-                    getActionBar().setTitle(getString(R.string.running_label));
-
-                startButton.setVisibility(View.GONE);
-                startButtonLabel.setVisibility(View.GONE);
-
-                pauseButton.setVisibility(View.VISIBLE);
-                pauseButtonLabel.setVisibility(View.VISIBLE);
-
-                finishButton.setVisibility(View.GONE);
-                finishButtonLabel.setVisibility(View.GONE);
-
-                // Keep screen if preference enable
-                if (sharedPrefs.getBoolean("pref_keep_screen", true)) {
-                    final PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-                    RunActivity.this.mWakeLock = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, "My Tag");
-                    RunActivity.this.mWakeLock.acquire();
-                }
-            }
-        });
-
-        // Pause button listener
-        pauseButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                break;
+            case R.id.pauseButton:
                 updateUiOnPause();
 
-                if (mLocationClient.isConnected()) {
-                    // Disconnecting the client invalidates it.
+                if (mLocationClient.isConnected())
                     mLocationClient.disconnect();
-                }
-                stopTimer(JUST_PAUSE);
-            }
 
-            private void updateUiOnPause() {
-                if (getActionBar() != null)
-                    getActionBar().setTitle(getString(R.string.pause_label));
+                stopUiStopwatch(JUST_PAUSE);
 
-                pauseButton.setVisibility(View.GONE);
-                pauseButtonLabel.setVisibility(View.GONE);
+                break;
+            case R.id.finishButton:
+                // TODO:
+                // 1. Save duration
+//                String.format("%d min, %d sec",
+//                        TimeUnit.SECONDS.toMinutes(elapsedSeconds),
+//                        TimeUnit.SECONDS.toSeconds(elapsedSeconds) -
+//                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(elapsedSeconds))
 
-                startButton.setVisibility(View.VISIBLE);
-                startButtonLabel.setVisibility(View.VISIBLE);
-
-                finishButton.setVisibility(View.VISIBLE);
-                finishButtonLabel.setVisibility(View.VISIBLE);
-
-                startButtonLabel.setText(R.string.resume_run_button_label);
-            }
-        });
-
-        // Finish button listener
-        finishButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Save trip data
-                editor.putString("Duration", String.format("%d min, %d sec",
-                        TimeUnit.SECONDS.toMinutes(elapsedSeconds),
-                        TimeUnit.SECONDS.toSeconds(elapsedSeconds) -
-                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(elapsedSeconds))
-                ));
-                editor.putString("DateTime", new SimpleDateFormat("dd MMM, hh:mm").format(new Date()).toLowerCase());
-                editor.commit();
-
+                // 2. Save time stamp
+//                new SimpleDateFormat("dd MMM, hh:mm").format(new Date()).toLowerCase();
                 startActivity(new Intent(RunActivity.this, SummaryActivity.class));
-            }
-        });
+                break;
+        }
+    }
+
+    private void updateUiOnStart() {
+        if (getActionBar() != null)
+            getActionBar().setTitle(getString(R.string.running_label));
+
+        startButton.setVisibility(View.GONE);
+        (findViewById(R.id.start_button_label)).setVisibility(View.GONE);
+
+        pauseButton = (Button) findViewById(R.id.pauseButton);
+        pauseButton.setOnClickListener(this);
+        pauseButton.setVisibility(View.VISIBLE);
+        (findViewById(R.id.pause_button_label)).setVisibility(View.VISIBLE);
+
+        finishButton = (Button) findViewById(R.id.finishButton);
+        finishButton.setOnClickListener(this);
+        finishButton.setVisibility(View.GONE);
+        (findViewById(R.id.finish_button_label)).setVisibility(View.GONE);
+
+        // Also we will get SharedPrefs here
+        sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // Set distance units
+        if (sharedPrefs.getString("pref_units", "1").equals("1"))
+            ((TextView) findViewById(R.id.distanceUnitsLabel)).setText("miles");
+    }
+
+    private void initializeViews() {
+
+        durationCounter = (TextView) findViewById(R.id.duration_counter);
+        distanceCounter = (TextView) findViewById(R.id.distance_counter);
+
+    }
+
+    private void updateUiOnPause() {
+        if (getActionBar() != null)
+            getActionBar().setTitle(getString(R.string.pause_label));
+
+        pauseButton.setVisibility(View.GONE);
+        (findViewById(R.id.pause_button_label)).setVisibility(View.GONE);
+
+        startButton.setVisibility(View.VISIBLE);
+        (findViewById(R.id.start_button_label)).setVisibility(View.VISIBLE);
+
+        finishButton.setVisibility(View.VISIBLE);
+        (findViewById(R.id.finish_button_label)).setVisibility(View.VISIBLE);
+
+        ((TextView) findViewById(R.id.start_button_label))
+                .setText(R.string.resume_run_button_label);
     }
 
     private NotificationManager mNotificationManager;
@@ -192,7 +192,7 @@ public class RunActivity extends Activity
     }
 
     // Countdown timer
-    public void startTimer() {
+    public void startUiStopwatch() {
         final Handler handler = new Handler();
         Timer mTimer = new Timer();
         timerTask = new TimerTask() {
@@ -215,39 +215,14 @@ public class RunActivity extends Activity
         return String.format("%02d:%02d:%02d", h, m, s);
     }
 
-    public void stopTimer(int pauseOrStop) {
+    public void stopUiStopwatch(int pauseOrStop) {
         timerTask.cancel();
         timerTask = null;
         if (pauseOrStop == STOP) elapsedSeconds = 0;
     }
 
-    private void initializeViews() {
-        startButton = (Button) findViewById(R.id.startButton);
-        pauseButton = (Button) findViewById(R.id.pauseButton);
-        finishButton = (Button) findViewById(R.id.finishButton);
-
-        startButtonLabel = (TextView) findViewById(R.id.start_button_label);
-        pauseButtonLabel = (TextView) findViewById(R.id.pause_button_label);
-        finishButtonLabel = (TextView) findViewById(R.id.finish_button_label);
-
-        durationCounter = (TextView) findViewById(R.id.duration_counter);
-        distanceCounter = (TextView) findViewById(R.id.distance_counter);
-
-        startButton = (Button) findViewById(R.id.startButton);
-        pauseButton = (Button) findViewById(R.id.pauseButton);
-        finishButton = (Button) findViewById(R.id.finishButton);
-
-        // Also we will get SharedPrefs here
-        sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        editor = sharedPrefs.edit();
-
-        if (sharedPrefs.getString("pref_units", "1").equals("1"))
-            ((TextView) findViewById(R.id.distanceUnitsLabel)).setText("miles");
-    }
-
-    private void createMap() {
-        // Create Google Map
-        mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+    private void disableMapUiControls(Fragment fragment) {
+        mMap = ((MapFragment) fragment).getMap();
         mMap.setMyLocationEnabled(true);
         mMap.setBuildingsEnabled(false);
         mMap.getUiSettings().setCompassEnabled(false);
@@ -256,13 +231,14 @@ public class RunActivity extends Activity
         mMap.getUiSettings().setZoomControlsEnabled(false);
     }
 
-    private void createLocationClient() {
+    private LocationClient createLocationClient(Context context) {
         // Create location client
-        mLocationClient = new LocationClient(this, this, null);
+        mLocationClient = new LocationClient(context, this, null);
         mLocationRequest = LocationRequest.create();
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         mLocationRequest.setInterval(UPDATE_INTERVAL);
         mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
+        return mLocationClient;
     }
 
     @Override
@@ -323,18 +299,17 @@ public class RunActivity extends Activity
         if (sharedPrefs.getString("pref_units", "1").equals("1"))
             totalDistance = totalDistance * 0.621371;
 
-        String totalDistanceString;
+        String totalDistanceString = null;
 
         if (totalDistance / 1000 <= 99) {
             totalDistanceString = String.format("%.2f", totalDistance / 1000);
         } else if (totalDistance / 1000 >= 100 && totalDistance / 1000 <= 999) {
             totalDistanceString = String.format("%.1f", totalDistance / 1000);
-        } else {
-            totalDistanceString = String.format("%.0f", totalDistance / 1000);
         }
 
         distanceCounter.setText(totalDistanceString);
-        editor.putString("Distance", totalDistanceString).commit();
+        // TODO: Save distance
+        // editor.putString("Distance", totalDistanceString).commit();
     }
 
     @Override

@@ -36,6 +36,7 @@ public class LoginActivity extends Activity implements
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .addApi(Plus.API)
+                .addApi(Fitness.API)
                 .addScope(Plus.SCOPE_PLUS_LOGIN)
                 .addScope(Fitness.SCOPE_ACTIVITY_READ_WRITE)
                 .addScope(Fitness.SCOPE_BODY_READ_WRITE)

@@ -2,9 +2,13 @@ package ui.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.facebook.FacebookException;
@@ -12,11 +16,15 @@ import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
 import com.facebook.widget.WebDialog;
+import com.google.android.gms.plus.PlusShare;
 
 import bellamica.tech.dreamteenfitness.R;
 
 
-public class FriendsActivity extends Activity {
+public class FriendsActivity extends Activity
+        implements OnClickListener {
+
+    private Button mShareButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +33,9 @@ public class FriendsActivity extends Activity {
         uiHelper = new UiLifecycleHelper(this, callback);
         uiHelper.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friends);
+
+        mShareButton = (Button) findViewById(R.id.share_button);
+        mShareButton.setOnClickListener(this);
     }
 
     private UiLifecycleHelper uiHelper;
@@ -103,5 +114,32 @@ public class FriendsActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         dialog.show();
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.share_button:
+                PlusShare.Builder builder = new PlusShare.Builder(this);
+
+                // Set call-to-action metadata.
+                builder.addCallToAction(
+                        "CREATE_ITEM", /** call-to-action button label */
+                        Uri.parse("http://plus.google.com/pages/create"), /** call-to-action url (for desktop use) */
+                        "/pages/create" /** call to action deep-link ID (for mobile use), 512 characters or fewer */);
+
+                // Set the content url (for desktop use).
+                builder.setContentUrl(Uri.parse("https://plus.google.com/pages/"));
+
+                // Set the target deep-link ID (for mobile use).
+                builder.setContentDeepLinkId("/pages/",
+                        null, null, null);
+
+                // Set the share text.
+                builder.setText("Create your Google+ Page too!");
+
+                startActivityForResult(builder.getIntent(), 0);
+                break;
+        }
     }
 }

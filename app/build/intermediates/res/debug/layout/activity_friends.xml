@@ -30,5 +30,12 @@
         custom:logout_text="Find on Facebook"
         android:layout_marginBottom="30dp" />
 
+    <Button
+        android:id="@+id/share_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Share interactive post on Google+"
+        android:enabled="true" />
+
 </LinearLayout>
-<!-- From: file:/D:/DreamTeen%20Fitness/app/src/main/res/layout/activity_friends.xml -->
+<!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/layout/activity_friends.xml -->
