@@ -21,7 +21,7 @@ public class LoginActivity extends Activity implements
     private static final int RC_SIGN_IN = 0;
 
     /* Client used to interact with Google APIs. */
-    private GoogleApiClient mGoogleApiClient;
+    private GoogleApiClient mClient;
 
     /* A flag indicating that a PendingIntent is in progress and prevents
      * us from starting further intents.
@@ -32,28 +32,26 @@ public class LoginActivity extends Activity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
+        mClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .addApi(Plus.API)
                 .addApi(Fitness.API)
                 .addScope(Plus.SCOPE_PLUS_LOGIN)
-                .addScope(Fitness.SCOPE_ACTIVITY_READ_WRITE)
-                .addScope(Fitness.SCOPE_BODY_READ_WRITE)
-                .addScope(Fitness.SCOPE_LOCATION_READ_WRITE)
+                .addScope(Fitness.SCOPE_BODY_READ)
                 .build();
     }
 
     protected void onStart() {
         super.onStart();
-        mGoogleApiClient.connect();
+        mClient.connect();
     }
 
     protected void onStop() {
         super.onStop();
 
-        if (mGoogleApiClient.isConnected()) {
-            mGoogleApiClient.disconnect();
+        if (mClient.isConnected()) {
+            mClient.disconnect();
         }
     }
 
@@ -73,7 +71,7 @@ public class LoginActivity extends Activity implements
                 // The intent was canceled before it was sent.  Return to the default
                 // state and attempt to connect to get an updated ConnectionResult.
                 mIntentInProgress = false;
-                mGoogleApiClient.connect();
+                mClient.connect();
             }
         }
     }
@@ -82,13 +80,13 @@ public class LoginActivity extends Activity implements
         if (requestCode == RC_SIGN_IN) {
             mIntentInProgress = false;
 
-            if (!mGoogleApiClient.isConnecting()) {
-                mGoogleApiClient.connect();
+            if (!mClient.isConnecting()) {
+                mClient.connect();
             }
         }
     }
 
     public void onConnectionSuspended(int cause) {
-        mGoogleApiClient.connect();
+//        mClient.connect();
     }
 }
