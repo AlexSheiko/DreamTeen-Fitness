@@ -173,7 +173,8 @@
     <string name="add_goal_button_label">Add</string>
     <string name="aerobic">Aerobic</string>
     <string name="age_field_hint">Age</string>
-    <string name="app_name">DreamFit</string>
+    <string name="app_name">DreamTeen Fitness</string>
+    <string name="app_name_splash">DreamTeen\nFitness</string>
     <string name="app_slogan">Make Fitness Better</string>
     <string name="body_params_title">About you</string>
     <string name="calories_burned">calories burned</string>

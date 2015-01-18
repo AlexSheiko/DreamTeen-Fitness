@@ -32,10 +32,9 @@
 
     <Button
         android:id="@+id/share_button"
-        android:layout_width="wrap_content"
+        android:layout_width="192dp"
         android:layout_height="wrap_content"
-        android:text="Share interactive post on Google+"
-        android:enabled="true" />
+        android:text="Share interactive post on Google+"/>
 
 </LinearLayout>
 <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/layout/activity_friends.xml -->

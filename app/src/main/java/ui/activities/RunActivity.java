@@ -56,6 +56,8 @@ public class RunActivity extends Activity
         setContentView(R.layout.activity_run);
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
+        
+
         disableMapUiControls(
                 getFragmentManager().findFragmentById(R.id.map));
 

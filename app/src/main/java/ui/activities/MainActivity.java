@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
-import adapters.NavigationAdapter;
+import ui.adapters.NavigationAdapter;
 import bellamica.tech.dreamteenfitness.R;
 import ui.fragments.BodyParamsInput;
 import ui.fragments.GoalDialog;

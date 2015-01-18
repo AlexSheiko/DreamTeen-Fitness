@@ -3,6 +3,7 @@
 
     <string name="coming_soon">Coming soon</string>
     <string name="app_name">DreamTeen Fitness</string>
+    <string name="app_name_splash">DreamTeen\nFitness</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_invite_friends">Friends</string>
     <string name="action_settings">Settings</string>
