@@ -90,6 +90,8 @@ public class MapPane extends Fragment
                 getFragmentManager().findFragmentById(R.id.map));
 
         mStartButton.setOnClickListener(this);
+        mPauseButton.setOnClickListener(this);
+        mFinishButton.setOnClickListener(this);
     }
 
     private void initializeViews(View rootView) {
@@ -145,11 +147,9 @@ public class MapPane extends Fragment
         mStartButton.setVisibility(View.GONE);
         mStartButtonLabel.setVisibility(View.GONE);
 
-        mPauseButton.setOnClickListener(this);
         mPauseButton.setVisibility(View.VISIBLE);
         mPauseButtonLabel.setVisibility(View.VISIBLE);
 
-        mFinishButton.setOnClickListener(this);
         mFinishButton.setVisibility(View.GONE);
         mFinishButtonLabel.setVisibility(View.GONE);
 

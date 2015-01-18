@@ -38,10 +38,9 @@ import ui.fragments.MapPane.OnWorkoutStateChanged;
 public class RunActivity extends Activity
         implements OnWorkoutStateChanged {
     public static final String TAG = "BasicSessions";
-    public static final String SESSION_NAME = "DreamTeen Fitness run";
-    public static final String SESSION_IDENTIFIER = "bellamica.tech.dreamteenfitness.SESSION_RUN";
+    public static final String SESSION_NAME = "DreamTeen Fitness run2";
+    public static final String SESSION_IDENTIFIER = "bellamica.tech.dreamteenfitness.SESSION_RUN2";
     private static final int REQUEST_OAUTH = 1;
-    private static final String DATE_FORMAT = "yyyy.MM.dd HH:mm:ss";
 
     private static final int WORKOUT_START = 1;
     private static final int WORKOUT_PAUSE = 2;
@@ -85,7 +84,7 @@ public class RunActivity extends Activity
                 break;
 
             case WORKOUT_PAUSE:
-                pauseSession();
+                stopSession();
                 if (mClient.isConnected())
                     mClient.disconnect();
                 break;
@@ -178,7 +177,7 @@ public class RunActivity extends Activity
         }
     }
 
-    private void pauseSession() {
+    private void stopSession() {
         // 1. Invoke the Sessions API with:
         // - The Google API client object
         // - The name of the session
@@ -285,7 +284,7 @@ public class RunActivity extends Activity
             pendingResult.setResultCallback(new ResultCallback<com.google.android.gms.common.api.Status>() {
                 @Override
                 public void onResult(com.google.android.gms.common.api.Status status) {
-                    Log.i(TAG, "Create session. Status: " + status.getStatus());
+                    Log.i(TAG, "Session created.");
                 }
             });
             return null;
