@@ -1,190 +1,162 @@
 package ui.activities;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.content.Context;
+import android.app.FragmentTransaction;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.content.IntentSender;
 import android.os.Bundle;
-import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.TextView;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
+import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.fitness.Fitness;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 import bellamica.tech.dreamteenfitness.R;
-import helpers.Constants;
+import ui.fragments.MapPane;
 
 
-public class RunActivity extends Activity
-        implements OnClickListener, ConnectionCallbacks {
+public class RunActivity extends Activity {
+    public static final String TAG = "BasicSessions";
+    public static final String SAMPLE_SESSION_NAME = "DreamTeen Fitness run";
+    private static final int REQUEST_OAUTH = 1;
+    private static final String DATE_FORMAT = "yyyy.MM.dd HH:mm:ss";
 
-    // Time counter
-    private TimerTask timerTask;
-    private int elapsedSeconds = 0;
+    /**
+     * Track whether an authorization activity is stacking over the current activity, i.e. when
+     * a known auth error is being resolved, such as showing the account chooser or presenting a
+     * consent dialog. This avoids common duplications as might happen on screen rotations, etc.
+     */
+    private static final String AUTH_PENDING = "auth_state_pending";
+    private boolean authInProgress = false;
 
-    // Client used to interact with Google APIs
-    private GoogleApiClient mClient;
-
-    // Control buttons
-    private Button startButton;
-    private Button pauseButton;
-    private Button finishButton;
-
-    // User's settings
-    private SharedPreferences sharedPrefs;
-    private TextView durationCounter;
-    private TextView distanceCounter;
+    private GoogleApiClient mClient = null;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_run);
-        sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-        
+        if (savedInstanceState != null) {
+            authInProgress = savedInstanceState.getBoolean(AUTH_PENDING);
+        }
 
-        disableMapUiControls(
-                getFragmentManager().findFragmentById(R.id.map));
+        buildFitnessClient();
 
-        startButton = (Button) findViewById(R.id.startButton);
-        startButton.setOnClickListener(this);
+        MapPane mapFragment = new MapPane();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.fragment_container, mapFragment);
+        ft.commit();
+    }
+
+    /**
+     * Build a {@link GoogleApiClient} that will authenticate the user and allow the application
+     * to connect to Fitness APIs. The scopes included should match the scopes your app needs
+     * (see documentation for details). Authentication will occasionally fail intentionally,
+     * and in those cases, there will be a known resolution, which the OnConnectionFailedListener()
+     * can address. Examples of this include the user never having signed in before, or having
+     * multiple accounts on the device and needing to specify which account to use, etc.
+     */
+    private void buildFitnessClient() {
+        // Create the Google API Client
+        mClient = new GoogleApiClient.Builder(this)
+                .addApi(Fitness.API)
+                .addScope(new Scope(Scopes.FITNESS_LOCATION_READ_WRITE))
+                .addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
+                .addConnectionCallbacks(
+                        new GoogleApiClient.ConnectionCallbacks() {
+                            @Override
+                            public void onConnected(Bundle bundle) {
+                                Log.i(TAG, "Connected!!!");
+                                // Now you can make calls to the Fitness APIs.  What to do?
+                                // Play with some sessions!!
+                                //                                new InsertAndVerifySessionTask().execute();
+                            }
+
+                            @Override
+                            public void onConnectionSuspended(int i) {
+                                // If your connection to the sensor gets lost at some point,
+                                // you'll be able to determine the reason and react to it here.
+                                if (i == ConnectionCallbacks.CAUSE_NETWORK_LOST) {
+                                    Log.i(TAG, "Connection lost.  Cause: Network Lost.");
+                                } else if (i == ConnectionCallbacks.CAUSE_SERVICE_DISCONNECTED) {
+                                    Log.i(TAG, "Connection lost.  Reason: Service Disconnected");
+                                }
+                            }
+                        }
+                )
+                .addOnConnectionFailedListener(
+                        new GoogleApiClient.OnConnectionFailedListener() {
+                            // Called whenever the API client fails to connect.
+                            @Override
+                            public void onConnectionFailed(ConnectionResult result) {
+                                Log.i(TAG, "Connection failed. Cause: " + result.toString());
+                                if (!result.hasResolution()) {
+                                    // Show the localized error dialog
+                                    GooglePlayServicesUtil.getErrorDialog(result.getErrorCode(),
+                                            RunActivity.this, 0).show();
+                                    return;
+                                }
+                                // The failure has a resolution. Resolve it.
+                                // Called typically when the app is not yet authorized, and an
+                                // authorization dialog is displayed to the user.
+                                if (!authInProgress) {
+                                    try {
+                                        Log.i(TAG, "Attempting to resolve failed connection");
+                                        authInProgress = true;
+                                        result.startResolutionForResult(RunActivity.this,
+                                                REQUEST_OAUTH);
+                                    } catch (IntentSender.SendIntentException e) {
+                                        Log.e(TAG,
+                                                "Exception while starting resolution activity", e);
+                                    }
+                                }
+                            }
+                        }
+                )
+                .build();
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // Connect to the Fitness API
+        Log.i(TAG, "Connecting...");
+        mClient.connect();
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.startButton:
-                updateUiOnStart();
-
-                if (mClient == null)
-                    createFitnessClient(this).connect();
-
-                startUiStopwatch();
-
-                break;
-            case R.id.pauseButton:
-                updateUiOnPause();
-
-                stopUiStopwatch(Constants.Timer.JUST_PAUSE);
-
-                break;
-            case R.id.finishButton:
-                // TODO:
-                // 1. Save duration
-                // 2. Save time stamp
-                startActivity(new Intent(RunActivity.this, SummaryActivity.class));
-                break;
+    protected void onStop() {
+        super.onStop();
+        if (mClient.isConnected()) {
+            mClient.disconnect();
         }
     }
 
-    private GoogleApiClient createFitnessClient(Context context) {
-        mClient = new GoogleApiClient.Builder(this)
-                .addConnectionCallbacks((ConnectionCallbacks) context)
-                .addApi(Fitness.API)
-                .addScope(Fitness.SCOPE_ACTIVITY_READ_WRITE)
-                .addScope(Fitness.SCOPE_BODY_READ_WRITE)
-                .addScope(Fitness.SCOPE_LOCATION_READ_WRITE)
-                .build();
-        return mClient;
-    }
-
-    private void updateUiOnStart() {
-        getActionBar().setTitle(getString(R.string.running_label));
-
-        startButton.setVisibility(View.GONE);
-        (findViewById(R.id.start_button_label)).setVisibility(View.GONE);
-
-        pauseButton = (Button) findViewById(R.id.pauseButton);
-        pauseButton.setOnClickListener(this);
-        pauseButton.setVisibility(View.VISIBLE);
-        (findViewById(R.id.pause_button_label)).setVisibility(View.VISIBLE);
-
-        finishButton = (Button) findViewById(R.id.finishButton);
-        finishButton.setOnClickListener(this);
-        finishButton.setVisibility(View.GONE);
-        (findViewById(R.id.finish_button_label)).setVisibility(View.GONE);
-
-        durationCounter = (TextView) findViewById(R.id.duration_counter);
-        distanceCounter = (TextView) findViewById(R.id.distance_counter);
-
-        // Set distance units
-        if (sharedPrefs.getString("pref_units", "1").equals("1"))
-            ((TextView) findViewById(R.id.distanceUnitsLabel)).setText("miles");
-    }
-
-    private void updateUiOnPause() {
-        if (getActionBar() != null)
-            getActionBar().setTitle(getString(R.string.pause_label));
-
-        pauseButton.setVisibility(View.GONE);
-        (findViewById(R.id.pause_button_label)).setVisibility(View.GONE);
-
-        startButton.setVisibility(View.VISIBLE);
-        (findViewById(R.id.start_button_label)).setVisibility(View.VISIBLE);
-
-        finishButton.setVisibility(View.VISIBLE);
-        (findViewById(R.id.finish_button_label)).setVisibility(View.VISIBLE);
-
-        ((TextView) findViewById(R.id.start_button_label))
-                .setText(R.string.resume_run_button_label);
-    }
-
-    // Stopwatch to show duration
-    public void startUiStopwatch() {
-        final Handler handler = new Handler();
-        Timer mTimer = new Timer();
-        timerTask = new TimerTask() {
-            public void run() {
-                handler.post(new Runnable() {
-                    public void run() {
-                        durationCounter.setText(
-                                convertSecondsToHMmSs(elapsedSeconds));
-                        elapsedSeconds++;
-                    }
-                });
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_OAUTH) {
+            authInProgress = false;
+            if (resultCode == RESULT_OK) {
+                // Make sure the app is not already connected or attempting to connect
+                if (!mClient.isConnecting() && !mClient.isConnected()) {
+                    mClient.connect();
+                }
             }
-        };
-        mTimer.schedule(timerTask, 0, 1000);
+        }
     }
 
-    private String convertSecondsToHMmSs(long seconds) {
-        long s = seconds % 60;
-        long m = (seconds / 60) % 60;
-        long h = (seconds / (60 * 60)) % 24;
-        return String.format("%02d:%02d:%02d", h, m, s);
-    }
-
-    public void stopUiStopwatch(int pauseOrStop) {
-        timerTask.cancel();
-        timerTask = null;
-
-        if (pauseOrStop == Constants.Timer.STOP)
-            elapsedSeconds = 0;
-    }
-
-    private void disableMapUiControls(Fragment fragment) {
-        GoogleMap map = ((MapFragment) fragment).getMap();
-        map.setMyLocationEnabled(true);
-        map.setBuildingsEnabled(false);
-        map.getUiSettings().setCompassEnabled(false);
-        map.getUiSettings().setMyLocationButtonEnabled(false);
-        map.getUiSettings().setAllGesturesEnabled(false);
-        map.getUiSettings().setZoomControlsEnabled(false);
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(AUTH_PENDING, authInProgress);
     }
 
     @Override
@@ -205,16 +177,5 @@ public class RunActivity extends Activity
                 startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onConnected(Bundle bundle) {
-        // TODO: Start run session
-        Log.i("MainActivity", "Connected!");
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-
     }
 }
