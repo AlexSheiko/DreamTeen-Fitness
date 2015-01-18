@@ -1,5 +1,6 @@
 package ui.fragments;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -26,6 +27,9 @@ import ui.activities.SummaryActivity;
 public class MapPane extends Fragment
         implements OnClickListener {
 
+    // Callback to update session in RunActivity
+    OnWorkoutStateChanged mCallback;
+
     // Time counter
     private TimerTask timerTask;
     private int elapsedSeconds = 0;
@@ -45,8 +49,23 @@ public class MapPane extends Fragment
     private TextView mPauseButtonLabel;
     private TextView mFinishButtonLabel;
 
+    private static final int WORKOUT_START = 1;
+    private static final int WORKOUT_PAUSE = 2;
+    private static final int WORKOUT_FINISH = 3;
+
+    public interface OnWorkoutStateChanged {
+        public void onWorkoutStateChanged(int state);
+    }
+
     // Required empty constructor
     public MapPane() {
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        // Session state change listener
+        mCallback = (OnWorkoutStateChanged) activity;
     }
 
     @Override
@@ -92,18 +111,24 @@ public class MapPane extends Fragment
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.startButton:
+                mCallback.onWorkoutStateChanged(WORKOUT_START);
+
                 updateUiOnStart();
 
                 startUiStopwatch();
 
                 break;
             case R.id.pauseButton:
+                mCallback.onWorkoutStateChanged(WORKOUT_PAUSE);
+
                 updateUiOnPause();
 
                 stopUiStopwatch(Constants.Timer.JUST_PAUSE);
 
                 break;
             case R.id.finishButton:
+                mCallback.onWorkoutStateChanged(WORKOUT_FINISH);
+
                 // TODO:
                 // 1. Save duration
                 // 2. Save time stamp

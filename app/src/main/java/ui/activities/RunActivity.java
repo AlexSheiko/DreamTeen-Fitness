@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -14,18 +15,37 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
+import com.google.android.gms.common.api.PendingResult;
+import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Scope;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.fitness.Fitness;
+import com.google.android.gms.fitness.FitnessActivities;
+import com.google.android.gms.fitness.FitnessStatusCodes;
+import com.google.android.gms.fitness.data.DataType;
+import com.google.android.gms.fitness.data.Session;
+import com.google.android.gms.fitness.result.SessionStopResult;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import bellamica.tech.dreamteenfitness.R;
 import ui.fragments.MapPane;
+import ui.fragments.MapPane.OnWorkoutStateChanged;
 
 
-public class RunActivity extends Activity {
+public class RunActivity extends Activity
+        implements OnWorkoutStateChanged {
     public static final String TAG = "BasicSessions";
-    public static final String SAMPLE_SESSION_NAME = "DreamTeen Fitness run";
+    public static final String SESSION_NAME = "DreamTeen Fitness run";
+    public static final String SESSION_IDENTIFIER = "bellamica.tech.dreamteenfitness.SESSION_RUN";
     private static final int REQUEST_OAUTH = 1;
     private static final String DATE_FORMAT = "yyyy.MM.dd HH:mm:ss";
+
+    private static final int WORKOUT_START = 1;
+    private static final int WORKOUT_PAUSE = 2;
+    private static final int WORKOUT_FINISH = 3;
 
     /**
      * Track whether an authorization activity is stacking over the current activity, i.e. when
@@ -36,7 +56,7 @@ public class RunActivity extends Activity {
     private boolean authInProgress = false;
 
     private GoogleApiClient mClient = null;
-
+    private Session mSession;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +66,34 @@ public class RunActivity extends Activity {
         if (savedInstanceState != null) {
             authInProgress = savedInstanceState.getBoolean(AUTH_PENDING);
         }
-
         buildFitnessClient();
 
         MapPane mapFragment = new MapPane();
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.fragment_container, mapFragment);
         ft.commit();
+    }
+
+    @Override
+    public void onWorkoutStateChanged(int state) {
+        switch (state) {
+            case WORKOUT_START:
+                // Connect to the Fitness API
+                // and start new Session
+                Log.i(TAG, "Connecting...");
+                mClient.connect();
+                break;
+
+            case WORKOUT_PAUSE:
+                pauseSession();
+                if (mClient.isConnected())
+                    mClient.disconnect();
+                break;
+
+            case WORKOUT_FINISH:
+                startActivity(new Intent(this, SummaryActivity.class));
+                break;
+        }
     }
 
     /**
@@ -67,8 +108,9 @@ public class RunActivity extends Activity {
         // Create the Google API Client
         mClient = new GoogleApiClient.Builder(this)
                 .addApi(Fitness.API)
-                .addScope(new Scope(Scopes.FITNESS_LOCATION_READ_WRITE))
                 .addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
+                .addScope(new Scope(Scopes.FITNESS_BODY_READ_WRITE))
+                .addScope(new Scope(Scopes.FITNESS_LOCATION_READ_WRITE))
                 .addConnectionCallbacks(
                         new GoogleApiClient.ConnectionCallbacks() {
                             @Override
@@ -76,7 +118,7 @@ public class RunActivity extends Activity {
                                 Log.i(TAG, "Connected!!!");
                                 // Now you can make calls to the Fitness APIs.  What to do?
                                 // Play with some sessions!!
-                                //                                new InsertAndVerifySessionTask().execute();
+                                new InsertAndVerifySessionTask().execute();
                             }
 
                             @Override
@@ -123,23 +165,6 @@ public class RunActivity extends Activity {
                 .build();
     }
 
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        // Connect to the Fitness API
-        Log.i(TAG, "Connecting...");
-        mClient.connect();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if (mClient.isConnected()) {
-            mClient.disconnect();
-        }
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_OAUTH) {
@@ -151,6 +176,38 @@ public class RunActivity extends Activity {
                 }
             }
         }
+    }
+
+    private void pauseSession() {
+        // 1. Invoke the Sessions API with:
+        // - The Google API client object
+        // - The name of the session
+        // - The session identifier
+        PendingResult<SessionStopResult> pendingResult =
+                Fitness.SessionsApi.stopSession(mClient, mSession.getIdentifier());
+
+        // 2. Check the result (see other examples)
+        if (pendingResult != null)
+            pendingResult.setResultCallback(new ResultCallback<SessionStopResult>() {
+                @Override
+                public void onResult(SessionStopResult sessionStopResult) {
+                    Log.i(TAG, "Stop session request. Status: " + sessionStopResult.getStatus());
+                }
+            });
+
+        // 3. Unsubscribe from fitness data (see Recording Fitness Data)
+        Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_ACTIVITY_SAMPLE)
+                .setResultCallback(new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                        if (status.isSuccess()) {
+                            Log.i(TAG, "Successfully unsubscribed for data type: " + DataType.TYPE_ACTIVITY_SAMPLE);
+                        } else {
+                            // Subscription not removed
+                            Log.i(TAG, "Failed to unsubscribe for data type: " + DataType.TYPE_ACTIVITY_SAMPLE);
+                        }
+                    }
+                });
     }
 
     @Override
@@ -177,5 +234,61 @@ public class RunActivity extends Activity {
                 startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private class InsertAndVerifySessionTask extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... voids) {
+            Log.i(TAG, "Creating a new session for run");
+            // Setting start and end times for our run.
+            Calendar cal = Calendar.getInstance();
+            Date now = new Date();
+            cal.setTime(now);
+            long startTime = cal.getTimeInMillis();
+
+            // 1. Subscribe to fitness data
+            Fitness.RecordingApi.subscribe(mClient, DataType.TYPE_ACTIVITY_SAMPLE)
+                    .setResultCallback(new ResultCallback<com.google.android.gms.common.api.Status>() {
+                        @Override
+                        public void onResult(com.google.android.gms.common.api.Status status) {
+                            if (status.isSuccess()) {
+                                if (status.getStatusCode()
+                                        == FitnessStatusCodes.SUCCESS_ALREADY_SUBSCRIBED) {
+                                    Log.i(TAG, "Existing subscription for activity detected.");
+                                } else {
+                                    Log.i(TAG, "Successfully subscribed!");
+                                }
+                            } else {
+                                Log.i(TAG, "There was a problem subscribing.");
+                            }
+                        }
+                    });
+
+            // 2. Create a session object
+            // (providing a name, identifier, description and start time)
+            mSession = new Session.Builder()
+                    .setName(SESSION_NAME)
+                    .setIdentifier(SESSION_IDENTIFIER)
+                    .setDescription(SESSION_NAME)
+                    .setStartTime(startTime, TimeUnit.MILLISECONDS)
+                            // optional - if your app knows what activity:
+                    .setActivity(FitnessActivities.RUNNING)
+                    .build();
+
+            // 3. Invoke the Sessions API with:
+            // - The Google API client object
+            // - The request object
+            PendingResult<com.google.android.gms.common.api.Status> pendingResult =
+                    Fitness.SessionsApi.startSession(mClient, mSession);
+
+            // 4. Check the result (see other examples)
+            pendingResult.setResultCallback(new ResultCallback<com.google.android.gms.common.api.Status>() {
+                @Override
+                public void onResult(com.google.android.gms.common.api.Status status) {
+                    Log.i(TAG, "Create session. Status: " + status.getStatus());
+                }
+            });
+            return null;
+        }
     }
 }
