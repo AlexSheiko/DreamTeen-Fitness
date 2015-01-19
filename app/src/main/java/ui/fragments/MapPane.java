@@ -118,6 +118,10 @@ public class MapPane extends Fragment
         mDurationCounter = (TextView) rootView.findViewById(R.id.duration_counter);
         mDistanceCounter = (TextView) rootView.findViewById(R.id.distance_counter);
         mDistanceUnitsLabel = (TextView) rootView.findViewById(R.id.distanceUnitsLabel);
+
+        // Set distance units
+        if (sharedPrefs.getString("pref_units", "1").equals("1"))
+            mDistanceUnitsLabel.setText("miles");
     }
 
 
@@ -164,10 +168,6 @@ public class MapPane extends Fragment
 
         mFinishButton.setVisibility(View.GONE);
         mFinishButtonLabel.setVisibility(View.GONE);
-
-        // Set distance units
-        if (sharedPrefs.getString("pref_units", "1").equals("1"))
-            mDistanceUnitsLabel.setText("miles");
     }
 
     private void updateUiOnPause() {
@@ -212,8 +212,10 @@ public class MapPane extends Fragment
     }
 
     public void stopUiStopwatch(int pauseOrStop) {
-        timerTask.cancel();
-        timerTask = null;
+        if (timerTask != null) {
+            timerTask.cancel();
+            timerTask = null;
+        }
 
         if (pauseOrStop == Constants.Timer.STOP)
             elapsedSeconds = 0;

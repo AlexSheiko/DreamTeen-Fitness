@@ -275,13 +275,9 @@ public class RunActivity extends Activity
                     public void onResult(DataSourcesResult dataSourcesResult) {
                         Log.i(TAG, "Result: " + dataSourcesResult.getStatus().toString());
                         for (DataSource dataSource : dataSourcesResult.getDataSources()) {
-                            Log.i(TAG, "Data source found: " + dataSource.toString());
-                            Log.i(TAG, "Data Source type: " + dataSource.getDataType().getName());
-
                             //Let's register a listener to receive Activity data!
                             if (dataSource.getDataType().equals(DataType.TYPE_LOCATION_SAMPLE)
                                     && mListener == null) {
-                                Log.i(TAG, "Data source for LOCATION_SAMPLE found!  Registering.");
                                 registerFitnessDataListener(dataSource,
                                         DataType.TYPE_LOCATION_SAMPLE);
                             }
@@ -304,9 +300,7 @@ public class RunActivity extends Activity
                 Double mLongitude = 0.0;
                 for (Field field : dataPoint.getDataType().getFields()) {
                     Value val = dataPoint.getValue(field);
-                    Log.i(TAG, "Detected DataPoint field: " + field.getName());
-                    Log.i(TAG, "Detected DataPoint value: " + val);
-
+                    // Set latitude or longitude
                     if (field.getName().equals("latitude")) {
                         mLatitude = (double) val.asFloat();
                     } else if (field.getName().equals("longitude")) {
@@ -328,9 +322,7 @@ public class RunActivity extends Activity
                 .setResultCallback(new ResultCallback<Status>() {
                     @Override
                     public void onResult(Status status) {
-                        if (status.isSuccess()) {
-                            Log.i(TAG, "Listener registered!");
-                        } else {
+                        if (!status.isSuccess()) {
                             Log.i(TAG, "Listener not registered.");
                         }
                     }
