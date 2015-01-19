@@ -2,11 +2,15 @@ package ui.fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,8 +18,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -52,6 +59,8 @@ public class MapPane extends Fragment
     private static final int WORKOUT_START = 1;
     private static final int WORKOUT_PAUSE = 2;
     private static final int WORKOUT_FINISH = 3;
+    private GoogleMap mMap;
+
 
     public interface OnWorkoutStateChanged {
         public void onWorkoutStateChanged(int state);
@@ -72,6 +81,9 @@ public class MapPane extends Fragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
+
+        LocalBroadcastManager.getInstance(this.getActivity()).registerReceiver(mMessageReceiver,
+                new IntentFilter("location-update"));
     }
 
     @Override
@@ -208,13 +220,39 @@ public class MapPane extends Fragment
     }
 
     private void disableMapUiControls(Fragment fragment) {
-        GoogleMap map = ((MapFragment) fragment).getMap();
-        map.setMyLocationEnabled(true);
-        map.setBuildingsEnabled(false);
-        map.getUiSettings().setCompassEnabled(false);
-        map.getUiSettings().setMyLocationButtonEnabled(false);
-        map.getUiSettings().setAllGesturesEnabled(false);
-        map.getUiSettings().setZoomControlsEnabled(false);
+        mMap = ((MapFragment) fragment).getMap();
+        mMap.setMyLocationEnabled(true);
+        mMap.setBuildingsEnabled(false);
+        mMap.getUiSettings().setCompassEnabled(false);
+        mMap.getUiSettings().setMyLocationButtonEnabled(false);
+        mMap.getUiSettings().setAllGesturesEnabled(false);
+        mMap.getUiSettings().setZoomControlsEnabled(false);
+    }
+
+    private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            // Get extra data included in the Intent
+            Double latitude = intent.getDoubleExtra("latitude", -1);
+            Double longitude = intent.getDoubleExtra("longitude", -1);
+            moveCameraFocus(latitude, longitude);
+        }
+    };
+
+    private void moveCameraFocus(Double latitude, Double longitude) {
+        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(
+                new CameraPosition.Builder()
+                        .target(new LatLng(
+                                latitude, longitude))
+                        .zoom(17)
+                        .build()));
+    }
+
+    @Override
+    public void onDestroy() {
+        // Unregister since the activity is about to be closed.
+        LocalBroadcastManager.getInstance(this.getActivity()).unregisterReceiver(mMessageReceiver);
+        super.onDestroy();
     }
 }
 

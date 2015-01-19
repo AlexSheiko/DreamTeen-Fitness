@@ -7,6 +7,7 @@ import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -71,13 +72,14 @@ public class RunActivity extends Activity
     private OnDataPointListener mListener;
     // [END mListener_variable_reference]
 
-    private SharedPreferences sharedPrefs;
+    private SharedPreferences mSharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_run);
-        sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        mSharedPrefs = PreferenceManager.
+                getDefaultSharedPreferences(this);
 
         SESSION_IDENTIFIER += new SimpleDateFormat("dd MMM, hh:mm:ss").format(new Date()).toLowerCase();
 
@@ -227,7 +229,7 @@ public class RunActivity extends Activity
         PendingResult<com.google.android.gms.common.api.Status> pendingResult =
                 Fitness.SessionsApi.startSession(mClient, mSession);
 
-        sharedPrefs.edit()
+        mSharedPrefs.edit()
                 .putString("Identifier", SESSION_IDENTIFIER).apply();
     }
 
@@ -298,11 +300,20 @@ public class RunActivity extends Activity
         mListener = new OnDataPointListener() {
             @Override
             public void onDataPoint(DataPoint dataPoint) {
+                Double mLatitude = 0.0;
+                Double mLongitude = 0.0;
                 for (Field field : dataPoint.getDataType().getFields()) {
                     Value val = dataPoint.getValue(field);
                     Log.i(TAG, "Detected DataPoint field: " + field.getName());
                     Log.i(TAG, "Detected DataPoint value: " + val);
+
+                    if (field.getName().equals("latitude")) {
+                        mLatitude = (double) val.asFloat();
+                    } else if (field.getName().equals("longitude")) {
+                        mLongitude = (double) val.asFloat();
+                    }
                 }
+                sendLocation(mLatitude, mLongitude);
             }
         };
 
@@ -325,6 +336,13 @@ public class RunActivity extends Activity
                     }
                 });
         // [END register_data_listener]
+    }
+
+    private void sendLocation(Double latitude, Double longitude) {
+        Intent intent = new Intent("location-update");
+        intent.putExtra("latitude", latitude);
+        intent.putExtra("longitude", longitude);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
 
     /**
