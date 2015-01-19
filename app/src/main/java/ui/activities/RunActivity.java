@@ -18,7 +18,6 @@ import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Scope;
-import com.google.android.gms.common.api.Status;
 import com.google.android.gms.fitness.Fitness;
 import com.google.android.gms.fitness.FitnessActivities;
 import com.google.android.gms.fitness.FitnessStatusCodes;
@@ -38,8 +37,8 @@ import ui.fragments.MapPane.OnWorkoutStateChanged;
 public class RunActivity extends Activity
         implements OnWorkoutStateChanged {
     public static final String TAG = "BasicSessions";
-    public static final String SESSION_NAME = "DreamTeen Fitness run2";
-    public static final String SESSION_IDENTIFIER = "bellamica.tech.dreamteenfitness.SESSION_RUN2";
+    public static final String SESSION_NAME = "DreamTeen Fitness run";
+    public static final String SESSION_IDENTIFIER = "bellamica.tech.dreamteenfitness.SESSION_RUN";
     private static final int REQUEST_OAUTH = 1;
 
     private static final int WORKOUT_START = 1;
@@ -79,14 +78,11 @@ public class RunActivity extends Activity
             case WORKOUT_START:
                 // Connect to the Fitness API
                 // and start new Session
-                Log.i(TAG, "Connecting...");
                 mClient.connect();
                 break;
 
             case WORKOUT_PAUSE:
                 stopSession();
-                if (mClient.isConnected())
-                    mClient.disconnect();
                 break;
 
             case WORKOUT_FINISH:
@@ -114,10 +110,9 @@ public class RunActivity extends Activity
                         new GoogleApiClient.ConnectionCallbacks() {
                             @Override
                             public void onConnected(Bundle bundle) {
-                                Log.i(TAG, "Connected!!!");
                                 // Now you can make calls to the Fitness APIs.  What to do?
                                 // Play with some sessions!!
-                                new InsertAndVerifySessionTask().execute();
+                                startSession();
                             }
 
                             @Override
@@ -137,7 +132,6 @@ public class RunActivity extends Activity
                             // Called whenever the API client fails to connect.
                             @Override
                             public void onConnectionFailed(ConnectionResult result) {
-                                Log.i(TAG, "Connection failed. Cause: " + result.toString());
                                 if (!result.hasResolution()) {
                                     // Show the localized error dialog
                                     GooglePlayServicesUtil.getErrorDialog(result.getErrorCode(),
@@ -149,7 +143,6 @@ public class RunActivity extends Activity
                                 // authorization dialog is displayed to the user.
                                 if (!authInProgress) {
                                     try {
-                                        Log.i(TAG, "Attempting to resolve failed connection");
                                         authInProgress = true;
                                         result.startResolutionForResult(RunActivity.this,
                                                 REQUEST_OAUTH);
@@ -177,68 +170,17 @@ public class RunActivity extends Activity
         }
     }
 
+    private void startSession() {
+        new StartSessionTask().execute();
+    }
+
     private void stopSession() {
-        // 1. Invoke the Sessions API with:
-        // - The Google API client object
-        // - The name of the session
-        // - The session identifier
-        PendingResult<SessionStopResult> pendingResult =
-                Fitness.SessionsApi.stopSession(mClient, mSession.getIdentifier());
-
-        // 2. Check the result (see other examples)
-        if (pendingResult != null)
-            pendingResult.setResultCallback(new ResultCallback<SessionStopResult>() {
-                @Override
-                public void onResult(SessionStopResult sessionStopResult) {
-                    Log.i(TAG, "Stop session request. Status: " + sessionStopResult.getStatus());
-                }
-            });
-
-        // 3. Unsubscribe from fitness data (see Recording Fitness Data)
-        Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_ACTIVITY_SAMPLE)
-                .setResultCallback(new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(Status status) {
-                        if (status.isSuccess()) {
-                            Log.i(TAG, "Successfully unsubscribed for data type: " + DataType.TYPE_ACTIVITY_SAMPLE);
-                        } else {
-                            // Subscription not removed
-                            Log.i(TAG, "Failed to unsubscribe for data type: " + DataType.TYPE_ACTIVITY_SAMPLE);
-                        }
-                    }
-                });
+        new StopSessionTask().execute();
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putBoolean(AUTH_PENDING, authInProgress);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Add action bar items
-        getMenuInflater().inflate(R.menu.menu_run, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks
-        switch (item.getItemId()) {
-            case (R.id.action_music):
-                String action = Intent.ACTION_MAIN;
-                String category = Intent.CATEGORY_APP_MUSIC;
-                Intent intent = Intent.makeMainSelectorActivity(action, category);
-                startActivity(intent);
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private class InsertAndVerifySessionTask extends AsyncTask<Void, Void, Void> {
+    private class StartSessionTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
-            Log.i(TAG, "Creating a new session for run");
             // Setting start and end times for our run.
             Calendar cal = Calendar.getInstance();
             Date now = new Date();
@@ -289,5 +231,70 @@ public class RunActivity extends Activity
             });
             return null;
         }
+    }
+
+    private class StopSessionTask extends AsyncTask<Void, Void, Void>{
+        @Override
+        protected Void doInBackground(Void... voids) {
+            // 1. Invoke the Sessions API with:
+            // - The Google API client object
+            // - The name of the session
+            // - The session identifier
+            PendingResult<SessionStopResult> pendingResult =
+                    Fitness.SessionsApi.stopSession(mClient, mSession.getIdentifier());
+
+            // 2. Check the result (see other examples)
+            if (pendingResult != null)
+                pendingResult.setResultCallback(new ResultCallback<SessionStopResult>() {
+                    @Override
+                    public void onResult(SessionStopResult sessionStopResult) {
+                        Log.i(TAG, "Session stopped.");
+                    }
+                });
+
+            // 3. Unsubscribe from fitness data (see Recording Fitness Data)
+            Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_ACTIVITY_SAMPLE)
+                    .setResultCallback(new ResultCallback<com.google.android.gms.common.api.Status>() {
+                        @Override
+                        public void onResult(com.google.android.gms.common.api.Status status) {
+                            if (status.isSuccess()) {
+                                Log.i(TAG, "Successfully unsubscribed.");
+                            } else {
+                                // Subscription not removed
+                                Log.i(TAG, "Failed to unsubscribe for data type: " + DataType.TYPE_ACTIVITY_SAMPLE);
+                            }
+                            
+                            if (mClient.isConnected())
+                                mClient.disconnect();
+                        }
+                    });
+            return null;
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(AUTH_PENDING, authInProgress);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Add action bar items
+        getMenuInflater().inflate(R.menu.menu_run, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks
+        switch (item.getItemId()) {
+            case (R.id.action_music):
+                String action = Intent.ACTION_MAIN;
+                String category = Intent.CATEGORY_APP_MUSIC;
+                Intent intent = Intent.makeMainSelectorActivity(action, category);
+                startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
