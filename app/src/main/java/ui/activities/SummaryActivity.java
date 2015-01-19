@@ -27,6 +27,7 @@ import com.google.android.gms.fitness.data.DataSet;
 import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
 import com.google.android.gms.fitness.data.Session;
+import com.google.android.gms.fitness.data.Value;
 import com.google.android.gms.fitness.request.SessionReadRequest;
 import com.google.android.gms.fitness.result.SessionReadResult;
 
@@ -40,7 +41,7 @@ import bellamica.tech.dreamteenfitness.R;
 
 public class SummaryActivity extends Activity {
     public static final String TAG = SummaryActivity.class.getSimpleName();
-    public static final String SESSION_NAME = "DreamTeen Fitness run";
+    public static final String SESSION_NAME = "Run";
     private static final int REQUEST_OAUTH = 1;
     private static final String DATE_FORMAT = "yyyy.MM.dd HH:mm:ss";
 
@@ -48,15 +49,14 @@ public class SummaryActivity extends Activity {
     private boolean authInProgress = false;
 
     private GoogleApiClient mClient = null;
-    private Session mSession;
+
+    private String mSessionIdentifier;
 
     private String mDistance;
     private String mDuration;
     private String mDateTime;
 
-    private EditText tripNameField;
     private SharedPreferences sharedPrefs;
-    private ShareActionProvider mShareActionProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +75,7 @@ public class SummaryActivity extends Activity {
         } else {
             ((TextView) findViewById(R.id.TripLabelUnits)).setText("pref_units");
         }
+        mSessionIdentifier = sharedPrefs.getString("Identifier", "");
 
         // Get trip info
         mDistance = sharedPrefs.getString("Distance", "0.00");
@@ -84,7 +85,7 @@ public class SummaryActivity extends Activity {
         // Update counters with trip info
         ((TextView) findViewById(R.id.TripLabelDistance)).setText(mDistance);
 
-        tripNameField = (EditText) findViewById(R.id.tripNameField);
+        EditText tripNameField = (EditText) findViewById(R.id.tripNameField);
         tripNameField.setHint("Run on " + mDateTime);
 
         TextView discardButton = (TextView) findViewById(R.id.discardButton);
@@ -107,7 +108,6 @@ public class SummaryActivity extends Activity {
                         new GoogleApiClient.ConnectionCallbacks() {
                             @Override
                             public void onConnected(Bundle bundle) {
-                                Log.i(TAG, "Connected!!!");
                                 // Now you can make calls to the Fitness APIs.  What to do?
                                 // Play with some sessions!!
                                 new ReadSessionTask().execute();
@@ -130,7 +130,6 @@ public class SummaryActivity extends Activity {
                             // Called whenever the API client fails to connect.
                             @Override
                             public void onConnectionFailed(ConnectionResult result) {
-                                Log.i(TAG, "Connection failed. Cause: " + result.toString());
                                 if (!result.hasResolution()) {
                                     // Show the localized error dialog
                                     GooglePlayServicesUtil.getErrorDialog(result.getErrorCode(),
@@ -142,7 +141,6 @@ public class SummaryActivity extends Activity {
                                 // authorization dialog is displayed to the user.
                                 if (!authInProgress) {
                                     try {
-                                        Log.i(TAG, "Attempting to resolve failed connection");
                                         authInProgress = true;
                                         result.startResolutionForResult(SummaryActivity.this,
                                                 REQUEST_OAUTH);
@@ -158,7 +156,6 @@ public class SummaryActivity extends Activity {
     }
 
     private class ReadSessionTask extends AsyncTask<Void, Void, Void> {
-
         @Override
         protected Void doInBackground(Void... voids) {
             // Set a start and end time for our query, using a start time of 1 week before this moment.
@@ -173,7 +170,7 @@ public class SummaryActivity extends Activity {
             SessionReadRequest readRequest = new SessionReadRequest.Builder()
                     .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS)
                     .read(DataType.TYPE_ACTIVITY_SAMPLE)
-                    .setSessionName(SESSION_NAME)
+                    .setSessionId(mSessionIdentifier)
                     .build();
 
             // Invoke the Sessions API to fetch the session with the query and wait for the result
@@ -201,15 +198,12 @@ public class SummaryActivity extends Activity {
 
     private void dumpDataSet(DataSet dataSet) {
         Log.i(TAG, "Data returned for Data type: " + dataSet.getDataType().getName());
-        for (DataPoint dp : dataSet.getDataPoints()) {
-            SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
-            Log.i(TAG, "Data point:");
-            Log.i(TAG, "\tType: " + dp.getDataType().getName());
-            Log.i(TAG, "\tStart: " + dateFormat.format(dp.getStartTime(TimeUnit.MILLISECONDS)));
-            Log.i(TAG, "\tEnd: " + dateFormat.format(dp.getEndTime(TimeUnit.MILLISECONDS)));
-            for(Field field : dp.getDataType().getFields()) {
-                Log.i(TAG, "\tField: " + field.getName() +
-                        " Value: " + dp.getValue(field));
+
+        for (DataPoint dataPoint : dataSet.getDataPoints()) {
+            for (Field field : dataPoint.getDataType().getFields()) {
+                Value val = dataPoint.getValue(field);
+                Log.i(TAG, "Detected DataPoint field: " + field.getName());
+                Log.i(TAG, "Detected DataPoint value: " + val);
             }
         }
     }
@@ -235,10 +229,10 @@ public class SummaryActivity extends Activity {
         MenuItem item = menu.findItem(R.id.action_share);
 
         // Fetch and store ShareActionProvider
-        mShareActionProvider = (ShareActionProvider) item.getActionProvider();
+        ShareActionProvider shareActionProvider = (ShareActionProvider) item.getActionProvider();
 
-        if (mShareActionProvider != null)
-            mShareActionProvider.setShareIntent(shareIntent());
+        if (shareActionProvider != null)
+            shareActionProvider.setShareIntent(shareIntent());
 
         // Return true to display menu
         return true;

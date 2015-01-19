@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,11 +22,11 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.fitness.Fitness;
 import com.google.android.gms.fitness.FitnessActivities;
-import com.google.android.gms.fitness.FitnessStatusCodes;
 import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Session;
 import com.google.android.gms.fitness.result.SessionStopResult;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -37,8 +39,8 @@ import ui.fragments.MapPane.OnWorkoutStateChanged;
 public class RunActivity extends Activity
         implements OnWorkoutStateChanged {
     public static final String TAG = "BasicSessions";
-    public static final String SESSION_NAME = "DreamTeen Fitness run";
-    public static final String SESSION_IDENTIFIER = "bellamica.tech.dreamteenfitness.SESSION_RUN";
+    public static final String SESSION_NAME = "Run";
+    public static String SESSION_IDENTIFIER = "dreamteenfitness.RUN.";
     private static final int REQUEST_OAUTH = 1;
 
     private static final int WORKOUT_START = 1;
@@ -56,10 +58,15 @@ public class RunActivity extends Activity
     private GoogleApiClient mClient = null;
     private Session mSession;
 
+    private SharedPreferences sharedPrefs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_run);
+        sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        SESSION_IDENTIFIER += new SimpleDateFormat("dd MMM, hh:mm:ss").format(new Date()).toLowerCase();
 
         if (savedInstanceState != null) {
             authInProgress = savedInstanceState.getBoolean(AUTH_PENDING);
@@ -192,14 +199,7 @@ public class RunActivity extends Activity
                     .setResultCallback(new ResultCallback<com.google.android.gms.common.api.Status>() {
                         @Override
                         public void onResult(com.google.android.gms.common.api.Status status) {
-                            if (status.isSuccess()) {
-                                if (status.getStatusCode()
-                                        == FitnessStatusCodes.SUCCESS_ALREADY_SUBSCRIBED) {
-                                    Log.i(TAG, "Existing subscription for activity detected.");
-                                } else {
-                                    Log.i(TAG, "Successfully subscribed!");
-                                }
-                            } else {
+                            if (!status.isSuccess()) {
                                 Log.i(TAG, "There was a problem subscribing.");
                             }
                         }
@@ -212,7 +212,7 @@ public class RunActivity extends Activity
                     .setIdentifier(SESSION_IDENTIFIER)
                     .setDescription(SESSION_NAME)
                     .setStartTime(startTime, TimeUnit.MILLISECONDS)
-                            // optional - if your app knows what activity:
+                    // optional - if your app knows what activity:
                     .setActivity(FitnessActivities.RUNNING)
                     .build();
 
@@ -222,18 +222,13 @@ public class RunActivity extends Activity
             PendingResult<com.google.android.gms.common.api.Status> pendingResult =
                     Fitness.SessionsApi.startSession(mClient, mSession);
 
-            // 4. Check the result (see other examples)
-            pendingResult.setResultCallback(new ResultCallback<com.google.android.gms.common.api.Status>() {
-                @Override
-                public void onResult(com.google.android.gms.common.api.Status status) {
-                    Log.i(TAG, "Session created.");
-                }
-            });
+            sharedPrefs.edit()
+                    .putString("Identifier", SESSION_IDENTIFIER).apply();
             return null;
         }
     }
 
-    private class StopSessionTask extends AsyncTask<Void, Void, Void>{
+    private class StopSessionTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
             // 1. Invoke the Sessions API with:
@@ -243,27 +238,15 @@ public class RunActivity extends Activity
             PendingResult<SessionStopResult> pendingResult =
                     Fitness.SessionsApi.stopSession(mClient, mSession.getIdentifier());
 
-            // 2. Check the result (see other examples)
-            if (pendingResult != null)
-                pendingResult.setResultCallback(new ResultCallback<SessionStopResult>() {
-                    @Override
-                    public void onResult(SessionStopResult sessionStopResult) {
-                        Log.i(TAG, "Session stopped.");
-                    }
-                });
-
-            // 3. Unsubscribe from fitness data (see Recording Fitness Data)
+            // 2. Unsubscribe from fitness data (see Recording Fitness Data)
             Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_ACTIVITY_SAMPLE)
                     .setResultCallback(new ResultCallback<com.google.android.gms.common.api.Status>() {
                         @Override
                         public void onResult(com.google.android.gms.common.api.Status status) {
-                            if (status.isSuccess()) {
-                                Log.i(TAG, "Successfully unsubscribed.");
-                            } else {
+                            if (!status.isSuccess()) {
                                 // Subscription not removed
                                 Log.i(TAG, "Failed to unsubscribe for data type: " + DataType.TYPE_ACTIVITY_SAMPLE);
                             }
-                            
                             if (mClient.isConnected())
                                 mClient.disconnect();
                         }
