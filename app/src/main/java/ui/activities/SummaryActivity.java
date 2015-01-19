@@ -20,6 +20,7 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
+import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.fitness.Fitness;
 import com.google.android.gms.fitness.data.DataPoint;
@@ -27,7 +28,6 @@ import com.google.android.gms.fitness.data.DataSet;
 import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
 import com.google.android.gms.fitness.data.Session;
-import com.google.android.gms.fitness.data.Value;
 import com.google.android.gms.fitness.request.SessionReadRequest;
 import com.google.android.gms.fitness.result.SessionReadResult;
 
@@ -169,41 +169,45 @@ public class SummaryActivity extends Activity {
             // Build a session read request
             SessionReadRequest readRequest = new SessionReadRequest.Builder()
                     .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS)
-                    .read(DataType.TYPE_ACTIVITY_SAMPLE)
+                    .read(DataType.TYPE_CALORIES_EXPENDED)
                     .setSessionId(mSessionIdentifier)
                     .build();
 
             // Invoke the Sessions API to fetch the session with the query and wait for the result
             // of the read request.
-            SessionReadResult sessionReadResult =
-                    Fitness.SessionsApi.readSession(mClient, readRequest)
-                            .await(1, TimeUnit.MINUTES);
+            Fitness.SessionsApi.readSession(mClient, readRequest).setResultCallback(new ResultCallback<SessionReadResult>() {
+                @Override
+                public void onResult(SessionReadResult sessionReadResult) {
+                    // Get a list of the sessions that match the criteria to check the result.
+                    Log.i(TAG, "Session read was successful. Number of returned sessions is: "
+                            + sessionReadResult.getSessions().size());
+                    for (Session session : sessionReadResult.getSessions()) {
+                        // Process the session
+                        dumpSession(session);
 
-            // Get a list of the sessions that match the criteria to check the result.
-            Log.i(TAG, "Session read was successful. Number of returned sessions is: "
-                    + sessionReadResult.getSessions().size());
-            for (Session session : sessionReadResult.getSessions()) {
-                // Process the session
-                dumpSession(session);
-
-                // Process the data sets for this session
-                List<DataSet> dataSets = sessionReadResult.getDataSet(session);
-                for (DataSet dataSet : dataSets) {
-                    dumpDataSet(dataSet);
+                        // Process the data sets for this session
+                        List<DataSet> dataSets = sessionReadResult.getDataSet(session);
+                        for (DataSet dataSet : dataSets) {
+                            dumpDataSet(dataSet);
+                        }
+                    }
                 }
-            }
+            });
             return null;
         }
     }
 
     private void dumpDataSet(DataSet dataSet) {
         Log.i(TAG, "Data returned for Data type: " + dataSet.getDataType().getName());
-
-        for (DataPoint dataPoint : dataSet.getDataPoints()) {
-            for (Field field : dataPoint.getDataType().getFields()) {
-                Value val = dataPoint.getValue(field);
-                Log.i(TAG, "Detected DataPoint field: " + field.getName());
-                Log.i(TAG, "Detected DataPoint value: " + val);
+        for (DataPoint dp : dataSet.getDataPoints()) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
+            Log.i(TAG, "Data point:");
+            Log.i(TAG, "\tType: " + dp.getDataType().getName());
+            Log.i(TAG, "\tStart: " + dateFormat.format(dp.getStartTime(TimeUnit.MILLISECONDS)));
+            Log.i(TAG, "\tEnd: " + dateFormat.format(dp.getEndTime(TimeUnit.MILLISECONDS)));
+            for(Field field : dp.getDataType().getFields()) {
+                Log.i(TAG, "\tField: " + field.getName() +
+                        " Value: " + dp.getValue(field));
             }
         }
     }

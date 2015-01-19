@@ -55,6 +55,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8e838e63-aa6c-41fc-a81b-f5c1e2df2628" name="Default" comment="">
       <change type="DELETED" beforePath="D:\DreamTeen-Fitness\DreamTeen-Fitness" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -80,32 +81,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RunActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="RunActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3311" max-vertical-offset="4828">
-              <caret line="216" column="29" selection-start-line="216" selection-start-column="29" selection-end-line="216" selection-end-column="29" />
+            <state vertical-scroll-proportion="-5.158076" vertical-offset="4787" max-vertical-offset="6511">
+              <caret line="105" column="48" selection-start-line="105" selection-start-column="48" selection-end-line="105" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#7950#7951#0" expanded="true" />
-                <element signature="e#7998#7999#0" expanded="true" />
-                <element signature="e#8032#8033#0" expanded="true" />
-                <element signature="e#8079#8080#0" expanded="true" />
-                <element signature="e#8619#9026#0" expanded="true" />
-                <element signature="e#9003#9004#0" expanded="true" />
-                <element signature="e#10671#11284#0" expanded="true" />
-                <element signature="e#11261#11262#0" expanded="true" />
+                <element signature="e#9139#9518#0" expanded="true" />
+                <element signature="e#9499#9500#0" expanded="true" />
+                <element signature="e#10820#11346#0" expanded="true" />
+                <element signature="e#11327#11328#0" expanded="true" />
+                <element signature="e#12331#13428#0" expanded="true" />
+                <element signature="e#13409#13410#0" expanded="true" />
+                <element signature="e#13759#14190#0" expanded="true" />
+                <element signature="e#14179#14180#0" expanded="true" />
+                <element signature="e#14622#15021#0" expanded="true" />
+                <element signature="e#15002#15003#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SummaryActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SummaryActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.2577319" vertical-offset="1072" max-vertical-offset="3723">
-              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="3209" max-vertical-offset="3791">
+              <caret line="201" column="16" selection-start-line="201" selection-start-column="16" selection-end-line="201" selection-end-column="16" />
+              <folding>
+                <element signature="e#8069#8988#0" expanded="true" />
+                <element signature="e#8973#8974#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1711,15 +1717,15 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_friends.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/helpers/Constants.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/SplashActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/map_pane.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_run.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/fragments/MapPane.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" />
       </list>
     </option>
   </component>
@@ -2626,27 +2632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1271" max-vertical-offset="1853">
-          <caret line="94" column="72" selection-start-line="94" selection-start-column="72" selection-end-line="98" selection-end-column="28" />
-          <folding>
-            <element signature="e#875#899#0" expanded="true" />
-            <element signature="e#1087#1126#0" expanded="true" />
-            <element signature="e#1385#1410#0" expanded="true" />
-            <element signature="e#1513#1537#0" expanded="true" />
-            <element signature="e#1706#1734#0" expanded="true" />
-            <element signature="e#2123#2155#0" expanded="true" />
-            <element signature="e#2542#2574#0" expanded="true" />
-            <element signature="e#2964#2997#0" expanded="true" />
-            <element signature="e#3432#3450#0" expanded="true" />
-            <element signature="e#3645#3672#0" expanded="true" />
-            <element signature="e#3839#3875#0" expanded="true" />
-            <element signature="e#4077#4095#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.4" vertical-offset="0" max-vertical-offset="1530">
@@ -2733,29 +2718,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3311" max-vertical-offset="4828">
-          <caret line="216" column="29" selection-start-line="216" selection-start-column="29" selection-end-line="216" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.41580757" vertical-offset="557" max-vertical-offset="1853">
+          <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7950#7951#0" expanded="true" />
-            <element signature="e#7998#7999#0" expanded="true" />
-            <element signature="e#8032#8033#0" expanded="true" />
-            <element signature="e#8079#8080#0" expanded="true" />
-            <element signature="e#8619#9026#0" expanded="true" />
-            <element signature="e#9003#9004#0" expanded="true" />
-            <element signature="e#10671#11284#0" expanded="true" />
-            <element signature="e#11261#11262#0" expanded="true" />
+            <element signature="e#875#899#0" expanded="true" />
+            <element signature="e#1087#1126#0" expanded="true" />
+            <element signature="e#1385#1410#0" expanded="true" />
+            <element signature="e#1513#1537#0" expanded="true" />
+            <element signature="e#1706#1734#0" expanded="true" />
+            <element signature="e#2326#2358#0" expanded="true" />
+            <element signature="e#2745#2777#0" expanded="true" />
+            <element signature="e#3167#3200#0" expanded="true" />
+            <element signature="e#3635#3653#0" expanded="true" />
+            <element signature="e#3848#3875#0" expanded="true" />
+            <element signature="e#4042#4078#0" expanded="true" />
+            <element signature="e#4280#4298#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2577319" vertical-offset="1072" max-vertical-offset="3723">
-          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3209" max-vertical-offset="3791">
+          <caret line="201" column="16" selection-start-line="201" selection-start-column="16" selection-end-line="201" selection-end-column="16" />
+          <folding>
+            <element signature="e#8069#8988#0" expanded="true" />
+            <element signature="e#8973#8974#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.158076" vertical-offset="4787" max-vertical-offset="6511">
+          <caret line="105" column="48" selection-start-line="105" selection-start-column="48" selection-end-line="105" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#9139#9518#0" expanded="true" />
+            <element signature="e#9499#9500#0" expanded="true" />
+            <element signature="e#10820#11346#0" expanded="true" />
+            <element signature="e#11327#11328#0" expanded="true" />
+            <element signature="e#12331#13428#0" expanded="true" />
+            <element signature="e#13409#13410#0" expanded="true" />
+            <element signature="e#13759#14190#0" expanded="true" />
+            <element signature="e#14179#14180#0" expanded="true" />
+            <element signature="e#14622#15021#0" expanded="true" />
+            <element signature="e#15002#15003#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
