@@ -33,7 +33,6 @@ import com.google.android.gms.fitness.request.SensorRequest;
 import com.google.android.gms.fitness.result.DataSourcesResult;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -131,9 +130,9 @@ public class RunActivity extends Activity
                         new GoogleApiClient.ConnectionCallbacks() {
                             @Override
                             public void onConnected(Bundle bundle) {
-                                // Now you can make calls to the Fitness APIs.  What to do?
-                                // Play with some sessions!!
+                                // Now you can make calls to the Fitness APIs
                                 startSession();
+                                // Start updating map focus
                                 findLocationDataSources();
                             }
 
@@ -193,12 +192,6 @@ public class RunActivity extends Activity
     }
 
     private void startSession() {
-        // Setting start and end times for our run.
-        Calendar cal = Calendar.getInstance();
-        Date now = new Date();
-        cal.setTime(now);
-        long startTime = cal.getTimeInMillis();
-
         // 1. Subscribe to fitness data
         Fitness.RecordingApi.subscribe(mClient, DataType.TYPE_ACTIVITY_SAMPLE)
                 .setResultCallback(new ResultCallback<Status>() {
@@ -209,33 +202,9 @@ public class RunActivity extends Activity
                         }
                     }
                 });
-
-        // 2. Create a session object
-        // (providing a name, identifier, description and start time)
-        mSession = new Session.Builder()
-                .setName(SESSION_NAME)
-                .setIdentifier(SESSION_IDENTIFIER)
-                .setDescription(SESSION_NAME)
-                .setStartTime(startTime, TimeUnit.MILLISECONDS)
-                        // optional - if your app knows what activity:
-                        // .setActivity(FitnessActivities.RUNNING)
-                .build();
-
-        // 3. Invoke the Sessions API with:
-        // - The Google API client object
-        // - The request object
-        Fitness.SessionsApi.startSession(mClient, mSession);
-
-        mSharedPrefs.edit()
-                .putString("Identifier", SESSION_IDENTIFIER).apply();
     }
 
     private void stopSession() {
-        // 1. Invoke the Sessions API with:
-        // - The Google API client object
-        // - The session identifier
-        Fitness.SessionsApi.stopSession(mClient, mSession.getIdentifier());
-
         // 2. Unsubscribe from fitness data (see Recording Fitness Data)
         Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_ACTIVITY_SAMPLE)
                 .setResultCallback(new ResultCallback<com.google.android.gms.common.api.Status>() {
@@ -245,10 +214,15 @@ public class RunActivity extends Activity
                             // Subscription not removed
                             Log.i(TAG, "Failed to unsubscribe.");
                         }
-                        if (mClient.isConnected())
-                            mClient.disconnect();
                     }
                 });
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mClient.isConnected())
+            mClient.disconnect();
     }
 
     /**
@@ -270,7 +244,6 @@ public class RunActivity extends Activity
                 .setResultCallback(new ResultCallback<DataSourcesResult>() {
                     @Override
                     public void onResult(DataSourcesResult dataSourcesResult) {
-                        Log.i(TAG, "Result: " + dataSourcesResult.getStatus().toString());
                         for (DataSource dataSource : dataSourcesResult.getDataSources()) {
                             //Let's register a listener to receive Activity data!
                             if (dataSource.getDataType().equals(DataType.TYPE_LOCATION_SAMPLE)
@@ -304,6 +277,7 @@ public class RunActivity extends Activity
                         mLongitude = (double) val.asFloat();
                     }
                 }
+                // Callback to update map's focus
                 sendLocation(mLatitude, mLongitude);
             }
         };
@@ -354,10 +328,8 @@ public class RunActivity extends Activity
                 .setResultCallback(new ResultCallback<Status>() {
                     @Override
                     public void onResult(Status status) {
-                        if (status.isSuccess()) {
-                            Log.i(TAG, "Listener was removed!");
-                        } else {
-                            Log.i(TAG, "Listener was not removed.");
+                        if (!status.isSuccess()) {
+                            Log.i(TAG, "Failed to remove location listener.");
                         }
                     }
                 });
