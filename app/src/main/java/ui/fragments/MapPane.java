@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -60,6 +61,7 @@ public class MapPane extends Fragment
     private static final int WORKOUT_PAUSE = 2;
     private static final int WORKOUT_FINISH = 3;
     private GoogleMap mMap;
+    private float mTotalDistance = 0;
 
 
     public interface OnWorkoutStateChanged {
@@ -231,6 +233,7 @@ public class MapPane extends Fragment
         mMap.getUiSettings().setZoomControlsEnabled(false);
     }
 
+    private Location mPreviousLocation;
     private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -238,6 +241,13 @@ public class MapPane extends Fragment
             Double latitude = intent.getDoubleExtra("latitude", -1);
             Double longitude = intent.getDoubleExtra("longitude", -1);
             moveCameraFocus(latitude, longitude);
+
+            Location currentLocation = makeLocation(latitude, longitude);
+            if (mPreviousLocation != null) {
+                float increment = getDistance(currentLocation, mPreviousLocation);
+                incrementDistance(increment);
+            }
+            mPreviousLocation = currentLocation;
         }
     };
 
@@ -248,6 +258,22 @@ public class MapPane extends Fragment
                                 latitude, longitude))
                         .zoom(17)
                         .build()));
+    }
+
+    private Location makeLocation(double latitude, double longitude) {
+        Location location = new Location("");
+        location.setLatitude(latitude);
+        location.setLongitude(longitude);
+        return location;
+    }
+
+    private float getDistance(Location previousLocation, Location currentLocation) {
+        return previousLocation.distanceTo(currentLocation) * 0.000621371f;
+    }
+
+    private void incrementDistance(float increment) {
+        mTotalDistance = mTotalDistance + increment;
+        mDistanceCounter.setText(String.format("%.2f", mTotalDistance));
     }
 
     @Override
