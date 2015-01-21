@@ -29,6 +29,7 @@ import com.google.android.gms.fitness.data.Field;
 import com.google.android.gms.fitness.request.DataReadRequest;
 import com.google.android.gms.fitness.result.DataReadResult;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -171,8 +172,10 @@ public class SummaryActivity extends Activity {
             // Process the data sets for this session
             DataSet dataSet = dataReadResult.getDataSet(DataType.TYPE_DISTANCE_DELTA);
             for (DataPoint dp : dataSet.getDataPoints()) {
+                SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
                 for (Field field : dp.getDataType().getFields()) {
                     float increment = dp.getValue(field).asFloat() * 0.000621371192f;
+                    Log.i(TAG, "Increment by " + increment);
                     incrementDistance(increment);
                 }
             }

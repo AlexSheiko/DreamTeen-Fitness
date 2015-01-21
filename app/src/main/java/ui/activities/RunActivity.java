@@ -133,7 +133,7 @@ public class RunActivity extends Activity
                                 // Now you can make calls to the Fitness APIs
                                 startSession();
                                 // Start updating map focus
-                                findLocationDataSources();
+                                findFitnessDataSources();
                             }
 
                             @Override
@@ -233,11 +233,11 @@ public class RunActivity extends Activity
      * #register(GoogleApiClient, SensorRequest, DataSourceListener)},
      * where the {@link com.google.android.gms.fitness.request.SensorRequest} contains the desired data type.
      */
-    private void findLocationDataSources() {
+    private void findFitnessDataSources() {
         // [START find_data_sources]
         Fitness.SensorsApi.findDataSources(mClient, new DataSourcesRequest.Builder()
                 // At least one datatype must be specified.
-                .setDataTypes(DataType.TYPE_LOCATION_SAMPLE)
+                .setDataTypes(DataType.TYPE_LOCATION_SAMPLE, DataType.TYPE_DISTANCE_CUMULATIVE)
                         // Can specify whether data type is raw or derived.
                 .setDataSourceTypes(DataSource.TYPE_RAW)
                 .build())
@@ -248,8 +248,12 @@ public class RunActivity extends Activity
                             //Let's register a listener to receive Activity data!
                             if (dataSource.getDataType().equals(DataType.TYPE_LOCATION_SAMPLE)
                                     && mListener == null) {
-                                registerLocationDataListener(dataSource,
+                                registerFitnessDataListener(dataSource,
                                         DataType.TYPE_LOCATION_SAMPLE);
+                            } else if (dataSource.getDataType().equals(DataType.TYPE_DISTANCE_CUMULATIVE)
+                                    && mListener == null) {
+                                registerFitnessDataListener(dataSource,
+                                        DataType.TYPE_DISTANCE_CUMULATIVE);
                             }
                         }
                     }
@@ -261,24 +265,28 @@ public class RunActivity extends Activity
      * Register a listener with the Sensors API for the provided {@link DataSource} and
      * {@link DataType} combo.
      */
-    private void registerLocationDataListener(DataSource dataSource, DataType dataType) {
+    private void registerFitnessDataListener(DataSource dataSource, final DataType dataType) {
         // [START register_data_listener]
         mListener = new OnDataPointListener() {
             @Override
             public void onDataPoint(DataPoint dataPoint) {
-                Double mLatitude = 0.0;
-                Double mLongitude = 0.0;
-                for (Field field : dataPoint.getDataType().getFields()) {
-                    Value val = dataPoint.getValue(field);
-                    // Set latitude or longitude
-                    if (field.getName().equals("latitude")) {
-                        mLatitude = (double) val.asFloat();
-                    } else if (field.getName().equals("longitude")) {
-                        mLongitude = (double) val.asFloat();
+                if (dataType.equals(DataType.TYPE_LOCATION_SAMPLE)) {
+                    Double mLatitude = 0.0;
+                    Double mLongitude = 0.0;
+                    for (Field field : dataPoint.getDataType().getFields()) {
+                        Value val = dataPoint.getValue(field);
+                        // Set latitude or longitude
+                        if (field.getName().equals("latitude")) {
+                            mLatitude = (double) val.asFloat();
+                        } else if (field.getName().equals("longitude")) {
+                            mLongitude = (double) val.asFloat();
+                        }
                     }
+                    // Callback to update map's focus
+                    sendLocation(mLatitude, mLongitude);
+                } else if (dataType.equals(DataType.TYPE_DISTANCE_CUMULATIVE)) {
+                    Log.i("RunActivity", "Cumulative distance datapoint");
                 }
-                // Callback to update map's focus
-                sendLocation(mLatitude, mLongitude);
             }
         };
 
