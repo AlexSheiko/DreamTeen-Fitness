@@ -54,10 +54,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e838e63-aa6c-41fc-a81b-f5c1e2df2628" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DreamFit.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,36 +78,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RunActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="RunActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3073" max-vertical-offset="6290">
-              <caret line="208" column="78" selection-start-line="208" selection-start-column="78" selection-end-line="208" selection-end-column="78" />
+            <state vertical-scroll-proportion="-0.86426115" vertical-offset="3682" max-vertical-offset="4828">
+              <caret line="201" column="33" selection-start-line="201" selection-start-column="33" selection-end-line="201" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#8852#9163#0" expanded="true" />
-                <element signature="e#9144#9145#0" expanded="true" />
-                <element signature="e#9394#9819#0" expanded="true" />
-                <element signature="e#9800#9801#0" expanded="true" />
-                <element signature="e#10983#12016#0" expanded="true" />
-                <element signature="e#11997#11998#0" expanded="true" />
-                <element signature="e#12353#13440#0" expanded="true" />
-                <element signature="e#13429#13430#0" expanded="true" />
-                <element signature="e#13872#14175#0" expanded="true" />
-                <element signature="e#14156#14157#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SummaryActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.17525773" vertical-offset="2159" max-vertical-offset="3434">
-              <caret line="174" column="44" selection-start-line="174" selection-start-column="44" selection-end-line="174" selection-end-column="44" />
-              <folding>
-                <element signature="e#8665#8666#0" expanded="true" />
-                <element signature="e#8703#8704#0" expanded="true" />
+                <element signature="method#onActivityResult#0;class#RunActivity#0" expanded="false" />
+                <element signature="e#7847#8567#0" expanded="true" />
+                <element signature="e#8548#8549#0" expanded="true" />
+                <element signature="e#8905#9748#0" expanded="true" />
+                <element signature="e#9737#9738#0" expanded="true" />
+                <element signature="e#10180#10483#0" expanded="true" />
+                <element signature="e#10464#10465#0" expanded="true" />
+                <element signature="e#11112#11426#0" expanded="true" />
+                <element signature="e#11407#11408#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1723,8 +1707,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/ui/fragments/MapPane.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/fragments/BodyParamsInput.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" />
       </list>
     </option>
   </component>
@@ -2736,33 +2720,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3073" max-vertical-offset="6290">
-          <caret line="208" column="78" selection-start-line="208" selection-start-column="78" selection-end-line="208" selection-end-column="78" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#8852#9163#0" expanded="true" />
-            <element signature="e#9144#9145#0" expanded="true" />
-            <element signature="e#9394#9819#0" expanded="true" />
-            <element signature="e#9800#9801#0" expanded="true" />
-            <element signature="e#10983#12016#0" expanded="true" />
-            <element signature="e#11997#11998#0" expanded="true" />
-            <element signature="e#12353#13440#0" expanded="true" />
-            <element signature="e#13429#13430#0" expanded="true" />
-            <element signature="e#13872#14175#0" expanded="true" />
-            <element signature="e#14156#14157#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1343">
+          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17525773" vertical-offset="2159" max-vertical-offset="3434">
-          <caret line="174" column="44" selection-start-line="174" selection-start-column="44" selection-end-line="174" selection-end-column="44" />
+        <state vertical-scroll-proportion="-0.86426115" vertical-offset="3682" max-vertical-offset="4828">
+          <caret line="201" column="33" selection-start-line="201" selection-start-column="33" selection-end-line="201" selection-end-column="33" />
           <folding>
-            <element signature="e#8665#8666#0" expanded="true" />
-            <element signature="e#8703#8704#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#onActivityResult#0;class#RunActivity#0" expanded="false" />
+            <element signature="e#7847#8567#0" expanded="true" />
+            <element signature="e#8548#8549#0" expanded="true" />
+            <element signature="e#8905#9748#0" expanded="true" />
+            <element signature="e#9737#9738#0" expanded="true" />
+            <element signature="e#10180#10483#0" expanded="true" />
+            <element signature="e#10464#10465#0" expanded="true" />
+            <element signature="e#11112#11426#0" expanded="true" />
+            <element signature="e#11407#11408#0" expanded="true" />
           </folding>
         </state>
       </provider>

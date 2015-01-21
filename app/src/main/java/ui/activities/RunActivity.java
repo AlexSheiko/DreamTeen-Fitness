@@ -25,15 +25,12 @@ import com.google.android.gms.fitness.data.DataPoint;
 import com.google.android.gms.fitness.data.DataSource;
 import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
-import com.google.android.gms.fitness.data.Session;
 import com.google.android.gms.fitness.data.Value;
 import com.google.android.gms.fitness.request.DataSourcesRequest;
 import com.google.android.gms.fitness.request.OnDataPointListener;
 import com.google.android.gms.fitness.request.SensorRequest;
 import com.google.android.gms.fitness.result.DataSourcesResult;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import bellamica.tech.dreamteenfitness.R;
@@ -44,30 +41,18 @@ import ui.fragments.MapPane.OnWorkoutStateChanged;
 public class RunActivity extends Activity
         implements OnWorkoutStateChanged {
     public static final String TAG = "BasicSessions";
-    public static final String SESSION_NAME = "Run";
-    public static String SESSION_IDENTIFIER = "dreamteenfitness.RUN.";
     private static final int REQUEST_OAUTH = 1;
 
     private static final int WORKOUT_START = 1;
     private static final int WORKOUT_PAUSE = 2;
     private static final int WORKOUT_FINISH = 3;
 
-    /**
-     * Track whether an authorization activity is stacking over the current activity, i.e. when
-     * a known auth error is being resolved, such as showing the account chooser or presenting a
-     * consent dialog. This avoids common duplications as might happen on screen rotations, etc.
-     */
+    // Track whether an authorization activity is stacking over the current activity
     private static final String AUTH_PENDING = "auth_state_pending";
     private boolean authInProgress = false;
 
     private GoogleApiClient mClient = null;
-    private Session mSession;
-
-    // [START mListener_variable_reference]
-    // Need to hold a reference to this listener, as it's passed into the "unregister"
-    // method in order to stop all sensors from sending data to this listener.
     private OnDataPointListener mListener;
-    // [END mListener_variable_reference]
 
     private SharedPreferences mSharedPrefs;
 
@@ -75,10 +60,7 @@ public class RunActivity extends Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_run);
-        mSharedPrefs = PreferenceManager.
-                getDefaultSharedPreferences(this);
-
-        SESSION_IDENTIFIER += new SimpleDateFormat("dd MMM, hh:mm:ss").format(new Date()).toLowerCase();
+        mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         if (savedInstanceState != null) {
             authInProgress = savedInstanceState.getBoolean(AUTH_PENDING);
@@ -96,13 +78,14 @@ public class RunActivity extends Activity
         switch (state) {
             case WORKOUT_START:
                 // Connect to the Fitness API
-                // and start new Session
                 mClient.connect();
                 break;
 
             case WORKOUT_PAUSE:
-                stopSession();
-                unregisterFitnessDataListener();
+                unregisterLocationDataListener();
+
+                if (mClient.isConnected())
+                    mClient.disconnect();
                 break;
 
             case WORKOUT_FINISH:
@@ -113,11 +96,7 @@ public class RunActivity extends Activity
 
     /**
      * Build a {@link GoogleApiClient} that will authenticate the user and allow the application
-     * to connect to Fitness APIs. The scopes included should match the scopes your app needs
-     * (see documentation for details). Authentication will occasionally fail intentionally,
-     * and in those cases, there will be a known resolution, which the OnConnectionFailedListener()
-     * can address. Examples of this include the user never having signed in before, or having
-     * multiple accounts on the device and needing to specify which account to use, etc.
+     * to connect to Fitness APIs.
      */
     private void buildFitnessClient() {
         // Create the Google API Client
@@ -130,10 +109,8 @@ public class RunActivity extends Activity
                         new GoogleApiClient.ConnectionCallbacks() {
                             @Override
                             public void onConnected(Bundle bundle) {
-                                // Now you can make calls to the Fitness APIs
-                                startSession();
                                 // Start updating map focus
-                                findFitnessDataSources();
+                                findLocationDataSources();
                             }
 
                             @Override
@@ -191,53 +168,14 @@ public class RunActivity extends Activity
         }
     }
 
-    private void startSession() {
-        // 1. Subscribe to fitness data
-        Fitness.RecordingApi.subscribe(mClient, DataType.TYPE_DISTANCE_DELTA)
-                .setResultCallback(new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(Status status) {
-                        if (!status.isSuccess()) {
-                            Log.i(TAG, "There was a problem subscribing.");
-                        }
-                    }
-                });
-    }
-
-    private void stopSession() {
-        // 2. Unsubscribe from fitness data (see Recording Fitness Data)
-        Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_DISTANCE_DELTA)
-                .setResultCallback(new ResultCallback<com.google.android.gms.common.api.Status>() {
-                    @Override
-                    public void onResult(com.google.android.gms.common.api.Status status) {
-                        if (!status.isSuccess()) {
-                            // Subscription not removed
-                            Log.i(TAG, "Failed to unsubscribe.");
-                        }
-                    }
-                });
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if (mClient.isConnected())
-            mClient.disconnect();
-    }
-
     /**
      * Find available data sources and attempt to register on a specific {@link DataType}.
-     * If the application cares about a data type but doesn't care about the source of the data,
-     * this can be skipped entirely, instead calling
-     * {@link com.google.android.gms.fitness.SensorsApi
-     * #register(GoogleApiClient, SensorRequest, DataSourceListener)},
-     * where the {@link com.google.android.gms.fitness.request.SensorRequest} contains the desired data type.
      */
-    private void findFitnessDataSources() {
+    private void findLocationDataSources() {
         // [START find_data_sources]
         Fitness.SensorsApi.findDataSources(mClient, new DataSourcesRequest.Builder()
                 // At least one datatype must be specified.
-                .setDataTypes(DataType.TYPE_LOCATION_SAMPLE, DataType.TYPE_DISTANCE_CUMULATIVE)
+                .setDataTypes(DataType.TYPE_LOCATION_SAMPLE)
                         // Can specify whether data type is raw or derived.
                 .setDataSourceTypes(DataSource.TYPE_RAW)
                 .build())
@@ -248,12 +186,8 @@ public class RunActivity extends Activity
                             //Let's register a listener to receive Activity data!
                             if (dataSource.getDataType().equals(DataType.TYPE_LOCATION_SAMPLE)
                                     && mListener == null) {
-                                registerFitnessDataListener(dataSource,
+                                registerLocationDataListener(dataSource,
                                         DataType.TYPE_LOCATION_SAMPLE);
-                            } else if (dataSource.getDataType().equals(DataType.TYPE_DISTANCE_CUMULATIVE)
-                                    && mListener == null) {
-                                registerFitnessDataListener(dataSource,
-                                        DataType.TYPE_DISTANCE_CUMULATIVE);
                             }
                         }
                     }
@@ -265,12 +199,11 @@ public class RunActivity extends Activity
      * Register a listener with the Sensors API for the provided {@link DataSource} and
      * {@link DataType} combo.
      */
-    private void registerFitnessDataListener(DataSource dataSource, final DataType dataType) {
+    private void registerLocationDataListener(DataSource dataSource, final DataType dataType) {
         // [START register_data_listener]
         mListener = new OnDataPointListener() {
             @Override
             public void onDataPoint(DataPoint dataPoint) {
-                if (dataType.equals(DataType.TYPE_LOCATION_SAMPLE)) {
                     Double mLatitude = 0.0;
                     Double mLongitude = 0.0;
                     for (Field field : dataPoint.getDataType().getFields()) {
@@ -284,9 +217,6 @@ public class RunActivity extends Activity
                     }
                     // Callback to update map's focus
                     sendLocation(mLatitude, mLongitude);
-                } else if (dataType.equals(DataType.TYPE_DISTANCE_CUMULATIVE)) {
-                    Log.i("RunActivity", "Cumulative distance datapoint");
-                }
             }
         };
 
@@ -319,17 +249,9 @@ public class RunActivity extends Activity
     /**
      * Unregister the listener with the Sensors API.
      */
-    private void unregisterFitnessDataListener() {
-        if (mListener == null) {
-            // This code only activates one listener at a time.  If there's no listener, there's
-            // nothing to unregister.
-            return;
-        }
+    private void unregisterLocationDataListener() {
+        if (mListener == null) return;
 
-        // [START unregister_data_listener]
-        // Waiting isn't actually necessary as the unregister call will complete regardless,
-        // even if called from within onStop, but a callback can still be added in order to
-        // inspect the results.
         Fitness.SensorsApi.remove(
                 mClient,
                 mListener)
@@ -341,7 +263,6 @@ public class RunActivity extends Activity
                         }
                     }
                 });
-        // [END unregister_data_listener]
     }
 
     @Override
