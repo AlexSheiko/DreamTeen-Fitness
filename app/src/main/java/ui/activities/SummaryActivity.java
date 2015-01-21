@@ -29,7 +29,6 @@ import com.google.android.gms.fitness.data.Field;
 import com.google.android.gms.fitness.request.DataReadRequest;
 import com.google.android.gms.fitness.result.DataReadResult;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -49,7 +48,7 @@ public class SummaryActivity extends Activity {
 
     private String mSessionIdentifier;
 
-    private String mDistance;
+    private float mDistance;
     private String mDuration;
     private String mDateTime;
 
@@ -75,12 +74,8 @@ public class SummaryActivity extends Activity {
         mSessionIdentifier = sharedPrefs.getString("Identifier", "");
 
         // Get run info
-        mDistance = sharedPrefs.getString("Distance", "0.00");
         mDuration = sharedPrefs.getString("Duration", "00:00");
         mDateTime = sharedPrefs.getString("DateTime", "Unspecified");
-
-        // Update UI with run info
-        ((TextView) findViewById(R.id.TripLabelDistance)).setText(mDistance);
 
         EditText tripNameField = (EditText) findViewById(R.id.tripNameField);
         tripNameField.setHint("Run on " + mDateTime);
@@ -175,24 +170,27 @@ public class SummaryActivity extends Activity {
 
             // Process the data sets for this session
             DataSet dataSet = dataReadResult.getDataSet(DataType.TYPE_DISTANCE_DELTA);
-            dumpDataSet(dataSet);
+            for (DataPoint dp : dataSet.getDataPoints()) {
+                for (Field field : dp.getDataType().getFields()) {
+                    float increment = dp.getValue(field).asFloat() * 0.000621371192f;
+                    incrementDistance(increment);
+                }
+            }
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void v) {
+            super.onPostExecute(v);
+            // Update UI with run info
+            ((TextView) findViewById(R.id.TripLabelDistance)).setText(
+                    String.format("%.2f", mDistance)
+            );
         }
     }
 
-    private void dumpDataSet(DataSet dataSet) {
-        Log.i(TAG, "Data returned for Data type: " + dataSet.getDataType().getName());
-        for (DataPoint dp : dataSet.getDataPoints()) {
-            SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
-            Log.i(TAG, "Data point:");
-            Log.i(TAG, "\tType: " + dp.getDataType().getName());
-            Log.i(TAG, "\tStart: " + dateFormat.format(dp.getStartTime(TimeUnit.MILLISECONDS)));
-            Log.i(TAG, "\tEnd: " + dateFormat.format(dp.getEndTime(TimeUnit.MILLISECONDS)));
-            for (Field field : dp.getDataType().getFields()) {
-                Log.i(TAG, "\tField: " + field.getName() +
-                        " Value: " + dp.getValue(field));
-            }
-        }
+    private void incrementDistance(float increment) {
+        mDistance =+ increment;
     }
 
     public void saveRun(View view) {
