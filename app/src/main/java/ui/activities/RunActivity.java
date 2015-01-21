@@ -17,12 +17,10 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
-import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.fitness.Fitness;
-import com.google.android.gms.fitness.FitnessActivities;
 import com.google.android.gms.fitness.data.DataPoint;
 import com.google.android.gms.fitness.data.DataSource;
 import com.google.android.gms.fitness.data.DataType;
@@ -136,7 +134,7 @@ public class RunActivity extends Activity
                                 // Now you can make calls to the Fitness APIs.  What to do?
                                 // Play with some sessions!!
                                 startSession();
-                                findFitnessDataSources();
+                                findLocationDataSources();
                             }
 
                             @Override
@@ -202,10 +200,10 @@ public class RunActivity extends Activity
         long startTime = cal.getTimeInMillis();
 
         // 1. Subscribe to fitness data
-        Fitness.RecordingApi.subscribe(mClient, DataType.TYPE_CALORIES_EXPENDED)
-                .setResultCallback(new ResultCallback<com.google.android.gms.common.api.Status>() {
+        Fitness.RecordingApi.subscribe(mClient, DataType.TYPE_ACTIVITY_SAMPLE)
+                .setResultCallback(new ResultCallback<Status>() {
                     @Override
-                    public void onResult(com.google.android.gms.common.api.Status status) {
+                    public void onResult(Status status) {
                         if (!status.isSuccess()) {
                             Log.i(TAG, "There was a problem subscribing.");
                         }
@@ -220,14 +218,13 @@ public class RunActivity extends Activity
                 .setDescription(SESSION_NAME)
                 .setStartTime(startTime, TimeUnit.MILLISECONDS)
                         // optional - if your app knows what activity:
-                .setActivity(FitnessActivities.RUNNING)
+                        // .setActivity(FitnessActivities.RUNNING)
                 .build();
 
         // 3. Invoke the Sessions API with:
         // - The Google API client object
         // - The request object
-        PendingResult<com.google.android.gms.common.api.Status> pendingResult =
-                Fitness.SessionsApi.startSession(mClient, mSession);
+        Fitness.SessionsApi.startSession(mClient, mSession);
 
         mSharedPrefs.edit()
                 .putString("Identifier", SESSION_IDENTIFIER).apply();
@@ -240,7 +237,7 @@ public class RunActivity extends Activity
         Fitness.SessionsApi.stopSession(mClient, mSession.getIdentifier());
 
         // 2. Unsubscribe from fitness data (see Recording Fitness Data)
-        Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_CALORIES_EXPENDED)
+        Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_ACTIVITY_SAMPLE)
                 .setResultCallback(new ResultCallback<com.google.android.gms.common.api.Status>() {
                     @Override
                     public void onResult(com.google.android.gms.common.api.Status status) {
@@ -262,7 +259,7 @@ public class RunActivity extends Activity
      * #register(GoogleApiClient, SensorRequest, DataSourceListener)},
      * where the {@link com.google.android.gms.fitness.request.SensorRequest} contains the desired data type.
      */
-    private void findFitnessDataSources() {
+    private void findLocationDataSources() {
         // [START find_data_sources]
         Fitness.SensorsApi.findDataSources(mClient, new DataSourcesRequest.Builder()
                 // At least one datatype must be specified.
@@ -278,7 +275,7 @@ public class RunActivity extends Activity
                             //Let's register a listener to receive Activity data!
                             if (dataSource.getDataType().equals(DataType.TYPE_LOCATION_SAMPLE)
                                     && mListener == null) {
-                                registerFitnessDataListener(dataSource,
+                                registerLocationDataListener(dataSource,
                                         DataType.TYPE_LOCATION_SAMPLE);
                             }
                         }
@@ -291,7 +288,7 @@ public class RunActivity extends Activity
      * Register a listener with the Sensors API for the provided {@link DataSource} and
      * {@link DataType} combo.
      */
-    private void registerFitnessDataListener(DataSource dataSource, DataType dataType) {
+    private void registerLocationDataListener(DataSource dataSource, DataType dataType) {
         // [START register_data_listener]
         mListener = new OnDataPointListener() {
             @Override

@@ -28,7 +28,9 @@ import com.google.android.gms.fitness.data.DataSet;
 import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
 import com.google.android.gms.fitness.data.Session;
+import com.google.android.gms.fitness.request.DataReadRequest;
 import com.google.android.gms.fitness.request.SessionReadRequest;
+import com.google.android.gms.fitness.result.DataReadResult;
 import com.google.android.gms.fitness.result.SessionReadResult;
 
 import java.text.SimpleDateFormat;
@@ -77,12 +79,12 @@ public class SummaryActivity extends Activity {
         }
         mSessionIdentifier = sharedPrefs.getString("Identifier", "");
 
-        // Get trip info
+        // Get run info
         mDistance = sharedPrefs.getString("Distance", "0.00");
         mDuration = sharedPrefs.getString("Duration", "00:00");
         mDateTime = sharedPrefs.getString("DateTime", "Unspecified");
 
-        // Update counters with trip info
+        // Update UI with run info
         ((TextView) findViewById(R.id.TripLabelDistance)).setText(mDistance);
 
         EditText tripNameField = (EditText) findViewById(R.id.tripNameField);
@@ -169,7 +171,7 @@ public class SummaryActivity extends Activity {
             // Build a session read request
             SessionReadRequest readRequest = new SessionReadRequest.Builder()
                     .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS)
-                    .read(DataType.TYPE_CALORIES_EXPENDED)
+                    .read(DataType.TYPE_ACTIVITY_SAMPLE)
                     .setSessionId(mSessionIdentifier)
                     .build();
 
@@ -193,6 +195,20 @@ public class SummaryActivity extends Activity {
                     }
                 }
             });
+
+
+            DataReadRequest dataReadRequest = new DataReadRequest.Builder()
+                    .read(DataType.TYPE_ACTIVITY_SAMPLE)
+                    .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
+                    .build();
+
+            DataReadResult dataReadResult =
+                    Fitness.HistoryApi.readData(mClient, dataReadRequest).await(1, TimeUnit.MINUTES);
+
+            // Process the data sets for this session
+            DataSet dataSet = dataReadResult.getDataSet(DataType.TYPE_ACTIVITY_SAMPLE);
+            dumpDataSet(dataSet);
+
             return null;
         }
     }
@@ -205,7 +221,7 @@ public class SummaryActivity extends Activity {
             Log.i(TAG, "\tType: " + dp.getDataType().getName());
             Log.i(TAG, "\tStart: " + dateFormat.format(dp.getStartTime(TimeUnit.MILLISECONDS)));
             Log.i(TAG, "\tEnd: " + dateFormat.format(dp.getEndTime(TimeUnit.MILLISECONDS)));
-            for(Field field : dp.getDataType().getFields()) {
+            for (Field field : dp.getDataType().getFields()) {
                 Log.i(TAG, "\tField: " + field.getName() +
                         " Value: " + dp.getValue(field));
             }

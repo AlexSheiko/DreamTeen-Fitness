@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- From: file:/D:/Android/Projects/DreamFit/app/build/intermediates/exploded-aar/com.facebook.android/facebook/3.21.1/res/values-xhdpi-v4/values.xml -->
-    <eat-comment/>
-    <dimen name="com_facebook_picker_divider_width">2px</dimen>
-</resources>
