@@ -20,23 +20,18 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
-import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.fitness.Fitness;
 import com.google.android.gms.fitness.data.DataPoint;
 import com.google.android.gms.fitness.data.DataSet;
 import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
-import com.google.android.gms.fitness.data.Session;
 import com.google.android.gms.fitness.request.DataReadRequest;
-import com.google.android.gms.fitness.request.SessionReadRequest;
 import com.google.android.gms.fitness.result.DataReadResult;
-import com.google.android.gms.fitness.result.SessionReadResult;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import bellamica.tech.dreamteenfitness.R;
@@ -168,47 +163,19 @@ public class SummaryActivity extends Activity {
             cal.add(Calendar.WEEK_OF_YEAR, -1);
             long startTime = cal.getTimeInMillis();
 
-            // Build a session read request
-            SessionReadRequest readRequest = new SessionReadRequest.Builder()
-                    .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS)
-                    .read(DataType.TYPE_ACTIVITY_SAMPLE)
-                    .setSessionId(mSessionIdentifier)
-                    .build();
-
-            // Invoke the Sessions API to fetch the session with the query and wait for the result
-            // of the read request.
-            Fitness.SessionsApi.readSession(mClient, readRequest).setResultCallback(new ResultCallback<SessionReadResult>() {
-                @Override
-                public void onResult(SessionReadResult sessionReadResult) {
-                    // Get a list of the sessions that match the criteria to check the result.
-                    Log.i(TAG, "Session read was successful. Number of returned sessions is: "
-                            + sessionReadResult.getSessions().size());
-                    for (Session session : sessionReadResult.getSessions()) {
-                        // Process the session
-                        dumpSession(session);
-
-                        // Process the data sets for this session
-                        List<DataSet> dataSets = sessionReadResult.getDataSet(session);
-                        for (DataSet dataSet : dataSets) {
-                            dumpDataSet(dataSet);
-                        }
-                    }
-                }
-            });
-
-
+            // Build a data read request
             DataReadRequest dataReadRequest = new DataReadRequest.Builder()
-                    .read(DataType.TYPE_ACTIVITY_SAMPLE)
+                    .read(DataType.TYPE_DISTANCE_DELTA)
                     .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
                     .build();
 
+            // Invoke the Sessions API to fetch the data with the query and wait for the result
             DataReadResult dataReadResult =
                     Fitness.HistoryApi.readData(mClient, dataReadRequest).await(1, TimeUnit.MINUTES);
 
             // Process the data sets for this session
-            DataSet dataSet = dataReadResult.getDataSet(DataType.TYPE_ACTIVITY_SAMPLE);
+            DataSet dataSet = dataReadResult.getDataSet(DataType.TYPE_DISTANCE_DELTA);
             dumpDataSet(dataSet);
-
             return null;
         }
     }
@@ -226,14 +193,6 @@ public class SummaryActivity extends Activity {
                         " Value: " + dp.getValue(field));
             }
         }
-    }
-
-    private void dumpSession(Session session) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
-        Log.i(TAG, "Data returned for Session: " + session.getName()
-                + "\n\tDescription: " + session.getDescription()
-                + "\n\tStart: " + dateFormat.format(session.getStartTime(TimeUnit.MILLISECONDS))
-                + "\n\tEnd: " + dateFormat.format(session.getEndTime(TimeUnit.MILLISECONDS)));
     }
 
     public void saveRun(View view) {

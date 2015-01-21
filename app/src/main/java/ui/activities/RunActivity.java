@@ -193,7 +193,7 @@ public class RunActivity extends Activity
 
     private void startSession() {
         // 1. Subscribe to fitness data
-        Fitness.RecordingApi.subscribe(mClient, DataType.TYPE_ACTIVITY_SAMPLE)
+        Fitness.RecordingApi.subscribe(mClient, DataType.TYPE_DISTANCE_DELTA)
                 .setResultCallback(new ResultCallback<Status>() {
                     @Override
                     public void onResult(Status status) {
@@ -206,7 +206,7 @@ public class RunActivity extends Activity
 
     private void stopSession() {
         // 2. Unsubscribe from fitness data (see Recording Fitness Data)
-        Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_ACTIVITY_SAMPLE)
+        Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_DISTANCE_DELTA)
                 .setResultCallback(new ResultCallback<com.google.android.gms.common.api.Status>() {
                     @Override
                     public void onResult(com.google.android.gms.common.api.Status status) {
