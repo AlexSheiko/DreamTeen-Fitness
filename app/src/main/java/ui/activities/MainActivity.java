@@ -20,10 +20,9 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
-import ui.adapters.NavigationAdapter;
 import bellamica.tech.dreamteenfitness.R;
-import ui.fragments.BodyParamsInput;
 import ui.fragments.GoalDialog;
+import ui.utils.adapters.NavigationAdapter;
 
 
 public class MainActivity extends Activity {
@@ -86,12 +85,7 @@ public class MainActivity extends Activity {
     }
 
     public void addFitnessGoal(View view) {
-        if (mAge != 0 && mHeight != 0 && mWeight != 0 && !mGender.equals("")) {
-            startActivity(new Intent(this, GoalDialog.class));
-        } else {
-            startActivity(new Intent(this, BodyParamsInput.class));
-            Toast.makeText(this, "Please enter body params first", Toast.LENGTH_SHORT).show();
-        }
+        startActivity(new Intent(this, GoalDialog.class));
     }
 
     // Navigation drawer
