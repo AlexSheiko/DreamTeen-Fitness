@@ -16,7 +16,7 @@ import bellamica.tech.dreamteenfitness.R;
 
 public class SummaryActivity extends Activity {
 
-    private String mDistance;
+    private float mDistance;
     private String mDuration;
     private String mDateTime;
 
@@ -35,11 +35,12 @@ public class SummaryActivity extends Activity {
         }
 
         // Get run info
+        mDistance = sharedPrefs.getFloat("Distance", 0);
         mDuration = sharedPrefs.getString("Duration", "00:00");
         mDateTime = sharedPrefs.getString("DateTime", "Unspecified");
 
         // Update UI with run info
-        ((TextView) findViewById(R.id.TripLabelDistance)).setText(mDistance);
+        ((TextView) findViewById(R.id.TripLabelDistance)).setText(String.format("%.2f", mDistance));
         EditText tripNameField = (EditText) findViewById(R.id.tripNameField);
         tripNameField.setHint("Run on " + mDateTime);
 
@@ -73,10 +74,10 @@ public class SummaryActivity extends Activity {
     private Intent shareIntent() {
         String mMessage;
         if (sharedPrefs.getString("pref_units", "1").equals("1")) {
-            mMessage = "Just finished a run of " + mDistance + " miles " +
+            mMessage = "Just finished a run of " + String.format("%.2f", mDistance) + " miles " +
                     "in " + mDuration + ".\n\nAny challengers? ;)\n#DreamFit";
         } else {
-            mMessage = "Just finished a run of " + mDistance + " km " +
+            mMessage = "Just finished a run of " + String.format("%.2f", mDistance) + " km " +
                     "in " + mDuration + ".\n\nAny challengers? ;)\n#DreamFit";
         }
 

@@ -48,7 +48,7 @@ public class MapPane extends Fragment
     private Button mFinishButton;
 
     // User's settings
-    private SharedPreferences sharedPrefs;
+    private SharedPreferences mSharedPrefs;
     private TextView mDurationCounter;
     private TextView mDistanceCounter;
     private TextView mDistanceUnitsLabel;
@@ -82,7 +82,7 @@ public class MapPane extends Fragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
+        mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
 
         LocalBroadcastManager.getInstance(this.getActivity()).registerReceiver(mMessageReceiver,
                 new IntentFilter("location-update"));
@@ -122,7 +122,7 @@ public class MapPane extends Fragment
         mDistanceUnitsLabel = (TextView) rootView.findViewById(R.id.distanceUnitsLabel);
 
         // Set distance units
-        if (sharedPrefs.getString("pref_units", "1").equals("1"))
+        if (mSharedPrefs.getString("pref_units", "1").equals("1"))
             mDistanceUnitsLabel.setText("miles");
     }
 
@@ -149,9 +149,11 @@ public class MapPane extends Fragment
             case R.id.finishButton:
                 mCallback.onWorkoutStateChanged(WORKOUT_FINISH);
 
-                // TODO:
-                // 1. Save duration
-                // 2. Save time stamp
+                mSharedPrefs.edit()
+                        .putFloat("Distance", mTotalDistance)
+                        .putString("Duration", convertSecondsToHMmSs(elapsedSeconds))
+                        .commit();
+
                 startActivity(new Intent(this.getActivity(), SummaryActivity.class));
                 break;
         }
