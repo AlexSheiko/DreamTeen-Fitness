@@ -32,7 +32,7 @@
 
     <Button
         android:id="@+id/share_button"
-        android:layout_width="192dp"
+        android:layout_width="188dp"
         android:drawableLeft="@drawable/ic_google_plus"
         android:layout_height="wrap_content"
         android:background="#dd4b39"
