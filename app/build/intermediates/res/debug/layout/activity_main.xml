@@ -36,7 +36,7 @@
                         android:layout_width="wrap_content"
                         android:src="@drawable/aerobic"
                         android:onClick="navigateToAerobic"
-                        class = "ui.utils.SquareImageView"/>
+                        class="ui.utils.SquareImageView"/>
 
                     <ui.utils.SquareImageView
                         android:layout_height="0dp"
@@ -44,7 +44,7 @@
                         android:layout_width="wrap_content"
                         android:src="@drawable/running"
                         android:onClick="navigateToRunning"
-                        class = "ui.utils.SquareImageView"/>
+                        class="ui.utils.SquareImageView"/>
 
                 </LinearLayout>
 
@@ -126,6 +126,7 @@
                         android:layout_marginTop="5dp"
                         android:paddingLeft="0dp"
                         android:paddingRight="0dp"
+                        android:progress="33"
                         android:progressDrawable="@drawable/progress_bar_calories"
                         />
 
@@ -144,9 +145,8 @@
                 android:orientation="horizontal"
                 android:paddingLeft="12dp"
                 android:paddingRight="12dp"
-                android:visibility="gone"
-                android:clickable="true"
-                android:onClick="addFitnessGoal">
+                android:visibility="visible"
+                android:clickable="true">
 
                 <!--Icon-->
                 <FrameLayout
@@ -183,7 +183,7 @@
                             android:layout_marginTop="12dp"
                             android:fontFamily="sans-serif-light"
                             android:gravity="bottom"
-                            android:text="@string/kg_test_value"
+                            android:text="153"
                             android:textColor="@color/black"
                             android:textSize="28sp"/>
 
@@ -194,7 +194,7 @@
                             android:layout_marginTop="12dp"
                             android:fontFamily="sans-serif-light"
                             android:gravity="bottom"
-                            android:text="@string/kg_left"
+                            android:text="steps today"
                             android:textColor="@color/black"
                             android:textSize="24sp"/>
 
@@ -207,7 +207,7 @@
                         android:layout_marginTop="8dp"
                         android:fontFamily="sans-serif-light"
                         android:gravity="center_vertical"
-                        android:text="@string/target"
+                        android:text="1598 to your overage"
                         android:textColor="#22282c"
                         android:textSize="16sp"/>
 
@@ -215,54 +215,7 @@
 
             </LinearLayout>
 
-            <!-- Set goal container-->
-            <LinearLayout
-                android:id="@+id/setGoalWeightContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/target_container"
-                android:orientation="horizontal"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:layout_marginLeft="10dp"
-                    android:text="@string/add_fitness_goal_hint"
-                    android:fontFamily="sans-serif-light"
-                    android:textColor="#4a4a4a"
-                    android:textSize="18sp"/>
-
-                <FrameLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="12dp">
-
-                    <Button
-                        android:id="@+id/setGoalButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical|right"
-                        android:paddingLeft="12dp"
-                        android:background="@drawable/set_goal_button"
-                        android:fontFamily="sans-serif-bold"
-                        android:paddingRight="12dp"
-                        android:onClick="addFitnessGoal"
-                        android:text="@string/add_goal_button_label"/>
-
-                </FrameLayout>
-
-            </LinearLayout>
-
         </LinearLayout>
-
 
     </ScrollView>
 

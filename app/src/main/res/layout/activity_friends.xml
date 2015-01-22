@@ -33,7 +33,15 @@
     <Button
         android:id="@+id/share_button"
         android:layout_width="192dp"
+        android:drawableLeft="@drawable/ic_google_plus"
         android:layout_height="wrap_content"
-        android:text="Share interactive post on Google+"/>
+        android:background="#dd4b39"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:gravity="left|center_vertical"
+        android:drawablePadding="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="Find on Google"/>
 
 </LinearLayout>

@@ -21,7 +21,6 @@ import android.widget.Toast;
 import java.util.Calendar;
 
 import bellamica.tech.dreamteenfitness.R;
-import ui.fragments.GoalDialog;
 import ui.utils.adapters.NavigationAdapter;
 
 
@@ -35,7 +34,6 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-        setCaloriesNorm();
         addSideNavigation();
     }
 
@@ -44,18 +42,6 @@ public class MainActivity extends Activity {
         super.onResume();
         if (!sharedPrefs.getBoolean("pref_track_calories", true))
             findViewById(R.id.caloriesContainer).setVisibility(View.GONE);
-    }
-
-    private int mAge;
-    private int mHeight;
-    private int mWeight;
-    private String mGender;
-
-    public Void setCaloriesNorm() {
-        if (sharedPrefs.getString("pref_units", "1").equals("1"))
-            ((TextView) findViewById(R.id.weightToGoLabel)).setText("lb to go");
-
-        return null;
     }
 
     private int calculateDailyCaloriesNorm(int age, float height, float weight, String gender) {
@@ -82,10 +68,6 @@ public class MainActivity extends Activity {
                 .setText(caloriesBurnedByDefault + "");
 
         progressBar.setProgress(caloriesBurnedByDefault);
-    }
-
-    public void addFitnessGoal(View view) {
-        startActivity(new Intent(this, GoalDialog.class));
     }
 
     // Navigation drawer

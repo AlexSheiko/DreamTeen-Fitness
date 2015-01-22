@@ -102,7 +102,7 @@ public class FriendsActivity extends Activity
                             /* Toast.makeText(FriendsActivity.this, getResources()
                                     .getString(R.string.network_error), Toast.LENGTH_SHORT).show(); */
                         } else {
-                            Toast.makeText(FriendsActivity.this, getString(R.string.request_sended_toast), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(FriendsActivity.this, getString(R.string.request_sent_toast), Toast.LENGTH_SHORT).show();
                         }
                         dialog = null;
                         Session.getActiveSession().closeAndClearTokenInformation();
