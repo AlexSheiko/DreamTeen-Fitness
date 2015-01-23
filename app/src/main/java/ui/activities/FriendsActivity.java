@@ -120,6 +120,7 @@ public class FriendsActivity extends Activity
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.share_button:
+                // TODO: Configure string to use my credentials
                 PlusShare.Builder builder = new PlusShare.Builder(this);
 
                 // Set call-to-action metadata.

@@ -5,6 +5,7 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
@@ -22,6 +23,7 @@ import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.fitness.Fitness;
 import com.google.android.gms.fitness.data.DataPoint;
+import com.google.android.gms.fitness.data.DataSet;
 import com.google.android.gms.fitness.data.DataSource;
 import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
@@ -32,7 +34,9 @@ import com.google.android.gms.fitness.request.SensorRequest;
 import com.google.android.gms.fitness.result.DataSourcesResult;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import bellamica.tech.dreamteenfitness.R;
@@ -55,6 +59,7 @@ public class RunActivity extends Activity
 
     private GoogleApiClient mClient = null;
     private OnDataPointListener mLocationListener;
+    private Date mRunStartTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +81,7 @@ public class RunActivity extends Activity
     public void onWorkoutStateChanged(int state) {
         switch (state) {
             case WORKOUT_START:
-                setStartTime(this, new Date());
+                mRunStartTime = setStartTime(this, new Date());
                 // Connect to the Fitness API
                 mClient.connect();
                 break;
@@ -90,16 +95,19 @@ public class RunActivity extends Activity
                 break;
 
             case WORKOUT_FINISH:
+                // TODO: Insert datasets for steps and calories
+                new InsertAndVerifyDataTask().execute();
                 startActivity(new Intent(this, SummaryActivity.class));
                 break;
         }
     }
 
-    private void setStartTime(Context context, Date currentDate) {
+    private Date setStartTime(Context context, Date currentDate) {
         String startTime =
-                new SimpleDateFormat("dd MMM, hh:mm").format(currentDate).toLowerCase();
+                new SimpleDateFormat("dd MMM, hh:mm", Locale.US).format(currentDate).toLowerCase();
         PreferenceManager.getDefaultSharedPreferences(context).edit()
                 .putString("start_time", startTime).apply();
+        return currentDate;
     }
 
     /**
@@ -111,7 +119,6 @@ public class RunActivity extends Activity
         mClient = new GoogleApiClient.Builder(this)
                 .addApi(Fitness.API)
                 .addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
-                .addScope(new Scope(Scopes.FITNESS_BODY_READ_WRITE))
                 .addScope(new Scope(Scopes.FITNESS_LOCATION_READ_WRITE))
                 .addConnectionCallbacks(
                         new GoogleApiClient.ConnectionCallbacks() {
@@ -323,6 +330,73 @@ public class RunActivity extends Activity
                         }
                     }
                 });
+    }
+
+    /**
+     *  Create a {@link com.google.android.gms.fitness.data.DataSet} to insert data into the History API, and
+     *  then create and execute a {@link com.google.android.gms.fitness.request.DataReadRequest} to verify the insertion succeeded.
+     *  By using an {@link android.os.AsyncTask}, we can schedule synchronous calls, so that we can query for
+     *  data after confirming that our insert was successful. Using asynchronous calls and callbacks
+     *  would not guarantee that the insertion had concluded before the read request was made.
+     *  An example of an asynchronous call using a callback can be found in the example
+     *  on deleting data below.
+     */
+    private class InsertAndVerifyDataTask extends AsyncTask<Void, Void, Void> {
+        protected Void doInBackground(Void... params) {
+            //First, create a new dataset and insertion request.
+            DataSet dataSet = insertFitnessData();
+
+            // [START insert_dataset]
+            // Then, invoke the History API to insert the data and await the result, which is
+            // possible here because of the {@link AsyncTask}. Always include a timeout when calling
+            // await() to prevent hanging that can occur from the service being shutdown because
+            // of low memory or other conditions.
+            com.google.android.gms.common.api.Status insertStatus =
+                    Fitness.HistoryApi.insertData(mClient, dataSet)
+                            .await(1, TimeUnit.MINUTES);
+
+            // Before querying the data, check to see if the insertion succeeded.
+            if (!insertStatus.isSuccess()) {
+                Log.i(TAG, "There was a problem inserting the dataset.");
+                return null;
+            }
+            return null;
+        }
+    }
+
+    /**
+     * Create and return a {@link DataSet} of step count data for the History API.
+     */
+    private DataSet insertFitnessData() {
+        // [START build_insert_data_request]
+        // Set a start and end time for our data, using a start time of 1 hour before this moment.
+        Calendar cal = Calendar.getInstance();
+        Date now = new Date();
+        cal.setTime(now);
+        long endTime = cal.getTimeInMillis();
+        cal.setTime(mRunStartTime);
+        long startTime = cal.getTimeInMillis();
+
+        // Create a data source
+        DataSource dataSource = new DataSource.Builder()
+                .setAppPackageName(this)
+                .setDataType(DataType.TYPE_STEP_COUNT_DELTA)
+                .setName(TAG + " - step count")
+                .setType(DataSource.TYPE_RAW)
+                .build();
+
+        // Create a data set
+        int stepCountDelta = 1001;
+        DataSet dataSet = DataSet.create(dataSource);
+        // For each data point, specify a start time, end time, and the data value -- in this case,
+        // the number of new steps.
+        DataPoint dataPoint = dataSet.createDataPoint()
+                .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS);
+        dataPoint.getValue(Field.FIELD_STEPS).setInt(stepCountDelta);
+        dataSet.add(dataPoint);
+        // [END build_insert_data_request]
+
+        return dataSet;
     }
 
     @Override

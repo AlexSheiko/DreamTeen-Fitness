@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
@@ -24,6 +25,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.PolygonOptions;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -236,6 +238,7 @@ public class MapPane extends Fragment
         mMap.getUiSettings().setZoomControlsEnabled(false);
     }
 
+    private Location mCurrentLocation;
     private Location mPreviousLocation;
     private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
         @Override
@@ -245,12 +248,12 @@ public class MapPane extends Fragment
             Double longitude = intent.getDoubleExtra("longitude", -1);
             moveCameraFocus(latitude, longitude);
 
-            Location currentLocation = makeLocation(latitude, longitude);
+            mCurrentLocation = makeLocation(latitude, longitude);
             if (mPreviousLocation != null) {
-                float increment = getDistance(currentLocation, mPreviousLocation);
+                float increment = getDistance(mCurrentLocation, mPreviousLocation);
                 incrementDistance(increment);
             }
-            mPreviousLocation = currentLocation;
+            mPreviousLocation = mCurrentLocation;
         }
     };
 
@@ -261,6 +264,14 @@ public class MapPane extends Fragment
                                 latitude, longitude))
                         .zoom(17)
                         .build()));
+
+        mMap.addPolygon(new PolygonOptions()
+                .strokeColor(Color.parseColor("#ff4a01"))
+                .strokeWidth(5f)
+                .add(new LatLng(mPreviousLocation.getLatitude(),
+                                mPreviousLocation.getLongitude()),
+                        new LatLng(mCurrentLocation.getLatitude(),
+                                mCurrentLocation.getLongitude())));
     }
 
     private Location makeLocation(double latitude, double longitude) {
