@@ -97,7 +97,6 @@ public class RunActivity extends Activity
                 break;
 
             case WORKOUT_FINISH:
-                // TODO: Insert datasets for steps and calories
                 new InsertAndVerifyDataTask().execute();
                 startActivity(new Intent(this, SummaryActivity.class));
                 break;
