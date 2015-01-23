@@ -6,10 +6,13 @@
         <item name="android:windowBackground">@color/window_background</item>
     </style>
 
-    <!-- Settings theme. -->
     <style name="SettingsTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/MyActionBar</item>
         <item name="android:windowBackground">@color/settings_background</item>
+    </style>
+
+    <style name="AerobicTheme" parent="SettingsTheme">
+        <item name="android:windowBackground">@color/aerobic_background</item>
     </style>
 
     <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
@@ -94,4 +97,5 @@
         <item name="android:layout_marginBottom">14dp</item>
     </style>
 
+    <color name="aerobic_background">#eff4f7</color>
 </resources>

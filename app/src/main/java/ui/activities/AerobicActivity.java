@@ -5,12 +5,10 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.Settings.Secure;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Spinner;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -365,52 +363,33 @@ public class AerobicActivity extends Activity {
     }
 
     private void initializeSpinners() {
-        mHeightSpinner = (Spinner) findViewById(R.id.heightSpinner);
+        mHeightSpinner = (Spinner) findViewById(R.id.monthSpinner);
         ArrayAdapter<CharSequence> mHeightAdapter = ArrayAdapter.createFromResource(this,
-                R.array.height_spinner_units, android.R.layout.simple_spinner_item);
+                R.array.month_values, android.R.layout.simple_spinner_item);
         mHeightAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mHeightSpinner.setAdapter(mHeightAdapter);
 
-        mWeightSpinner = (Spinner) findViewById(R.id.weightSpinner);
+        mWeightSpinner = (Spinner) findViewById(R.id.daySpinner);
         ArrayAdapter<CharSequence> mWeightAdapter = ArrayAdapter.createFromResource(this,
-                R.array.weight_spinner_values, android.R.layout.simple_spinner_item);
+                R.array.days_values, android.R.layout.simple_spinner_item);
         mWeightAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mWeightSpinner.setAdapter(mWeightAdapter);
     }
 
-    public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
-        boolean checked = ((RadioButton) view).isChecked();
-
-        // Check which radio button was clicked
-        switch (view.getId()) {
-            case R.id.radio_male:
-                if (checked)
-                    mGender = "male";
-                break;
-            case R.id.radio_female:
-                if (checked)
-                    mGender = "female";
-                break;
-        }
-    }
-
-    private int mAge = -1;
+    private int mDuration = -1;
     private int mHeight;
     private int mWeight;
 
     public void saveData(View view) {
-        String mDeviceId = Secure.getString(this.getContentResolver(), Secure.ANDROID_ID);
-
-        mAge = Integer.parseInt(((EditText) findViewById(R.id.ageField)).getText().toString());
-        mHeight = Integer.parseInt(((EditText) findViewById(R.id.heightField)).getText().toString());
-        mWeight = Integer.parseInt(((EditText) findViewById(R.id.weightField)).getText().toString());
+        mDuration = Integer.parseInt(((EditText) findViewById(R.id.durationField)).getText().toString());
 
         if (mHeightSpinner.getSelectedItem().toString().equals("cm"))
             mHeight = (int) (mHeight * 0.394);
 
         if (mWeightSpinner.getSelectedItem().toString().equals("kg"))
             mWeight = (int) (mWeight * 2.205);
+
+        navigateToMainScreen();
     }
 
     private void navigateToMainScreen() {

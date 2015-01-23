@@ -21,12 +21,28 @@
         <item>1</item>
         <item>0</item>
     </string-array>
-    <string-array name="height_spinner_units">
-        <item>inch</item>
-        <item>cm</item>
+    <string-array name="month_values">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
     </string-array>
-    <string-array name="weight_spinner_values">
-        <item>lb</item>
-        <item>kg</item>
+    <string-array name="days_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+
     </string-array>
 </resources>

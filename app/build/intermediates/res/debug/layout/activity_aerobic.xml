@@ -12,12 +12,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="sans-serif-light"
         android:gravity="center_horizontal"
-        android:text="@string/title_log_activity"
+        android:text="@string/log_activity_label"
         android:textColor="#34495e"
-        android:textSize="22sp"
-        />
+        android:textSize="24sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,11 +26,32 @@
         android:background="@drawable/target_container"
         android:orientation="vertical"
         android:paddingTop="8dp"
+        android:paddingBottom="8dp"
         android:paddingLeft="12dp"
         android:paddingRight="12dp">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/monthSpinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="48dp"
+                android:paddingLeft="10dp"/>
+
+            <Spinner
+                android:id="@+id/daySpinner"
+                android:layout_width="80dp"
+                android:layout_height="48dp"
+                android:paddingLeft="10dp"/>
+
+        </LinearLayout>
+
         <EditText
-            android:id="@+id/ageField"
+            android:id="@+id/durationField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="48dp"
@@ -38,91 +59,8 @@
             android:imeOptions="actionNext"
             android:textSize="20sp"
             android:fontFamily="sans-serif-light"
-            android:hint="@string/age_field_hint"
-            android:ems="2"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/heightField"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="1"
-                android:fontFamily="sans-serif-light"
-                android:hint="@string/height_field_hint"
-                android:imeOptions="actionNext"
-                android:inputType="numberDecimal"
-                android:minHeight="48dp"
-                android:textSize="20sp"
-                android:maxEms="3"/>
-
-            <Spinner
-                android:id="@+id/heightSpinner"
-                android:layout_width="80dp"
-                android:layout_height="48dp"
-                android:paddingLeft="10dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/weightField"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="1"
-                android:fontFamily="sans-serif-light"
-                android:hint="@string/weight_field_hint"
-                android:inputType="numberDecimal"
-                android:minHeight="48dp"
-                android:textSize="20sp"
-                android:maxEms="3"/>
-
-            <Spinner
-                android:id="@+id/weightSpinner"
-                android:layout_width="80dp"
-                android:layout_height="48dp"
-                android:paddingLeft="10dp"/>
-
-        </LinearLayout>
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="30dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/radio_male"
-                android:checked="true"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_weight="1"
-                android:onClick="onRadioButtonClicked"
-                android:text="@string/checkbox_male"
-                android:textColor="#34495e"/>
-
-            <RadioButton
-                android:id="@+id/radio_female"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="onRadioButtonClicked"
-                android:text="@string/checkbox_female"
-                android:textColor="#34495e"/>
-
-        </RadioGroup>
-
+            android:hint="@string/duration_field_hint"
+            android:ems="3"/>
 
     </LinearLayout>
 

@@ -55,7 +55,8 @@
             android:name="ui.activities.AerobicActivity"
             android:label="@string/aerobic_activity_title"
             android:parentActivityName="ui.activities.MainActivity"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@style/AerobicTheme" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ui.activities.MainActivity" />
