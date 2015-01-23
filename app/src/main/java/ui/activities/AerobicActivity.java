@@ -44,9 +44,9 @@ public class AerobicActivity extends Activity {
     private static final String DATE_FORMAT = "yyyy.MM.dd HH:mm:ss";
 
     /**
-     *  Track whether an authorization activity is stacking over the current activity, i.e. when
-     *  a known auth error is being resolved, such as showing the account chooser or presenting a
-     *  consent dialog. This avoids common duplications as might happen on screen rotations, etc.
+     * Track whether an authorization activity is stacking over the current activity, i.e. when
+     * a known auth error is being resolved, such as showing the account chooser or presenting a
+     * consent dialog. This avoids common duplications as might happen on screen rotations, etc.
      */
     private static final String AUTH_PENDING = "auth_state_pending";
     private boolean authInProgress = false;
@@ -56,6 +56,8 @@ public class AerobicActivity extends Activity {
     private Spinner mMonthSpinner;
     private Spinner mDaySpinner;
     private NumberPicker mNumberPicker;
+    private Calendar mCalendar;
+    private int mWorkoutDuration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,12 +72,12 @@ public class AerobicActivity extends Activity {
     }
 
     /**
-     *  Build a {@link com.google.android.gms.common.api.GoogleApiClient} that will authenticate the user and allow the application
-     *  to connect to Fitness APIs. The scopes included should match the scopes your app needs
-     *  (see documentation for details). Authentication will occasionally fail intentionally,
-     *  and in those cases, there will be a known resolution, which the OnConnectionFailedListener()
-     *  can address. Examples of this include the user never having signed in before, or
-     *  having multiple accounts on the device and needing to specify which account to use, etc.
+     * Build a {@link com.google.android.gms.common.api.GoogleApiClient} that will authenticate the user and allow the application
+     * to connect to Fitness APIs. The scopes included should match the scopes your app needs
+     * (see documentation for details). Authentication will occasionally fail intentionally,
+     * and in those cases, there will be a known resolution, which the OnConnectionFailedListener()
+     * can address. Examples of this include the user never having signed in before, or
+     * having multiple accounts on the device and needing to specify which account to use, etc.
      */
     private void buildFitnessClient() {
         // Create the Google API Client
@@ -89,7 +91,7 @@ public class AerobicActivity extends Activity {
                             public void onConnected(Bundle bundle) {
                                 // Now you can make calls to the Fitness APIs.  What to do?
                                 // Look at some data!!
-                                // TODO: new InsertAndVerifyDataTask().execute();
+                                new InsertAndVerifySessionTask().execute();
                             }
 
                             @Override
@@ -148,13 +150,13 @@ public class AerobicActivity extends Activity {
     }
 
     /**
-     *  Create and execute a {@link com.google.android.gms.fitness.request.SessionInsertRequest} to insert a session into the History API,
-     *  and then create and execute a {@link com.google.android.gms.fitness.request.SessionReadRequest} to verify the insertion succeeded.
-     *  By using an AsyncTask to make our calls, we can schedule synchronous calls, so that we can
-     *  query for sessions after confirming that our insert was successful. Using asynchronous calls
-     *  and callbacks would not guarantee that the insertion had concluded before the read request
-     *  was made. An example of an asynchronous call using a callback can be found in the example
-     *  on deleting sessions below.
+     * Create and execute a {@link com.google.android.gms.fitness.request.SessionInsertRequest} to insert a session into the History API,
+     * and then create and execute a {@link com.google.android.gms.fitness.request.SessionReadRequest} to verify the insertion succeeded.
+     * By using an AsyncTask to make our calls, we can schedule synchronous calls, so that we can
+     * query for sessions after confirming that our insert was successful. Using asynchronous calls
+     * and callbacks would not guarantee that the insertion had concluded before the read request
+     * was made. An example of an asynchronous call using a callback can be found in the example
+     * on deleting sessions below.
      */
     private class InsertAndVerifySessionTask extends AsyncTask<Void, Void, Void> {
         protected Void doInBackground(Void... params) {
@@ -187,34 +189,29 @@ public class AerobicActivity extends Activity {
     }
 
     /**
-     *  Create a {@link SessionInsertRequest} for a run.
-     *
-     *  {@link Session}s are time intervals that are associated with all Fit data that falls into
-     *  that time interval. This data can be inserted when inserting a session or independently,
-     *  without affecting the association between that data and the session. Future queries for
-     *  that session will return all data relevant to the time interval created by the session.
-     *
-     *  Sessions may contain {@link DataSet}s, which are comprised of {@link com.google.android.gms.fitness.data.DataPoint}s and a
-     *  {@link com.google.android.gms.fitness.data.DataSource}.
-     *  A {@link com.google.android.gms.fitness.data.DataPoint} is associated with a Fit {@link com.google.android.gms.fitness.data.DataType}, which may be
-     *  derived from the {@link com.google.android.gms.fitness.data.DataSource}, as well as a time interval, and a value. A given
-     *  {@link DataSet} may only contain data for a single data type, but a {@link Session} can
-     *  contain multiple {@link DataSet}s.
+     * Create a {@link SessionInsertRequest} for a run.
+     * <p/>
+     * {@link Session}s are time intervals that are associated with all Fit data that falls into
+     * that time interval. This data can be inserted when inserting a session or independently,
+     * without affecting the association between that data and the session. Future queries for
+     * that session will return all data relevant to the time interval created by the session.
+     * <p/>
+     * Sessions may contain {@link DataSet}s, which are comprised of {@link com.google.android.gms.fitness.data.DataPoint}s and a
+     * {@link com.google.android.gms.fitness.data.DataSource}.
+     * A {@link com.google.android.gms.fitness.data.DataPoint} is associated with a Fit {@link com.google.android.gms.fitness.data.DataType}, which may be
+     * derived from the {@link com.google.android.gms.fitness.data.DataSource}, as well as a time interval, and a value. A given
+     * {@link DataSet} may only contain data for a single data type, but a {@link Session} can
+     * contain multiple {@link DataSet}s.
      */
     private SessionInsertRequest insertFitnessSession() {
-        Log.i(TAG, "Creating a new session for an afternoon run");
+        Log.i(TAG, "Creating a new session for an aerobic workout");
         // Setting start and end times for our run.
         Calendar cal = Calendar.getInstance();
         Date now = new Date();
         cal.setTime(now);
-        // Set a range of the run, using a start time of 30 minutes before this moment,
-        // with a 10-minute walk in the middle.
+        // Set a range of the run, using a start time of workout duration before this moment.
         long endTime = cal.getTimeInMillis();
-        cal.add(Calendar.MINUTE, -10);
-        long endWalkTime = cal.getTimeInMillis();
-        cal.add(Calendar.MINUTE, -10);
-        long startWalkTime = cal.getTimeInMillis();
-        cal.add(Calendar.MINUTE, -10);
+        cal.add(Calendar.MINUTE, -mWorkoutDuration);
         long startTime = cal.getTimeInMillis();
 
         // Create a data source
@@ -230,7 +227,7 @@ public class AerobicActivity extends Activity {
         DataSet speedDataSet = DataSet.create(speedDataSource);
 
         DataPoint firstRunSpeed = speedDataSet.createDataPoint()
-                .setTimeInterval(startTime, startWalkTime, TimeUnit.MILLISECONDS);
+                .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS);
         firstRunSpeed.getValue(Field.FIELD_SPEED).setFloat(runSpeedMps);
         speedDataSet.add(firstRunSpeed);
 
@@ -270,7 +267,7 @@ public class AerobicActivity extends Activity {
                 R.array.days_values, android.R.layout.simple_spinner_item);
         mDayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mDaySpinner.setAdapter(mDayAdapter);
-        mDaySpinner.setSelection(Calendar.getInstance().get(Calendar.DAY_OF_MONTH)-1);
+        mDaySpinner.setSelection(Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - 1);
 
         mNumberPicker = (NumberPicker) findViewById(R.id.numberPicker);
         mNumberPicker.setMinValue(5);
@@ -281,7 +278,9 @@ public class AerobicActivity extends Activity {
 
     public void saveData(View view) {
 
-        Calendar mCalendar = Calendar.getInstance();
+        mWorkoutDuration = mNumberPicker.getValue();
+
+        mCalendar = Calendar.getInstance();
         String mYear = mCalendar.get(Calendar.YEAR) + "";
         String mMonth = mMonthSpinner.getSelectedItem().toString();
         String mDay = mDaySpinner.getSelectedItem().toString();
@@ -302,10 +301,12 @@ public class AerobicActivity extends Activity {
             convertedDate = new Date();
         }
         mCalendar.setTime(convertedDate);
-        SimpleDateFormat fitApiDateFormat = new SimpleDateFormat(DATE_FORMAT);
-        Toast.makeText(this, fitApiDateFormat.format(mCalendar.getTimeInMillis()), Toast.LENGTH_SHORT).show();
 
-        // TODO: navigateToMainScreen();
+        if (!mClient.isConnected()) {
+            mClient.connect();
+        }
+
+        navigateToMainScreen();
     }
 
     private void navigateToMainScreen() {
