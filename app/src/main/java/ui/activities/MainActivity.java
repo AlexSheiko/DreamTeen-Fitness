@@ -35,6 +35,7 @@ public class MainActivity extends Activity {
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         addSideNavigation();
+        updateProgressBar();
     }
 
     @Override
@@ -55,10 +56,10 @@ public class MainActivity extends Activity {
         return -1;
     }
 
-    private void updateProgressBar(int caloriesToExpandDaily) {
+    private void updateProgressBar(/*int caloriesToExpandDaily*/) {
 
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        progressBar.setMax(caloriesToExpandDaily);
+        progressBar.setMax(/*caloriesToExpandDaily*/2000);
 
         // Average expansion by day
         int caloriesBurnedByDefault = Calendar.getInstance()

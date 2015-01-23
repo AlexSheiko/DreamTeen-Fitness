@@ -28,7 +28,7 @@
     <string name="com_facebook_usersettingsfragment_log_in_button">התחבר…</string>
     <string name="com_facebook_usersettingsfragment_logged_in">מחובר</string>
     <string name="com_facebook_usersettingsfragment_not_logged_in">לא מחובר</string>
-    <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.71/res/values-iw/common_strings.xml -->
+    <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values-iw/common_strings.xml -->
     <eat-comment/>
     <string msgid="473679118463211576" name="common_android_wear_notification_needs_update_text">"‏אפליקציה מסוימת דורשת עדכון לאפליקציה Android Wear."</string>
     <string msgid="3046420540094071256" name="common_android_wear_update_text">"‏אפליקציה זו לא תפעל עד שתעדכן את האפליקציה Android Wear."</string>
