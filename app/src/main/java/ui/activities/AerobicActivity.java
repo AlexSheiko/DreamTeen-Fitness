@@ -19,12 +19,15 @@ import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.fitness.Fitness;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 import bellamica.tech.dreamteenfitness.R;
 
 public class AerobicActivity extends Activity {
-
-    private Spinner mMonthSpinner;
-    private Spinner mDaySpinner;
 
     public static final String TAG = "DreamTeen Fitness";
     private static final int REQUEST_OAUTH = 1;
@@ -40,17 +43,15 @@ public class AerobicActivity extends Activity {
 
     private GoogleApiClient mClient = null;
 
+    private Spinner mMonthSpinner;
+    private Spinner mDaySpinner;
+    private NumberPicker mNumberPicker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aerobic);
-        initializeSpinners();
-
-        NumberPicker mNumberPicker = (NumberPicker) findViewById(R.id.numberPicker);
-        mNumberPicker.setMinValue(5);
-        mNumberPicker.setMaxValue(90);
-        mNumberPicker.setValue(20);
-        mNumberPicker.setWrapSelectorWheel(false);
+        initializeViews();
 
         if (savedInstanceState != null) {
             authInProgress = savedInstanceState.getBoolean(AUTH_PENDING);
@@ -138,32 +139,55 @@ public class AerobicActivity extends Activity {
         }
     }
 
-    private void initializeSpinners() {
+    private void initializeViews() {
         mMonthSpinner = (Spinner) findViewById(R.id.monthSpinner);
-        ArrayAdapter<CharSequence> mHeightAdapter = ArrayAdapter.createFromResource(this,
+        ArrayAdapter<CharSequence> mMonthAdapter = ArrayAdapter.createFromResource(this,
                 R.array.month_values, android.R.layout.simple_spinner_item);
-        mHeightAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mMonthSpinner.setAdapter(mHeightAdapter);
+        mMonthAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mMonthSpinner.setAdapter(mMonthAdapter);
+        mMonthSpinner.setSelection(Calendar.getInstance().get(Calendar.MONTH));
 
         mDaySpinner = (Spinner) findViewById(R.id.daySpinner);
-        ArrayAdapter<CharSequence> mWeightAdapter = ArrayAdapter.createFromResource(this,
+        ArrayAdapter<CharSequence> mDayAdapter = ArrayAdapter.createFromResource(this,
                 R.array.days_values, android.R.layout.simple_spinner_item);
-        mWeightAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mDaySpinner.setAdapter(mWeightAdapter);
+        mDayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mDaySpinner.setAdapter(mDayAdapter);
+        mDaySpinner.setSelection(Calendar.getInstance().get(Calendar.DAY_OF_MONTH)-1);
+
+        mNumberPicker = (NumberPicker) findViewById(R.id.numberPicker);
+        mNumberPicker.setMinValue(5);
+        mNumberPicker.setMaxValue(90);
+        mNumberPicker.setValue(20);
+        mNumberPicker.setWrapSelectorWheel(false);
     }
 
-    private int mDuration = -1;
-    private int mHeight;
-    private int mWeight;
-
     public void saveData(View view) {
-        if (mMonthSpinner.getSelectedItem().toString().equals("cm"))
-            mHeight = (int) (mHeight * 0.394);
 
-        if (mDaySpinner.getSelectedItem().toString().equals("kg"))
-            mWeight = (int) (mWeight * 2.205);
+        Calendar mCalendar = Calendar.getInstance();
+        String mYear = mCalendar.get(Calendar.YEAR) + "";
+        String mMonth = mMonthSpinner.getSelectedItem().toString();
+        String mDay = mDaySpinner.getSelectedItem().toString();
+        String mHour = mCalendar.get(Calendar.HOUR) + "";
+        String mMinute = mCalendar.get(Calendar.MINUTE) + "";
+        String mSecond = mCalendar.get(Calendar.SECOND) + "";
 
-        navigateToMainScreen();
+        String dateString =
+                mMonth + "." + mDay + "." + mYear + " " +
+                        mHour + ":" + mMinute + ":" + mSecond;
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM.d.yyyy k:m:s", Locale.US);
+        Date convertedDate;
+        try {
+            convertedDate = dateFormat.parse(dateString);
+        } catch (ParseException e) {
+            Log.w(TAG, "Parse string date failed. Exception: " + e.getMessage());
+            convertedDate = new Date();
+        }
+        mCalendar.setTime(convertedDate);
+        SimpleDateFormat fitApiDateFormat = new SimpleDateFormat(DATE_FORMAT);
+        Toast.makeText(this, fitApiDateFormat.format(mCalendar.getTimeInMillis()), Toast.LENGTH_SHORT).show();
+
+        // TODO: navigateToMainScreen();
     }
 
     private void navigateToMainScreen() {
