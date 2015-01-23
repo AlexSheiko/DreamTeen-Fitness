@@ -215,9 +215,9 @@ public final class R {
 		public static final int com_facebook_usersettingsfragment_not_logged_in = 0x7f0a002e;
 	}
 	public static final class style {
-		public static final int com_facebook_loginview_default_style = 0x7f0b0014;
-		public static final int com_facebook_loginview_silver_style = 0x7f0b0015;
-		public static final int tooltip_bubble_text = 0x7f0b0016;
+		public static final int com_facebook_loginview_default_style = 0x7f0b0015;
+		public static final int com_facebook_loginview_silver_style = 0x7f0b0016;
+		public static final int tooltip_bubble_text = 0x7f0b0017;
 	}
 	public static final class styleable {
 		public static final int[] com_facebook_friend_picker_fragment = { 0x7f010025 };

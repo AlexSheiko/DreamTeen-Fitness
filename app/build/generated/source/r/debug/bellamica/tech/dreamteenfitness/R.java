@@ -1048,19 +1048,20 @@ containing a value of this type.
         public static final int InputContainer=0x7f0b0007;
         public static final int MyActionBar=0x7f0b0008;
         public static final int MyTheme_ActionBar_TitleTextStyle=0x7f0b0009;
-        public static final int SettingsTheme=0x7f0b000a;
-        public static final int ShadowOverlayText=0x7f0b000b;
-        public static final int Theme_IAPTheme=0x7f0b000c;
-        public static final int TripLabelDistance=0x7f0b000d;
-        public static final int TripLabelHeader=0x7f0b000e;
-        public static final int TripLabelUnits=0x7f0b000f;
-        public static final int WalletFragmentDefaultButtonTextAppearance=0x7f0b0010;
-        public static final int WalletFragmentDefaultDetailsHeaderTextAppearance=0x7f0b0011;
-        public static final int WalletFragmentDefaultDetailsTextAppearance=0x7f0b0012;
-        public static final int WalletFragmentDefaultStyle=0x7f0b0013;
-        public static final int com_facebook_loginview_default_style=0x7f0b0014;
-        public static final int com_facebook_loginview_silver_style=0x7f0b0015;
-        public static final int tooltip_bubble_text=0x7f0b0016;
+        public static final int NumberPickerWithButton=0x7f0b000a;
+        public static final int SettingsTheme=0x7f0b000b;
+        public static final int ShadowOverlayText=0x7f0b000c;
+        public static final int Theme_IAPTheme=0x7f0b000d;
+        public static final int TripLabelDistance=0x7f0b000e;
+        public static final int TripLabelHeader=0x7f0b000f;
+        public static final int TripLabelUnits=0x7f0b0010;
+        public static final int WalletFragmentDefaultButtonTextAppearance=0x7f0b0011;
+        public static final int WalletFragmentDefaultDetailsHeaderTextAppearance=0x7f0b0012;
+        public static final int WalletFragmentDefaultDetailsTextAppearance=0x7f0b0013;
+        public static final int WalletFragmentDefaultStyle=0x7f0b0014;
+        public static final int com_facebook_loginview_default_style=0x7f0b0015;
+        public static final int com_facebook_loginview_silver_style=0x7f0b0016;
+        public static final int tooltip_bubble_text=0x7f0b0017;
     }
     public static final class xml {
         public static final int preferences=0x7f040000;

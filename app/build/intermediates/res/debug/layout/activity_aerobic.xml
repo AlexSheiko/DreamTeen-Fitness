@@ -63,6 +63,7 @@
             </FrameLayout>
 
             <NumberPicker
+                android:theme="@style/NumberPickerWithButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/numberPicker"
@@ -95,7 +96,7 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/login_button"
         android:onClick="saveData"
-        android:paddingBottom="8dp"
+        android:paddingBottom="12dp"
         android:paddingLeft="22dp"
         android:paddingRight="22dp"
         android:paddingTop="8dp"
