@@ -59,5 +59,16 @@
     <string name="pref_notifications_summary">Get notifications about step goal progress</string>
     <string name="pref_keep_screen_summary">Turn ON to keep screen active during and activity</string>
     <string name="request_sent_toast">Request successfully sent</string>
+    <string name="title_log_activity">Log activity</string>
+
+    <string name="body_params_title">About you</string>
+    <string name="height_field_hint">Height</string>
+    <string name="action_skip">Skip</string>
+    <string name="weight_field_hint">Weight</string>
+    <string name="checkbox_male">Male</string>
+    <string name="checkbox_female">Female</string>
+    <string name="save_button_label">Save</string>
+    <string name="age_field_hint">Age</string>
+    <string name="aerobic_activity_title">Aerobic</string>
 
 </resources>

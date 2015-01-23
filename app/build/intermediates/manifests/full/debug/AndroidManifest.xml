@@ -52,6 +52,15 @@
                 android:value="ui.activities.MainActivity" />
         </activity>
         <activity
+            android:name="ui.activities.AerobicActivity"
+            android:label="@string/aerobic_activity_title"
+            android:parentActivityName="ui.activities.MainActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ui.activities.MainActivity" />
+        </activity>
+        <activity
             android:name="ui.activities.SummaryActivity"
             android:label="@string/title_activity_summary"
             android:parentActivityName="ui.activities.RunActivity"

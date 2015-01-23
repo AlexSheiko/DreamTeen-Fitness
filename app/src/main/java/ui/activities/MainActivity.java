@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -90,6 +91,7 @@ public class MainActivity extends Activity {
         mClient = new GoogleApiClient.Builder(this)
                 .addApi(Fitness.API)
                 .addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
+                .addScope(new Scope(Scopes.FITNESS_LOCATION_READ_WRITE))
                 .addConnectionCallbacks(
                         new GoogleApiClient.ConnectionCallbacks() {
                             @Override
@@ -186,8 +188,28 @@ public class MainActivity extends Activity {
             findViewById(R.id.caloriesContainer).setVisibility(View.GONE);
     }
 
+    private class ReadDataTask extends AsyncTask<Void, Void, Void> {
+        protected Void doInBackground(Void... params) {
+            // Begin by creating the query.
+            DataReadRequest readRequest = queryFitnessData();
+
+            // [START read_dataset]
+            // Invoke the History API to fetch the data with the query and await the result of
+            // the read request.
+            DataReadResult dataReadResult =
+                    Fitness.HistoryApi.readData(mClient, readRequest).await(1, TimeUnit.MINUTES);
+            // [END read_dataset]
+
+            // For the sake of the sample, we'll print the data so we can see what we just added.
+            // In general, logging fitness information should be avoided for privacy reasons.
+            printData(dataReadResult);
+
+            return null;
+        }
+    }
+
     /**
-     * Return a {@link com.google.android.gms.fitness.request.DataReadRequest} for all step count changes in the past week.
+     * Return a {@link DataReadRequest} for all step count changes in the past week.
      */
     private DataReadRequest queryFitnessData() {
         // [START build_read_data_request]
@@ -395,6 +417,6 @@ public class MainActivity extends Activity {
     }
 
     public void navigateToAerobic(View view) {
-        Toast.makeText(this, "Coming soon", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this, AerobicActivity.class));
     }
 }

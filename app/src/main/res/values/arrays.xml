@@ -21,4 +21,12 @@
         <item>1</item>
         <item>0</item>
     </string-array>
+    <string-array name="height_spinner_units">
+        <item>inch</item>
+        <item>cm</item>
+    </string-array>
+    <string-array name="weight_spinner_values">
+        <item>lb</item>
+        <item>kg</item>
+    </string-array>
 </resources>
