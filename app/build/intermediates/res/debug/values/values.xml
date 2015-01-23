@@ -269,7 +269,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="invite_button_label_fb">Find on Facebook</string>
     <string name="kg_test_value" translatable="false">8</string>
-    <string name="log_activity_label">Log activity</string>
+    <string name="log_activity_label">Log workout</string>
     <string name="login_button_label">Connect to Google Fit</string>
     <string name="network_error">Network error</string>
     <string name="notes_field_hint">Additional notes</string>

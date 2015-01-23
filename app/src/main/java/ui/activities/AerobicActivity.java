@@ -8,8 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -381,8 +381,6 @@ public class AerobicActivity extends Activity {
     private int mWeight;
 
     public void saveData(View view) {
-        mDuration = Integer.parseInt(((EditText) findViewById(R.id.durationField)).getText().toString());
-
         if (mHeightSpinner.getSelectedItem().toString().equals("cm"))
             mHeight = (int) (mHeight * 0.394);
 
@@ -393,6 +391,7 @@ public class AerobicActivity extends Activity {
     }
 
     private void navigateToMainScreen() {
+        Toast.makeText(this, "Workout saved", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this, MainActivity.class)
                 .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
