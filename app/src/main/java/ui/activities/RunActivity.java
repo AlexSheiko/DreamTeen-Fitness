@@ -46,14 +46,16 @@ import ui.fragments.MapPane.WorkoutStateListener;
 
 public class RunActivity extends Activity
         implements WorkoutStateListener {
-    public static final String TAG = "BasicSessions";
+    public static final String TAG = "DreamTeen Fitness";
     private static final int REQUEST_OAUTH = 1;
 
     private static final int WORKOUT_START = 1;
     private static final int WORKOUT_PAUSE = 2;
     private static final int WORKOUT_FINISH = 3;
 
-    // Track whether an authorization activity is stacking over the current activity
+    /**
+     *  Track whether an authorization activity is stacking over the current activity
+     */
     private static final String AUTH_PENDING = "auth_state_pending";
     private boolean authInProgress = false;
 
@@ -87,11 +89,11 @@ public class RunActivity extends Activity
                 break;
 
             case WORKOUT_PAUSE:
-                stopLocationUpdates();
-                cancelSubscription();
-
-                if (mClient.isConnected())
+                if (mClient.isConnected()) {
+                    stopLocationUpdates();
+                    cancelSubscription();
                     mClient.disconnect();
+                }
                 break;
 
             case WORKOUT_FINISH:
@@ -271,19 +273,19 @@ public class RunActivity extends Activity
         mLocationListener = new OnDataPointListener() {
             @Override
             public void onDataPoint(DataPoint dataPoint) {
-                    Double mLatitude = 0.0;
-                    Double mLongitude = 0.0;
-                    for (Field field : dataPoint.getDataType().getFields()) {
-                        Value val = dataPoint.getValue(field);
-                        // Set latitude or longitude
-                        if (field.getName().equals("latitude")) {
-                            mLatitude = (double) val.asFloat();
-                        } else if (field.getName().equals("longitude")) {
-                            mLongitude = (double) val.asFloat();
-                        }
+                Double mLatitude = 0.0;
+                Double mLongitude = 0.0;
+                for (Field field : dataPoint.getDataType().getFields()) {
+                    Value val = dataPoint.getValue(field);
+                    // Set latitude or longitude
+                    if (field.getName().equals("latitude")) {
+                        mLatitude = (double) val.asFloat();
+                    } else if (field.getName().equals("longitude")) {
+                        mLongitude = (double) val.asFloat();
                     }
-                    // Callback to update map's focus
-                    sendLocation(mLatitude, mLongitude);
+                }
+                // Callback to update map's focus
+                sendLocation(mLatitude, mLongitude);
             }
         };
 
@@ -333,9 +335,9 @@ public class RunActivity extends Activity
     }
 
     /**
-     *  Create a {@link com.google.android.gms.fitness.data.DataSet} to insert data into the History API, and
+     *  Create a {@link DataSet} to insert data into the History API, and
      *  then create and execute a {@link com.google.android.gms.fitness.request.DataReadRequest} to verify the insertion succeeded.
-     *  By using an {@link android.os.AsyncTask}, we can schedule synchronous calls, so that we can query for
+     *  By using an {@link AsyncTask}, we can schedule synchronous calls, so that we can query for
      *  data after confirming that our insert was successful. Using asynchronous calls and callbacks
      *  would not guarantee that the insertion had concluded before the read request was made.
      *  An example of an asynchronous call using a callback can be found in the example
@@ -351,6 +353,7 @@ public class RunActivity extends Activity
             // possible here because of the {@link AsyncTask}. Always include a timeout when calling
             // await() to prevent hanging that can occur from the service being shutdown because
             // of low memory or other conditions.
+            Log.i(TAG, "Inserting the dataset in the History API");
             com.google.android.gms.common.api.Status insertStatus =
                     Fitness.HistoryApi.insertData(mClient, dataSet)
                             .await(1, TimeUnit.MINUTES);
@@ -360,6 +363,11 @@ public class RunActivity extends Activity
                 Log.i(TAG, "There was a problem inserting the dataset.");
                 return null;
             }
+
+            // At this point, the data has been inserted and can be read.
+            Log.i(TAG, "Data insert was successful!");
+            // [END insert_dataset]
+
             return null;
         }
     }
@@ -368,13 +376,15 @@ public class RunActivity extends Activity
      * Create and return a {@link DataSet} of step count data for the History API.
      */
     private DataSet insertFitnessData() {
+        Log.i(TAG, "Creating a new data insert request");
+
         // [START build_insert_data_request]
         // Set a start and end time for our data, using a start time of 1 hour before this moment.
         Calendar cal = Calendar.getInstance();
         Date now = new Date();
         cal.setTime(now);
         long endTime = cal.getTimeInMillis();
-        cal.setTime(mRunStartTime);
+        cal.add(Calendar.HOUR_OF_DAY, -1);
         long startTime = cal.getTimeInMillis();
 
         // Create a data source
@@ -386,7 +396,7 @@ public class RunActivity extends Activity
                 .build();
 
         // Create a data set
-        int stepCountDelta = 1001;
+        int stepCountDelta = 1020;
         DataSet dataSet = DataSet.create(dataSource);
         // For each data point, specify a start time, end time, and the data value -- in this case,
         // the number of new steps.
