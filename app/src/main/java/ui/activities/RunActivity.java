@@ -2,9 +2,9 @@ package ui.activities;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
@@ -31,15 +31,17 @@ import com.google.android.gms.fitness.request.OnDataPointListener;
 import com.google.android.gms.fitness.request.SensorRequest;
 import com.google.android.gms.fitness.result.DataSourcesResult;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import bellamica.tech.dreamteenfitness.R;
 import ui.fragments.MapPane;
-import ui.fragments.MapPane.OnWorkoutStateChanged;
+import ui.fragments.MapPane.WorkoutStateListener;
 
 
 public class RunActivity extends Activity
-        implements OnWorkoutStateChanged {
+        implements WorkoutStateListener {
     public static final String TAG = "BasicSessions";
     private static final int REQUEST_OAUTH = 1;
 
@@ -53,15 +55,11 @@ public class RunActivity extends Activity
 
     private GoogleApiClient mClient = null;
     private OnDataPointListener mLocationListener;
-    private OnDataPointListener mStepsListener;
-
-    private SharedPreferences mSharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_run);
-        mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         if (savedInstanceState != null) {
             authInProgress = savedInstanceState.getBoolean(AUTH_PENDING);
@@ -78,13 +76,14 @@ public class RunActivity extends Activity
     public void onWorkoutStateChanged(int state) {
         switch (state) {
             case WORKOUT_START:
+                setStartTime(this, new Date());
                 // Connect to the Fitness API
                 mClient.connect();
                 break;
 
             case WORKOUT_PAUSE:
-                unregisterLocationListener();
-                unregisterStepsListener();
+                stopLocationUpdates();
+                cancelSubscription();
 
                 if (mClient.isConnected())
                     mClient.disconnect();
@@ -94,6 +93,13 @@ public class RunActivity extends Activity
                 startActivity(new Intent(this, SummaryActivity.class));
                 break;
         }
+    }
+
+    private void setStartTime(Context context, Date currentDate) {
+        String startTime =
+                new SimpleDateFormat("dd MMM, hh:mm").format(currentDate).toLowerCase();
+        PreferenceManager.getDefaultSharedPreferences(context).edit()
+                .putString("start_time", startTime).apply();
     }
 
     /**
@@ -112,7 +118,8 @@ public class RunActivity extends Activity
                             @Override
                             public void onConnected(Bundle bundle) {
                                 // Start updating map focus
-                                findLocationDataSources();
+                                startLocationUpdates();
+                                subscribe();
                             }
 
                             @Override
@@ -157,23 +164,74 @@ public class RunActivity extends Activity
                 .build();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_OAUTH) {
-            authInProgress = false;
-            if (resultCode == RESULT_OK) {
-                // Make sure the app is not already connected or attempting to connect
-                if (!mClient.isConnecting() && !mClient.isConnected()) {
-                    mClient.connect();
-                }
-            }
-        }
+    /**
+     * Subscribe to an available {@link DataType}. Subscriptions can exist across application
+     * instances (so data is recorded even after the application closes down).  When creating
+     * a new subscription, it may already exist from a previous invocation of this app.  If
+     * the subscription already exists, the method is a no-op.  However, you can check this with
+     * a special success code.
+     */
+    public void subscribe() {
+        // To create a subscription, invoke the Recording API. As soon as the subscription is
+        // active, fitness data will start recording.
+        // [START subscribe_to_datatype]
+        Fitness.RecordingApi.subscribe(mClient, DataType.TYPE_STEP_COUNT_DELTA)
+                .setResultCallback(new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                        if (!status.isSuccess()) {
+                            Log.i(TAG, "There was a problem subscribing.");
+                        }
+                    }
+                });
+
+        Fitness.RecordingApi.subscribe(mClient, DataType.TYPE_CALORIES_EXPENDED)
+                .setResultCallback(new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                        if (!status.isSuccess()) {
+                            Log.i(TAG, "There was a problem subscribing.");
+                        }
+                    }
+                });
+        // [END subscribe_to_datatype]
+    }
+
+    /**
+     * Cancel the ACTIVITY_SAMPLE subscription by calling unsubscribe on that {@link DataType}.
+     */
+    private void cancelSubscription() {
+        // Invoke the Recording API to unsubscribe from the data type and specify a callback that
+        // will check the result.
+        // [START unsubscribe_from_datatype]
+        Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_STEP_COUNT_DELTA)
+                .setResultCallback(new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                        if (!status.isSuccess()) {
+                            // Subscription not removed
+                            Log.i(TAG, "Failed to unsubscribe.");
+                        }
+                    }
+                });
+
+        Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_CALORIES_EXPENDED)
+                .setResultCallback(new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                        if (!status.isSuccess()) {
+                            // Subscription not removed
+                            Log.i(TAG, "Failed to unsubscribe.");
+                        }
+                    }
+                });
+        // [END unsubscribe_from_datatype]
     }
 
     /**
      * Find available data sources and attempt to register on a specific {@link DataType}.
      */
-    private void findLocationDataSources() {
+    private void startLocationUpdates() {
         // [START find_data_sources]
         Fitness.SensorsApi.findDataSources(mClient, new DataSourcesRequest.Builder()
                 // At least one datatype must be specified.
@@ -190,26 +248,6 @@ public class RunActivity extends Activity
                                     && mLocationListener == null) {
                                 registerLocationDataListener(dataSource,
                                         DataType.TYPE_LOCATION_SAMPLE);
-                            }
-                        }
-                    }
-                });
-
-        Fitness.SensorsApi.findDataSources(mClient, new DataSourcesRequest.Builder()
-                // At least one datatype must be specified.
-                .setDataTypes(DataType.TYPE_STEP_COUNT_DELTA)
-                        // Can specify whether data type is raw or derived.
-                .setDataSourceTypes(DataSource.TYPE_RAW)
-                .build())
-                .setResultCallback(new ResultCallback<DataSourcesResult>() {
-                    @Override
-                    public void onResult(DataSourcesResult dataSourcesResult) {
-                        for (DataSource dataSource : dataSourcesResult.getDataSources()) {
-                            //Let's register a listener to receive Activity data!
-                            if (dataSource.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)
-                                    && mLocationListener == null) {
-                                registerStepsDataListener(dataSource,
-                                        DataType.TYPE_STEP_COUNT_DELTA);
                             }
                         }
                     }
@@ -261,43 +299,6 @@ public class RunActivity extends Activity
         // [END register_data_listener]
     }
 
-    /**
-     * Register a listener with the Sensors API for the provided {@link DataSource} and
-     * {@link DataType} combo.
-     */
-    private void registerStepsDataListener(DataSource dataSource, final DataType dataType) {
-        // [START register_data_listener]
-        mStepsListener = new OnDataPointListener() {
-            @Override
-            public void onDataPoint(DataPoint dataPoint) {
-                for (Field field : dataPoint.getDataType().getFields()) {
-                    Value val = dataPoint.getValue(field);
-                    Log.i(TAG, "Step: " + val);
-                }
-                // TODO: Callback to update steps
-                // sendLocation(mLatitude, mLongitude);
-            }
-        };
-
-        Fitness.SensorsApi.add(
-                mClient,
-                new SensorRequest.Builder()
-                        .setDataSource(dataSource) // Optional but recommended for custom data sets.
-                        .setDataType(dataType) // Can't be omitted.
-                        .setSamplingRate(1, TimeUnit.SECONDS)
-                        .build(),
-                mStepsListener)
-                .setResultCallback(new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(Status status) {
-                        if (!status.isSuccess()) {
-                            Log.i(TAG, "Listener not registered.");
-                        }
-                    }
-                });
-        // [END register_data_listener]
-    }
-
     private void sendLocation(Double latitude, Double longitude) {
         Intent intent = new Intent("location-update");
         intent.putExtra("latitude", latitude);
@@ -308,7 +309,7 @@ public class RunActivity extends Activity
     /**
      * Unregister the listener with the Sensors API.
      */
-    private void unregisterLocationListener() {
+    private void stopLocationUpdates() {
         if (mLocationListener == null) return;
 
         Fitness.SensorsApi.remove(
@@ -324,23 +325,17 @@ public class RunActivity extends Activity
                 });
     }
 
-    /**
-     * Unregister the listener with the Sensors API.
-     */
-    private void unregisterStepsListener() {
-        if (mStepsListener == null) return;
-
-        Fitness.SensorsApi.remove(
-                mClient,
-                mStepsListener)
-                .setResultCallback(new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(Status status) {
-                        if (!status.isSuccess()) {
-                            Log.i(TAG, "Failed to remove steps listener.");
-                        }
-                    }
-                });
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_OAUTH) {
+            authInProgress = false;
+            if (resultCode == RESULT_OK) {
+                // Make sure the app is not already connected or attempting to connect
+                if (!mClient.isConnecting() && !mClient.isConnected()) {
+                    mClient.connect();
+                }
+            }
+        }
     }
 
     @Override

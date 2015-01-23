@@ -36,7 +36,7 @@ public class MapPane extends Fragment
         implements OnClickListener {
 
     // Callback to update session in RunActivity
-    OnWorkoutStateChanged mCallback;
+    WorkoutStateListener mCallback;
 
     // Time counter
     private TimerTask timerTask;
@@ -64,7 +64,7 @@ public class MapPane extends Fragment
     private float mTotalDistance = 0;
 
 
-    public interface OnWorkoutStateChanged {
+    public interface WorkoutStateListener {
         public void onWorkoutStateChanged(int state);
     }
 
@@ -76,7 +76,7 @@ public class MapPane extends Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         // Session state change listener
-        mCallback = (OnWorkoutStateChanged) activity;
+        mCallback = (WorkoutStateListener) activity;
     }
 
     @Override
@@ -227,6 +227,7 @@ public class MapPane extends Fragment
 
     private void disableMapUiControls(Fragment fragment) {
         mMap = ((MapFragment) fragment).getMap();
+        if (mMap == null) return;
         mMap.setMyLocationEnabled(true);
         mMap.setBuildingsEnabled(false);
         mMap.getUiSettings().setCompassEnabled(false);
@@ -270,7 +271,12 @@ public class MapPane extends Fragment
     }
 
     private float getDistance(Location previousLocation, Location currentLocation) {
-        return previousLocation.distanceTo(currentLocation) * 0.000621371f;
+        if (PreferenceManager.getDefaultSharedPreferences(
+                this.getActivity()).getString("pref_units", "1").equals("1")) {
+            return previousLocation.distanceTo(currentLocation) / 1000 * 0.621371f;
+        } else {
+            return previousLocation.distanceTo(currentLocation) / 1000;
+        }
     }
 
     private void incrementDistance(float increment) {

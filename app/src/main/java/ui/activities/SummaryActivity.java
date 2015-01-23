@@ -31,13 +31,13 @@ public class SummaryActivity extends Activity {
         if (sharedPrefs.getString("pref_units", "1").equals("1")) {
             ((TextView) findViewById(R.id.TripLabelUnits)).setText("miles");
         } else {
-            ((TextView) findViewById(R.id.TripLabelUnits)).setText("pref_units");
+            ((TextView) findViewById(R.id.TripLabelUnits)).setText("km");
         }
 
         // Get run info
         mDistance = sharedPrefs.getFloat("Distance", 0);
         mDuration = sharedPrefs.getString("Duration", "00:00");
-        mDateTime = sharedPrefs.getString("DateTime", "Unspecified");
+        mDateTime = sharedPrefs.getString("start_time", "");
 
         // Update UI with run info
         ((TextView) findViewById(R.id.TripLabelDistance)).setText(String.format("%.2f", mDistance));
@@ -75,10 +75,10 @@ public class SummaryActivity extends Activity {
         String mMessage;
         if (sharedPrefs.getString("pref_units", "1").equals("1")) {
             mMessage = "Just finished a run of " + String.format("%.2f", mDistance) + " miles " +
-                    "in " + mDuration + ".\n\nAny challengers? ;)\n#DreamFit";
+                    "in " + mDuration + ".\n\nAny challengers? ;)\n#DreamTeen Fitness";
         } else {
             mMessage = "Just finished a run of " + String.format("%.2f", mDistance) + " km " +
-                    "in " + mDuration + ".\n\nAny challengers? ;)\n#DreamFit";
+                    "in " + mDuration + ".\n\nAny challengers? ;)\n#DreamTeen Fitness";
         }
 
         Intent intent = new Intent(android.content.Intent.ACTION_SEND);
