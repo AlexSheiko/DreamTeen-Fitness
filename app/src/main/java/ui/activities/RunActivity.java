@@ -52,7 +52,8 @@ public class RunActivity extends Activity
     private boolean authInProgress = false;
 
     private GoogleApiClient mClient = null;
-    private OnDataPointListener mListener;
+    private OnDataPointListener mLocationListener;
+    private OnDataPointListener mStepsListener;
 
     private SharedPreferences mSharedPrefs;
 
@@ -82,7 +83,8 @@ public class RunActivity extends Activity
                 break;
 
             case WORKOUT_PAUSE:
-                unregisterLocationDataListener();
+                unregisterLocationListener();
+                unregisterStepsListener();
 
                 if (mClient.isConnected())
                     mClient.disconnect();
@@ -185,9 +187,29 @@ public class RunActivity extends Activity
                         for (DataSource dataSource : dataSourcesResult.getDataSources()) {
                             //Let's register a listener to receive Activity data!
                             if (dataSource.getDataType().equals(DataType.TYPE_LOCATION_SAMPLE)
-                                    && mListener == null) {
+                                    && mLocationListener == null) {
                                 registerLocationDataListener(dataSource,
                                         DataType.TYPE_LOCATION_SAMPLE);
+                            }
+                        }
+                    }
+                });
+
+        Fitness.SensorsApi.findDataSources(mClient, new DataSourcesRequest.Builder()
+                // At least one datatype must be specified.
+                .setDataTypes(DataType.TYPE_STEP_COUNT_DELTA)
+                        // Can specify whether data type is raw or derived.
+                .setDataSourceTypes(DataSource.TYPE_RAW)
+                .build())
+                .setResultCallback(new ResultCallback<DataSourcesResult>() {
+                    @Override
+                    public void onResult(DataSourcesResult dataSourcesResult) {
+                        for (DataSource dataSource : dataSourcesResult.getDataSources()) {
+                            //Let's register a listener to receive Activity data!
+                            if (dataSource.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)
+                                    && mLocationListener == null) {
+                                registerStepsDataListener(dataSource,
+                                        DataType.TYPE_STEP_COUNT_DELTA);
                             }
                         }
                     }
@@ -201,7 +223,7 @@ public class RunActivity extends Activity
      */
     private void registerLocationDataListener(DataSource dataSource, final DataType dataType) {
         // [START register_data_listener]
-        mListener = new OnDataPointListener() {
+        mLocationListener = new OnDataPointListener() {
             @Override
             public void onDataPoint(DataPoint dataPoint) {
                     Double mLatitude = 0.0;
@@ -227,7 +249,44 @@ public class RunActivity extends Activity
                         .setDataType(dataType) // Can't be omitted.
                         .setSamplingRate(10, TimeUnit.SECONDS)
                         .build(),
-                mListener)
+                mLocationListener)
+                .setResultCallback(new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                        if (!status.isSuccess()) {
+                            Log.i(TAG, "Listener not registered.");
+                        }
+                    }
+                });
+        // [END register_data_listener]
+    }
+
+    /**
+     * Register a listener with the Sensors API for the provided {@link DataSource} and
+     * {@link DataType} combo.
+     */
+    private void registerStepsDataListener(DataSource dataSource, final DataType dataType) {
+        // [START register_data_listener]
+        mStepsListener = new OnDataPointListener() {
+            @Override
+            public void onDataPoint(DataPoint dataPoint) {
+                for (Field field : dataPoint.getDataType().getFields()) {
+                    Value val = dataPoint.getValue(field);
+                    Log.i(TAG, "Step: " + val);
+                }
+                // TODO: Callback to update steps
+                // sendLocation(mLatitude, mLongitude);
+            }
+        };
+
+        Fitness.SensorsApi.add(
+                mClient,
+                new SensorRequest.Builder()
+                        .setDataSource(dataSource) // Optional but recommended for custom data sets.
+                        .setDataType(dataType) // Can't be omitted.
+                        .setSamplingRate(1, TimeUnit.SECONDS)
+                        .build(),
+                mStepsListener)
                 .setResultCallback(new ResultCallback<Status>() {
                     @Override
                     public void onResult(Status status) {
@@ -249,17 +308,36 @@ public class RunActivity extends Activity
     /**
      * Unregister the listener with the Sensors API.
      */
-    private void unregisterLocationDataListener() {
-        if (mListener == null) return;
+    private void unregisterLocationListener() {
+        if (mLocationListener == null) return;
 
         Fitness.SensorsApi.remove(
                 mClient,
-                mListener)
+                mLocationListener)
                 .setResultCallback(new ResultCallback<Status>() {
                     @Override
                     public void onResult(Status status) {
                         if (!status.isSuccess()) {
                             Log.i(TAG, "Failed to remove location listener.");
+                        }
+                    }
+                });
+    }
+
+    /**
+     * Unregister the listener with the Sensors API.
+     */
+    private void unregisterStepsListener() {
+        if (mStepsListener == null) return;
+
+        Fitness.SensorsApi.remove(
+                mClient,
+                mStepsListener)
+                .setResultCallback(new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                        if (!status.isSuccess()) {
+                            Log.i(TAG, "Failed to remove steps listener.");
                         }
                     }
                 });
