@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -28,17 +27,16 @@ import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Scope;
-import com.google.android.gms.common.api.Status;
 import com.google.android.gms.fitness.Fitness;
+import com.google.android.gms.fitness.data.Bucket;
 import com.google.android.gms.fitness.data.DataPoint;
 import com.google.android.gms.fitness.data.DataSet;
 import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
-import com.google.android.gms.fitness.data.Session;
-import com.google.android.gms.fitness.request.DataDeleteRequest;
-import com.google.android.gms.fitness.request.SessionReadRequest;
-import com.google.android.gms.fitness.result.SessionReadResult;
+import com.google.android.gms.fitness.request.DataReadRequest;
+import com.google.android.gms.fitness.result.DataReadResult;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -104,9 +102,7 @@ public class MainActivity extends Activity
                             public void onConnected(Bundle bundle) {
                                 // Now you can make calls to the Fitness APIs.  What to do?
                                 // Look at some data!!
-                                new ReadSessionTask().execute();
-                                // TODO: Delete this after finished testing
-                                // deleteSession();
+                                readCaloriesExpanded();
                             }
 
                             @Override
@@ -146,86 +142,8 @@ public class MainActivity extends Activity
                 .build();
     }
 
-    /**
-     * Delete the {@link DataSet} we inserted with our {@link Session} from the History API.
-     * In this example, we delete all step count data for the past 24 hours. Note that this
-     * deletion uses the History API, and not the Sessions API, since sessions are truly just time
-     * intervals over a set of data, and the data is what we are interested in removing.
-     */
-    private void deleteSession() {
-        Log.i(TAG, "Deleting today's session data for speed");
-
-        // Set a start and end time for our data, using a start time of 1 day before this moment.
-        Calendar cal = Calendar.getInstance();
-        Date now = new Date();
-        cal.setTime(now);
-        long endTime = cal.getTimeInMillis();
-        cal.add(Calendar.YEAR, -1);
-        long startTime = cal.getTimeInMillis();
-
-        // Create a delete request object, providing a data type and a time interval
-        DataDeleteRequest request = new DataDeleteRequest.Builder()
-                .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS)
-                .addDataType(DataType.TYPE_SPEED)
-                .deleteAllSessions() // Or specify a particular session here
-                .build();
-
-        // Invoke the History API with the Google API client object and the delete request and
-        // specify a callback that will check the result.
-        Fitness.HistoryApi.deleteData(mClient, request)
-                .setResultCallback(new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(Status status) {
-                        if (status.isSuccess()) {
-                            Log.i(TAG, "Successfully deleted today's sessions");
-                        } else {
-                            // The deletion will fail if the requesting app tries to delete data
-                            // that it did not insert.
-                            Log.i(TAG, "Failed to delete today's sessions");
-                        }
-                    }
-                });
-    }
-
-    @Override
-    public void onDailyCaloriesNormChanged(DialogFragment dialog, int newValue) {
-        Toast.makeText(this, newValue + "", Toast.LENGTH_SHORT).show();
-    }
-
-    private class ReadSessionTask extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected Void doInBackground(Void... voids) {
-            // Begin by creating the query.
-            SessionReadRequest readRequest = readFitnessSession();
-
-            // [START read_session]
-            // Invoke the Sessions API to fetch the session with the query and wait for the result
-            // of the read request.
-            SessionReadResult sessionReadResult =
-                    Fitness.SessionsApi.readSession(mClient, readRequest)
-                            .await(1, TimeUnit.MINUTES);
-
-            // Get a list of the sessions that match the criteria to check the result.
-            Log.i(TAG, "Session read was successful. Number of returned sessions is: "
-                    + sessionReadResult.getSessions().size());
-            for (Session session : sessionReadResult.getSessions()) {
-                // Process the data sets for this session
-                List<DataSet> dataSets = sessionReadResult.getDataSet(session);
-                for (DataSet dataSet : dataSets) {
-                    dumpDataSet(dataSet);
-                }
-            }
-
-            return null;
-        }
-    }
-
-    /**
-     * Return a {@link com.google.android.gms.fitness.request.SessionReadRequest} for all speed data in the past week.
-     */
-    private SessionReadRequest readFitnessSession() {
-        // [START build_read_session_request]
-        // Set a start and end time for our query, using a start time of 1 week before this moment.
+    private void readCaloriesExpanded() {
+        // Setting a start and end date using a range of 1 week before this moment.
         Calendar cal = Calendar.getInstance();
         Date now = new Date();
         cal.setTime(now);
@@ -233,28 +151,54 @@ public class MainActivity extends Activity
         cal.add(Calendar.DAY_OF_YEAR, -1);
         long startTime = cal.getTimeInMillis();
 
-        // Build a session read request
-        SessionReadRequest readRequest = new SessionReadRequest.Builder()
-                .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS)
+        DataReadRequest readRequest = new DataReadRequest.Builder()
                 .read(DataType.TYPE_CALORIES_EXPENDED)
-                .setSessionName(SAMPLE_SESSION_NAME)
+                .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
                 .build();
-        // [END build_read_session_request]
 
-        return readRequest;
+        // Invoke the History API to fetch the data with the query
+        Fitness.HistoryApi.readData(mClient, readRequest).setResultCallback(
+                new ResultCallback<DataReadResult>() {
+                    @Override
+                    public void onResult(DataReadResult dataReadResult) {
+                        if (dataReadResult.getBuckets().size() > 0) {
+                            Log.i(TAG, "Number of returned buckets of DataSets is: "
+                                    + dataReadResult.getBuckets().size());
+                            for (Bucket bucket : dataReadResult.getBuckets()) {
+                                List<DataSet> dataSets = bucket.getDataSets();
+                                for (DataSet dataSet : dataSets) {
+                                    dumpDataSet(dataSet);
+                                }
+                            }
+                        } else if (dataReadResult.getDataSets().size() > 0) {
+                            Log.i(TAG, "Number of returned DataSets is: "
+                                    + dataReadResult.getDataSets().size());
+                            for (DataSet dataSet : dataReadResult.getDataSets()) {
+                                dumpDataSet(dataSet);
+                            }
+                        }
+                    }
+                });
     }
 
     private void dumpDataSet(DataSet dataSet) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
+
         for (DataPoint dp : dataSet.getDataPoints()) {
-            // TODO: Delete date logging after finished testing
-            // SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT, Locale.US);
-            // Log.i(TAG, "\tStart: " + dateFormat.format(dp.getStartTime(TimeUnit.MILLISECONDS)));
-            // Log.i(TAG, "\tEnd: " + dateFormat.format(dp.getEndTime(TimeUnit.MILLISECONDS)));
-            for (Field field : dp.getDataType().getFields()) {
-                // Log.i(TAG, "\tValue: " + dp.getValue(field));
-                increaseDailyCaloriesCount(Math.round(dp.getValue(field).asFloat()));
+            Log.i(TAG, "Data point:");
+            Log.i(TAG, "\tType: " + dp.getDataType().getName());
+            Log.i(TAG, "\tStart: " + dateFormat.format(dp.getStartTime(TimeUnit.MILLISECONDS)));
+            Log.i(TAG, "\tEnd: " + dateFormat.format(dp.getEndTime(TimeUnit.MILLISECONDS)));
+            for(Field field : dp.getDataType().getFields()) {
+                Log.i(TAG, "\tField: " + field.getName() +
+                        " Value: " + dp.getValue(field));
             }
         }
+    }
+
+    @Override
+    public void onDailyCaloriesNormChanged(DialogFragment dialog, int newValue) {
+        Toast.makeText(this, newValue + "", Toast.LENGTH_SHORT).show();
     }
 
     private void increaseDailyCaloriesCount(int increment) {
@@ -274,7 +218,6 @@ public class MainActivity extends Activity
 
         progressBar.setProgress(caloriesBurnedByDefault);
     }
-
 
 
     @Override

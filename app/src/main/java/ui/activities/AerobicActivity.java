@@ -123,7 +123,9 @@ public class AerobicActivity extends Activity {
         Date now = new Date();
         cal.setTime(now);
         long endTime = cal.getTimeInMillis();
-        cal.add(Calendar.MINUTE, -mNumberPicker.getValue());
+        // TODO: Restore duration from input before releasing
+        // cal.add(Calendar.MINUTE, -mNumberPicker.getValue());
+        cal.add(Calendar.SECOND, -1);
         long startTime = cal.getTimeInMillis();
 
         // Create a data source
@@ -135,11 +137,11 @@ public class AerobicActivity extends Activity {
                 .build();
 
         // Create a data set
-        int caloriesExpended = 111;
+        float caloriesExpended = 111.0f;
         DataSet dataSet = DataSet.create(dataSource);
         DataPoint dataPoint = dataSet.createDataPoint()
                 .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS);
-        dataPoint.getValue(Field.FIELD_CALORIES).setInt(caloriesExpended);
+        dataPoint.getValue(Field.FIELD_CALORIES).setFloat(caloriesExpended);
         dataSet.add(dataPoint);
 
         // Invoke the History API to insert the data
