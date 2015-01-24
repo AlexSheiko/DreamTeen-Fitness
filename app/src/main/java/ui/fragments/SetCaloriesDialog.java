@@ -40,6 +40,8 @@ public class SetCaloriesDialog extends DialogFragment {
         }
     }
 
+    private EditText mCaloriesField;
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT);
@@ -47,6 +49,11 @@ public class SetCaloriesDialog extends DialogFragment {
         final LayoutInflater inflater = getActivity().getLayoutInflater();
 
         final View mView = inflater.inflate(R.layout.dialog_calories, null);
+        mCaloriesField = (EditText) mView.findViewById(R.id.caloriesField);
+        mCaloriesField.setHint(
+                PreferenceManager.getDefaultSharedPreferences(getActivity())
+                        .getInt("calories_norm", 2000) + "");
+
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
         builder.setView(mView)
@@ -55,10 +62,6 @@ public class SetCaloriesDialog extends DialogFragment {
                 .setPositiveButton("Set", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // Send the positive button event back to the host activity
-                        EditText mCaloriesField = (EditText) mView.findViewById(R.id.caloriesField);
-                        mCaloriesField.setHint(
-                                PreferenceManager.getDefaultSharedPreferences(getActivity())
-                                        .getInt("calories_norm", 2000));
                         if (!mCaloriesField.getText().toString().isEmpty()) {
                             int newValue = Integer.parseInt(
                                     mCaloriesField.getText().toString());

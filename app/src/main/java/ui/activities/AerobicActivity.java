@@ -16,7 +16,9 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
+import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Scope;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.fitness.Fitness;
 import com.google.android.gms.fitness.data.DataPoint;
 import com.google.android.gms.fitness.data.DataSet;
@@ -145,7 +147,14 @@ public class AerobicActivity extends Activity {
         dataSet.add(dataPoint);
 
         // Invoke the History API to insert the data
-        Fitness.HistoryApi.insertData(mClient, dataSet);
+        Fitness.HistoryApi.insertData(mClient, dataSet).setResultCallback(new ResultCallback<Status>() {
+            @Override
+            public void onResult(Status status) {
+                if (mClient.isConnected()) {
+                    mClient.disconnect();
+                }
+            }
+        });
     }
 
     @Override
@@ -206,9 +215,7 @@ public class AerobicActivity extends Activity {
         }
         calendar.setTime(convertedDate);
 
-        if (mClient.isConnected()) {
-            mClient.disconnect();
-        }
+        mClient.connect();
 
         navigateToMainScreen();
     }

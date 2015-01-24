@@ -14,7 +14,8 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="10dp"
         android:textColor="@android:color/black"
-        android:textSize="24sp"
-        android:hint="2000" />
+        android:textSize="24sp"/>
+
+    <requestFocus/>
 
 </LinearLayout><!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/layout/dialog_calories.xml -->
