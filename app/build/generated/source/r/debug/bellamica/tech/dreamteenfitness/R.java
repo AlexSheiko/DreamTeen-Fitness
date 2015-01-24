@@ -653,7 +653,7 @@ containing a value of this type.
         public static final int com_facebook_list_section_header_background=0x7f020019;
         public static final int com_facebook_loginbutton_silver=0x7f02001a;
         public static final int com_facebook_logo=0x7f02001b;
-        public static final int com_facebook_picker_default_separator_color=0x7f020083;
+        public static final int com_facebook_picker_default_separator_color=0x7f020084;
         public static final int com_facebook_picker_item_background=0x7f02001c;
         public static final int com_facebook_picker_list_focused=0x7f02001d;
         public static final int com_facebook_picker_list_longpressed=0x7f02001e;
@@ -749,14 +749,15 @@ containing a value of this type.
         public static final int powered_by_google_dark=0x7f020078;
         public static final int powered_by_google_light=0x7f020079;
         public static final int progress_bar_calories=0x7f02007a;
-        public static final int red_button_normal=0x7f02007b;
-        public static final int running=0x7f02007c;
-        public static final int set_goal_button=0x7f02007d;
-        public static final int splash_background=0x7f02007e;
-        public static final int target_container=0x7f02007f;
-        public static final int yellow_button_normal=0x7f020080;
-        public static final int yellow_button_pressed=0x7f020081;
-        public static final int yellow_button_selector=0x7f020082;
+        public static final int progress_bar_calories_goal_reached=0x7f02007b;
+        public static final int red_button_normal=0x7f02007c;
+        public static final int running=0x7f02007d;
+        public static final int set_goal_button=0x7f02007e;
+        public static final int splash_background=0x7f02007f;
+        public static final int target_container=0x7f020080;
+        public static final int yellow_button_normal=0x7f020081;
+        public static final int yellow_button_pressed=0x7f020082;
+        public static final int yellow_button_selector=0x7f020083;
     }
     public static final class id {
         public static final int TripLabelDistance=0x7f0d0034;

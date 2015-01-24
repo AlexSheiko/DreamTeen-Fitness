@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -213,6 +214,18 @@ public class MainActivity extends Activity
                 .setText(mCaloriesExpandedTotal + "");
 
         mProgressBar.setProgress(mCaloriesExpandedTotal);
+
+        if (mCaloriesExpandedTotal >= sharedPrefs.getInt("calories_norm", 2000)) {
+            Rect bounds = mProgressBar.getProgressDrawable().getBounds();
+            mProgressBar.setProgressDrawable(
+                    getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));
+            mProgressBar.getProgressDrawable().setBounds(bounds);
+        } else {
+            Rect bounds = mProgressBar.getProgressDrawable().getBounds();
+            mProgressBar.setProgressDrawable(
+                    getResources().getDrawable(R.drawable.progress_bar_calories));
+            mProgressBar.getProgressDrawable().setBounds(bounds);
+        }
 
         Log.i(TAG, "Progress: " + mProgressBar.getProgress());
         Log.i(TAG, "Max: " + mProgressBar.getMax());
