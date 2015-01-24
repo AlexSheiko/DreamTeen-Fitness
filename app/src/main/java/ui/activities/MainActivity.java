@@ -65,6 +65,7 @@ public class MainActivity extends Activity {
     private GoogleApiClient mClient = null;
 
     private SharedPreferences sharedPrefs;
+    private int mCaloriesExpandedByFitness;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +74,6 @@ public class MainActivity extends Activity {
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         addSideNavigation();
-        updateProgressBar();
 
         if (savedInstanceState != null) {
             authInProgress = savedInstanceState.getBoolean(AUTH_PENDING);
@@ -195,6 +195,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onStart() {
         super.onStart();
+        updateProgressBar();
         // Connect to the Fitness API
         mClient.connect();
     }
@@ -250,9 +251,6 @@ public class MainActivity extends Activity {
             Log.i(TAG, "Session read was successful. Number of returned sessions is: "
                     + sessionReadResult.getSessions().size());
             for (Session session : sessionReadResult.getSessions()) {
-                // Process the session
-                dumpSession(session);
-
                 // Process the data sets for this session
                 List<DataSet> dataSets = sessionReadResult.getDataSet(session);
                 for (DataSet dataSet : dataSets) {
@@ -268,7 +266,6 @@ public class MainActivity extends Activity {
      * Return a {@link com.google.android.gms.fitness.request.SessionReadRequest} for all speed data in the past week.
      */
     private SessionReadRequest readFitnessSession() {
-        Log.i(TAG, "Reading History API results for session: " + SAMPLE_SESSION_NAME);
         // [START build_read_session_request]
         // Set a start and end time for our query, using a start time of 1 week before this moment.
         Calendar cal = Calendar.getInstance();
@@ -292,48 +289,36 @@ public class MainActivity extends Activity {
     private void dumpDataSet(DataSet dataSet) {
         for (DataPoint dp : dataSet.getDataPoints()) {
             SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
-            Log.i(TAG, "\tType: " + dp.getDataType().getName());
-            Log.i(TAG, "\tStart: " + dateFormat.format(dp.getStartTime(TimeUnit.MILLISECONDS)));
-            Log.i(TAG, "\tEnd: " + dateFormat.format(dp.getEndTime(TimeUnit.MILLISECONDS)));
+            // TODO: Delete date logging after finished testing
+            // Log.i(TAG, "\tStart: " + dateFormat.format(dp.getStartTime(TimeUnit.MILLISECONDS)));
+            // Log.i(TAG, "\tEnd: " + dateFormat.format(dp.getEndTime(TimeUnit.MILLISECONDS)));
             for(Field field : dp.getDataType().getFields()) {
-                Log.i(TAG, "\tField: " + field.getName() +
-                        " Value: " + dp.getValue(field));
+                Log.i(TAG, "\tValue: " + dp.getValue(field));
+                increaseDailyCaloriesCount(Math.round(dp.getValue(field).asFloat()));
             }
         }
     }
 
-    private void dumpSession(Session session) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
-        Log.i(TAG, "Data returned for Session: " + session.getName()
-                + "\n\tDescription: " + session.getDescription()
-                + "\n\tStart: " + dateFormat.format(session.getStartTime(TimeUnit.MILLISECONDS))
-                + "\n\tEnd: " + dateFormat.format(session.getEndTime(TimeUnit.MILLISECONDS)));
-    }
-
-    private int calculateDailyCaloriesNorm(int age, float height, float weight, String gender) {
-        if (gender != null) {
-            if (gender.equals("male")) {
-                return (int) (65 + (6.2 * weight) + (12.7 * height) - (6.8 * age));
-            } else if (gender.equals("female")) {
-                return (int) (655 + (4.3 * weight) + (4.3 * height) - (4.7 * age));
-            }
-        }
-        return -1;
+    private void increaseDailyCaloriesCount(int increment) {
+        mCaloriesExpandedByFitness =+ increment;
     }
 
     private void updateProgressBar(/*int caloriesToExpandDaily*/) {
-
-        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        progressBar.setMax(/*caloriesToExpandDaily*/2000);
-
         // Average expansion by day
-        int caloriesBurnedByDefault = Calendar.getInstance()
+        int mCaloriesBurnedByDefault = Calendar.getInstance()
                 .get(Calendar.HOUR_OF_DAY) * 1465 / 24;
 
-        ((TextView) findViewById(R.id.caloriesValueLabel))
-                .setText(caloriesBurnedByDefault + "");
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        //TODO: Set daily norm from user's input
+        progressBar.setMax(/*caloriesToExpandDaily*/2000); // Default value for teenage girl
 
-        progressBar.setProgress(caloriesBurnedByDefault);
+        int mCaloriesBurnedTotal = mCaloriesBurnedByDefault + mCaloriesExpandedByFitness;
+
+        ((TextView) findViewById(R.id.caloriesValueLabel))
+                .setText(mCaloriesBurnedTotal + "");
+
+        progressBar.setProgress(
+                mCaloriesBurnedByDefault + mCaloriesBurnedTotal);
     }
 
     // Navigation drawer

@@ -72,8 +72,8 @@
       <file leaf-file-name="AerobicActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/AerobicActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4845">
-              <caret line="53" column="43" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="625" max-vertical-offset="4896">
+              <caret line="84" column="60" selection-start-line="84" selection-start-column="60" selection-end-line="84" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -82,14 +82,14 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5395189" vertical-offset="4004" max-vertical-offset="6698">
-              <caret line="304" column="26" selection-start-line="304" selection-start-column="26" selection-end-line="304" selection-end-column="26" />
+            <state vertical-scroll-proportion="-2.8195877" vertical-offset="4140" max-vertical-offset="6443">
+              <caret line="197" column="28" selection-start-line="197" selection-start-column="28" selection-end-line="197" selection-end-column="28" />
               <folding>
-                <element signature="e#8623#9200#0" expanded="true" />
-                <element signature="e#9181#9182#0" expanded="true" />
-                <element signature="e#16501#16521#0" expanded="true" />
-                <element signature="e#16590#16611#0" expanded="true" />
-                <element signature="e#17988#18019#0" expanded="true" />
+                <element signature="e#8638#9215#0" expanded="true" />
+                <element signature="e#9196#9197#0" expanded="true" />
+                <element signature="e#15855#15875#0" expanded="true" />
+                <element signature="e#15944#15965#0" expanded="true" />
+                <element signature="e#17342#17373#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2804,22 +2804,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/AerobicActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4845">
-          <caret line="53" column="43" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="625" max-vertical-offset="4896">
+          <caret line="84" column="60" selection-start-line="84" selection-start-column="60" selection-end-line="84" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5395189" vertical-offset="4004" max-vertical-offset="6698">
-          <caret line="304" column="26" selection-start-line="304" selection-start-column="26" selection-end-line="304" selection-end-column="26" />
+        <state vertical-scroll-proportion="-2.8195877" vertical-offset="4140" max-vertical-offset="6443">
+          <caret line="197" column="28" selection-start-line="197" selection-start-column="28" selection-end-line="197" selection-end-column="28" />
           <folding>
-            <element signature="e#8623#9200#0" expanded="true" />
-            <element signature="e#9181#9182#0" expanded="true" />
-            <element signature="e#16501#16521#0" expanded="true" />
-            <element signature="e#16590#16611#0" expanded="true" />
-            <element signature="e#17988#18019#0" expanded="true" />
+            <element signature="e#8638#9215#0" expanded="true" />
+            <element signature="e#9196#9197#0" expanded="true" />
+            <element signature="e#15855#15875#0" expanded="true" />
+            <element signature="e#15944#15965#0" expanded="true" />
+            <element signature="e#17342#17373#0" expanded="true" />
           </folding>
         </state>
       </provider>

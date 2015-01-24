@@ -222,7 +222,10 @@ public class AerobicActivity extends Activity {
                 .setType(DataSource.TYPE_DERIVED)
                 .build();
 
-        float caloriesBurnedTotal = 386 / 60 * mWorkoutDuration; // Hourly average for teenage girl / 60 minutes * workout duration in minutes
+        /**
+         * Hourly average for teenage girl / 60 minutes * workout duration in minutes / 1000 cal in kcal
+         */
+        float caloriesBurnedTotal = 386 / 60 * mWorkoutDuration / 1000;
         // Create a data set of the run speeds to include in the session.
         DataSet caloriesDataSet = DataSet.create(caloriesDataSource);
 
