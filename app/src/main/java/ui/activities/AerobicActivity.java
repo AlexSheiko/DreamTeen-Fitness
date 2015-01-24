@@ -34,36 +34,31 @@ import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import bellamica.tech.dreamteenfitness.R;
+import butterknife.InjectView;
 
 public class AerobicActivity extends Activity {
 
     public static final String TAG = "DreamTeen Fitness";
-    private static final int REQUEST_OAUTH = 1;
 
-    /**
-     * Track whether an authorization activity is stacking over the current activity, i.e. when
-     * a known auth error is being resolved, such as showing the account chooser or presenting a
-     * consent dialog. This avoids common duplications as might happen on screen rotations, etc.
-     */
+    private static final int REQUEST_OAUTH = 1;
     private static final String AUTH_PENDING = "auth_state_pending";
     private boolean authInProgress = false;
+    private GoogleApiClient mClient;
 
-    private GoogleApiClient mClient = null;
-
-    private Spinner mMonthSpinner;
-    private Spinner mDaySpinner;
-    private NumberPicker mNumberPicker;
+    @InjectView(R.id.monthSpinner) Spinner mMonthSpinner;
+    @InjectView(R.id.daySpinner) Spinner mDaySpinner;
+    @InjectView(R.id.numberPicker) NumberPicker mNumberPicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aerobic);
-        initializeViews();
 
         if (savedInstanceState != null) {
             authInProgress = savedInstanceState.getBoolean(AUTH_PENDING);
         }
         buildFitnessClient();
+        fillOutSpinners();
     }
 
     /**
@@ -125,8 +120,6 @@ public class AerobicActivity extends Activity {
         Date now = new Date();
         cal.setTime(now);
         long endTime = cal.getTimeInMillis();
-        // TODO: Restore duration from input before releasing
-        // cal.add(Calendar.MINUTE, -mNumberPicker.getValue());
         cal.add(Calendar.SECOND, -1);
         long startTime = cal.getTimeInMillis();
 
@@ -170,22 +163,19 @@ public class AerobicActivity extends Activity {
         }
     }
 
-    private void initializeViews() {
-        mMonthSpinner = (Spinner) findViewById(R.id.monthSpinner);
+    private void fillOutSpinners() {
         ArrayAdapter<CharSequence> mMonthAdapter = ArrayAdapter.createFromResource(this,
                 R.array.month_values, android.R.layout.simple_spinner_item);
         mMonthAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mMonthSpinner.setAdapter(mMonthAdapter);
         mMonthSpinner.setSelection(Calendar.getInstance().get(Calendar.MONTH));
 
-        mDaySpinner = (Spinner) findViewById(R.id.daySpinner);
         ArrayAdapter<CharSequence> mDayAdapter = ArrayAdapter.createFromResource(this,
                 R.array.days_values, android.R.layout.simple_spinner_item);
         mDayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mDaySpinner.setAdapter(mDayAdapter);
         mDaySpinner.setSelection(Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - 1);
 
-        mNumberPicker = (NumberPicker) findViewById(R.id.numberPicker);
         mNumberPicker.setMinValue(5);
         mNumberPicker.setMaxValue(90);
         mNumberPicker.setValue(20);
@@ -216,7 +206,6 @@ public class AerobicActivity extends Activity {
         calendar.setTime(convertedDate);
 
         mClient.connect();
-
         navigateToMainScreen();
     }
 

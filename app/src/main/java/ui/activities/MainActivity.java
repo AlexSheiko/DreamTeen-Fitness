@@ -56,19 +56,24 @@ public class MainActivity extends Activity
 
     public static final String TAG = "BasicHistoryApi";
 
-    private GoogleApiClient mClient;
     private static final int REQUEST_OAUTH = 1;
     private static final String AUTH_PENDING = "auth_state_pending";
     private boolean authInProgress = false;
+    private GoogleApiClient mClient;
 
     private SharedPreferences sharedPrefs;
     private int mCaloriesExpanded = 0;
 
-    @InjectView(R.id.caloriesLabel) TextView mCaloriesLabel;
-    @InjectView(R.id.progressBar) ProgressBar mProgressBar;
-    @InjectView(R.id.caloriesContainer) LinearLayout mCaloriesContainer;
-    @InjectView(R.id.drawerLayout) DrawerLayout mDrawerLayout;
-    @InjectView(R.id.drawerList) ListView mDrawerList;
+    @InjectView(R.id.caloriesLabel)
+    TextView mCaloriesLabel;
+    @InjectView(R.id.progressBar)
+    ProgressBar mProgressBar;
+    @InjectView(R.id.caloriesContainer)
+    LinearLayout mCaloriesContainer;
+    @InjectView(R.id.drawerLayout)
+    DrawerLayout mDrawerLayout;
+    @InjectView(R.id.drawerList)
+    ListView mDrawerList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,8 +104,7 @@ public class MainActivity extends Activity
                         new GoogleApiClient.ConnectionCallbacks() {
                             @Override
                             public void onConnected(Bundle bundle) {
-                                // Now you can make calls to the Fitness APIs.  What to do?
-                                // Look at some data!!
+                                // Now you can make calls to the Fitness APIs.
                                 readExpandedCalories();
                             }
 

@@ -62,5 +62,8 @@
     <string name="log_activity_label">Log workout</string>
     <string name="save_button_label">Save</string>
     <string name="aerobic_activity_title">Aerobic</string>
+    <string name="duration_key" translatable="false">Duration</string>
+    <string name="start_time_key" translatable="false">start_time</string>
+    <string name="distance_key" translatable="false">Distance</string>
 
 </resources>

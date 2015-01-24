@@ -760,9 +760,9 @@ containing a value of this type.
         public static final int yellow_button_selector=0x7f020083;
     }
     public static final class id {
-        public static final int TripLabelDistance=0x7f0d0034;
+        public static final int distanceLabel =0x7f0d0034;
         public static final int TripLabelHeader=0x7f0d0033;
-        public static final int TripLabelUnits=0x7f0d0035;
+        public static final int unitsLabel =0x7f0d0035;
         public static final int action_music=0x7f0d0069;
         public static final int action_share=0x7f0d006a;
         public static final int adjust_height=0x7f0d0000;
@@ -862,7 +862,7 @@ containing a value of this type.
         public static final int text1=0x7f0d0068;
         public static final int textView=0x7f0d0025;
         public static final int top=0x7f0d001c;
-        public static final int tripNameField=0x7f0d0036;
+        public static final int nameField =0x7f0d0036;
         public static final int tripNotesField=0x7f0d0037;
         public static final int weightDeltaToGo=0x7f0d002d;
         public static final int weightToGoLabel=0x7f0d002e;

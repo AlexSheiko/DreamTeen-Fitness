@@ -13,39 +13,46 @@ import android.widget.ShareActionProvider;
 import android.widget.TextView;
 
 import bellamica.tech.dreamteenfitness.R;
+import butterknife.InjectView;
 
 public class SummaryActivity extends Activity {
 
     private float mDistance;
-    private String mDuration;
-    private String mDateTime;
 
-    private SharedPreferences sharedPrefs;
+    private SharedPreferences mSharedPrefs;
+
+    @InjectView(R.id.unitsLabel)
+    TextView mUnitsLabel;
+    @InjectView(R.id.distanceLabel)
+    TextView mDistanceLabel;
+    @InjectView(R.id.nameField)
+    EditText mNameField;
+    @InjectView(R.id.discardButton)
+    TextView mDiscardButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
-        sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-        if (sharedPrefs.getString("pref_units", "1").equals("1")) {
-            ((TextView) findViewById(R.id.TripLabelUnits)).setText("miles");
+        mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        if (mSharedPrefs.getString("pref_units", "1").equals("1")) {
+            mUnitsLabel.setText("miles");
         } else {
-            ((TextView) findViewById(R.id.TripLabelUnits)).setText("km");
+            mUnitsLabel.setText("km");
         }
 
         // Get run info
-        mDistance = sharedPrefs.getFloat("Distance", 0);
-        mDuration = sharedPrefs.getString("Duration", "00:00");
-        mDateTime = sharedPrefs.getString("start_time", "");
+        String distanceKey = getResources().getString(R.string.distance_key);
+        mDistance = mSharedPrefs.getFloat(distanceKey, 0);
 
         // Update UI with run info
-        ((TextView) findViewById(R.id.TripLabelDistance)).setText(String.format("%.2f", mDistance));
-        EditText tripNameField = (EditText) findViewById(R.id.tripNameField);
-        tripNameField.setHint("Run on " + mDateTime);
+        mDistanceLabel.setText(String.format("%.2f", mDistance));
+        mNameField.setHint("Run on " +
+                mSharedPrefs.getString("start_time", ""));
 
-        TextView discardButton = (TextView) findViewById(R.id.discardButton);
-        discardButton.setOnClickListener(new View.OnClickListener() {
+        mDiscardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SummaryActivity.super.onBackPressed();
@@ -65,25 +72,29 @@ public class SummaryActivity extends Activity {
 
         // Fetch and store ShareActionProvider
         ShareActionProvider shareActionProvider = (ShareActionProvider) item.getActionProvider();
-
         if (shareActionProvider != null)
             shareActionProvider.setShareIntent(shareIntent());
+
         return true;
     }
 
     private Intent shareIntent() {
-        String mMessage;
-        if (sharedPrefs.getString("pref_units", "1").equals("1")) {
-            mMessage = "Just finished a run of " + String.format("%.2f", mDistance) + " miles " +
-                    "in " + mDuration + ".\n\nAny challengers? ;)\n#DreamTeen Fitness";
+        String durationKey = getResources().getString(R.string.duration_key);
+        String duration = mSharedPrefs.getString(durationKey, "00:00");
+
+        String measureUnits;
+        if (mSharedPrefs.getString("pref_units", "1").equals("1")) {
+            measureUnits = "miles";
         } else {
-            mMessage = "Just finished a run of " + String.format("%.2f", mDistance) + " km " +
-                    "in " + mDuration + ".\n\nAny challengers? ;)\n#DreamTeen Fitness";
+            measureUnits = "km";
         }
+
+        String message = "Just finished a run of " + String.format("%.2f", mDistance) + " " + measureUnits + " " +
+                        "in " + duration + ".\n\nAny challengers? ;)\n#DreamTeen Fitness";
 
         Intent intent = new Intent(android.content.Intent.ACTION_SEND);
         intent.setType("text/plain");
-        intent.putExtra(android.content.Intent.EXTRA_TEXT, mMessage);
+        intent.putExtra(android.content.Intent.EXTRA_TEXT, message);
         return intent;
     }
 }
