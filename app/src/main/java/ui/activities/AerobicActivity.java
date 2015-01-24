@@ -242,21 +242,22 @@ public class AerobicActivity extends Activity {
         long startTime = cal.getTimeInMillis();
 
         // Create a data source
-        DataSource speedDataSource = new DataSource.Builder()
+        DataSource caloriesDataSource = new DataSource.Builder()
                 .setAppPackageName(this.getPackageName())
-                .setDataType(DataType.TYPE_SPEED)
+                .setDataType(DataType.TYPE_CALORIES_EXPENDED)
                 .setName(TAG + "-aerobic")
-                .setType(DataSource.TYPE_RAW)
+                // TODO: Change it to «raw» after first test
+                .setType(DataSource.TYPE_DERIVED)
                 .build();
 
-        float runSpeedMps = 10;
+        float caloriesBurnedTotal = 386 / 60 * mWorkoutDuration; // Hourly average for teenage girl / 60 minutes * workout duration in minutes
         // Create a data set of the run speeds to include in the session.
-        DataSet speedDataSet = DataSet.create(speedDataSource);
+        DataSet caloriesDataSet = DataSet.create(caloriesDataSource);
 
-        DataPoint firstRunSpeed = speedDataSet.createDataPoint()
+        DataPoint workoutCaloriesBurned = caloriesDataSet.createDataPoint()
                 .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS);
-        firstRunSpeed.getValue(Field.FIELD_SPEED).setFloat(runSpeedMps);
-        speedDataSet.add(firstRunSpeed);
+        workoutCaloriesBurned.getValue(Field.FIELD_CALORIES).setFloat(caloriesBurnedTotal);
+        caloriesDataSet.add(workoutCaloriesBurned);
 
         // [START build_insert_session_request]
         // Create a session with metadata about the activity.
@@ -265,7 +266,7 @@ public class AerobicActivity extends Activity {
                 .setDescription(TAG + " — Aerobic Workout")
                 .setIdentifier(SAMPLE_SESSION_NAME + "-" +
                         new SimpleDateFormat("dd MMM, hh:mm").format(new Date()).toLowerCase())
-                .setActivity(FitnessActivities.RUNNING)
+                .setActivity(FitnessActivities.AEROBICS)
                 .setStartTime(startTime, TimeUnit.MILLISECONDS)
                 .setEndTime(endTime, TimeUnit.MILLISECONDS)
                 .build();
@@ -273,7 +274,7 @@ public class AerobicActivity extends Activity {
         // Build a session insert request
         SessionInsertRequest insertRequest = new SessionInsertRequest.Builder()
                 .setSession(session)
-                .addDataSet(speedDataSet)
+                .addDataSet(caloriesDataSet)
                 .build();
         // [END build_insert_session_request]
         // [END build_insert_session_request_with_activity_segments]
