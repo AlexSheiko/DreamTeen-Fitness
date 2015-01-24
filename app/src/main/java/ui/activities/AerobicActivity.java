@@ -299,7 +299,7 @@ public class AerobicActivity extends Activity {
         // Build a session read request
         SessionReadRequest readRequest = new SessionReadRequest.Builder()
                 .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS)
-                .read(DataType.TYPE_SPEED)
+                .read(DataType.TYPE_CALORIES_EXPENDED)
                 .setSessionName(SAMPLE_SESSION_NAME)
                 .build();
         // [END build_read_session_request]
