@@ -137,7 +137,7 @@ public class AerobicActivity extends Activity {
                 .build();
 
         // Create a data set
-        float caloriesExpended = 111.0f;
+        float caloriesExpended = 326 / 60 * mNumberPicker.getValue();
         DataSet dataSet = DataSet.create(dataSource);
         DataPoint dataPoint = dataSet.createDataPoint()
                 .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS);
@@ -206,8 +206,8 @@ public class AerobicActivity extends Activity {
         }
         calendar.setTime(convertedDate);
 
-        if (!mClient.isConnected()) {
-            mClient.connect();
+        if (mClient.isConnected()) {
+            mClient.disconnect();
         }
 
         navigateToMainScreen();

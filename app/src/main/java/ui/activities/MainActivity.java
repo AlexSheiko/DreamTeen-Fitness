@@ -36,7 +36,6 @@ import com.google.android.gms.fitness.data.Field;
 import com.google.android.gms.fitness.request.DataReadRequest;
 import com.google.android.gms.fitness.result.DataReadResult;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -52,20 +51,16 @@ public class MainActivity extends Activity
         implements CaloriesDialogListener {
 
     public static final String TAG = "BasicHistoryApi";
-    public static final String SAMPLE_SESSION_NAME = "DreamTeen Fitness-aerobic-session";
     private static final int REQUEST_OAUTH = 1;
-    private static final String DATE_FORMAT = "yyyy.MM.dd HH:mm:ss";
 
-    /**
-     * Track whether an authorization activity is stacking over the current activity
-     */
+    // Track whether an authorization activity is stacking over the current activity
     private static final String AUTH_PENDING = "auth_state_pending";
     private boolean authInProgress = false;
 
     private GoogleApiClient mClient = null;
 
     private SharedPreferences sharedPrefs;
-    private int mCaloriesExpandedByFitness;
+    private int mCaloriesExpanded = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,12 +78,8 @@ public class MainActivity extends Activity
     }
 
     /**
-     * Build a {@link com.google.android.gms.common.api.GoogleApiClient} that will authenticate the user and allow the application
-     * to connect to Fitness APIs. The scopes included should match the scopes your app needs
-     * (see documentation for details). Authentication will occasionally fail intentionally,
-     * and in those cases, there will be a known resolution, which the OnConnectionFailedListener()
-     * can address. Examples of this include the user never having signed in before, or
-     * having multiple accounts on the device and needing to specify which account to use, etc.
+     * Build a GoogleApiClient that will authenticate the user and allow the application
+     * to connect to Fitness APIs.
      */
     private void buildFitnessClient() {
         // Create the Google API Client
@@ -171,8 +162,6 @@ public class MainActivity extends Activity
                                 }
                             }
                         } else if (dataReadResult.getDataSets().size() > 0) {
-                            Log.i(TAG, "Number of returned DataSets is: "
-                                    + dataReadResult.getDataSets().size());
                             for (DataSet dataSet : dataReadResult.getDataSets()) {
                                 dumpDataSet(dataSet);
                             }
@@ -182,48 +171,57 @@ public class MainActivity extends Activity
     }
 
     private void dumpDataSet(DataSet dataSet) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
-
         for (DataPoint dp : dataSet.getDataPoints()) {
-            Log.i(TAG, "Data point:");
-            Log.i(TAG, "\tType: " + dp.getDataType().getName());
-            Log.i(TAG, "\tStart: " + dateFormat.format(dp.getStartTime(TimeUnit.MILLISECONDS)));
-            Log.i(TAG, "\tEnd: " + dateFormat.format(dp.getEndTime(TimeUnit.MILLISECONDS)));
             for(Field field : dp.getDataType().getFields()) {
-                Log.i(TAG, "\tField: " + field.getName() +
-                        " Value: " + dp.getValue(field));
+                Log.i(TAG, "\tCalories: " + dp.getValue(field));
+                increaseCaloriesExpanded(
+                        Math.round(dp.getValue(field).asFloat()));
             }
         }
+        updateProgressBar();
     }
 
     @Override
     public void onDailyCaloriesNormChanged(DialogFragment dialog, int newValue) {
-        Toast.makeText(this, newValue + "", Toast.LENGTH_SHORT).show();
+        sharedPrefs.edit()
+                .putInt("calories_norm", newValue).apply();
+        updateProgressBar();
     }
 
-    private void increaseDailyCaloriesCount(int increment) {
-        mCaloriesExpandedByFitness = +increment;
+    private void increaseCaloriesExpanded(int increment) {
+        mCaloriesExpanded = mCaloriesExpanded + increment;
+        Log.i(TAG, "mCaloriesExpanded = " + mCaloriesExpanded);
     }
 
-    private void updateProgressBar(/*int caloriesToExpandDaily*/) {
-        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        progressBar.setMax(/*caloriesToExpandDaily*/2000);
+    private void updateProgressBar() {
+        ProgressBar mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
+        mProgressBar.setMax(
+                sharedPrefs.getInt("calories_norm", 2000));
 
         // Average expansion by day
-        int caloriesBurnedByDefault = Calendar.getInstance()
+        int mCaloriesBurnedByDefault = Calendar.getInstance()
                 .get(Calendar.HOUR_OF_DAY) * 1465 / 24;
 
-        ((TextView) findViewById(R.id.caloriesValueLabel))
-                .setText(caloriesBurnedByDefault + "");
+        Log.d(TAG, "Burned by default: " + mCaloriesBurnedByDefault);
 
-        progressBar.setProgress(caloriesBurnedByDefault);
+        int mCaloriesExpandedTotal =
+                mCaloriesBurnedByDefault + mCaloriesExpanded;
+
+        Log.d(TAG, "Expanded total (fit + def): " + mCaloriesExpandedTotal);
+
+        ((TextView) findViewById(R.id.caloriesValueLabel))
+                .setText(mCaloriesExpandedTotal + "");
+
+        mProgressBar.setProgress(mCaloriesExpandedTotal);
+
+        Log.i(TAG, "Progress: " + mProgressBar.getProgress());
+        Log.i(TAG, "Max: " + mProgressBar.getMax());
     }
 
 
     @Override
     protected void onStart() {
         super.onStart();
-        updateProgressBar();
         // Connect to the Fitness API
         mClient.connect();
     }

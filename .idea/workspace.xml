@@ -69,29 +69,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2040" max-vertical-offset="5610">
-              <caret line="201" column="5" selection-start-line="201" selection-start-column="5" selection-end-line="201" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.21821305" vertical-offset="2304" max-vertical-offset="5593">
+              <caret line="187" column="28" selection-start-line="187" selection-start-column="28" selection-end-line="187" selection-end-column="28" />
               <folding>
-                <element signature="e#4589#6346#0" expanded="true" />
-                <element signature="e#6319#6320#0" expanded="true" />
-                <element signature="e#7149#8330#0" expanded="true" />
-                <element signature="e#8311#8312#0" expanded="true" />
-                <element signature="e#12729#12749#0" expanded="true" />
-                <element signature="e#12818#12839#0" expanded="true" />
-                <element signature="e#14216#14247#0" expanded="true" />
+                <element signature="e#3896#5653#0" expanded="true" />
+                <element signature="e#5626#5627#0" expanded="true" />
+                <element signature="e#6456#7487#0" expanded="true" />
+                <element signature="e#7468#7469#0" expanded="true" />
+                <element signature="e#12059#12079#0" expanded="true" />
+                <element signature="e#12148#12169#0" expanded="true" />
+                <element signature="e#13546#13577#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AerobicActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AerobicActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/AerobicActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.4258064" vertical-offset="1343" max-vertical-offset="3281">
-              <caret line="127" column="35" selection-start-line="127" selection-start-column="35" selection-end-line="127" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1475" max-vertical-offset="3281">
+              <caret line="208" column="12" selection-start-line="208" selection-start-column="12" selection-end-line="208" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -1705,8 +1705,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/ui/fragments/MapPane.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/AerobicActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -2171,7 +2171,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2184,7 +2184,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36557376" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.7" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.99508196" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2258,7 +2258,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="22" />
+      <option name="time" value="24" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -2652,27 +2652,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/AerobicActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2040" max-vertical-offset="5610">
-          <caret line="201" column="5" selection-start-line="201" selection-start-column="5" selection-end-line="201" selection-end-column="5" />
-          <folding>
-            <element signature="e#4589#6346#0" expanded="true" />
-            <element signature="e#6319#6320#0" expanded="true" />
-            <element signature="e#7149#8330#0" expanded="true" />
-            <element signature="e#8311#8312#0" expanded="true" />
-            <element signature="e#12729#12749#0" expanded="true" />
-            <element signature="e#12818#12839#0" expanded="true" />
-            <element signature="e#14216#14247#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="1475" max-vertical-offset="3281">
+          <caret line="208" column="12" selection-start-line="208" selection-start-column="12" selection-end-line="208" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/AerobicActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4258064" vertical-offset="1343" max-vertical-offset="3281">
-          <caret line="127" column="35" selection-start-line="127" selection-start-column="35" selection-end-line="127" selection-end-column="35" />
-          <folding />
+        <state vertical-scroll-proportion="0.21821305" vertical-offset="2304" max-vertical-offset="5593">
+          <caret line="187" column="28" selection-start-line="187" selection-start-column="28" selection-end-line="187" selection-end-column="28" />
+          <folding>
+            <element signature="e#3896#5653#0" expanded="true" />
+            <element signature="e#5626#5627#0" expanded="true" />
+            <element signature="e#6456#7487#0" expanded="true" />
+            <element signature="e#7468#7469#0" expanded="true" />
+            <element signature="e#12059#12079#0" expanded="true" />
+            <element signature="e#12148#12169#0" expanded="true" />
+            <element signature="e#13546#13577#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
