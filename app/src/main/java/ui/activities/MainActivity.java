@@ -2,6 +2,7 @@ package ui.activities;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
@@ -46,10 +47,13 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import bellamica.tech.dreamteenfitness.R;
+import ui.fragments.SetCaloriesDialog;
+import ui.fragments.SetCaloriesDialog.CaloriesDialogListener;
 import ui.utils.adapters.NavigationAdapter;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity
+        implements CaloriesDialogListener {
 
     public static final String TAG = "BasicHistoryApi";
     public static final String SAMPLE_SESSION_NAME = "DreamTeen Fitness-aerobic-session";
@@ -57,7 +61,7 @@ public class MainActivity extends Activity {
     private static final String DATE_FORMAT = "yyyy.MM.dd HH:mm:ss";
 
     /**
-     *  Track whether an authorization activity is stacking over the current activity
+     * Track whether an authorization activity is stacking over the current activity
      */
     private static final String AUTH_PENDING = "auth_state_pending";
     private boolean authInProgress = false;
@@ -83,12 +87,12 @@ public class MainActivity extends Activity {
     }
 
     /**
-     *  Build a {@link com.google.android.gms.common.api.GoogleApiClient} that will authenticate the user and allow the application
-     *  to connect to Fitness APIs. The scopes included should match the scopes your app needs
-     *  (see documentation for details). Authentication will occasionally fail intentionally,
-     *  and in those cases, there will be a known resolution, which the OnConnectionFailedListener()
-     *  can address. Examples of this include the user never having signed in before, or
-     *  having multiple accounts on the device and needing to specify which account to use, etc.
+     * Build a {@link com.google.android.gms.common.api.GoogleApiClient} that will authenticate the user and allow the application
+     * to connect to Fitness APIs. The scopes included should match the scopes your app needs
+     * (see documentation for details). Authentication will occasionally fail intentionally,
+     * and in those cases, there will be a known resolution, which the OnConnectionFailedListener()
+     * can address. Examples of this include the user never having signed in before, or
+     * having multiple accounts on the device and needing to specify which account to use, etc.
      */
     private void buildFitnessClient() {
         // Create the Google API Client
@@ -234,6 +238,11 @@ public class MainActivity extends Activity {
             findViewById(R.id.caloriesContainer).setVisibility(View.GONE);
     }
 
+    @Override
+    public void onDailyCaloriesNormChanged(DialogFragment dialog, int newValue) {
+        Toast.makeText(this, newValue + "", Toast.LENGTH_SHORT).show();
+    }
+
     private class ReadSessionTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
@@ -292,7 +301,7 @@ public class MainActivity extends Activity {
             // TODO: Delete date logging after finished testing
             // Log.i(TAG, "\tStart: " + dateFormat.format(dp.getStartTime(TimeUnit.MILLISECONDS)));
             // Log.i(TAG, "\tEnd: " + dateFormat.format(dp.getEndTime(TimeUnit.MILLISECONDS)));
-            for(Field field : dp.getDataType().getFields()) {
+            for (Field field : dp.getDataType().getFields()) {
                 Log.i(TAG, "\tValue: " + dp.getValue(field));
                 increaseDailyCaloriesCount(Math.round(dp.getValue(field).asFloat()));
             }
@@ -300,7 +309,7 @@ public class MainActivity extends Activity {
     }
 
     private void increaseDailyCaloriesCount(int increment) {
-        mCaloriesExpandedByFitness =+ increment;
+        mCaloriesExpandedByFitness = +increment;
     }
 
     private void updateProgressBar(/*int caloriesToExpandDaily*/) {
@@ -421,5 +430,10 @@ public class MainActivity extends Activity {
 
     public void navigateToAerobic(View view) {
         startActivity(new Intent(this, AerobicActivity.class));
+    }
+
+    public void setDailyCaloriesNorm(View view) {
+        DialogFragment newFragment = new SetCaloriesDialog();
+        newFragment.show(getFragmentManager(), "calories");
     }
 }
