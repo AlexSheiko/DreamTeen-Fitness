@@ -26,15 +26,18 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
+import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Scope;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.fitness.Fitness;
-import com.google.android.gms.fitness.data.Bucket;
 import com.google.android.gms.fitness.data.DataPoint;
 import com.google.android.gms.fitness.data.DataSet;
 import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
-import com.google.android.gms.fitness.request.DataReadRequest;
-import com.google.android.gms.fitness.result.DataReadResult;
+import com.google.android.gms.fitness.data.Session;
+import com.google.android.gms.fitness.request.DataDeleteRequest;
+import com.google.android.gms.fitness.request.SessionReadRequest;
+import com.google.android.gms.fitness.result.SessionReadResult;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -49,6 +52,7 @@ import ui.utils.adapters.NavigationAdapter;
 public class MainActivity extends Activity {
 
     public static final String TAG = "BasicHistoryApi";
+    public static final String SAMPLE_SESSION_NAME = "DreamTeen Fitness-aerobic-session";
     private static final int REQUEST_OAUTH = 1;
     private static final String DATE_FORMAT = "yyyy.MM.dd HH:mm:ss";
 
@@ -96,10 +100,11 @@ public class MainActivity extends Activity {
                         new GoogleApiClient.ConnectionCallbacks() {
                             @Override
                             public void onConnected(Bundle bundle) {
-                                Log.i(TAG, "Connected!!!");
                                 // Now you can make calls to the Fitness APIs.  What to do?
                                 // Look at some data!!
-                                new ReadDataTask().execute();
+                                new ReadSessionTask().execute();
+                                // TODO: Delete this after finished testing
+                                // deleteSession();
                             }
 
                             @Override
@@ -146,11 +151,51 @@ public class MainActivity extends Activity {
                 .build();
     }
 
+    /**
+     * Delete the {@link DataSet} we inserted with our {@link Session} from the History API.
+     * In this example, we delete all step count data for the past 24 hours. Note that this
+     * deletion uses the History API, and not the Sessions API, since sessions are truly just time
+     * intervals over a set of data, and the data is what we are interested in removing.
+     */
+    private void deleteSession() {
+        Log.i(TAG, "Deleting today's session data for speed");
+
+        // Set a start and end time for our data, using a start time of 1 day before this moment.
+        Calendar cal = Calendar.getInstance();
+        Date now = new Date();
+        cal.setTime(now);
+        long endTime = cal.getTimeInMillis();
+        cal.add(Calendar.YEAR, -1);
+        long startTime = cal.getTimeInMillis();
+
+        // Create a delete request object, providing a data type and a time interval
+        DataDeleteRequest request = new DataDeleteRequest.Builder()
+                .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS)
+                .addDataType(DataType.TYPE_SPEED)
+                .deleteAllSessions() // Or specify a particular session here
+                .build();
+
+        // Invoke the History API with the Google API client object and the delete request and
+        // specify a callback that will check the result.
+        Fitness.HistoryApi.deleteData(mClient, request)
+                .setResultCallback(new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                        if (status.isSuccess()) {
+                            Log.i(TAG, "Successfully deleted today's sessions");
+                        } else {
+                            // The deletion will fail if the requesting app tries to delete data
+                            // that it did not insert.
+                            Log.i(TAG, "Failed to delete today's sessions");
+                        }
+                    }
+                });
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
         // Connect to the Fitness API
-        Log.i(TAG, "Connecting...");
         mClient.connect();
     }
 
@@ -188,32 +233,44 @@ public class MainActivity extends Activity {
             findViewById(R.id.caloriesContainer).setVisibility(View.GONE);
     }
 
-    private class ReadDataTask extends AsyncTask<Void, Void, Void> {
-        protected Void doInBackground(Void... params) {
+    private class ReadSessionTask extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... voids) {
             // Begin by creating the query.
-            DataReadRequest readRequest = queryFitnessData();
+            SessionReadRequest readRequest = readFitnessSession();
 
-            // [START read_dataset]
-            // Invoke the History API to fetch the data with the query and await the result of
-            // the read request.
-            DataReadResult dataReadResult =
-                    Fitness.HistoryApi.readData(mClient, readRequest).await(1, TimeUnit.MINUTES);
-            // [END read_dataset]
+            // [START read_session]
+            // Invoke the Sessions API to fetch the session with the query and wait for the result
+            // of the read request.
+            SessionReadResult sessionReadResult =
+                    Fitness.SessionsApi.readSession(mClient, readRequest)
+                            .await(1, TimeUnit.MINUTES);
 
-            // For the sake of the sample, we'll print the data so we can see what we just added.
-            // In general, logging fitness information should be avoided for privacy reasons.
-            printData(dataReadResult);
+            // Get a list of the sessions that match the criteria to check the result.
+            Log.i(TAG, "Session read was successful. Number of returned sessions is: "
+                    + sessionReadResult.getSessions().size());
+            for (Session session : sessionReadResult.getSessions()) {
+                // Process the session
+                dumpSession(session);
+
+                // Process the data sets for this session
+                List<DataSet> dataSets = sessionReadResult.getDataSet(session);
+                for (DataSet dataSet : dataSets) {
+                    dumpDataSet(dataSet);
+                }
+            }
 
             return null;
         }
     }
 
     /**
-     * Return a {@link DataReadRequest} for all step count changes in the past week.
+     * Return a {@link com.google.android.gms.fitness.request.SessionReadRequest} for all speed data in the past week.
      */
-    private DataReadRequest queryFitnessData() {
-        // [START build_read_data_request]
-        // Setting a start and end date using a range of 1 week before this moment.
+    private SessionReadRequest readFitnessSession() {
+        Log.i(TAG, "Reading History API results for session: " + SAMPLE_SESSION_NAME);
+        // [START build_read_session_request]
+        // Set a start and end time for our query, using a start time of 1 week before this moment.
         Calendar cal = Calendar.getInstance();
         Date now = new Date();
         cal.setTime(now);
@@ -221,67 +278,20 @@ public class MainActivity extends Activity {
         cal.add(Calendar.DAY_OF_YEAR, -1);
         long startTime = cal.getTimeInMillis();
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
-        Log.i(TAG, "Range Start: " + dateFormat.format(startTime));
-        Log.i(TAG, "Range End: " + dateFormat.format(endTime));
-
-        DataReadRequest readRequest = new DataReadRequest.Builder()
-                // The data request can specify multiple data types to return, effectively
-                // combining multiple data queries into one call.
-                // In this example, it's very unlikely that the request is for several hundred
-                // datapoints each consisting of a few steps and a timestamp.  The more likely
-                // scenario is wanting to see how many steps were walked per day, for 7 days.
+        // Build a session read request
+        SessionReadRequest readRequest = new SessionReadRequest.Builder()
+                .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS)
                 .read(DataType.TYPE_CALORIES_EXPENDED)
-                        // Analogous to a "Group By" in SQL, defines how data should be aggregated.
-                        // bucketByTime allows for a time span, whereas bucketBySession would allow
-                        // bucketing by "sessions", which would need to be defined in code.
-                // TODO: Can I backed non-aggregate data types?
-                        // .bucketByTime(1, TimeUnit.DAYS)
-                .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
+                .setSessionName(SAMPLE_SESSION_NAME)
                 .build();
-        // [END build_read_data_request]
+        // [END build_read_session_request]
 
         return readRequest;
     }
 
-    /**
-     * Log a record of the query result. It's possible to get more constrained data sets by
-     * specifying a data source or data type, but for demonstrative purposes here's how one would
-     * dump all the data. In this sample, logging also prints to the device screen, so we can see
-     * what the query returns, but your app should not log fitness information as a privacy
-     * consideration. A better option would be to dump the data you receive to a local data
-     * directory to avoid exposing it to other applications.
-     */
-    private void printData(DataReadResult dataReadResult) {
-        // [START parse_read_data_result]
-        // If the DataReadRequest object specified aggregated data, dataReadResult will be returned
-        // as buckets containing DataSets, instead of just DataSets.
-        if (dataReadResult.getBuckets().size() > 0) {
-            Log.i(TAG, "Number of returned buckets of DataSets is: "
-                    + dataReadResult.getBuckets().size());
-            for (Bucket bucket : dataReadResult.getBuckets()) {
-                List<DataSet> dataSets = bucket.getDataSets();
-                for (DataSet dataSet : dataSets) {
-                    dumpDataSet(dataSet);
-                }
-            }
-        } else if (dataReadResult.getDataSets().size() > 0) {
-            Log.i(TAG, "Number of returned DataSets is: "
-                    + dataReadResult.getDataSets().size());
-            for (DataSet dataSet : dataReadResult.getDataSets()) {
-                dumpDataSet(dataSet);
-            }
-        }
-        // [END parse_read_data_result]
-    }
-
-    // [START parse_dataset]
     private void dumpDataSet(DataSet dataSet) {
-        Log.i(TAG, "Data returned for Data type: " + dataSet.getDataType().getName());
-        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
-
         for (DataPoint dp : dataSet.getDataPoints()) {
-            Log.i(TAG, "Data point:");
+            SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
             Log.i(TAG, "\tType: " + dp.getDataType().getName());
             Log.i(TAG, "\tStart: " + dateFormat.format(dp.getStartTime(TimeUnit.MILLISECONDS)));
             Log.i(TAG, "\tEnd: " + dateFormat.format(dp.getEndTime(TimeUnit.MILLISECONDS)));
@@ -291,7 +301,14 @@ public class MainActivity extends Activity {
             }
         }
     }
-    // [END parse_dataset]
+
+    private void dumpSession(Session session) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
+        Log.i(TAG, "Data returned for Session: " + session.getName()
+                + "\n\tDescription: " + session.getDescription()
+                + "\n\tStart: " + dateFormat.format(session.getStartTime(TimeUnit.MILLISECONDS))
+                + "\n\tEnd: " + dateFormat.format(session.getEndTime(TimeUnit.MILLISECONDS)));
+    }
 
     private int calculateDailyCaloriesNorm(int age, float height, float weight, String gender) {
         if (gender != null) {

@@ -27,14 +27,11 @@ import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
 import com.google.android.gms.fitness.data.Session;
 import com.google.android.gms.fitness.request.SessionInsertRequest;
-import com.google.android.gms.fitness.request.SessionReadRequest;
-import com.google.android.gms.fitness.result.SessionReadResult;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
@@ -45,7 +42,6 @@ public class AerobicActivity extends Activity {
     public static final String TAG = "DreamTeen Fitness";
     public static final String SAMPLE_SESSION_NAME = "DreamTeen Fitness-aerobic-session";
     private static final int REQUEST_OAUTH = 1;
-    private static final String DATE_FORMAT = "yyyy.MM.dd HH:mm:ss";
 
     /**
      * Track whether an authorization activity is stacking over the current activity, i.e. when
@@ -187,30 +183,6 @@ public class AerobicActivity extends Activity {
             Log.i(TAG, "Session insert was successful!");
             // [END insert_session]
 
-            // Begin by creating the query.
-            SessionReadRequest readRequest = readFitnessSession();
-
-            // [START read_session]
-            // Invoke the Sessions API to fetch the session with the query and wait for the result
-            // of the read request.
-            SessionReadResult sessionReadResult =
-                    Fitness.SessionsApi.readSession(mClient, readRequest)
-                            .await(1, TimeUnit.MINUTES);
-
-            // Get a list of the sessions that match the criteria to check the result.
-            Log.i(TAG, "Session read was successful. Number of returned sessions is: "
-                    + sessionReadResult.getSessions().size());
-            for (Session session : sessionReadResult.getSessions()) {
-                // Process the session
-                dumpSession(session);
-
-                // Process the data sets for this session
-                List<DataSet> dataSets = sessionReadResult.getDataSet(session);
-                for (DataSet dataSet : dataSets) {
-                    dumpDataSet(dataSet);
-                }
-            }
-
             return null;
         }
     }
@@ -280,54 +252,6 @@ public class AerobicActivity extends Activity {
         // [END build_insert_session_request_with_activity_segments]
 
         return insertRequest;
-    }
-
-    /**
-     * Return a {@link com.google.android.gms.fitness.request.SessionReadRequest} for all speed data in the past week.
-     */
-    private SessionReadRequest readFitnessSession() {
-        Log.i(TAG, "Reading History API results for session: " + SAMPLE_SESSION_NAME);
-        // [START build_read_session_request]
-        // Set a start and end time for our query, using a start time of 1 week before this moment.
-        Calendar cal = Calendar.getInstance();
-        Date now = new Date();
-        cal.setTime(now);
-        long endTime = cal.getTimeInMillis();
-        cal.add(Calendar.DAY_OF_YEAR, -1);
-        long startTime = cal.getTimeInMillis();
-
-        // Build a session read request
-        SessionReadRequest readRequest = new SessionReadRequest.Builder()
-                .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS)
-                .read(DataType.TYPE_CALORIES_EXPENDED)
-                .setSessionName(SAMPLE_SESSION_NAME)
-                .build();
-        // [END build_read_session_request]
-
-        return readRequest;
-    }
-
-    private void dumpDataSet(DataSet dataSet) {
-        Log.i(TAG, "Data returned for Data type: " + dataSet.getDataType().getName());
-        for (DataPoint dp : dataSet.getDataPoints()) {
-            SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
-            Log.i(TAG, "Data point:");
-            Log.i(TAG, "\tType: " + dp.getDataType().getName());
-            Log.i(TAG, "\tStart: " + dateFormat.format(dp.getStartTime(TimeUnit.MILLISECONDS)));
-            Log.i(TAG, "\tEnd: " + dateFormat.format(dp.getEndTime(TimeUnit.MILLISECONDS)));
-            for(Field field : dp.getDataType().getFields()) {
-                Log.i(TAG, "\tField: " + field.getName() +
-                        " Value: " + dp.getValue(field));
-            }
-        }
-    }
-
-    private void dumpSession(Session session) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
-        Log.i(TAG, "Data returned for Session: " + session.getName()
-                + "\n\tDescription: " + session.getDescription()
-                + "\n\tStart: " + dateFormat.format(session.getStartTime(TimeUnit.MILLISECONDS))
-                + "\n\tEnd: " + dateFormat.format(session.getEndTime(TimeUnit.MILLISECONDS)));
     }
 
     private void initializeViews() {
