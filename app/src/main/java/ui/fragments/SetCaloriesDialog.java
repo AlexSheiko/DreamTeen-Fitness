@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -55,6 +56,9 @@ public class SetCaloriesDialog extends DialogFragment {
                     public void onClick(DialogInterface dialog, int id) {
                         // Send the positive button event back to the host activity
                         EditText mCaloriesField = (EditText) mView.findViewById(R.id.caloriesField);
+                        mCaloriesField.setHint(
+                                PreferenceManager.getDefaultSharedPreferences(getActivity())
+                                        .getInt("calories_norm", 2000));
                         if (!mCaloriesField.getText().toString().isEmpty()) {
                             int newValue = Integer.parseInt(
                                     mCaloriesField.getText().toString());
