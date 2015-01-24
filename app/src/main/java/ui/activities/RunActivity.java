@@ -2,12 +2,9 @@ package ui.activities;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.Menu;
@@ -17,13 +14,11 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.fitness.Fitness;
 import com.google.android.gms.fitness.data.DataPoint;
-import com.google.android.gms.fitness.data.DataSet;
 import com.google.android.gms.fitness.data.DataSource;
 import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
@@ -33,10 +28,6 @@ import com.google.android.gms.fitness.request.OnDataPointListener;
 import com.google.android.gms.fitness.request.SensorRequest;
 import com.google.android.gms.fitness.result.DataSourcesResult;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import bellamica.tech.dreamteenfitness.R;
@@ -46,6 +37,7 @@ import ui.fragments.MapPane.WorkoutStateListener;
 
 public class RunActivity extends Activity
         implements WorkoutStateListener {
+
     public static final String TAG = "DreamTeen Fitness";
     private static final int REQUEST_OAUTH = 1;
 
@@ -53,15 +45,12 @@ public class RunActivity extends Activity
     private static final int WORKOUT_PAUSE = 2;
     private static final int WORKOUT_FINISH = 3;
 
-    /**
-     *  Track whether an authorization activity is stacking over the current activity
-     */
+    // Track whether an authorization activity is stacking over the current activity
     private static final String AUTH_PENDING = "auth_state_pending";
     private boolean authInProgress = false;
 
     private GoogleApiClient mClient = null;
     private OnDataPointListener mLocationListener;
-    private Date mRunStartTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +72,6 @@ public class RunActivity extends Activity
     public void onWorkoutStateChanged(int state) {
         switch (state) {
             case WORKOUT_START:
-                mRunStartTime = setStartTime(this, new Date());
                 // Connect to the Fitness API
                 mClient.connect();
                 break;
@@ -91,24 +79,16 @@ public class RunActivity extends Activity
             case WORKOUT_PAUSE:
                 if (mClient.isConnected()) {
                     stopLocationUpdates();
-                    cancelSubscription();
+                    Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_STEP_COUNT_CUMULATIVE);
+                    Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_CALORIES_EXPENDED);
                     mClient.disconnect();
                 }
                 break;
 
             case WORKOUT_FINISH:
-                new InsertAndVerifyDataTask().execute();
                 startActivity(new Intent(this, SummaryActivity.class));
                 break;
         }
-    }
-
-    private Date setStartTime(Context context, Date currentDate) {
-        String startTime =
-                new SimpleDateFormat("dd MMM, hh:mm", Locale.US).format(currentDate).toLowerCase();
-        PreferenceManager.getDefaultSharedPreferences(context).edit()
-                .putString("start_time", startTime).apply();
-        return currentDate;
     }
 
     /**
@@ -120,25 +100,20 @@ public class RunActivity extends Activity
         mClient = new GoogleApiClient.Builder(this)
                 .addApi(Fitness.API)
                 .addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
-                .addScope(new Scope(Scopes.FITNESS_LOCATION_READ_WRITE))
+                .addScope(new Scope(Scopes.FITNESS_LOCATION_READ))
                 .addConnectionCallbacks(
                         new GoogleApiClient.ConnectionCallbacks() {
                             @Override
                             public void onConnected(Bundle bundle) {
                                 // Start updating map focus
                                 startLocationUpdates();
-                                subscribe();
+                                // Subscribe to steps and calories
+                                Fitness.RecordingApi.subscribe(mClient, DataType.TYPE_STEP_COUNT_CUMULATIVE);
+                                Fitness.RecordingApi.subscribe(mClient, DataType.TYPE_CALORIES_EXPENDED);
                             }
 
                             @Override
                             public void onConnectionSuspended(int i) {
-                                // If your connection to the sensor gets lost at some point,
-                                // you'll be able to determine the reason and react to it here.
-                                if (i == ConnectionCallbacks.CAUSE_NETWORK_LOST) {
-                                    Log.i(TAG, "Connection lost.  Cause: Network Lost.");
-                                } else if (i == ConnectionCallbacks.CAUSE_SERVICE_DISCONNECTED) {
-                                    Log.i(TAG, "Connection lost.  Reason: Service Disconnected");
-                                }
                             }
                         }
                 )
@@ -173,78 +148,12 @@ public class RunActivity extends Activity
     }
 
     /**
-     * Subscribe to an available {@link DataType}. Subscriptions can exist across application
-     * instances (so data is recorded even after the application closes down).  When creating
-     * a new subscription, it may already exist from a previous invocation of this app.  If
-     * the subscription already exists, the method is a no-op.  However, you can check this with
-     * a special success code.
-     */
-    public void subscribe() {
-        // To create a subscription, invoke the Recording API. As soon as the subscription is
-        // active, fitness data will start recording.
-        // [START subscribe_to_datatype]
-        Fitness.RecordingApi.subscribe(mClient, DataType.TYPE_STEP_COUNT_DELTA)
-                .setResultCallback(new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(Status status) {
-                        if (!status.isSuccess()) {
-                            Log.i(TAG, "There was a problem subscribing.");
-                        }
-                    }
-                });
-
-        Fitness.RecordingApi.subscribe(mClient, DataType.TYPE_CALORIES_EXPENDED)
-                .setResultCallback(new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(Status status) {
-                        if (!status.isSuccess()) {
-                            Log.i(TAG, "There was a problem subscribing.");
-                        }
-                    }
-                });
-        // [END subscribe_to_datatype]
-    }
-
-    /**
-     * Cancel the ACTIVITY_SAMPLE subscription by calling unsubscribe on that {@link DataType}.
-     */
-    private void cancelSubscription() {
-        // Invoke the Recording API to unsubscribe from the data type and specify a callback that
-        // will check the result.
-        // [START unsubscribe_from_datatype]
-        Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_STEP_COUNT_DELTA)
-                .setResultCallback(new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(Status status) {
-                        if (!status.isSuccess()) {
-                            // Subscription not removed
-                            Log.i(TAG, "Failed to unsubscribe.");
-                        }
-                    }
-                });
-
-        Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_CALORIES_EXPENDED)
-                .setResultCallback(new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(Status status) {
-                        if (!status.isSuccess()) {
-                            // Subscription not removed
-                            Log.i(TAG, "Failed to unsubscribe.");
-                        }
-                    }
-                });
-        // [END unsubscribe_from_datatype]
-    }
-
-    /**
      * Find available data sources and attempt to register on a specific {@link DataType}.
      */
     private void startLocationUpdates() {
         // [START find_data_sources]
         Fitness.SensorsApi.findDataSources(mClient, new DataSourcesRequest.Builder()
-                // At least one datatype must be specified.
                 .setDataTypes(DataType.TYPE_LOCATION_SAMPLE)
-                        // Can specify whether data type is raw or derived.
                 .setDataSourceTypes(DataSource.TYPE_RAW)
                 .build())
                 .setResultCallback(new ResultCallback<DataSourcesResult>() {
@@ -331,81 +240,6 @@ public class RunActivity extends Activity
                         }
                     }
                 });
-    }
-
-    /**
-     *  Create a {@link DataSet} to insert data into the History API, and
-     *  then create and execute a {@link com.google.android.gms.fitness.request.DataReadRequest} to verify the insertion succeeded.
-     *  By using an {@link AsyncTask}, we can schedule synchronous calls, so that we can query for
-     *  data after confirming that our insert was successful. Using asynchronous calls and callbacks
-     *  would not guarantee that the insertion had concluded before the read request was made.
-     *  An example of an asynchronous call using a callback can be found in the example
-     *  on deleting data below.
-     */
-    private class InsertAndVerifyDataTask extends AsyncTask<Void, Void, Void> {
-        protected Void doInBackground(Void... params) {
-            //First, create a new dataset and insertion request.
-            DataSet dataSet = insertFitnessData();
-
-            // [START insert_dataset]
-            // Then, invoke the History API to insert the data and await the result, which is
-            // possible here because of the {@link AsyncTask}. Always include a timeout when calling
-            // await() to prevent hanging that can occur from the service being shutdown because
-            // of low memory or other conditions.
-            Log.i(TAG, "Inserting the dataset in the History API");
-            com.google.android.gms.common.api.Status insertStatus =
-                    Fitness.HistoryApi.insertData(mClient, dataSet)
-                            .await(1, TimeUnit.MINUTES);
-
-            // Before querying the data, check to see if the insertion succeeded.
-            if (!insertStatus.isSuccess()) {
-                Log.i(TAG, "There was a problem inserting the dataset.");
-                return null;
-            }
-
-            // At this point, the data has been inserted and can be read.
-            Log.i(TAG, "Data insert was successful!");
-            // [END insert_dataset]
-
-            return null;
-        }
-    }
-
-    /**
-     * Create and return a {@link DataSet} of step count data for the History API.
-     */
-    private DataSet insertFitnessData() {
-        Log.i(TAG, "Creating a new data insert request");
-
-        // [START build_insert_data_request]
-        // Set a start and end time for our data, using a start time of 1 hour before this moment.
-        Calendar cal = Calendar.getInstance();
-        Date now = new Date();
-        cal.setTime(now);
-        long endTime = cal.getTimeInMillis();
-        cal.add(Calendar.HOUR_OF_DAY, -1);
-        long startTime = cal.getTimeInMillis();
-
-        // Create a data source
-        DataSource dataSource = new DataSource.Builder()
-                .setAppPackageName(this)
-                .setDataType(DataType.TYPE_STEP_COUNT_DELTA)
-                .setName(TAG + " - step count")
-                .setType(DataSource.TYPE_RAW)
-                .build();
-
-        // Create a data set
-        int stepCountDelta = 1020;
-        DataSet dataSet = DataSet.create(dataSource);
-        // For each data point, specify a start time, end time, and the data value -- in this case,
-        // the number of new steps.
-        DataPoint dataPoint = dataSet.createDataPoint()
-                .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS);
-        dataPoint.getValue(Field.FIELD_STEPS).setInt(stepCountDelta);
-        dataSet.add(dataPoint);
-        // [END build_insert_data_request]
-
-        return dataSet;
     }
 
     @Override

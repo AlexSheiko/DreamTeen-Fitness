@@ -1,0 +1,8 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/window_background"
+              android:orientation="vertical"
+              tools:context="ui.activities.RunActivity"
+              android:id="@+id/fragment_container"/><!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/layout/activity_run.xml -->

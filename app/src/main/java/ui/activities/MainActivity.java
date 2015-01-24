@@ -40,7 +40,6 @@ import com.google.android.gms.fitness.request.DataDeleteRequest;
 import com.google.android.gms.fitness.request.SessionReadRequest;
 import com.google.android.gms.fitness.result.SessionReadResult;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -99,7 +98,7 @@ public class MainActivity extends Activity
         mClient = new GoogleApiClient.Builder(this)
                 .addApi(Fitness.API)
                 .addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
-                .addScope(new Scope(Scopes.FITNESS_LOCATION_READ_WRITE))
+                .addScope(new Scope(Scopes.FITNESS_LOCATION_READ))
                 .addConnectionCallbacks(
                         new GoogleApiClient.ConnectionCallbacks() {
                             @Override
@@ -297,12 +296,12 @@ public class MainActivity extends Activity
 
     private void dumpDataSet(DataSet dataSet) {
         for (DataPoint dp : dataSet.getDataPoints()) {
-            SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
             // TODO: Delete date logging after finished testing
+            // SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT, Locale.US);
             // Log.i(TAG, "\tStart: " + dateFormat.format(dp.getStartTime(TimeUnit.MILLISECONDS)));
             // Log.i(TAG, "\tEnd: " + dateFormat.format(dp.getEndTime(TimeUnit.MILLISECONDS)));
             for (Field field : dp.getDataType().getFields()) {
-                Log.i(TAG, "\tValue: " + dp.getValue(field));
+                // Log.i(TAG, "\tValue: " + dp.getValue(field));
                 increaseDailyCaloriesCount(Math.round(dp.getValue(field).asFloat()));
             }
         }
