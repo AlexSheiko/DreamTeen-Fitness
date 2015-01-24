@@ -24,8 +24,6 @@ import bellamica.tech.dreamteenfitness.R;
 public class FriendsActivity extends Activity
         implements OnClickListener {
 
-    private Button mShareButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +32,8 @@ public class FriendsActivity extends Activity
         uiHelper.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friends);
 
-        mShareButton = (Button) findViewById(R.id.share_button);
-        mShareButton.setOnClickListener(this);
+        Button shareButton = (Button) findViewById(R.id.share_button);
+        shareButton.setOnClickListener(this);
     }
 
     private UiLifecycleHelper uiHelper;
@@ -120,24 +118,25 @@ public class FriendsActivity extends Activity
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.share_button:
-                // TODO: Configure string to use my credentials
                 PlusShare.Builder builder = new PlusShare.Builder(this);
 
                 // Set call-to-action metadata.
                 builder.addCallToAction(
-                        "CREATE_ITEM", /** call-to-action button label */
-                        Uri.parse("http://plus.google.com/pages/create"), /** call-to-action url (for desktop use) */
-                        "/pages/create" /** call to action deep-link ID (for mobile use), 512 characters or fewer */);
+                        "INSTALL_APP", /** call-to-action button label */
+                        Uri.parse("https://play.google.com/store/apps/details?id=bellamica.tech.dreamteenfitness"),
+                        /** call-to-action url (for desktop use) */
+                        "https://play.google.com/store/apps/details?id=bellamica.tech.dreamteenfitness"
+                        /** call to action deep-link ID (for mobile use), 512 characters or fewer */);
 
                 // Set the content url (for desktop use).
-                builder.setContentUrl(Uri.parse("https://plus.google.com/pages/"));
+                builder.setContentUrl(Uri.parse("https://play.google.com/store/apps/details?id=bellamica.tech.dreamteenfitness"));
 
                 // Set the target deep-link ID (for mobile use).
-                builder.setContentDeepLinkId("/pages/",
+                builder.setContentDeepLinkId("https://play.google.com/store/apps/details?id=bellamica.tech.dreamteenfitness",
                         null, null, null);
 
                 // Set the share text.
-                builder.setText("Create your Google+ Page too!");
+                builder.setText("Install DreamTeen Fitness and challenge me!");
 
                 startActivityForResult(builder.getIntent(), 0);
                 break;
