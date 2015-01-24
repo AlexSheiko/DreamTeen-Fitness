@@ -173,8 +173,7 @@ public class MainActivity extends Activity
 
     private void dumpDataSet(DataSet dataSet) {
         for (DataPoint dp : dataSet.getDataPoints()) {
-            for(Field field : dp.getDataType().getFields()) {
-                Log.i(TAG, "\tCalories: " + dp.getValue(field));
+            for (Field field : dp.getDataType().getFields()) {
                 increaseCaloriesExpanded(
                         Math.round(dp.getValue(field).asFloat()));
             }
@@ -191,7 +190,6 @@ public class MainActivity extends Activity
 
     private void increaseCaloriesExpanded(int increment) {
         mCaloriesExpanded = mCaloriesExpanded + increment;
-        Log.i(TAG, "mCaloriesExpanded = " + mCaloriesExpanded);
     }
 
     private void updateProgressBar() {
@@ -202,13 +200,8 @@ public class MainActivity extends Activity
         // Average expansion by day
         int mCaloriesBurnedByDefault = Calendar.getInstance()
                 .get(Calendar.HOUR_OF_DAY) * 1465 / 24;
-
-        Log.d(TAG, "Burned by default: " + mCaloriesBurnedByDefault);
-
         int mCaloriesExpandedTotal =
                 mCaloriesBurnedByDefault + mCaloriesExpanded;
-
-        Log.d(TAG, "Expanded total (fit + def): " + mCaloriesExpandedTotal);
 
         ((TextView) findViewById(R.id.caloriesValueLabel))
                 .setText(mCaloriesExpandedTotal + "");
@@ -226,9 +219,6 @@ public class MainActivity extends Activity
                     getResources().getDrawable(R.drawable.progress_bar_calories));
             mProgressBar.getProgressDrawable().setBounds(bounds);
         }
-
-        Log.i(TAG, "Progress: " + mProgressBar.getProgress());
-        Log.i(TAG, "Max: " + mProgressBar.getMax());
     }
 
 
@@ -337,7 +327,14 @@ public class MainActivity extends Activity
             } else if (position == 3) {
                 startActivity(new Intent(MainActivity.this, SettingsActivity.class));
             } else if (position == 4) {
-                comingSoonToast();
+            if (mClient.isConnected()) {
+                    // 1. Invoke the Config API with the Google API client object
+                    Fitness.ConfigApi.disableFit(mClient);
+                    // 2. Disconnect GoogleApiClient
+                    mClient.disconnect();
+                }
+                // 3. Go to splash screen to re-login
+                startActivity(new Intent(MainActivity.this, SplashActivity.class));
             }
         }
 
