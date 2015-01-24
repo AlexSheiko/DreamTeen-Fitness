@@ -777,7 +777,7 @@ containing a value of this type.
         public static final int buy_with_google=0x7f0d0012;
         public static final int caloriesContainer=0x7f0d0029;
         public static final int caloriesField=0x7f0d0055;
-        public static final int caloriesValueLabel=0x7f0d002a;
+        public static final int caloriesLabel =0x7f0d002a;
         public static final int center=0x7f0d001d;
         public static final int classic=0x7f0d0014;
         public static final int com_facebook_body_frame=0x7f0d004d;
@@ -813,7 +813,7 @@ containing a value of this type.
         public static final int distance_counter_container=0x7f0d0059;
         public static final int distance_label=0x7f0d005a;
         public static final int donate_with_google=0x7f0d0013;
-        public static final int drawer_layout=0x7f0d0028;
+        public static final int drawerLayout =0x7f0d0028;
         public static final int duration_counter=0x7f0d0058;
         public static final int duration_label=0x7f0d0057;
         public static final int finishButton=0x7f0d0063;
@@ -829,7 +829,7 @@ containing a value of this type.
         public static final int inline=0x7f0d001b;
         public static final int large=0x7f0d0020;
         public static final int left=0x7f0d001e;
-        public static final int left_drawer=0x7f0d0030;
+        public static final int drawerList =0x7f0d0030;
         public static final int login_button=0x7f0d0026;
         public static final int login_title=0x7f0d0032;
         public static final int map=0x7f0d005d;

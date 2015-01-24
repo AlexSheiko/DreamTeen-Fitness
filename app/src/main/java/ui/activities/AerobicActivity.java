@@ -223,7 +223,7 @@ public class AerobicActivity extends Activity {
     private void navigateToMainScreen() {
         Toast.makeText(this, "Workout saved", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this, MainActivity.class)
-                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
     }
 }

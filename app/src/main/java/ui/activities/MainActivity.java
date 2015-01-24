@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -43,6 +44,8 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import bellamica.tech.dreamteenfitness.R;
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 import ui.fragments.SetCaloriesDialog;
 import ui.fragments.SetCaloriesDialog.CaloriesDialogListener;
 import ui.utils.adapters.NavigationAdapter;
@@ -52,30 +55,34 @@ public class MainActivity extends Activity
         implements CaloriesDialogListener {
 
     public static final String TAG = "BasicHistoryApi";
-    private static final int REQUEST_OAUTH = 1;
 
-    // Track whether an authorization activity is stacking over the current activity
+    private GoogleApiClient mClient;
+    private static final int REQUEST_OAUTH = 1;
     private static final String AUTH_PENDING = "auth_state_pending";
     private boolean authInProgress = false;
 
-    private GoogleApiClient mClient = null;
-
     private SharedPreferences sharedPrefs;
     private int mCaloriesExpanded = 0;
+
+    @InjectView(R.id.caloriesLabel) TextView mCaloriesLabel;
+    @InjectView(R.id.progressBar) ProgressBar mProgressBar;
+    @InjectView(R.id.caloriesContainer) LinearLayout mCaloriesContainer;
+    @InjectView(R.id.drawerLayout) DrawerLayout mDrawerLayout;
+    @InjectView(R.id.drawerList) ListView mDrawerList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        ButterKnife.inject(this);
 
-        addSideNavigation();
+        sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         if (savedInstanceState != null) {
             authInProgress = savedInstanceState.getBoolean(AUTH_PENDING);
         }
-
         buildFitnessClient();
+        addSideNavigation();
     }
 
     /**
@@ -94,7 +101,7 @@ public class MainActivity extends Activity
                             public void onConnected(Bundle bundle) {
                                 // Now you can make calls to the Fitness APIs.  What to do?
                                 // Look at some data!!
-                                readCaloriesExpanded();
+                                readExpandedCalories();
                             }
 
                             @Override
@@ -134,7 +141,7 @@ public class MainActivity extends Activity
                 .build();
     }
 
-    private void readCaloriesExpanded() {
+    private void readExpandedCalories() {
         // Setting a start and end date using a range of 1 week before this moment.
         Calendar cal = Calendar.getInstance();
         Date now = new Date();
@@ -193,19 +200,15 @@ public class MainActivity extends Activity
     }
 
     private void updateProgressBar() {
-        ProgressBar mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
-        mProgressBar.setMax(
-                sharedPrefs.getInt("calories_norm", 2000));
-
         // Average expansion by day
         int mCaloriesBurnedByDefault = Calendar.getInstance()
                 .get(Calendar.HOUR_OF_DAY) * 1465 / 24;
         int mCaloriesExpandedTotal =
                 mCaloriesBurnedByDefault + mCaloriesExpanded;
 
-        ((TextView) findViewById(R.id.caloriesValueLabel))
-                .setText(mCaloriesExpandedTotal + "");
-
+        mCaloriesLabel.setText(mCaloriesExpandedTotal + "");
+        mProgressBar.setMax(
+                sharedPrefs.getInt("calories_norm", 2000));
         mProgressBar.setProgress(mCaloriesExpandedTotal);
 
         if (mCaloriesExpandedTotal >= sharedPrefs.getInt("calories_norm", 2000)) {
@@ -260,13 +263,12 @@ public class MainActivity extends Activity
     protected void onResume() {
         super.onResume();
         if (!sharedPrefs.getBoolean("pref_track_calories", true))
-            findViewById(R.id.caloriesContainer).setVisibility(View.GONE);
+            mCaloriesContainer.setVisibility(View.GONE);
     }
 
     // Navigation drawer
     private ActionBar mActionBar;
     private ActionBarDrawerToggle mDrawerToggle;
-    private DrawerLayout mDrawerLayout;
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
 
@@ -274,8 +276,6 @@ public class MainActivity extends Activity
         mActionBar = getActionBar();
         mTitle = mDrawerTitle = getTitle();
         String[] mActionTitles = getResources().getStringArray(R.array.action_titles);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ListView mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
         Integer[] mImageIds = new Integer[]{
                 R.drawable.ic_nav_dashboard, R.drawable.ic_nav_friends,
@@ -327,7 +327,7 @@ public class MainActivity extends Activity
             } else if (position == 3) {
                 startActivity(new Intent(MainActivity.this, SettingsActivity.class));
             } else if (position == 4) {
-            if (mClient.isConnected()) {
+                if (mClient.isConnected()) {
                     // 1. Invoke the Config API with the Google API client object
                     Fitness.ConfigApi.disableFit(mClient);
                     // 2. Disconnect GoogleApiClient
