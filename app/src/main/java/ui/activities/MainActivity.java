@@ -26,7 +26,6 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.api.Status;
@@ -112,13 +111,6 @@ public class MainActivity extends Activity
 
                             @Override
                             public void onConnectionSuspended(int i) {
-                                // If your connection to the sensor gets lost at some point,
-                                // you'll be able to determine the reason and react to it here.
-                                if (i == ConnectionCallbacks.CAUSE_NETWORK_LOST) {
-                                    Log.i(TAG, "Connection lost.  Cause: Network Lost.");
-                                } else if (i == ConnectionCallbacks.CAUSE_SERVICE_DISCONNECTED) {
-                                    Log.i(TAG, "Connection lost.  Reason: Service Disconnected");
-                                }
                             }
                         }
                 )
@@ -196,48 +188,6 @@ public class MainActivity extends Activity
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        updateProgressBar();
-        // Connect to the Fitness API
-        mClient.connect();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if (mClient.isConnected()) {
-            mClient.disconnect();
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_OAUTH) {
-            authInProgress = false;
-            if (resultCode == RESULT_OK) {
-                // Make sure the app is not already connected or attempting to connect
-                if (!mClient.isConnecting() && !mClient.isConnected()) {
-                    mClient.connect();
-                }
-            }
-        }
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putBoolean(AUTH_PENDING, authInProgress);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (!sharedPrefs.getBoolean("pref_track_calories", true))
-            findViewById(R.id.caloriesContainer).setVisibility(View.GONE);
-    }
-
-    @Override
     public void onDailyCaloriesNormChanged(DialogFragment dialog, int newValue) {
         Toast.makeText(this, newValue + "", Toast.LENGTH_SHORT).show();
     }
@@ -312,21 +262,61 @@ public class MainActivity extends Activity
     }
 
     private void updateProgressBar(/*int caloriesToExpandDaily*/) {
+        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setMax(/*caloriesToExpandDaily*/2000);
+
         // Average expansion by day
-        int mCaloriesBurnedByDefault = Calendar.getInstance()
+        int caloriesBurnedByDefault = Calendar.getInstance()
                 .get(Calendar.HOUR_OF_DAY) * 1465 / 24;
 
-        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        //TODO: Set daily norm from user's input
-        progressBar.setMax(/*caloriesToExpandDaily*/2000); // Default value for teenage girl
-
-        int mCaloriesBurnedTotal = mCaloriesBurnedByDefault + mCaloriesExpandedByFitness;
-
         ((TextView) findViewById(R.id.caloriesValueLabel))
-                .setText(mCaloriesBurnedTotal + "");
+                .setText(caloriesBurnedByDefault + "");
 
-        progressBar.setProgress(
-                mCaloriesBurnedByDefault + mCaloriesBurnedTotal);
+        progressBar.setProgress(caloriesBurnedByDefault);
+    }
+
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        updateProgressBar();
+        // Connect to the Fitness API
+        mClient.connect();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mClient.isConnected()) {
+            mClient.disconnect();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_OAUTH) {
+            authInProgress = false;
+            if (resultCode == RESULT_OK) {
+                // Make sure the app is not already connected or attempting to connect
+                if (!mClient.isConnecting() && !mClient.isConnected()) {
+                    mClient.connect();
+                }
+            }
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(AUTH_PENDING, authInProgress);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!sharedPrefs.getBoolean("pref_track_calories", true))
+            findViewById(R.id.caloriesContainer).setVisibility(View.GONE);
     }
 
     // Navigation drawer
