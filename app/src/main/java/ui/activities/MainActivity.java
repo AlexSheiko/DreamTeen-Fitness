@@ -212,10 +212,10 @@ public class MainActivity extends Activity
 
         mCaloriesLabel.setText(mCaloriesExpandedTotal + "");
         mProgressBar.setMax(
-                sharedPrefs.getInt("calories_norm", 2000));
+                sharedPrefs.getInt("calories_norm", 1950));
         mProgressBar.setProgress(mCaloriesExpandedTotal);
 
-        if (mCaloriesExpandedTotal >= sharedPrefs.getInt("calories_norm", 2000)) {
+        if (mCaloriesExpandedTotal >= sharedPrefs.getInt("calories_norm", 1950)) {
             Rect bounds = mProgressBar.getProgressDrawable().getBounds();
             mProgressBar.setProgressDrawable(
                     getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));

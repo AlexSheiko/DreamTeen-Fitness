@@ -52,7 +52,7 @@ public class SetCaloriesDialog extends DialogFragment {
         mCaloriesField = (EditText) mView.findViewById(R.id.caloriesField);
         mCaloriesField.setHint(
                 PreferenceManager.getDefaultSharedPreferences(getActivity())
-                        .getInt("calories_norm", 2000) + "");
+                        .getInt("calories_norm", 1950) + "");
 
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
