@@ -30,6 +30,13 @@
         <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-d468e72c8ea79625b7615186601440b8d5bb481e.jar" />
     </item>
     <item
+        jar="D:\Android\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\6.0.0\3a10b25b6820e19102e118711afe6a66c0bae123\butterknife-6.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="3a10b25b6820e19102e118711afe6a66c0bae123">
+        <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\butterknife-6.0.0-b13eeaab2d9e5b3db09537865002d135c0c09018.jar" />
+    </item>
+    <item
         jar="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.facebook.android\facebook\3.21.1\classes.jar"
         jumboMode="false"
         revision="21.1.2"

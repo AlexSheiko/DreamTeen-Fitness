@@ -157,6 +157,8 @@ ADDED from AndroidManifest.xml:87:9
 		ADDED from AndroidManifest.xml:88:13
 activity#ui.activities.SplashActivity
 ADDED from AndroidManifest.xml:92:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:96:13
 	android:label
 		ADDED from AndroidManifest.xml:94:13
 	android:theme
@@ -164,37 +166,15 @@ ADDED from AndroidManifest.xml:92:9
 	android:name
 		ADDED from AndroidManifest.xml:93:13
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:96:13
+ADDED from AndroidManifest.xml:97:13
 action#android.intent.action.MAIN
-ADDED from AndroidManifest.xml:97:17
-	android:name
-		ADDED from AndroidManifest.xml:97:25
-category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:98:17
 	android:name
-		ADDED from AndroidManifest.xml:98:27
-activity#ui.activities.ParseDeepLinkActivity
-ADDED from AndroidManifest.xml:101:9
+		ADDED from AndroidManifest.xml:98:25
+category#android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:99:17
 	android:name
-		ADDED from AndroidManifest.xml:101:19
-intent-filter#android.intent.category.BROWSABLE+android.intent.category.DEFAULT+com.google.android.apps.plus.VIEW_DEEP_LINK
-ADDED from AndroidManifest.xml:102:13
-action#com.google.android.apps.plus.VIEW_DEEP_LINK
-ADDED from AndroidManifest.xml:103:17
-	android:name
-		ADDED from AndroidManifest.xml:103:25
-data
-ADDED from AndroidManifest.xml:104:17
-	android:scheme
-		ADDED from AndroidManifest.xml:104:23
-category#android.intent.category.DEFAULT
-ADDED from AndroidManifest.xml:105:17
-	android:name
-		ADDED from AndroidManifest.xml:105:27
-category#android.intent.category.BROWSABLE
-ADDED from AndroidManifest.xml:106:17
-	android:name
-		ADDED from AndroidManifest.xml:106:27
+		ADDED from AndroidManifest.xml:99:27
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.android.support:support-v4:21.0.3:15:5

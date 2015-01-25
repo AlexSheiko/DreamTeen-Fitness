@@ -14,12 +14,12 @@
             android:text="@string/run_was_label"/>
 
         <TextView
-            android:id="@+id/TripLabelDistance"
+            android:id="@+id/distanceLabel"
             style="@style/TripLabelDistance"
             android:text="@string/distance_default_value"/>
 
         <TextView
-            android:id="@+id/TripLabelUnits"
+            android:id="@+id/unitsLabel"
             style="@style/TripLabelUnits"/>
     </LinearLayout>
 
@@ -34,7 +34,7 @@
         android:paddingTop="@dimen/activity_vertical_margin">
 
         <EditText
-            android:id="@+id/tripNameField"
+            android:id="@+id/nameField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

@@ -272,10 +272,12 @@
     <string name="discard_trip_dialog_message">You\'ll lose the data about it.</string>
     <string name="discard_trip_dialog_title">Discard the trip?</string>
     <string name="distance_default_value">0.00</string>
+    <string name="distance_key" translatable="false">Distance</string>
     <string name="distance_label">Distance</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="duration_default_value" translateble="false">00:00:00</string>
+    <string name="duration_key" translatable="false">Duration</string>
     <string name="duration_label">Duration</string>
     <string name="duration_units">min</string>
     <string name="facebook_app_id">562228307244897</string>
@@ -309,6 +311,9 @@
     <string name="save_run_button_label">Save Run</string>
     <string name="start">Start</string>
     <string name="start_run_button_label">Start Run</string>
+    <string name="start_time_key" translatable="false">start_time</string>
+    <string name="steps_default_value">0</string>
+    <string name="steps_norm_hint">to overage norm</string>
     <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/admob_strings.xml -->
     <eat-comment/>
     <string name="store_picture_message">"Allow Ad to store image in Picture gallery?"</string>

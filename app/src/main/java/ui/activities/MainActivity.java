@@ -151,7 +151,8 @@ public class MainActivity extends Activity
         Date now = new Date();
         cal.setTime(now);
         long endTime = cal.getTimeInMillis();
-        cal.add(Calendar.DAY_OF_YEAR, -1);
+        // Get time from the start (00:00) of a day
+        cal.add(Calendar.HOUR_OF_DAY, -Calendar.HOUR_OF_DAY);
         long startTime = cal.getTimeInMillis();
 
         DataReadRequest readRequest = new DataReadRequest.Builder()
