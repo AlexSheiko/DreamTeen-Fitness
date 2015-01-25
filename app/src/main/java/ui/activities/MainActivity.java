@@ -161,7 +161,7 @@ public class MainActivity extends Activity
 
         DataReadRequest readCaloriesRequest = new DataReadRequest.Builder()
                 .read(DataType.TYPE_CALORIES_EXPENDED)
-                .read(DataType.TYPE_STEP_COUNT_CUMULATIVE)
+                .read(DataType.TYPE_STEP_COUNT_DELTA)
                 .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
                 .build();
 
@@ -174,7 +174,7 @@ public class MainActivity extends Activity
 
                                 if (dataSet.getDataType().equals(DataType.TYPE_CALORIES_EXPENDED)) {
                                     dumpCalories(dataSet);
-                                } else if (dataSet.getDataType().equals(DataType.TYPE_STEP_COUNT_CUMULATIVE)) {
+                                } else if (dataSet.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)) {
                                     dumpSteps(dataSet);
                                 }
                             }

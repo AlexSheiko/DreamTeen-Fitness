@@ -99,7 +99,7 @@ public class RunActivity extends Activity
             case WORKOUT_PAUSE:
                 if (mClient.isConnected()) {
                     unregisterDataSources();
-                    Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_STEP_COUNT_CUMULATIVE);
+                    Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_STEP_COUNT_DELTA);
                     Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_CALORIES_EXPENDED);
                     mClient.disconnect();
                 }
@@ -125,7 +125,7 @@ public class RunActivity extends Activity
         // Create a data source
         DataSource dataSource = new DataSource.Builder()
                 .setAppPackageName(this)
-                .setDataType(DataType.TYPE_STEP_COUNT_CUMULATIVE)
+                .setDataType(DataType.TYPE_STEP_COUNT_DELTA)
                 .setName(TAG + " - step count")
                 .setType(DataSource.TYPE_RAW)
                 .build();
@@ -166,7 +166,7 @@ public class RunActivity extends Activity
                                 // Start updating map focus and counting steps
                                 findFitnessDataSources();
                                 // Subscribe to steps and calories
-                                Fitness.RecordingApi.subscribe(mClient, DataType.TYPE_STEP_COUNT_CUMULATIVE);
+                                Fitness.RecordingApi.subscribe(mClient, DataType.TYPE_STEP_COUNT_DELTA);
                                 Fitness.RecordingApi.subscribe(mClient, DataType.TYPE_CALORIES_EXPENDED);
                             }
 
@@ -211,8 +211,8 @@ public class RunActivity extends Activity
     private void findFitnessDataSources() {
         // [START find_data_sources]
         Fitness.SensorsApi.findDataSources(mClient, new DataSourcesRequest.Builder()
-                .setDataTypes(DataType.TYPE_LOCATION_SAMPLE, DataType.TYPE_STEP_COUNT_CUMULATIVE)
-                .setDataSourceTypes(DataSource.TYPE_RAW, DataSource.TYPE_DERIVED)
+                .setDataTypes(DataType.TYPE_LOCATION_SAMPLE, DataType.TYPE_STEP_COUNT_DELTA)
+                .setDataSourceTypes(DataSource.TYPE_RAW, DataSource.TYPE_RAW)
                 .build())
                 .setResultCallback(new ResultCallback<DataSourcesResult>() {
                     @Override
@@ -223,10 +223,10 @@ public class RunActivity extends Activity
                                     && mLocationListener == null) {
                                 registerDataListeners(dataSource,
                                         DataType.TYPE_LOCATION_SAMPLE);
-                            } else if (dataSource.getDataType().equals(DataType.TYPE_STEP_COUNT_CUMULATIVE)
+                            } else if (dataSource.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)
                                     && mStepsListener == null) {
                                 registerDataListeners(dataSource,
-                                        DataType.TYPE_STEP_COUNT_CUMULATIVE);
+                                        DataType.TYPE_STEP_COUNT_DELTA);
                             }
                         }
                     }
@@ -276,7 +276,7 @@ public class RunActivity extends Activity
                             }
                         }
                     });
-        } else if (dataType.equals(DataType.TYPE_STEP_COUNT_CUMULATIVE)) {
+        } else if (dataType.equals(DataType.TYPE_STEP_COUNT_DELTA)) {
             final int stepsTarget = mSharedPrefs.getInt("steps_target",
                     Integer.parseInt(getResources().getString(R.string.steps_target_default_value)));
             mStepsListener = new OnDataPointListener() {
