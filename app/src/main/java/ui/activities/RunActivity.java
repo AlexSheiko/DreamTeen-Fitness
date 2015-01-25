@@ -131,11 +131,11 @@ public class RunActivity extends Activity
                 .build();
 
         // Create a data set
-        float stepCount = 111;
+        int stepCount = 111;
         DataSet dataSet = DataSet.create(dataSource);
         DataPoint dataPoint = dataSet.createDataPoint()
                 .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS);
-        dataPoint.getValue(Field.FIELD_STEPS).setFloat(stepCount);
+        dataPoint.getValue(Field.FIELD_STEPS).setInt(stepCount);
         dataSet.add(dataPoint);
 
         // Invoke the History API to insert the data
