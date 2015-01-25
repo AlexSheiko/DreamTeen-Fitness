@@ -289,7 +289,6 @@ int id buyButton 0x7f0d000c
 int id buy_now 0x7f0d0011
 int id buy_with_google 0x7f0d0012
 int id caloriesContainer 0x7f0d0029
-int id caloriesField 0x7f0d0054
 int id caloriesLabel 0x7f0d002a
 int id center 0x7f0d001d
 int id classic 0x7f0d0014
@@ -334,7 +333,6 @@ int id duration_label 0x7f0d0056
 int id finishButton 0x7f0d0062
 int id finish_button_label 0x7f0d0063
 int id fragment_container 0x7f0d0030
-int id goalWeightContainer 0x7f0d002c
 int id grayscale 0x7f0d0015
 int id holo_dark 0x7f0d0007
 int id holo_light 0x7f0d0008
@@ -370,8 +368,9 @@ int id small 0x7f0d0021
 int id standard 0x7f0d0019
 int id startButton 0x7f0d005e
 int id start_button_label 0x7f0d0038
-int id stepsHintLabel 0x7f0d002e
+int id stepsContainer 0x7f0d002c
 int id stepsLabel 0x7f0d002d
+int id stepsTargetLabel 0x7f0d002e
 int id strict_sandbox 0x7f0d000b
 int id terrain 0x7f0d0006
 int id text 0x7f0d0065
@@ -380,6 +379,7 @@ int id textView 0x7f0d0025
 int id top 0x7f0d001c
 int id tripNotesField 0x7f0d0036
 int id unitsLabel 0x7f0d0034
+int id valueField 0x7f0d0054
 int id wrap_content 0x7f0d000f
 int integer google_play_services_version 0x7f090000
 int layout activity_aerobic 0x7f030000
@@ -532,8 +532,8 @@ int string start 0x7f0a0075
 int string start_run_button_label 0x7f0a0076
 int string start_time_key 0x7f0a0077
 int string steps_default_value 0x7f0a0078
-int string steps_hint_default_value 0x7f0a0079
-int string steps_norm_hint 0x7f0a007a
+int string steps_norm_hint 0x7f0a0079
+int string steps_target_default_value 0x7f0a007a
 int string store_picture_message 0x7f0a007b
 int string store_picture_title 0x7f0a007c
 int string title_activity_friends 0x7f0a007d

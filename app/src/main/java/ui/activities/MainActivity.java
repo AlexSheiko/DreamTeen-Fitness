@@ -46,8 +46,8 @@ import java.util.concurrent.TimeUnit;
 import bellamica.tech.dreamteenfitness.R;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import ui.fragments.SetCaloriesDialog;
-import ui.fragments.SetCaloriesDialog.CaloriesDialogListener;
+import ui.fragments.SetGoalDialog;
+import ui.fragments.SetGoalDialog.CaloriesDialogListener;
 import ui.utils.adapters.NavigationAdapter;
 
 
@@ -75,6 +75,10 @@ public class MainActivity extends Activity
     DrawerLayout mDrawerLayout;
     @InjectView(R.id.drawerList)
     ListView mDrawerList;
+    @InjectView(R.id.stepsLabel)
+    TextView mStepsLabel;
+    @InjectView(R.id.stepsTargetLabel)
+    TextView mStepsTargetLabel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -191,21 +195,28 @@ public class MainActivity extends Activity
                         Math.round(dp.getValue(field).asFloat()));
             }
         }
-        updateProgressBar();
+        updateUiCounters();
     }
 
     @Override
-    public void onDailyCaloriesNormChanged(DialogFragment dialog, int newValue) {
+    public void onCaloriesGoalChanged(DialogFragment dialog, int newValue) {
         mSharedPrefs.edit()
                 .putInt("calories_norm", newValue).apply();
-        updateProgressBar();
+        updateUiCounters();
+    }
+
+    @Override
+    public void onStepsGoalChanged(DialogFragment dialog, int newValue) {
+        mSharedPrefs.edit()
+                .putInt("steps_target", newValue).apply();
+        updateUiCounters();
     }
 
     private void increaseCaloriesExpanded(int increment) {
         mCaloriesExpanded = mCaloriesExpanded + increment;
     }
 
-    private void updateProgressBar() {
+    private void updateUiCounters() {
         // Average expansion by day
         int mCaloriesBurnedByDefault = Calendar.getInstance()
                 .get(Calendar.HOUR_OF_DAY) * 1465 / 24;
@@ -228,6 +239,16 @@ public class MainActivity extends Activity
                     getResources().getDrawable(R.drawable.progress_bar_calories));
             mProgressBar.getProgressDrawable().setBounds(bounds);
         }
+
+        int stepsTarget = mSharedPrefs.getInt("steps_target",
+                Integer.parseInt(getResources().getString(R.string.steps_target_default_value)));
+
+        int stepsTaken = mSharedPrefs.getInt("steps_taken", 0);
+        mStepsLabel.setText(stepsTaken + "");
+
+        int stepsLeft = stepsTarget - stepsTaken;
+        if (stepsLeft < 0) stepsLeft = 0;
+        mStepsTargetLabel.setText(stepsLeft + "");
     }
 
 
@@ -378,8 +399,18 @@ public class MainActivity extends Activity
         startActivity(new Intent(this, AerobicActivity.class));
     }
 
-    public void setDailyCaloriesNorm(View view) {
-        DialogFragment newFragment = new SetCaloriesDialog();
-        newFragment.show(getFragmentManager(), "calories");
+    public void setFitnessGoal(View view) {
+        Bundle bundle = new Bundle();
+        switch (view.getId()) {
+            case R.id.caloriesContainer:
+                bundle.putString("key", "calories");
+                break;
+            case R.id.stepsContainer:
+                bundle.putString("key", "steps");
+                break;
+        }
+        DialogFragment newFragment = new SetGoalDialog();
+        newFragment.setArguments(bundle);
+        newFragment.show(getFragmentManager(), "dialog_goal");
     }
 }

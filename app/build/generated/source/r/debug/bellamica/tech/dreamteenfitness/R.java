@@ -774,7 +774,6 @@ containing a value of this type.
         public static final int buy_now=0x7f0d0011;
         public static final int buy_with_google=0x7f0d0012;
         public static final int caloriesContainer=0x7f0d0029;
-        public static final int caloriesField=0x7f0d0054;
         public static final int caloriesLabel=0x7f0d002a;
         public static final int center=0x7f0d001d;
         public static final int classic=0x7f0d0014;
@@ -819,7 +818,6 @@ containing a value of this type.
         public static final int finishButton=0x7f0d0062;
         public static final int finish_button_label=0x7f0d0063;
         public static final int fragment_container=0x7f0d0030;
-        public static final int goalWeightContainer=0x7f0d002c;
         public static final int grayscale=0x7f0d0015;
         public static final int holo_dark=0x7f0d0007;
         public static final int holo_light=0x7f0d0008;
@@ -855,8 +853,9 @@ containing a value of this type.
         public static final int standard=0x7f0d0019;
         public static final int startButton=0x7f0d005e;
         public static final int start_button_label=0x7f0d0038;
-        public static final int stepsHintLabel=0x7f0d002e;
+        public static final int stepsContainer=0x7f0d002c;
         public static final int stepsLabel=0x7f0d002d;
+        public static final int stepsTargetLabel=0x7f0d002e;
         public static final int strict_sandbox=0x7f0d000b;
         public static final int terrain=0x7f0d0006;
         public static final int text=0x7f0d0065;
@@ -865,6 +864,7 @@ containing a value of this type.
         public static final int top=0x7f0d001c;
         public static final int tripNotesField=0x7f0d0036;
         public static final int unitsLabel=0x7f0d0034;
+        public static final int valueField=0x7f0d0054;
         public static final int wrap_content=0x7f0d000f;
     }
     public static final class integer {
@@ -1027,8 +1027,8 @@ containing a value of this type.
         public static final int start_run_button_label=0x7f0a0076;
         public static final int start_time_key=0x7f0a0077;
         public static final int steps_default_value=0x7f0a0078;
-        public static final int steps_hint_default_value=0x7f0a0079;
-        public static final int steps_norm_hint=0x7f0a007a;
+        public static final int steps_norm_hint=0x7f0a0079;
+        public static final int steps_target_default_value=0x7f0a007a;
         public static final int store_picture_message=0x7f0a007b;
         public static final int store_picture_title=0x7f0a007c;
         public static final int title_activity_friends=0x7f0a007d;

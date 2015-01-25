@@ -17,6 +17,10 @@ public class MainActivity$$ViewInjector {
     target.mDrawerLayout = (android.support.v4.widget.DrawerLayout) view;
     view = finder.findRequiredView(source, 2131558447, "field 'mDrawerList'");
     target.mDrawerList = (android.widget.ListView) view;
+    view = finder.findRequiredView(source, 2131558445, "field 'mStepsLabel'");
+    target.mStepsLabel = (android.widget.TextView) view;
+    view = finder.findRequiredView(source, 2131558446, "field 'mStepsTargetLabel'");
+    target.mStepsTargetLabel = (android.widget.TextView) view;
   }
 
   public static void reset(ui.activities.MainActivity target) {
@@ -25,5 +29,7 @@ public class MainActivity$$ViewInjector {
     target.mCaloriesContainer = null;
     target.mDrawerLayout = null;
     target.mDrawerList = null;
+    target.mStepsLabel = null;
+    target.mStepsTargetLabel = null;
   }
 }
