@@ -5,7 +5,7 @@
               android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/caloriesField"
+        android:id="@+id/valueField"
         android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,7 +14,8 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="10dp"
         android:textColor="@android:color/black"
-        android:textSize="24sp"
-        android:hint="2000" />
+        android:textSize="24sp"/>
+
+    <requestFocus/>
 
 </LinearLayout><!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/layout/dialog_calories.xml -->

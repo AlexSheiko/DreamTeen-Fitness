@@ -63,7 +63,9 @@ public class SummaryActivity extends Activity {
     }
 
     public void saveRun(View view) {
-        startActivity(new Intent(SummaryActivity.this, MainActivity.class));
+        startActivity(new Intent(SummaryActivity.this, MainActivity.class)
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
     }
 
     @Override
@@ -92,7 +94,7 @@ public class SummaryActivity extends Activity {
         }
 
         String message = "Just finished a run of " + String.format("%.2f", mDistance) + " " + measureUnits + " " +
-                        "in " + duration + ".\n\nAny challengers? ;)\n#DreamTeen Fitness";
+                "in " + duration + ".\n\nAny challengers? ;)\n#DreamTeen Fitness";
 
         Intent intent = new Intent(android.content.Intent.ACTION_SEND);
         intent.setType("text/plain");

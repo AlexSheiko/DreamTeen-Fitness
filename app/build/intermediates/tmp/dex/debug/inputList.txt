@@ -6,3 +6,4 @@ D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.
 D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\classes-f97dba31ba020fd26e6e903fdd23176dbfa3ad06.jar
 D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\classes-3b3066a9b90fbcf50803f55664cbd363ff413d3c.jar
 D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\classes-2baa6ad3d7ec2a22b00e61193b3222e8091eb281.jar
+D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\mpandroidchartlibrary-1-7-4-373adc29ca11d4ea7c657a9d9ec5824e71eeaff6.jar

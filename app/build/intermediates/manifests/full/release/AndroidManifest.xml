@@ -97,6 +97,7 @@
         <activity
             android:name="ui.activities.SplashActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -104,15 +105,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="ui.activities.ParseDeepLinkActivity" >
-            <intent-filter>
-                <action android:name="com.google.android.apps.plus.VIEW_DEEP_LINK" />
-
-                <data android:scheme="vnd.google.deeplink" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-            </intent-filter>
+        <activity
+            android:name="ui.activities.HistoryActivity"
+            android:label="@string/title_activity_history"
+            android:parentActivityName="ui.activities.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ui.activities.MainActivity" />
         </activity>
     </application>
 

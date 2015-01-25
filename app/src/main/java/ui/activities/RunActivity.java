@@ -248,17 +248,16 @@ public class RunActivity extends Activity
                             mSharedPrefs.edit().putInt("steps_taken", stepsTaken).apply();
 
                             if (stepsTaken > stepsTarget * 0.25 && !is25notified) {
-                                // TODO: Make notification about 25% goal reached
                                 showNotification(25);
                                 is25notified = true;
                             } else if (stepsTaken > stepsTarget * 0.5 && !is50notified) {
-
+                                showNotification(50);
                                 is50notified = true;
                             } else if (stepsTaken > stepsTarget * 0.75 && !is75notified) {
-
+                                showNotification(75);
                                 is75notified = true;
                             } else if (stepsTaken >= stepsTarget && !is100notified) {
-
+                                showNotification(100);
                                 is100notified = true;
                             }
                         }
