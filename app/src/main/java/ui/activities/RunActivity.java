@@ -26,6 +26,7 @@ import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.fitness.Fitness;
 import com.google.android.gms.fitness.data.DataPoint;
+import com.google.android.gms.fitness.data.DataSet;
 import com.google.android.gms.fitness.data.DataSource;
 import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
@@ -35,6 +36,8 @@ import com.google.android.gms.fitness.request.OnDataPointListener;
 import com.google.android.gms.fitness.request.SensorRequest;
 import com.google.android.gms.fitness.result.DataSourcesResult;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import bellamica.tech.dreamteenfitness.R;
@@ -103,9 +106,47 @@ public class RunActivity extends Activity
                 break;
 
             case WORKOUT_FINISH:
+                // TODO: Delete this after implementing read query in MainActivity
+                insertSteps();
                 startActivity(new Intent(this, SummaryActivity.class));
                 break;
         }
+    }
+
+    private void insertSteps() {
+        // Set a start and end time for our data, using a start time of 1 hour before this moment.
+        Calendar cal = Calendar.getInstance();
+        Date now = new Date();
+        cal.setTime(now);
+        long endTime = cal.getTimeInMillis();
+        cal.add(Calendar.SECOND, -1);
+        long startTime = cal.getTimeInMillis();
+
+        // Create a data source
+        DataSource dataSource = new DataSource.Builder()
+                .setAppPackageName(this)
+                .setDataType(DataType.TYPE_STEP_COUNT_CUMULATIVE)
+                .setName(TAG + " - step count")
+                .setType(DataSource.TYPE_RAW)
+                .build();
+
+        // Create a data set
+        float stepCount = 111;
+        DataSet dataSet = DataSet.create(dataSource);
+        DataPoint dataPoint = dataSet.createDataPoint()
+                .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS);
+        dataPoint.getValue(Field.FIELD_STEPS).setFloat(stepCount);
+        dataSet.add(dataPoint);
+
+        // Invoke the History API to insert the data
+        Fitness.HistoryApi.insertData(mClient, dataSet).setResultCallback(new ResultCallback<Status>() {
+            @Override
+            public void onResult(Status status) {
+                if (mClient.isConnected()) {
+                    mClient.disconnect();
+                }
+            }
+        });
     }
 
     /**
@@ -239,14 +280,15 @@ public class RunActivity extends Activity
             final int stepsTarget = mSharedPrefs.getInt("steps_target",
                     Integer.parseInt(getResources().getString(R.string.steps_target_default_value)));
             mStepsListener = new OnDataPointListener() {
+
+                private int stepsTaken = 0;
+
                 @Override
                 public void onDataPoint(DataPoint dataPoint) {
                     for (Field field : dataPoint.getDataType().getFields()) {
                         Value value = dataPoint.getValue(field);
                         if (field.equals(Field.FIELD_STEPS)) {
-                            int stepsTaken = mSharedPrefs.getInt("steps_taken", 0) + value.asInt();
-                            mSharedPrefs.edit().putInt("steps_taken", stepsTaken).apply();
-
+                            stepsTaken = stepsTaken + value.asInt();
                             if (stepsTaken > stepsTarget * 0.25 && !is25notified) {
                                 showNotification(25);
                                 is25notified = true;

@@ -44,234 +44,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e838e63-aa6c-41fc-a81b-f5c1e2df2628" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\R.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\classes.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\proguard.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\color\common_signin_btn_text_dark.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\color\common_signin_btn_text_light.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\color\wallet_primary_text_holo_light.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\color\wallet_secondary_text_holo_dark.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\common_full_open_on_phone.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\common_ic_googleplayservices.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\common_signin_btn_icon_disabled_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\common_signin_btn_icon_disabled_focus_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\common_signin_btn_icon_disabled_focus_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\common_signin_btn_icon_disabled_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\common_signin_btn_icon_focus_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\common_signin_btn_icon_focus_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\common_signin_btn_icon_normal_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\common_signin_btn_icon_normal_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\common_signin_btn_icon_pressed_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\common_signin_btn_icon_pressed_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\common_signin_btn_text_disabled_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\common_signin_btn_text_disabled_focus_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\common_signin_btn_text_disabled_focus_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\common_signin_btn_text_disabled_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\common_signin_btn_text_focus_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\common_signin_btn_text_focus_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\common_signin_btn_text_normal_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\common_signin_btn_text_normal_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\common_signin_btn_text_pressed_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\common_signin_btn_text_pressed_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\ic_plusone_medium_off_client.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\ic_plusone_small_off_client.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\ic_plusone_standard_off_client.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\ic_plusone_tall_off_client.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\powered_by_google_dark.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-hdpi\powered_by_google_light.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\common_signin_btn_icon_disabled_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\common_signin_btn_icon_disabled_focus_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\common_signin_btn_icon_disabled_focus_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\common_signin_btn_icon_disabled_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\common_signin_btn_icon_focus_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\common_signin_btn_icon_focus_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\common_signin_btn_icon_normal_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\common_signin_btn_icon_normal_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\common_signin_btn_icon_pressed_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\common_signin_btn_icon_pressed_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\common_signin_btn_text_disabled_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\common_signin_btn_text_disabled_focus_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\common_signin_btn_text_disabled_focus_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\common_signin_btn_text_disabled_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\common_signin_btn_text_focus_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\common_signin_btn_text_focus_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\common_signin_btn_text_normal_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\common_signin_btn_text_normal_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\common_signin_btn_text_pressed_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\common_signin_btn_text_pressed_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\ic_plusone_medium_off_client.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\ic_plusone_small_off_client.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\ic_plusone_standard_off_client.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\ic_plusone_tall_off_client.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\powered_by_google_dark.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-mdpi\powered_by_google_light.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-tvdpi\ic_plusone_medium_off_client.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-tvdpi\ic_plusone_small_off_client.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-tvdpi\ic_plusone_standard_off_client.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-tvdpi\ic_plusone_tall_off_client.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\common_signin_btn_icon_disabled_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\common_signin_btn_icon_disabled_focus_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\common_signin_btn_icon_disabled_focus_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\common_signin_btn_icon_disabled_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\common_signin_btn_icon_focus_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\common_signin_btn_icon_focus_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\common_signin_btn_icon_normal_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\common_signin_btn_icon_normal_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\common_signin_btn_icon_pressed_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\common_signin_btn_icon_pressed_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\common_signin_btn_text_disabled_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\common_signin_btn_text_disabled_focus_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\common_signin_btn_text_disabled_focus_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\common_signin_btn_text_disabled_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\common_signin_btn_text_focus_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\common_signin_btn_text_focus_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\common_signin_btn_text_normal_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\common_signin_btn_text_normal_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\common_signin_btn_text_pressed_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\common_signin_btn_text_pressed_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\ic_plusone_medium_off_client.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\ic_plusone_small_off_client.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\ic_plusone_standard_off_client.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\ic_plusone_tall_off_client.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\powered_by_google_dark.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xhdpi\powered_by_google_light.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\common_signin_btn_icon_disabled_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\common_signin_btn_icon_disabled_focus_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\common_signin_btn_icon_disabled_focus_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\common_signin_btn_icon_disabled_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\common_signin_btn_icon_focus_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\common_signin_btn_icon_focus_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\common_signin_btn_icon_normal_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\common_signin_btn_icon_normal_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\common_signin_btn_icon_pressed_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\common_signin_btn_icon_pressed_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\common_signin_btn_text_disabled_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\common_signin_btn_text_disabled_focus_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\common_signin_btn_text_disabled_focus_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\common_signin_btn_text_disabled_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\common_signin_btn_text_focus_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\common_signin_btn_text_focus_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\common_signin_btn_text_normal_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\common_signin_btn_text_normal_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\common_signin_btn_text_pressed_dark.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\common_signin_btn_text_pressed_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\ic_plusone_medium_off_client.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\ic_plusone_small_off_client.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\ic_plusone_standard_off_client.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\ic_plusone_tall_off_client.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\powered_by_google_dark.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable-xxhdpi\powered_by_google_light.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable\common_signin_btn_icon_dark.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable\common_signin_btn_icon_light.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable\common_signin_btn_text_dark.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\drawable\common_signin_btn_text_light.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-af\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-am\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-ar\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-be\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-bg\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-bn-rBD\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-ca\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-cs\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-da\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-de\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-el\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-en-rGB\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-en-rIN\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-es-rUS\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-es\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-es\wallet_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-et-rEE\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-eu-rES\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-fa\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-fi\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-fr-rCA\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-fr\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-gl-rES\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-hi\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-hr\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-hu\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-hy-rAM\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-in\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-is-rIS\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-it\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-iw\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-ja\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-ka-rGE\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-kk-rKZ\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-km-rKH\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-kn-rIN\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-ko\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-ky-rKG\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-lo-rLA\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-lt\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-lv\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-mk-rMK\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-ml-rIN\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-mn-rMN\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-mr-rIN\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-ms-rMY\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-my-rMM\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-nb\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-ne-rNP\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-nl\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-pl\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-pt-rBR\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-pt-rPT\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-pt\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-ro\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-ru\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-si-rLK\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-sk\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-sl\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-sr\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-sv\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-sw\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-ta-rIN\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-te-rIN\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-th\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-tl\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-tr\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-uk\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-ur-rPK\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-uz-rUZ\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-vi\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-zh-rCN\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-zh-rHK\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-zh-rTW\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values-zu\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values\admob_ads_attrs.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values\admob_iap_style.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values\admob_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values\common_colors.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values\common_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values\maps_attrs.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values\version.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values\wallet_attrs.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values\wallet_colors.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values\wallet_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\res\values\wallet_styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\templates.zip" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\res\layout\activity_stats.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\res\menu\menu_stats.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.facebook.android/facebook/3.21.1/classes.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.facebook.android/facebook/3.21.1/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/model_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/model_data.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/HistoryActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/HistoryActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/bellamica/tech/dreamteenfitness/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/bellamica/tech/dreamteenfitness/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/facebook/android/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/facebook/android/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/release/bellamica/tech/dreamteenfitness/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/release/bellamica/tech/dreamteenfitness/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/release/com/facebook/android/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/release/com/facebook/android/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/release/com/google/android/gms/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/release/com/google/android/gms/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/tmp/dex/debug/inputList.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/tmp/dex/debug/inputList.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/tmp/dex/release/inputList.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/tmp/dex/release/inputList.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/splash_background.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/splash_background.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DreamFit.iws" />
@@ -295,7 +70,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="HistoryActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="HistoryActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/HistoryActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="2448">
@@ -315,6 +90,70 @@
           </provider>
           <provider editor-type-id="android-designer">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RunActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1016" max-vertical-offset="6256">
+              <caret line="137" column="44" selection-start-line="137" selection-start-column="44" selection-end-line="137" selection-end-column="44" />
+              <folding>
+                <element signature="e#12490#12551#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2832" max-vertical-offset="6392">
+              <caret line="241" column="49" selection-start-line="241" selection-start-column="49" selection-end-line="241" selection-end-column="49" />
+              <folding>
+                <element signature="e#7073#7731#0" expanded="true" />
+                <element signature="e#7712#7713#0" expanded="true" />
+                <element signature="e#8562#8563#0" expanded="true" />
+                <element signature="e#8615#8616#0" expanded="true" />
+                <element signature="e#9902#9963#0" expanded="true" />
+                <element signature="e#13228#13248#0" expanded="true" />
+                <element signature="e#13317#13338#0" expanded="true" />
+                <element signature="e#15156#15187#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_splash.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml">
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
+              <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="splash_background.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/splash_background.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+              <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AerobicActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/AerobicActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1122" max-vertical-offset="3128">
+              <caret line="118" column="31" selection-start-line="118" selection-start-column="31" selection-end-line="118" selection-end-column="31" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -1877,7 +1716,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/utils/SplashScreen.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/utils/BodyParamsInput.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/utils/GoalDialog.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/RunActivity.java" />
@@ -1914,20 +1752,21 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/progress_bar_calories_goal_reached.xml" />
         <option value="$PROJECT_DIR$/app/build/generated/source/r/debug/bellamica/tech/dreamteenfitness/R.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/fragments/SetCaloriesDialog.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/AerobicActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/fragments/DialogSetGoal.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/fragments/SetGoalDialog.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_stats.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_history.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/HistoryActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/AerobicActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/splash_background.xml" />
       </list>
     </option>
   </component>
@@ -2377,7 +2216,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2391,6 +2230,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36557376" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.8557377" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2407,7 +2247,6 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32786885" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36557376" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -2470,14 +2309,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/HistoryActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3077">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_history.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="374">
@@ -2493,7 +2324,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3039" max-vertical-offset="5678">
           <caret line="247" column="55" selection-start-line="247" selection-start-column="55" selection-end-line="247" selection-end-column="55" />
-          <folding />
+          <folding>
+            <element signature="e#12490#12551#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2520,7 +2353,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3039" max-vertical-offset="5678">
           <caret line="247" column="55" selection-start-line="247" selection-start-column="55" selection-end-line="247" selection-end-column="55" />
-          <folding />
+          <folding>
+            <element signature="e#12490#12551#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2629,16 +2464,6 @@
         <state vertical-scroll-proportion="0.3321617" vertical-offset="1035" max-vertical-offset="2159">
           <caret line="73" column="28" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="159" max-vertical-offset="782">
-          <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/classes.jar!/com/google/android/gms/internal/jm.class">
@@ -2752,13 +2577,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/AerobicActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="3128">
-          <caret line="50" column="62" selection-start-line="50" selection-start-column="62" selection-end-line="50" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.3075602" vertical-offset="0" max-vertical-offset="2108">
@@ -2796,13 +2614,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2342" max-vertical-offset="6358">
-          <caret line="198" column="5" selection-start-line="152" selection-start-column="4" selection-end-line="198" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/android-sdk/platforms/android-21/android.jar!/android/os/Looper.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="47" max-vertical-offset="629">
@@ -2828,14 +2639,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23367697" vertical-offset="0" max-vertical-offset="1955">
           <caret line="8" column="78" selection-start-line="8" selection-start-column="78" selection-end-line="8" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3107" max-vertical-offset="5644">
-          <caret line="259" column="52" selection-start-line="259" selection-start-column="52" selection-end-line="259" selection-end-column="52" />
           <folding />
         </state>
       </provider>
@@ -2876,6 +2679,60 @@
           <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/AerobicActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1122" max-vertical-offset="3128">
+          <caret line="118" column="31" selection-start-line="118" selection-start-column="31" selection-end-line="118" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1254" max-vertical-offset="6256">
+          <caret line="137" column="44" selection-start-line="137" selection-start-column="44" selection-end-line="137" selection-end-column="44" />
+          <folding>
+            <element signature="e#12490#12551#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2832" max-vertical-offset="6392">
+          <caret line="241" column="49" selection-start-line="241" selection-start-column="49" selection-end-line="241" selection-end-column="49" />
+          <folding>
+            <element signature="e#7073#7731#0" expanded="true" />
+            <element signature="e#7712#7713#0" expanded="true" />
+            <element signature="e#8562#8563#0" expanded="true" />
+            <element signature="e#8615#8616#0" expanded="true" />
+            <element signature="e#9902#9963#0" expanded="true" />
+            <element signature="e#13228#13248#0" expanded="true" />
+            <element signature="e#13317#13338#0" expanded="true" />
+            <element signature="e#15156#15187#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/splash_background.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
+          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
   </component>

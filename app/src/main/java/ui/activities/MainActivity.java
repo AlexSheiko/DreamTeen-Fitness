@@ -30,7 +30,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.fitness.Fitness;
-import com.google.android.gms.fitness.data.Bucket;
 import com.google.android.gms.fitness.data.DataPoint;
 import com.google.android.gms.fitness.data.DataSet;
 import com.google.android.gms.fitness.data.DataType;
@@ -40,7 +39,6 @@ import com.google.android.gms.fitness.result.DataReadResult;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import bellamica.tech.dreamteenfitness.R;
@@ -63,6 +61,7 @@ public class MainActivity extends Activity
 
     private SharedPreferences mSharedPrefs;
     private int mCaloriesExpanded = 0;
+    private int mStepsTaken = 0;
     private static final int CALORIES_DEFAULT = 2150;
 
     @InjectView(R.id.caloriesLabel)
@@ -160,35 +159,30 @@ public class MainActivity extends Activity
         cal.add(Calendar.HOUR_OF_DAY, -Calendar.HOUR_OF_DAY);
         long startTime = cal.getTimeInMillis();
 
-        DataReadRequest readRequest = new DataReadRequest.Builder()
+        DataReadRequest readCaloriesRequest = new DataReadRequest.Builder()
                 .read(DataType.TYPE_CALORIES_EXPENDED)
+                .read(DataType.TYPE_STEP_COUNT_CUMULATIVE)
                 .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
                 .build();
 
         // Invoke the History API to fetch the data with the query
-        Fitness.HistoryApi.readData(mClient, readRequest).setResultCallback(
+        Fitness.HistoryApi.readData(mClient, readCaloriesRequest).setResultCallback(
                 new ResultCallback<DataReadResult>() {
                     @Override
                     public void onResult(DataReadResult dataReadResult) {
-                        if (dataReadResult.getBuckets().size() > 0) {
-                            Log.i(TAG, "Number of returned buckets of DataSets is: "
-                                    + dataReadResult.getBuckets().size());
-                            for (Bucket bucket : dataReadResult.getBuckets()) {
-                                List<DataSet> dataSets = bucket.getDataSets();
-                                for (DataSet dataSet : dataSets) {
-                                    dumpDataSet(dataSet);
+                            for (DataSet dataSet : dataReadResult.getDataSets()) {
+
+                                if (dataSet.getDataType().equals(DataType.TYPE_CALORIES_EXPENDED)) {
+                                    dumpCalories(dataSet);
+                                } else if (dataSet.getDataType().equals(DataType.TYPE_STEP_COUNT_CUMULATIVE)) {
+                                    dumpSteps(dataSet);
                                 }
                             }
-                        } else if (dataReadResult.getDataSets().size() > 0) {
-                            for (DataSet dataSet : dataReadResult.getDataSets()) {
-                                dumpDataSet(dataSet);
-                            }
-                        }
                     }
                 });
     }
 
-    private void dumpDataSet(DataSet dataSet) {
+    private void dumpCalories(DataSet dataSet) {
         for (DataPoint dp : dataSet.getDataPoints()) {
             for (Field field : dp.getDataType().getFields()) {
                 increaseCaloriesExpanded(
@@ -198,22 +192,22 @@ public class MainActivity extends Activity
         updateUiCounters();
     }
 
-    @Override
-    public void onCaloriesGoalChanged(DialogFragment dialog, int newValue) {
-        mSharedPrefs.edit()
-                .putInt("calories_norm", newValue).apply();
-        updateUiCounters();
-    }
-
-    @Override
-    public void onStepsGoalChanged(DialogFragment dialog, int newValue) {
-        mSharedPrefs.edit()
-                .putInt("steps_target", newValue).apply();
+    private void dumpSteps(DataSet dataSet) {
+        for (DataPoint dp : dataSet.getDataPoints()) {
+            for (Field field : dp.getDataType().getFields()) {
+                increaseStepCount(
+                        dp.getValue(field).asInt());
+            }
+        }
         updateUiCounters();
     }
 
     private void increaseCaloriesExpanded(int increment) {
         mCaloriesExpanded = mCaloriesExpanded + increment;
+    }
+
+    private void increaseStepCount(int increment) {
+        mStepsTaken = mStepsTaken + increment;
     }
 
     private void updateUiCounters() {
@@ -243,14 +237,26 @@ public class MainActivity extends Activity
         int stepsTarget = mSharedPrefs.getInt("steps_target",
                 Integer.parseInt(getResources().getString(R.string.steps_target_default_value)));
 
-        int stepsTaken = mSharedPrefs.getInt("steps_taken", 0);
-        mStepsLabel.setText(stepsTaken + "");
+        mStepsLabel.setText(mStepsTaken + "");
 
-        int stepsLeft = stepsTarget - stepsTaken;
+        int stepsLeft = stepsTarget - mStepsTaken;
         if (stepsLeft < 0) stepsLeft = 0;
         mStepsTargetLabel.setText(stepsLeft + "");
     }
 
+    @Override
+    public void onCaloriesGoalChanged(DialogFragment dialog, int newValue) {
+        mSharedPrefs.edit()
+                .putInt("calories_norm", newValue).apply();
+        updateUiCounters();
+    }
+
+    @Override
+    public void onStepsGoalChanged(DialogFragment dialog, int newValue) {
+        mSharedPrefs.edit()
+                .putInt("steps_target", newValue).apply();
+        updateUiCounters();
+    }
 
     @Override
     protected void onStart() {
