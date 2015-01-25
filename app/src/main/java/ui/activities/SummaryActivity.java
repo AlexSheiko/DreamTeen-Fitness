@@ -13,6 +13,7 @@ import android.widget.ShareActionProvider;
 import android.widget.TextView;
 
 import bellamica.tech.dreamteenfitness.R;
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 public class SummaryActivity extends Activity {
@@ -34,6 +35,7 @@ public class SummaryActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
+        ButterKnife.inject(this);
 
         mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 

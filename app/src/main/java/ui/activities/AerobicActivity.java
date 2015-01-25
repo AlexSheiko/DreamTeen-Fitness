@@ -34,6 +34,7 @@ import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import bellamica.tech.dreamteenfitness.R;
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 public class AerobicActivity extends Activity {
@@ -53,6 +54,7 @@ public class AerobicActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aerobic);
+        ButterKnife.inject(this);
 
         if (savedInstanceState != null) {
             authInProgress = savedInstanceState.getBoolean(AUTH_PENDING);

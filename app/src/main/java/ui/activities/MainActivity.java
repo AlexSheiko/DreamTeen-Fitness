@@ -61,8 +61,9 @@ public class MainActivity extends Activity
     private boolean authInProgress = false;
     private GoogleApiClient mClient;
 
-    private SharedPreferences sharedPrefs;
+    private SharedPreferences mSharedPrefs;
     private int mCaloriesExpanded = 0;
+    private static final int CALORIES_DEFAULT = 2150;
 
     @InjectView(R.id.caloriesLabel)
     TextView mCaloriesLabel;
@@ -81,7 +82,7 @@ public class MainActivity extends Activity
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
 
-        sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         if (savedInstanceState != null) {
             authInProgress = savedInstanceState.getBoolean(AUTH_PENDING);
@@ -195,7 +196,7 @@ public class MainActivity extends Activity
 
     @Override
     public void onDailyCaloriesNormChanged(DialogFragment dialog, int newValue) {
-        sharedPrefs.edit()
+        mSharedPrefs.edit()
                 .putInt("calories_norm", newValue).apply();
         updateProgressBar();
     }
@@ -213,10 +214,10 @@ public class MainActivity extends Activity
 
         mCaloriesLabel.setText(mCaloriesExpandedTotal + "");
         mProgressBar.setMax(
-                sharedPrefs.getInt("calories_norm", 1950));
+                mSharedPrefs.getInt("calories_norm", CALORIES_DEFAULT));
         mProgressBar.setProgress(mCaloriesExpandedTotal);
 
-        if (mCaloriesExpandedTotal >= sharedPrefs.getInt("calories_norm", 1950)) {
+        if (mCaloriesExpandedTotal >= mSharedPrefs.getInt("calories_norm", CALORIES_DEFAULT)) {
             Rect bounds = mProgressBar.getProgressDrawable().getBounds();
             mProgressBar.setProgressDrawable(
                     getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));
@@ -267,7 +268,7 @@ public class MainActivity extends Activity
     @Override
     protected void onResume() {
         super.onResume();
-        if (!sharedPrefs.getBoolean("pref_track_calories", true))
+        if (!mSharedPrefs.getBoolean("pref_track_calories", true))
             mCaloriesContainer.setVisibility(View.GONE);
     }
 

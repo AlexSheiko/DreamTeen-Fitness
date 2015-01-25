@@ -1027,15 +1027,16 @@ containing a value of this type.
         public static final int start_run_button_label=0x7f0a0076;
         public static final int start_time_key=0x7f0a0077;
         public static final int steps_default_value=0x7f0a0078;
-        public static final int steps_norm_hint=0x7f0a0079;
-        public static final int store_picture_message=0x7f0a007a;
-        public static final int store_picture_title=0x7f0a007b;
-        public static final int title_activity_friends=0x7f0a007c;
-        public static final int title_activity_settings=0x7f0a007d;
-        public static final int title_activity_summary=0x7f0a007e;
-        public static final int title_facebook_login=0x7f0a007f;
-        public static final int track_exercise=0x7f0a0080;
-        public static final int wallet_buy_button_place_holder=0x7f0a0081;
+        public static final int steps_hint_default_value=0x7f0a0079;
+        public static final int steps_norm_hint=0x7f0a007a;
+        public static final int store_picture_message=0x7f0a007b;
+        public static final int store_picture_title=0x7f0a007c;
+        public static final int title_activity_friends=0x7f0a007d;
+        public static final int title_activity_settings=0x7f0a007e;
+        public static final int title_activity_summary=0x7f0a007f;
+        public static final int title_facebook_login=0x7f0a0080;
+        public static final int track_exercise=0x7f0a0081;
+        public static final int wallet_buy_button_place_holder=0x7f0a0082;
     }
     public static final class style {
         public static final int AerobicTheme=0x7f0b0000;

@@ -15,6 +15,8 @@ import bellamica.tech.dreamteenfitness.R;
 
 public class SetCaloriesDialog extends DialogFragment {
 
+    private static final int CALORIES_DEFAULT = 2150;
+
     /* The activity that creates an instance of this dialog fragment must
      * implement this interface in order to receive event callbacks.
      * Each method passes the DialogFragment in case the host needs to query it. */
@@ -52,7 +54,7 @@ public class SetCaloriesDialog extends DialogFragment {
         mCaloriesField = (EditText) mView.findViewById(R.id.caloriesField);
         mCaloriesField.setHint(
                 PreferenceManager.getDefaultSharedPreferences(getActivity())
-                        .getInt("calories_norm", 1950) + "");
+                        .getInt("calories_norm", CALORIES_DEFAULT) + "");
 
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout

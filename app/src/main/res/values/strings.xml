@@ -67,5 +67,6 @@
     <string name="distance_key" translatable="false">Distance</string>
     <string name="steps_default_value">0</string>
     <string name="steps_norm_hint">to overage norm</string>
+    <string name="steps_hint_default_value">2450</string>
 
 </resources>
