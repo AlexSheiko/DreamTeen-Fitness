@@ -44,8 +44,9 @@ import java.util.concurrent.TimeUnit;
 import bellamica.tech.dreamteenfitness.R;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import ui.fragments.SetGoalDialog;
-import ui.fragments.SetGoalDialog.CaloriesDialogListener;
+import ui.fragments.AerobicGoalDialog;
+import ui.fragments.RunGoalDialog;
+import ui.fragments.RunGoalDialog.CaloriesDialogListener;
 import ui.utils.adapters.NavigationAdapter;
 
 
@@ -402,7 +403,12 @@ public class MainActivity extends Activity
     }
 
     public void navigateToAerobic(View view) {
-        startActivity(new Intent(this, AerobicActivity.class));
+        if (mSharedPrefs.getBoolean("isGoalSet", false)) {
+            startActivity(new Intent(this, AerobicActivity.class));
+        } else {
+            DialogFragment newFragment = new AerobicGoalDialog();
+            newFragment.show(getFragmentManager(), "dialog_aerobic_goal");
+        }
     }
 
     public void setFitnessGoal(View view) {
@@ -415,8 +421,8 @@ public class MainActivity extends Activity
                 bundle.putString("key", "steps");
                 break;
         }
-        DialogFragment newFragment = new SetGoalDialog();
+        DialogFragment newFragment = new RunGoalDialog();
         newFragment.setArguments(bundle);
-        newFragment.show(getFragmentManager(), "dialog_goal");
+        newFragment.show(getFragmentManager(), "dialog_run_goal");
     }
 }

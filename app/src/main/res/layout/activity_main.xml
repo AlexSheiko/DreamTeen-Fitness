@@ -197,7 +197,8 @@
                             android:gravity="bottom"
                             android:text="steps today"
                             android:textColor="@color/black"
-                            android:textSize="24sp"/>
+                            android:textSize="24sp"
+                            android:singleLine="true"/>
 
                     </LinearLayout>
 

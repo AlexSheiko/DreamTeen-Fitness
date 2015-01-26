@@ -198,13 +198,6 @@ public class FriendsActivity extends Activity
                         }
                         sendEmail();
                     }
-                })
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int id) {
-                        //  Your code when user clicked on Cancel
-
-                    }
                 });
 
         AlertDialog alertDialog = builder.create();//AlertDialog dialog; create like this outside onClick
@@ -215,6 +208,9 @@ public class FriendsActivity extends Activity
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
         emailIntent.setType("message/rfc822");  //set the email recipient
         emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, mRecipients);
+        emailIntent.putExtra(android.content.Intent.EXTRA_TEXT,
+                "Install DreamTeen Fitness and challenge me! \nhttp://goo.gl/6Kqzvs");
+        emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Invitation");
         //let the user choose what email client to use
         startActivity(Intent.createChooser(emailIntent, "Send mail using...")); }
 

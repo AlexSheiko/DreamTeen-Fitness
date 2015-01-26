@@ -48,6 +48,10 @@
         <item>30</item>
         <item>31</item>
     </string-array>
+    <string-array name="goal_type_values">
+        <item>Duration, min</item>
+        <item>Calories burned</item>
+    </string-array>
     <string-array name="month_values">
         <item>January</item>
         <item>February</item>
