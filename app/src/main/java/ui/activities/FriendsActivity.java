@@ -1,9 +1,15 @@
 package ui.activities;
 
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract.CommonDataKinds.Email;
+import android.provider.ContactsContract.CommonDataKinds.Photo;
+import android.provider.ContactsContract.Contacts;
+import android.provider.ContactsContract.RawContacts;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -17,6 +23,9 @@ import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
 import com.facebook.widget.WebDialog;
 import com.google.android.gms.plus.PlusShare;
+
+import java.util.ArrayList;
+import java.util.HashSet;
 
 import bellamica.tech.dreamteenfitness.R;
 
@@ -141,5 +150,44 @@ public class FriendsActivity extends Activity
                 startActivityForResult(builder.getIntent(), 0);
                 break;
         }
+    }
+
+    public void sendEmail(View view) {
+        getNameEmailDetails();
+    }
+
+    public ArrayList<String> getNameEmailDetails() {
+        ArrayList<String> emlRecs = new ArrayList<String>();
+        HashSet<String> emlRecsHS = new HashSet<String>();
+        ContentResolver cr = this.getContentResolver();
+        String[] PROJECTION = new String[] { RawContacts._ID,
+                Contacts.DISPLAY_NAME,
+                Contacts.PHOTO_ID,
+                Email.DATA,
+                Photo.CONTACT_ID };
+        String order = "CASE WHEN "
+                + Contacts.DISPLAY_NAME
+                + " NOT LIKE '%@%' THEN 1 ELSE 2 END, "
+                + Contacts.DISPLAY_NAME
+                + ", "
+                + Email.DATA
+                + " COLLATE NOCASE";
+        String filter = Email.DATA + " NOT LIKE ''";
+        Cursor cur = cr.query(Email.CONTENT_URI, PROJECTION, filter, null, order);
+        if (cur.moveToFirst()) {
+            do {
+                // names comes in hand sometimes
+                String name = cur.getString(1);
+                String emlAddr = cur.getString(3);
+
+                // keep unique only
+                if (emlRecsHS.add(emlAddr.toLowerCase())) {
+                    emlRecs.add(emlAddr);
+                }
+            } while (cur.moveToNext());
+        }
+
+        cur.close();
+        return emlRecs;
     }
 }
