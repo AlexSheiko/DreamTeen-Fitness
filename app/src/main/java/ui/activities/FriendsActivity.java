@@ -35,6 +35,9 @@ import bellamica.tech.dreamteenfitness.R;
 public class FriendsActivity extends Activity
         implements OnClickListener {
 
+    private ArrayList<String> mEmails;
+    private String[] mRecipients;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -156,8 +159,11 @@ public class FriendsActivity extends Activity
 
     public void chooseRecipients(View view) {
         //following code will be in your activity.java file
-        CharSequence[] items = getNameEmailDetails().toArray(
-                new CharSequence[getNameEmailDetails().size()]);
+
+        mEmails = getNameEmailDetails();
+
+        CharSequence[] items = mEmails.toArray(
+                new CharSequence[mEmails.size()]);
 
         // arraylist to keep the selected items
         final ArrayList seletedItems = new ArrayList();
@@ -185,13 +191,12 @@ public class FriendsActivity extends Activity
                 .setPositiveButton("Send", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-                        //  Your code when user clicked on OK
-                        //  You can write the code  to save the selected item here
+                        mRecipients = new String[seletedItems.size()];
 
                         for (int i = 0; i < seletedItems.size(); i++) {
-                            Toast.makeText(FriendsActivity.this, seletedItems.get(i) + "",
-                                    Toast.LENGTH_SHORT).show();
+                            mRecipients[i] = mEmails.get(Integer.parseInt(seletedItems.get(i) + ""));
                         }
+                        sendEmail();
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -205,6 +210,13 @@ public class FriendsActivity extends Activity
         AlertDialog alertDialog = builder.create();//AlertDialog dialog; create like this outside onClick
         alertDialog.show();
     }
+
+    public void sendEmail(){
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.setType("message/rfc822");  //set the email recipient
+        emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, mRecipients);
+        //let the user choose what email client to use
+        startActivity(Intent.createChooser(emailIntent, "Send mail using...")); }
 
     public ArrayList<String> getNameEmailDetails() {
         ArrayList<String> emlRecs = new ArrayList<String>();
