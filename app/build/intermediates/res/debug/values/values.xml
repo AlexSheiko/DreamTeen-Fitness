@@ -190,7 +190,7 @@
     <string name="action_settings">Settings</string>
     <string name="action_share">Share</string>
     <string name="aerobic">Aerobic</string>
-    <string name="aerobic_activity_title">Aerobic</string>
+    <string name="aerobic_activity_title">Choose exercise</string>
     <string name="app_name">DreamTeen Fitness</string>
     <string name="app_name_splash">DreamTeen\nFitness</string>
     <string name="app_slogan">Make Fitness Better</string>
@@ -359,6 +359,17 @@
         <item name="android:orientation">vertical</item>
         <item name="android:layout_marginTop">25dp</item>
     </style>
+    <style name="DividerListItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:background">#dfdfdf</item>
+    </style>
+    <style name="ImageListView">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">40dp</item>
+    </style>
     <style name="InputBackground">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
@@ -370,6 +381,15 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@color/actionbar_background</item>
         <item name="android:orientation">vertical</item>
+    </style>
+    <style name="ListItem">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">80dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:clickable">true</item>
+        <item name="android:onClick">navigateToCategory</item>
     </style>
     <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
         <item name="android:background">@drawable/action_bar_background</item>
@@ -388,6 +408,14 @@
         <item name="android:shadowDx">-1</item>
         <item name="android:shadowDy">-1</item>
         <item name="android:shadowRadius">1</item>
+    </style>
+    <style name="TextListView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#575555</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:paddingLeft">16dp</item>
     </style>
     <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/admob_iap_style.xml -->
     <eat-comment/>

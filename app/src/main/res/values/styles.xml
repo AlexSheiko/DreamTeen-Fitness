@@ -99,5 +99,37 @@
         <item name="android:layout_marginBottom">14dp</item>
     </style>
 
+    <style name="ListItem">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">80dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:clickable">true</item>
+        <item name="android:onClick">navigateToCategory</item>
+    </style>
+
+    <style name="DividerListItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:background">#dfdfdf</item>
+    </style>
+
+    <style name="ImageListView">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">40dp</item>
+    </style>
+
+    <style name="TextListView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#575555</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:paddingLeft">16dp</item>
+    </style>
+
     <color name="aerobic_background">#eff4f7</color>
 </resources>
