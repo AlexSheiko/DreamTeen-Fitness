@@ -107,12 +107,8 @@
                 android:value="ui.activities.MainActivity" />
         </activity>
         <activity
-            android:name="ui.activities.EmailActivity"
-            android:label="@string/title_activity_email"
-            android:parentActivityName="ui.activities.FriendsActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ui.activities.FriendsActivity" />
+            android:name="ui.activities.WorkoutActivity"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 

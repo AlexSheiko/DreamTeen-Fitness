@@ -117,7 +117,7 @@ public class MapPane extends Fragment
         mPauseButtonLabel = (TextView) rootView.findViewById(R.id.pause_button_label);
         mFinishButtonLabel = (TextView) rootView.findViewById(R.id.finish_button_label);
 
-        mDurationCounter = (TextView) rootView.findViewById(R.id.duration_counter);
+        mDurationCounter = (TextView) rootView.findViewById(R.id.durationCounter);
         mDistanceCounter = (TextView) rootView.findViewById(R.id.distance_counter);
         mDistanceUnitsLabel = (TextView) rootView.findViewById(R.id.distanceUnitsLabel);
 

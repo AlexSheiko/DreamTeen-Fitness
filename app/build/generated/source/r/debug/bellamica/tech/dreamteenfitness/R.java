@@ -823,7 +823,7 @@ containing a value of this type.
         public static final int donate_with_google=0x7f0d0013;
         public static final int drawerLayout=0x7f0d002a;
         public static final int drawerList=0x7f0d0031;
-        public static final int duration_counter=0x7f0d005a;
+        public static final int durationCounter =0x7f0d005a;
         public static final int duration_label=0x7f0d0059;
         public static final int emailButton=0x7f0d0028;
         public static final int finishButton=0x7f0d0065;
