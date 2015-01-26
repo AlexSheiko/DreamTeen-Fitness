@@ -2,13 +2,11 @@ package ui.activities;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
-import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.IntentSender.SendIntentException;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.Menu;
@@ -98,7 +96,7 @@ public class RunActivity extends Activity
 
             case WORKOUT_PAUSE:
                 if (mClient.isConnected()) {
-                    unregisterDataSources();
+                    unregisterLocationListener();
                     Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_STEP_COUNT_DELTA);
                     Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_CALORIES_EXPENDED);
                     mClient.disconnect();
@@ -106,47 +104,10 @@ public class RunActivity extends Activity
                 break;
 
             case WORKOUT_FINISH:
-                // TODO: Delete this after implementing read query in MainActivity
-                insertSteps();
+                insertCalories();
                 startActivity(new Intent(this, SummaryActivity.class));
                 break;
         }
-    }
-
-    private void insertSteps() {
-        // Set a start and end time for our data, using a start time of 1 hour before this moment.
-        Calendar cal = Calendar.getInstance();
-        Date now = new Date();
-        cal.setTime(now);
-        long endTime = cal.getTimeInMillis();
-        cal.add(Calendar.SECOND, -1);
-        long startTime = cal.getTimeInMillis();
-
-        // Create a data source
-        DataSource dataSource = new DataSource.Builder()
-                .setAppPackageName(this)
-                .setDataType(DataType.TYPE_STEP_COUNT_DELTA)
-                .setName(TAG + " - step count")
-                .setType(DataSource.TYPE_RAW)
-                .build();
-
-        // Create a data set
-        int stepCount = 111;
-        DataSet dataSet = DataSet.create(dataSource);
-        DataPoint dataPoint = dataSet.createDataPoint()
-                .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS);
-        dataPoint.getValue(Field.FIELD_STEPS).setInt(stepCount);
-        dataSet.add(dataPoint);
-
-        // Invoke the History API to insert the data
-        Fitness.HistoryApi.insertData(mClient, dataSet).setResultCallback(new ResultCallback<Status>() {
-            @Override
-            public void onResult(Status status) {
-                if (mClient.isConnected()) {
-                    mClient.disconnect();
-                }
-            }
-        });
     }
 
     /**
@@ -164,7 +125,7 @@ public class RunActivity extends Activity
                             @Override
                             public void onConnected(Bundle bundle) {
                                 // Start updating map focus and counting steps
-                                findFitnessDataSources();
+                                findLocationDataSources();
                                 // Subscribe to steps and calories
                                 Fitness.RecordingApi.subscribe(mClient, DataType.TYPE_STEP_COUNT_DELTA);
                                 Fitness.RecordingApi.subscribe(mClient, DataType.TYPE_CALORIES_EXPENDED);
@@ -205,13 +166,54 @@ public class RunActivity extends Activity
                 .build();
     }
 
+    private void insertCalories() {
+        // Set a start and end time for our data, using a start time of 1 hour before this moment.
+        Calendar cal = Calendar.getInstance();
+        Date now = new Date();
+        cal.setTime(now);
+        long endTime = cal.getTimeInMillis();
+        cal.add(Calendar.SECOND, -1);
+        long startTime = cal.getTimeInMillis();
+
+        // Create a data source
+        DataSource dataSource = new DataSource.Builder()
+                .setAppPackageName(this)
+                .setDataType(DataType.TYPE_CALORIES_EXPENDED)
+                .setName(TAG + " - calories expended")
+                .setType(DataSource.TYPE_RAW)
+                .build();
+
+        // Create a data set
+        float totalDistance = mSharedPrefs.getFloat("Distance", 0);
+        float caloriesExpanded =
+                132 * // weight in pounds;
+                        0.63f * // run factor
+                        totalDistance; // distance in miles
+
+        DataSet dataSet = DataSet.create(dataSource);
+        DataPoint dataPoint = dataSet.createDataPoint()
+                .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS);
+        dataPoint.getValue(Field.FIELD_CALORIES).setFloat(caloriesExpanded);
+        dataSet.add(dataPoint);
+
+        // Invoke the History API to insert the data
+        Fitness.HistoryApi.insertData(mClient, dataSet).setResultCallback(new ResultCallback<Status>() {
+            @Override
+            public void onResult(Status status) {
+                if (mClient.isConnected()) {
+                    mClient.disconnect();
+                }
+            }
+        });
+    }
+
     /**
      * Find available data sources and attempt to register on a specific {@link DataType}.
      */
-    private void findFitnessDataSources() {
+    private void findLocationDataSources() {
         // [START find_data_sources]
         Fitness.SensorsApi.findDataSources(mClient, new DataSourcesRequest.Builder()
-                .setDataTypes(DataType.TYPE_LOCATION_SAMPLE, DataType.TYPE_STEP_COUNT_DELTA)
+                .setDataTypes(DataType.TYPE_LOCATION_SAMPLE)
                 .setDataSourceTypes(DataSource.TYPE_RAW, DataSource.TYPE_RAW)
                 .build())
                 .setResultCallback(new ResultCallback<DataSourcesResult>() {
@@ -221,12 +223,8 @@ public class RunActivity extends Activity
                             //Let's register a listener to receive Activity data!
                             if (dataSource.getDataType().equals(DataType.TYPE_LOCATION_SAMPLE)
                                     && mLocationListener == null) {
-                                registerDataListeners(dataSource,
+                                registerLocationListener(dataSource,
                                         DataType.TYPE_LOCATION_SAMPLE);
-                            } else if (dataSource.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)
-                                    && mStepsListener == null) {
-                                registerDataListeners(dataSource,
-                                        DataType.TYPE_STEP_COUNT_DELTA);
                             }
                         }
                     }
@@ -238,116 +236,96 @@ public class RunActivity extends Activity
      * Register a listener with the Sensors API for the provided {@link DataSource} and
      * {@link DataType} combo.
      */
-    private void registerDataListeners(DataSource dataSource, final DataType dataType) {
+    private void registerLocationListener(DataSource dataSource, final DataType dataType) {
         // [START register_data_listener]
-        if (dataType.equals(DataType.TYPE_LOCATION_SAMPLE)) {
-            mLocationListener = new OnDataPointListener() {
-                @Override
-                public void onDataPoint(DataPoint dataPoint) {
-                    Double mLatitude = 0.0;
-                    Double mLongitude = 0.0;
-                    for (Field field : dataPoint.getDataType().getFields()) {
-                        Value val = dataPoint.getValue(field);
-                        // Set latitude or longitude
-                        if (field.getName().equals("latitude")) {
-                            mLatitude = (double) val.asFloat();
-                        } else if (field.getName().equals("longitude")) {
-                            mLongitude = (double) val.asFloat();
-                        }
-                    }
-                    // Callback to update map's focus
-                    sendLocation(mLatitude, mLongitude);
-                }
-            };
-
-            Fitness.SensorsApi.add(
-                    mClient,
-                    new SensorRequest.Builder()
-                            .setDataSource(dataSource) // Optional but recommended for custom data sets.
-                            .setDataType(dataType) // Can't be omitted.
-                            .setSamplingRate(10, TimeUnit.SECONDS)
-                            .build(),
-                    mLocationListener)
-                    .setResultCallback(new ResultCallback<Status>() {
-                        @Override
-                        public void onResult(Status status) {
-                            if (!status.isSuccess()) {
-                                Log.i(TAG, "Listener not registered.");
-                            }
-                        }
-                    });
-        } else if (dataType.equals(DataType.TYPE_STEP_COUNT_DELTA)) {
-            final int stepsTarget = mSharedPrefs.getInt("steps_target",
-                    Integer.parseInt(getResources().getString(R.string.steps_target_default_value)));
-            mStepsListener = new OnDataPointListener() {
-
-                private int stepsTaken = 0;
-
-                @Override
-                public void onDataPoint(DataPoint dataPoint) {
-                    for (Field field : dataPoint.getDataType().getFields()) {
-                        Value value = dataPoint.getValue(field);
-                        if (field.equals(Field.FIELD_STEPS)) {
-                            stepsTaken = stepsTaken + value.asInt();
-                            if (stepsTaken > stepsTarget * 0.25 && !is25notified) {
-                                showNotification(25);
-                                is25notified = true;
-                            } else if (stepsTaken > stepsTarget * 0.5 && !is50notified) {
-                                showNotification(50);
-                                is50notified = true;
-                            } else if (stepsTaken > stepsTarget * 0.75 && !is75notified) {
-                                showNotification(75);
-                                is75notified = true;
-                            } else if (stepsTaken >= stepsTarget && !is100notified) {
-                                showNotification(100);
-                                is100notified = true;
-                            }
-                        }
+        mLocationListener = new OnDataPointListener() {
+            @Override
+            public void onDataPoint(DataPoint dataPoint) {
+                Double mLatitude = 0.0;
+                Double mLongitude = 0.0;
+                for (Field field : dataPoint.getDataType().getFields()) {
+                    Value val = dataPoint.getValue(field);
+                    // Set latitude or longitude
+                    if (field.getName().equals("latitude")) {
+                        mLatitude = (double) val.asFloat();
+                    } else if (field.getName().equals("longitude")) {
+                        mLongitude = (double) val.asFloat();
                     }
                 }
+                // Callback to update map's focus
+                sendLocation(mLatitude, mLongitude);
+            }
+        };
 
-                private void showNotification(int progress) {
-                    String title;
-                    if (progress == 100) {
-                        title = "Daily step goal reached!";
-                    } else {
-                        title = "Step goal is " + progress + "% reached";
-                    }
-
-                    NotificationCompat.Builder mBuilder =
-                            new NotificationCompat.Builder(RunActivity.this)
-                                    .setSmallIcon(R.drawable.ic_launcher)
-                                    .setContentTitle(title);
-
-                    // Sets an ID for the notification
-                    int mNotificationId = 1;
-                    // Gets an instance of the NotificationManager service
-                    NotificationManager mNotifyMgr =
-                            (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                    // Builds the notification and issues it.
-                    mNotifyMgr.notify(mNotificationId, mBuilder.build());
-                }
-            };
-
-            Fitness.SensorsApi.add(
-                    mClient,
-                    new SensorRequest.Builder()
-                            .setDataSource(dataSource) // Optional but recommended for custom data sets.
-                            .setDataType(dataType) // Can't be omitted.
-                            .setSamplingRate(1, TimeUnit.SECONDS)
-                            .build(),
-                    mStepsListener)
-                    .setResultCallback(new ResultCallback<Status>() {
-                        @Override
-                        public void onResult(Status status) {
-                            if (!status.isSuccess()) {
-                                Log.i(TAG, "Listener not registered.");
-                            }
+        Fitness.SensorsApi.add(
+                mClient,
+                new SensorRequest.Builder()
+                        .setDataSource(dataSource) // Optional but recommended for custom data sets.
+                        .setDataType(dataType) // Can't be omitted.
+                        .setSamplingRate(10, TimeUnit.SECONDS)
+                        .build(),
+                mLocationListener)
+                .setResultCallback(new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(Status status) {
+                        if (!status.isSuccess()) {
+                            Log.i(TAG, "Listener not registered.");
                         }
-                    });
-        }
+                    }
+                });
 
 
+        //            final int stepsTarget = mSharedPrefs.getInt("steps_target",
+        //                    Integer.parseInt(getResources().getString(R.string.steps_target_default_value)));
+        //            mStepsListener = new OnDataPointListener() {
+        //
+        //                private int stepsTaken = 0;
+        //
+        //                @Override
+        //                public void onDataPoint(DataPoint dataPoint) {
+        //                    for (Field field : dataPoint.getDataType().getFields()) {
+        //                        Value value = dataPoint.getValue(field);
+        //                        if (field.equals(Field.FIELD_STEPS)) {
+        //                            stepsTaken = stepsTaken + value.asInt();
+        //                            if (stepsTaken > stepsTarget * 0.25 && !is25notified) {
+        //                                showNotification(25);
+        //                                is25notified = true;
+        //                            } else if (stepsTaken > stepsTarget * 0.5 && !is50notified) {
+        //                                showNotification(50);
+        //                                is50notified = true;
+        //                            } else if (stepsTaken > stepsTarget * 0.75 && !is75notified) {
+        //                                showNotification(75);
+        //                                is75notified = true;
+        //                            } else if (stepsTaken >= stepsTarget && !is100notified) {
+        //                                showNotification(100);
+        //                                is100notified = true;
+        //                            }
+        //                        }
+        //                    }
+        //                }
+        //
+        //                private void showNotification(int progress) {
+        //                    String title;
+        //                    if (progress == 100) {
+        //                        title = "Daily step goal reached!";
+        //                    } else {
+        //                        title = "Step goal is " + progress + "% reached";
+        //                    }
+        //
+        //                    NotificationCompat.Builder mBuilder =
+        //                            new NotificationCompat.Builder(RunActivity.this)
+        //                                    .setSmallIcon(R.drawable.ic_launcher)
+        //                                    .setContentTitle(title);
+        //
+        //                    // Sets an ID for the notification
+        //                    int mNotificationId = 1;
+        //                    // Gets an instance of the NotificationManager service
+        //                    NotificationManager mNotifyMgr =
+        //                            (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        //                    // Builds the notification and issues it.
+        //                    mNotifyMgr.notify(mNotificationId, mBuilder.build());
+        //                }
+        //            };
         // [END register_data_listener]
     }
 
@@ -361,24 +339,12 @@ public class RunActivity extends Activity
     /**
      * Unregister the listener with the Sensors API.
      */
-    private void unregisterDataSources() {
+    private void unregisterLocationListener() {
         if (mLocationListener == null || mStepsListener == null) return;
 
         Fitness.SensorsApi.remove(
                 mClient,
                 mLocationListener)
-                .setResultCallback(new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(Status status) {
-                        if (!status.isSuccess()) {
-                            Log.i(TAG, "Failed to remove location listener.");
-                        }
-                    }
-                });
-
-        Fitness.SensorsApi.remove(
-                mClient,
-                mStepsListener)
                 .setResultCallback(new ResultCallback<Status>() {
                     @Override
                     public void onResult(Status status) {

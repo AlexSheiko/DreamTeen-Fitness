@@ -46,8 +46,7 @@ public class SummaryActivity extends Activity {
         }
 
         // Get run info
-        String distanceKey = getResources().getString(R.string.distance_key);
-        mDistance = mSharedPrefs.getFloat(distanceKey, 0);
+        mDistance = mSharedPrefs.getFloat("Distance", 0);
 
         // Update UI with run info
         mDistanceLabel.setText(String.format("%.2f", mDistance));
@@ -83,8 +82,7 @@ public class SummaryActivity extends Activity {
     }
 
     private Intent shareIntent() {
-        String durationKey = getResources().getString(R.string.duration_key);
-        String duration = mSharedPrefs.getString(durationKey, "00:00");
+        String duration = mSharedPrefs.getString("Duration", "00:00");
 
         String measureUnits;
         if (mSharedPrefs.getString("pref_units", "1").equals("1")) {

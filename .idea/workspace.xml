@@ -55,17 +55,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e838e63-aa6c-41fc-a81b-f5c1e2df2628" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/bellamica/tech/dreamteenfitness/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/bellamica/tech/dreamteenfitness/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/fragments/MapPane.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/fragments/MapPane.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\DreamTeen-Fitness\app\src\main\res\drawable-xhdpi\ic_nav_history.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_nav_dashboard.png" />
-      <change type="MOVED" beforePath="D:\DreamTeen-Fitness\app\src\main\res\drawable\ic_category_ab.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_category_ab.png" />
-      <change type="MOVED" beforePath="D:\DreamTeen-Fitness\app\src\main\res\drawable\ic_category_arm.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_category_arm.png" />
-      <change type="MOVED" beforePath="D:\DreamTeen-Fitness\app\src\main\res\drawable\ic_category_butt.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_category_butt.png" />
-      <change type="MOVED" beforePath="D:\DreamTeen-Fitness\app\src\main\res\drawable\ic_category_leg.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_category_leg.png" />
     </list>
     <ignored path="DreamFit.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -91,18 +85,62 @@
       <file leaf-file-name="AerobicActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/AerobicActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
+            <state vertical-scroll-proportion="0.0" vertical-offset="61" max-vertical-offset="629">
               <caret line="18" column="75" selection-start-line="18" selection-start-column="75" selection-end-line="18" selection-end-column="75" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47887325" vertical-offset="4828" max-vertical-offset="6307">
+            <state vertical-scroll-proportion="0.0" vertical-offset="4828" max-vertical-offset="6307">
               <caret line="355" column="0" selection-start-line="355" selection-start-column="0" selection-end-line="355" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RunActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.43133804" vertical-offset="3002" max-vertical-offset="6817">
+              <caret line="191" column="0" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#5516#7053#0" expanded="true" />
+                <element signature="e#7026#7027#0" expanded="true" />
+                <element signature="e#8501#8732#0" expanded="true" />
+                <element signature="e#8721#8722#0" expanded="true" />
+                <element signature="e#9216#9940#0" expanded="true" />
+                <element signature="e#9921#9922#0" expanded="true" />
+                <element signature="e#10282#11073#0" expanded="true" />
+                <element signature="e#11062#11063#0" expanded="true" />
+                <element signature="e#11513#11816#0" expanded="true" />
+                <element signature="e#11797#11798#0" expanded="true" />
+                <element signature="e#15597#15911#0" expanded="true" />
+                <element signature="e#15892#15893#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SummaryActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="979" max-vertical-offset="1547">
+              <caret line="84" column="58" selection-start-line="84" selection-start-column="50" selection-end-line="84" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapPane.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/fragments/MapPane.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1647" max-vertical-offset="4488">
+              <caret line="154" column="33" selection-start-line="154" selection-start-column="33" selection-end-line="154" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -1696,7 +1734,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/BodyParamsInput.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/ParseDeepLinkActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ui/fragments/MapPane.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_calories.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/progress_bar_calories_goal_reached.xml" />
         <option value="$PROJECT_DIR$/app/build/generated/source/r/debug/bellamica/tech/dreamteenfitness/R.java" />
@@ -1709,15 +1746,16 @@
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/HistoryActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/splash_background.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/AerobicActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_aerobic.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ui/fragments/MapPane.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" />
       </list>
     </option>
   </component>
@@ -1837,6 +1875,28 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="ui" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamTeen-Fitness" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fragments" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2522,13 +2582,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/fragments/MapPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3519" max-vertical-offset="4488">
-          <caret line="264" column="0" selection-start-line="264" selection-start-column="0" selection-end-line="264" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_calories.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.333333" vertical-offset="0" max-vertical-offset="442">
@@ -2624,14 +2677,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7371134" vertical-offset="421" max-vertical-offset="1581">
-          <caret line="67" column="56" selection-start-line="67" selection-start-column="56" selection-end-line="67" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
@@ -2651,14 +2696,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2890" max-vertical-offset="6681">
-          <caret line="228" column="24" selection-start-line="228" selection-start-column="24" selection-end-line="228" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/android-sdk/platforms/android-21/data/res/values/attrs.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="3844" max-vertical-offset="128384">
@@ -2671,14 +2708,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="571" max-vertical-offset="1955">
           <caret line="46" column="50" selection-start-line="46" selection-start-column="50" selection-end-line="46" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/AerobicActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
-          <caret line="18" column="75" selection-start-line="18" selection-start-column="75" selection-end-line="18" selection-end-column="75" />
           <folding />
         </state>
       </provider>
@@ -2712,19 +2741,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.92" vertical-offset="6" max-vertical-offset="1343">
-          <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="4828" max-vertical-offset="6307">
+          <caret line="355" column="0" selection-start-line="355" selection-start-column="0" selection-end-line="355" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/AerobicActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47887325" vertical-offset="4828" max-vertical-offset="6307">
-          <caret line="355" column="0" selection-start-line="355" selection-start-column="0" selection-end-line="355" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="61" max-vertical-offset="629">
+          <caret line="18" column="75" selection-start-line="18" selection-start-column="75" selection-end-line="18" selection-end-column="75" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6077348" vertical-offset="758" max-vertical-offset="1309">
+          <caret line="64" column="18" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="979" max-vertical-offset="1547">
+          <caret line="84" column="58" selection-start-line="84" selection-start-column="50" selection-end-line="84" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/fragments/MapPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1647" max-vertical-offset="4488">
+          <caret line="154" column="33" selection-start-line="154" selection-start-column="33" selection-end-line="154" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43133804" vertical-offset="3002" max-vertical-offset="6817">
+          <caret line="191" column="0" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5516#7053#0" expanded="true" />
+            <element signature="e#7026#7027#0" expanded="true" />
+            <element signature="e#8501#8732#0" expanded="true" />
+            <element signature="e#8721#8722#0" expanded="true" />
+            <element signature="e#9216#9940#0" expanded="true" />
+            <element signature="e#9921#9922#0" expanded="true" />
+            <element signature="e#10282#11073#0" expanded="true" />
+            <element signature="e#11062#11063#0" expanded="true" />
+            <element signature="e#11513#11816#0" expanded="true" />
+            <element signature="e#11797#11798#0" expanded="true" />
+            <element signature="e#15597#15911#0" expanded="true" />
+            <element signature="e#15892#15893#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
