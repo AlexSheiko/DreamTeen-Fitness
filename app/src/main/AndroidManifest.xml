@@ -7,6 +7,8 @@
     <!-- Google Maps -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- Contacts -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <uses-feature
         android:glEsVersion="0x00020000"
@@ -99,10 +101,18 @@
         <activity
             android:name="ui.activities.HistoryActivity"
             android:label="@string/title_activity_history"
-            android:parentActivityName="ui.activities.MainActivity">
+            android:parentActivityName="ui.activities.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ui.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name="ui.activities.EmailActivity"
+            android:label="@string/title_activity_email"
+            android:parentActivityName="ui.activities.FriendsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ui.activities.FriendsActivity" />
         </activity>
     </application>
 

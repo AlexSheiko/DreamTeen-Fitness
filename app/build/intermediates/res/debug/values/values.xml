@@ -278,6 +278,7 @@
     <string name="duration_default_value" translateble="false">00:00:00</string>
     <string name="duration_label">Duration</string>
     <string name="duration_units">min</string>
+    <string name="email_send">Send</string>
     <string name="facebook_app_id">562228307244897</string>
     <string name="finish_run">Finish run</string>
     <string name="finish_trip_button_label">Slide to Finish</string>
@@ -319,6 +320,7 @@
     <string name="store_picture_title">Save image</string>
     <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="title_activity_email">Recipients</string>
     <string name="title_activity_friends">Friends</string>
     <string name="title_activity_history">History</string>
     <string name="title_activity_settings">Settings</string>

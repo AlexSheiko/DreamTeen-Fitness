@@ -1,7 +1,9 @@
 package ui.activities;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -152,19 +154,67 @@ public class FriendsActivity extends Activity
         }
     }
 
-    public void sendEmail(View view) {
-        getNameEmailDetails();
+    public void chooseRecipients(View view) {
+        //following code will be in your activity.java file
+        CharSequence[] items = getNameEmailDetails().toArray(
+                new CharSequence[getNameEmailDetails().size()]);
+
+        // arraylist to keep the selected items
+        final ArrayList seletedItems = new ArrayList();
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Choose recipients");
+        builder.setMultiChoiceItems(items, null,
+                new DialogInterface.OnMultiChoiceClickListener() {
+                    // indexSelected contains the index of item (of which checkbox checked)
+                    @Override
+                    public void onClick(DialogInterface dialog, int indexSelected,
+                                        boolean isChecked) {
+                        if (isChecked) {
+                            // If the user checked the item, add it to the selected items
+                            // write your code when user checked the checkbox
+                            seletedItems.add(indexSelected);
+                        } else if (seletedItems.contains(indexSelected)) {
+                            // Else, if the item is already in the array, remove it
+                            // write your code when user Uchecked the checkbox
+                            seletedItems.remove(Integer.valueOf(indexSelected));
+                        }
+                    }
+                })
+                // Set the action buttons
+                .setPositiveButton("Send", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        //  Your code when user clicked on OK
+                        //  You can write the code  to save the selected item here
+
+                        for (int i = 0; i < seletedItems.size(); i++) {
+                            Toast.makeText(FriendsActivity.this, seletedItems.get(i) + "",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        //  Your code when user clicked on Cancel
+
+                    }
+                });
+
+        AlertDialog alertDialog = builder.create();//AlertDialog dialog; create like this outside onClick
+        alertDialog.show();
     }
 
     public ArrayList<String> getNameEmailDetails() {
         ArrayList<String> emlRecs = new ArrayList<String>();
         HashSet<String> emlRecsHS = new HashSet<String>();
         ContentResolver cr = this.getContentResolver();
-        String[] PROJECTION = new String[] { RawContacts._ID,
+        String[] PROJECTION = new String[]{RawContacts._ID,
                 Contacts.DISPLAY_NAME,
                 Contacts.PHOTO_ID,
                 Email.DATA,
-                Photo.CONTACT_ID };
+                Photo.CONTACT_ID};
         String order = "CASE WHEN "
                 + Contacts.DISPLAY_NAME
                 + " NOT LIKE '%@%' THEN 1 ELSE 2 END, "
@@ -191,3 +241,4 @@ public class FriendsActivity extends Activity
         return emlRecs;
     }
 }
+

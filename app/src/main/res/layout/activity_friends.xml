@@ -57,7 +57,7 @@
         android:drawablePadding="8dp"
         android:paddingLeft="10dp"
         android:paddingRight="8dp"
-        android:onClick="sendEmail"
+        android:onClick="chooseRecipients"
         android:text="Send an Email"/>
 
 </LinearLayout>

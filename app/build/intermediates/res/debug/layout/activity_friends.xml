@@ -51,13 +51,13 @@
         android:layout_height="wrap_content"
         android:background="#fcb422"
         android:textStyle="bold"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="30dp"
         android:textSize="16sp"
         android:gravity="left|center_vertical"
         android:drawablePadding="8dp"
         android:paddingLeft="10dp"
         android:paddingRight="8dp"
-        android:onClick="sendEmail"
+        android:onClick="chooseRecipients"
         android:text="Send an Email"/>
 
 </LinearLayout>
