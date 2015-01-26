@@ -9,7 +9,7 @@
         <item>Challenges</item>
     </string-array>
     <string-array name="action_titles">
-        <item>@string/action_history</item>
+        <item>@string/action_dashboard</item>
         <item>@string/action_invite_friends</item>
         <item>@string/action_challenges</item>
         <item>@string/action_settings</item>
@@ -184,7 +184,7 @@
     <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="action_challenges">Challenges</string>
-    <string name="action_history">History</string>
+    <string name="action_dashboard">Dashboard</string>
     <string name="action_invite_friends">Friends</string>
     <string name="action_logout">Log out</string>
     <string name="action_settings">Settings</string>
@@ -365,8 +365,8 @@
         <item name="android:background">#dfdfdf</item>
     </style>
     <style name="ImageListView">
-        <item name="android:layout_width">48dp</item>
-        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_width">44dp</item>
+        <item name="android:layout_height">44dp</item>
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:layout_marginLeft">40dp</item>
     </style>

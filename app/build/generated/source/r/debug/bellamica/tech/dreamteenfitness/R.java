@@ -726,8 +726,8 @@ containing a value of this type.
         public static final int ic_logo_small=0x7f020061;
         public static final int ic_music=0x7f020062;
         public static final int ic_nav_challenges=0x7f020063;
-        public static final int ic_nav_friends=0x7f020064;
-        public static final int ic_nav_history=0x7f020065;
+        public static final int ic_nav_dashboard=0x7f020064;
+        public static final int ic_nav_friends=0x7f020065;
         public static final int ic_nav_settings=0x7f020066;
         public static final int ic_plusone_medium_off_client=0x7f020067;
         public static final int ic_plusone_small_off_client=0x7f020068;
@@ -914,7 +914,7 @@ containing a value of this type.
     public static final class string {
         public static final int accept=0x7f0a0000;
         public static final int action_challenges=0x7f0a0001;
-        public static final int action_history=0x7f0a0002;
+        public static final int action_dashboard=0x7f0a0002;
         public static final int action_invite_friends=0x7f0a0003;
         public static final int action_logout=0x7f0a0004;
         public static final int action_settings=0x7f0a0005;

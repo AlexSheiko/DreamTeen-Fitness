@@ -243,8 +243,8 @@ int drawable ic_logo_big 0x7f020060
 int drawable ic_logo_small 0x7f020061
 int drawable ic_music 0x7f020062
 int drawable ic_nav_challenges 0x7f020063
-int drawable ic_nav_friends 0x7f020064
-int drawable ic_nav_history 0x7f020065
+int drawable ic_nav_dashboard 0x7f020064
+int drawable ic_nav_friends 0x7f020065
 int drawable ic_nav_settings 0x7f020066
 int drawable ic_plusone_medium_off_client 0x7f020067
 int drawable ic_plusone_small_off_client 0x7f020068
@@ -419,7 +419,7 @@ int menu menu_summary 0x7f0c0001
 int raw gtm_analytics 0x7f050000
 int string accept 0x7f0a0000
 int string action_challenges 0x7f0a0001
-int string action_history 0x7f0a0002
+int string action_dashboard 0x7f0a0002
 int string action_invite_friends 0x7f0a0003
 int string action_logout 0x7f0a0004
 int string action_settings 0x7f0a0005

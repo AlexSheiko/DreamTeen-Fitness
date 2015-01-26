@@ -311,7 +311,7 @@ public class MainActivity extends Activity
         String[] mActionTitles = getResources().getStringArray(R.array.action_titles);
 
         Integer[] mImageIds = new Integer[]{
-                R.drawable.ic_nav_history, R.drawable.ic_nav_friends,
+                R.drawable.ic_nav_dashboard, R.drawable.ic_nav_friends,
                 R.drawable.ic_nav_challenges, R.drawable.ic_nav_settings
         };
         // set a custom shadow that overlays the main content when the drawer opens
@@ -352,7 +352,7 @@ public class MainActivity extends Activity
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             if (position == 0) {
-                startActivity(new Intent(MainActivity.this, HistoryActivity.class));
+                mDrawerLayout.closeDrawers();
             } else if (position == 1) {
                 startActivity(new Intent(MainActivity.this, FriendsActivity.class));
             } else if (position == 2) {

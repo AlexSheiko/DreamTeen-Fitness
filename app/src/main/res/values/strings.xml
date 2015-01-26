@@ -10,7 +10,7 @@
     <string name="action_logout">Log out</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
-    <string name="action_history">History</string>
+    <string name="action_dashboard">Dashboard</string>
     <string name="action_challenges">Challenges</string>
     <string name="aerobic">Aerobic</string>
     <string name="run_activity_title">Run</string>
