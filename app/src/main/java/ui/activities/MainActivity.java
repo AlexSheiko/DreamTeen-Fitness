@@ -195,6 +195,7 @@ public class MainActivity extends Activity
     private void dumpSteps(DataSet dataSet) {
         for (DataPoint dp : dataSet.getDataPoints()) {
             for (Field field : dp.getDataType().getFields()) {
+                Log.d(TAG, "Step delta: " + dp.getValue(field).asInt());
                 increaseStepCount(
                         dp.getValue(field).asInt());
             }

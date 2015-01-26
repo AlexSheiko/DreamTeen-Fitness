@@ -102,7 +102,7 @@ public class RunActivity extends Activity
 
             case WORKOUT_FINISH:
                 if (mClient.isConnected()) {
-                    insertCalories();
+                    insertCaloriesAndSteps();
                     mClient.disconnect();
                 }
                 startActivity(new Intent(this, SummaryActivity.class));
@@ -163,7 +163,7 @@ public class RunActivity extends Activity
                 .build();
     }
 
-    private void insertCalories() {
+    private void insertCaloriesAndSteps() {
         // Set a start and end time for our data, using a start time of 1 hour before this moment.
         Calendar cal = Calendar.getInstance();
         Date now = new Date();
@@ -194,14 +194,27 @@ public class RunActivity extends Activity
         dataSet.add(dataPoint);
 
         // Invoke the History API to insert the data
-        Fitness.HistoryApi.insertData(mClient, dataSet).setResultCallback(new ResultCallback<Status>() {
-            @Override
-            public void onResult(Status status) {
-                if (mClient.isConnected()) {
-                    mClient.disconnect();
-                }
-            }
-        });
+        Fitness.HistoryApi.insertData(mClient, dataSet);
+
+        // Create a data source
+        dataSource = new DataSource.Builder()
+                .setAppPackageName(this)
+                .setDataType(DataType.TYPE_STEP_COUNT_DELTA)
+                .setName(TAG + " - step count")
+                .setType(DataSource.TYPE_RAW)
+                .build();
+
+        // Create a data set
+        int stepCount = Math.round(totalDistance * 2000);
+
+        dataSet = DataSet.create(dataSource);
+        dataPoint = dataSet.createDataPoint()
+                .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS);
+        dataPoint.getValue(Field.FIELD_STEPS).setInt(stepCount);
+        dataSet.add(dataPoint);
+
+        // Invoke the History API to insert the data
+        Fitness.HistoryApi.insertData(mClient, dataSet);
     }
 
     /**

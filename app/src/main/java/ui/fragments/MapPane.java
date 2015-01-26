@@ -152,7 +152,7 @@ public class MapPane extends Fragment
                 mSharedPrefs.edit()
                         .putFloat("Distance", mTotalDistance)
                         .putString("Duration", convertSecondsToHMmSs(elapsedSeconds))
-                        .apply();
+                        .commit();
 
                 startActivity(new Intent(this.getActivity(), SummaryActivity.class));
                 break;
