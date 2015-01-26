@@ -97,14 +97,14 @@ public class RunActivity extends Activity
             case WORKOUT_PAUSE:
                 if (mClient.isConnected()) {
                     unregisterLocationListener();
-                    Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_STEP_COUNT_DELTA);
-                    Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_CALORIES_EXPENDED);
-                    mClient.disconnect();
                 }
                 break;
 
             case WORKOUT_FINISH:
-                insertCalories();
+                if (mClient.isConnected()) {
+                    insertCalories();
+                    mClient.disconnect();
+                }
                 startActivity(new Intent(this, SummaryActivity.class));
                 break;
         }
@@ -126,9 +126,6 @@ public class RunActivity extends Activity
                             public void onConnected(Bundle bundle) {
                                 // Start updating map focus and counting steps
                                 findLocationDataSources();
-                                // Subscribe to steps and calories
-                                Fitness.RecordingApi.subscribe(mClient, DataType.TYPE_STEP_COUNT_DELTA);
-                                Fitness.RecordingApi.subscribe(mClient, DataType.TYPE_CALORIES_EXPENDED);
                             }
 
                             @Override
