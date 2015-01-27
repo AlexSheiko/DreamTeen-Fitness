@@ -70,7 +70,7 @@ public class WorkoutActivity extends Activity {
 
                     public void onFinish() {
                         mDurationCounter.setText("03:00");
-                        if (mCurrentPosition < 10) {
+                        if (mCurrentPosition < 9) {
                             mCurrentPosition++;
                             updateExercise();
                             mTimer.start();
@@ -100,6 +100,7 @@ public class WorkoutActivity extends Activity {
                         getResources().getColor(R.color.time_counter_light));
 
                 mTimer.cancel();
+                mVideoView.pause();
             }
         });
 
@@ -140,13 +141,15 @@ public class WorkoutActivity extends Activity {
 
         mTitle.setText(exercise.getTitle(mCurrentPosition));
         int exercisePosition = mCurrentPosition + 1;
-        mPositionLabel.setText("Exercise " + exercisePosition + "/8");
+        mPositionLabel.setText("Exercise " + exercisePosition + "/10");
     }
 
     public void nextExercise(View view) {
-        mCurrentPosition++;
-        updateExercise();
-        mVideoView.start();
+        if (mCurrentPosition <= 10) {
+            mCurrentPosition++;
+            updateExercise();
+            mVideoView.start();
+        }
     }
 
     public void previousExercise(View view) {
