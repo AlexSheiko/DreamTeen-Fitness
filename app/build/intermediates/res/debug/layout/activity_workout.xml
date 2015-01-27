@@ -60,7 +60,7 @@
                 android:layout_gravity="center_horizontal"
                 android:text="Dumbbell Straight-Leg Deadlift"
                 android:gravity="center_horizontal"
-                android:textSize="24sp"
+                android:textSize="22sp"
                 android:layout_weight="1"
                 android:textIsSelectable="false"
                 android:id="@+id/title"/>

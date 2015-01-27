@@ -61,7 +61,7 @@ public class WorkoutActivity extends Activity {
                 if (getActionBar() != null) {
                     getActionBar().hide();
                 }
-                mTimer = new CountDownTimer(3 * 60 * 1000, 1000) {
+                mTimer = new CountDownTimer(10 * 1000, 1000) {
 
                     public void onTick(long millisUntilFinished) {
                         mDurationCounter.setText(
@@ -69,9 +69,11 @@ public class WorkoutActivity extends Activity {
                     }
 
                     public void onFinish() {
+                        mDurationCounter.setText("03:00");
                         if (mCurrentPosition < MAX_COUNT_EXERCISES) {
                             mCurrentPosition++;
                             updateExercise();
+                            mTimer.start();
                         } else {
                             Toast.makeText(WorkoutActivity.this, "Workout saved",
                                     Toast.LENGTH_SHORT).show();
