@@ -138,7 +138,6 @@ public class WorkoutActivity extends Activity {
             }
         });
 
-
         mTitle.setText(exercise.getTitle(mCurrentPosition));
         int exercisePosition = mCurrentPosition + 1;
         mPositionLabel.setText("Exercise " + exercisePosition + "/10");
