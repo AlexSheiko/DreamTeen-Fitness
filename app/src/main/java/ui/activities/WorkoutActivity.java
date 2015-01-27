@@ -36,6 +36,8 @@ public class WorkoutActivity extends Activity {
     ImageView mImage;
     @InjectView(R.id.title)
     TextView mTitle;
+    @InjectView(R.id.positionLabel)
+    TextView mPositionLabel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,6 +117,8 @@ public class WorkoutActivity extends Activity {
                                 "bellamica.tech.dreamteenfitness")));
 
         mTitle.setText(exercise.getTitle(mCurrentPosition));
+        int exercisePosition = mCurrentPosition + 1;
+        mPositionLabel.setText("Exercise " + exercisePosition + "/8");
     }
 
     public void nextExercise(View view) {
