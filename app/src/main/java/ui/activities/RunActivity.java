@@ -205,7 +205,7 @@ public class RunActivity extends Activity
                 .build();
 
         // Create a data set
-        int stepCount = (int) totalDistance * 2000;
+        int stepCount = (int) (totalDistance * 2000);
 
         dataSet = DataSet.create(dataSource);
         dataPoint = dataSet.createDataPoint()
