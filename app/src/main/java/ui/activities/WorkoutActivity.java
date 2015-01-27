@@ -23,6 +23,7 @@ public class WorkoutActivity extends Activity {
     private CountDownTimer mTimer;
     private int mCurrentPosition = 0;
     private String mCategory;
+    private static final int MAX_COUNT_EXERCISES = 3;
 
     @InjectView(R.id.startButton)
     Button mStartButton;
@@ -60,7 +61,7 @@ public class WorkoutActivity extends Activity {
                 if (getActionBar() != null) {
                     getActionBar().hide();
                 }
-                mTimer = new CountDownTimer(5 * 60 * 1000, 1000) {
+                mTimer = new CountDownTimer(3 * 60 * 1000, 1000) {
 
                     public void onTick(long millisUntilFinished) {
                         mDurationCounter.setText(
@@ -68,7 +69,15 @@ public class WorkoutActivity extends Activity {
                     }
 
                     public void onFinish() {
-                        // TODO: Show new exercise
+                        if (mCurrentPosition < MAX_COUNT_EXERCISES) {
+                            mCurrentPosition++;
+                            updateExercise();
+                        } else {
+                            Toast.makeText(WorkoutActivity.this, "Workout saved",
+                                    Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(WorkoutActivity.this,
+                                    MainActivity.class));
+                        }
                     }
                 }.start();
             }

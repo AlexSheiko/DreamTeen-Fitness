@@ -27,6 +27,9 @@ public class Exercise {
     }
 
     public String getTitle(int position) {
-        return mTitles.get(position);
+        if (position <3) {
+            return mTitles.get(position);
+        }
+        return null;
     }
 }
