@@ -163,6 +163,7 @@ public class WorkoutActivity extends Activity {
                         "bellamica.tech.dreamteenfitness");
 
         mVideoView.setVideoPath(videoFile);
+        mVideoView.seekTo(1);
         mVideoView.canPause();
         mVideoView.setOnCompletionListener(new OnCompletionListener() {
             @Override
