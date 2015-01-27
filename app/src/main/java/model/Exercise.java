@@ -16,10 +16,10 @@ public class Exercise {
                     context.getResources().getStringArray(R.array.ab));
         } else if (category.equals("leg")) {
             mTitles = Arrays.asList(
-                    context.getResources().getStringArray(R.array.ab));
+                    context.getResources().getStringArray(R.array.leg));
         } else if (category.equals("arm")) {
             mTitles = Arrays.asList(
-                    context.getResources().getStringArray(R.array.ab));
+                    context.getResources().getStringArray(R.array.arm));
         } else if (category.equals("butt")) {
             mTitles = Arrays.asList(
                     context.getResources().getStringArray(R.array.butt));
