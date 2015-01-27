@@ -12,7 +12,7 @@
         android:layout_weight="1"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/butt_1"
+        android:src="@drawable/butt_0"
         class="ui.utils.SquareImageView"/>
 
     <LinearLayout

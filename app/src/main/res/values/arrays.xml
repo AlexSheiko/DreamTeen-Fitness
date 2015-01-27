@@ -72,4 +72,16 @@
         <item>30</item>
         <item>31</item>
     </string-array>
+    <string-array name="ab">
+        <item>Facedown Hip External Rotation</item>
+        <item>Dumbbell Straight-Leg Deadlift"</item>
+        <item>Dumbbell Bent-Knee Deadlift"</item>
+        <item>Single-Leg Hip Extension"</item>
+        <item>Sideways Band Shuffle"</item>
+        <item>Single-Leg, Single-Arm Reach"</item>
+        <item>Dumbbell Step Up"</item>
+        <item>Stability-Ball Hip Extension Leg Curl"</item>
+        <item>Elevated Reverse Lunge"</item>
+        <item>Stability-Ball Back Extension"</item>
+    </string-array>
 </resources>

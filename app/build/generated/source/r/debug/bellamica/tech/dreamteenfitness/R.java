@@ -633,7 +633,7 @@ containing a value of this type.
         public static final int arrow_next=0x7f020002;
         public static final int arrow_previous=0x7f020003;
         public static final int black_slide_button_normal=0x7f020004;
-        public static final int butt_1=0x7f020005;
+        public static final int butt_0 =0x7f020005;
         public static final int category_grid_item=0x7f020006;
         public static final int com_facebook_button_blue=0x7f020007;
         public static final int com_facebook_button_blue_focused=0x7f020008;
