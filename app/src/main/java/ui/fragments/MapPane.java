@@ -29,7 +29,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import bellamica.tech.dreamteenfitness.R;
-import helpers.Constants;
+import ui.utils.helpers.Constants;
 import ui.activities.SummaryActivity;
 
 public class MapPane extends Fragment

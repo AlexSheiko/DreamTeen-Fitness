@@ -114,6 +114,8 @@
     <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="settings_background">#eff4f7</color>
+    <color name="time_counter_dark">#685f5f</color>
+    <color name="time_counter_light">#bdb1b1</color>
     <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/wallet_colors.xml -->
     <eat-comment/>
     <color name="wallet_bright_foreground_disabled_holo_light">#ffb2b2b2</color>

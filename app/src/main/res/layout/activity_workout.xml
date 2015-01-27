@@ -29,8 +29,6 @@
             android:src="@drawable/ic_pause"
             android:visibility="gone"
             android:paddingTop="4dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
             android:paddingBottom="6dp"
             android:background="@drawable/pause_button"
             android:layout_marginTop="8dp"/>
@@ -47,8 +45,8 @@
                 android:id="@+id/arrowPrevious"
                 android:src="@drawable/arrow_previous"
                 style="@style/ArrowControl"
-                android:layout_marginRight="8dp"
-                android:layout_marginLeft="8dp"/>
+                android:layout_marginRight="12dp"
+                android:layout_marginLeft="12dp"/>
 
             <TextView
                 android:layout_width="0dp"
@@ -65,8 +63,8 @@
                 android:id="@+id/arrowNext"
                 android:src="@drawable/arrow_next"
                 style="@style/ArrowControl"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"/>
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"/>
 
         </LinearLayout>
 
@@ -75,9 +73,9 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:textColor="#a09292"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:textSize="18sp"
-            android:text="Exercise 3/10"/>
+            android:text="Exercise 1/8"/>
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -91,8 +89,8 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:textSize="32sp"
-            android:textColor="#685f5f"
-            android:text="00:00"
+            android:textColor="@color/time_counter_light"
+            android:text="05:00"
             />
     </LinearLayout>
 

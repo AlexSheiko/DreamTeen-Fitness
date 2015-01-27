@@ -9,5 +9,7 @@
     <color name="card_background">@color/white</color>
     <color name="window_background">#e0eaef</color>
     <color name="settings_background">#eff4f7</color>
+    <color name="time_counter_light">#bdb1b1</color>
+    <color name="time_counter_dark">#685f5f</color>
 
 </resources>

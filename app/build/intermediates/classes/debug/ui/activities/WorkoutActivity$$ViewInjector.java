@@ -13,11 +13,14 @@ public class WorkoutActivity$$ViewInjector {
     target.mFinishButton = (android.widget.Button) view;
     view = finder.findRequiredView(source, 2131558459, "field 'mPauseButton'");
     target.mPauseButton = (android.widget.ImageButton) view;
+    view = finder.findRequiredView(source, 2131558462, "field 'mDurationCounter'");
+    target.mDurationCounter = (android.widget.TextView) view;
   }
 
   public static void reset(ui.activities.WorkoutActivity target) {
     target.mStartButton = null;
     target.mFinishButton = null;
     target.mPauseButton = null;
+    target.mDurationCounter = null;
   }
 }
