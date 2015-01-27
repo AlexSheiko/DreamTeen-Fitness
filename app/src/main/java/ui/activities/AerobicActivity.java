@@ -1,9 +1,9 @@
 package ui.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import bellamica.tech.dreamteenfitness.R;
 
@@ -16,21 +16,21 @@ public class AerobicActivity extends Activity {
     }
 
     public void navigateToCategory(View view) {
-        Toast.makeText(this, view.getId() + "", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, WorkoutActivity.class);
         switch (view.getId()) {
             case R.id.ab:
-
+                intent.putExtra("category", "ab");
                 break;
             case R.id.leg:
-
+                intent.putExtra("category", "leg");
                 break;
             case R.id.arm:
-
+                intent.putExtra("category", "arm");
                 break;
-
             case R.id.butt:
-
+                intent.putExtra("category", "butt");
                 break;
         }
+        startActivity(intent);
     }
 }

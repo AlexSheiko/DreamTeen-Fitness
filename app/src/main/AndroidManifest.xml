@@ -99,16 +99,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ui.activities.HistoryActivity"
-            android:label="@string/title_activity_history"
-            android:parentActivityName="ui.activities.MainActivity" >
+            android:name="ui.activities.WorkoutActivity"
+            android:parentActivityName="ui.activities.AerobicActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ui.activities.MainActivity" />
-        </activity>
-        <activity
-            android:name="ui.activities.WorkoutActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+                android:value="ui.activities.AerobicActivity" />
         </activity>
     </application>
 

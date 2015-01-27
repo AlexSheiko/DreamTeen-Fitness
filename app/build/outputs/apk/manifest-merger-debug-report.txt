@@ -171,22 +171,16 @@ category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:98:17
 	android:name
 		ADDED from AndroidManifest.xml:98:27
-activity#ui.activities.HistoryActivity
+activity#ui.activities.WorkoutActivity
 ADDED from AndroidManifest.xml:101:9
-	android:label
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:105:13
+	android:theme
 		ADDED from AndroidManifest.xml:103:13
 	android:parentActivityName
 		ADDED from AndroidManifest.xml:104:13
 	android:name
 		ADDED from AndroidManifest.xml:102:13
-activity#ui.activities.EmailActivity
-ADDED from AndroidManifest.xml:109:9
-	android:label
-		ADDED from AndroidManifest.xml:111:13
-	android:parentActivityName
-		ADDED from AndroidManifest.xml:112:13
-	android:name
-		ADDED from AndroidManifest.xml:110:13
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.android.support:support-v4:21.0.3:15:5

@@ -1,0 +1,103 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#eee"
+              android:orientation="vertical"
+              tools:context="ui.activities.WorkoutActivity">
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/butt_1"
+        class="ui.utils.SquareImageView"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_pause"
+            android:paddingTop="4dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="6dp"
+            android:background="@drawable/play_button"
+            android:layout_marginTop="8dp"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <ImageView
+                android:id="@+id/arrowPrevious"
+                android:src="@drawable/arrow_previous"
+                style="@style/ArrowControl"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="#3c3c3c"
+                android:layout_gravity="center_horizontal"
+                android:text="Dumbbell Straight-Leg Deadlift"
+                android:gravity="center_horizontal"
+                android:textSize="26sp"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/arrowNext"
+                android:src="@drawable/arrow_next"
+                style="@style/ArrowControl"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="#a09292"
+            android:layout_marginTop="12dp"
+            android:textSize="18sp"
+            android:text="Exercise 3/10"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/durationCounter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="32sp"
+            android:textColor="#685f5f"
+            android:text="02:56"
+            android:layout_marginBottom="8dp"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Finish"
+        android:id="@+id/button"
+        android:textAllCaps="true"
+        android:background="#ff4444"/>
+</LinearLayout>
+<!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/layout/activity_workout.xml -->
