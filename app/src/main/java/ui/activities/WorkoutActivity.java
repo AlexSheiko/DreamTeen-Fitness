@@ -2,6 +2,8 @@ package ui.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -59,8 +61,8 @@ public class WorkoutActivity extends Activity {
                 if (getActionBar() != null) {
                     getActionBar().hide();
                 }
-                mTimer = new CountDownTimer(3 * 60 * 1000, 1000) {
 
+                mTimer = new CountDownTimer(3 * 60 * 1000, 1000) {
                     public void onTick(long millisUntilFinished) {
                         mDurationCounter.setText(
                                 convertSecondsToMmSs(millisUntilFinished / 1000));
@@ -120,13 +122,21 @@ public class WorkoutActivity extends Activity {
 
     private void updateExercise() {
         Exercise exercise = new Exercise(this, mCategory);
-        String path = "android.resource://" + getPackageName() + "/" +
+        String videoFile = "android.resource://" + getPackageName() + "/" +
                 getResources().getIdentifier(
                         mCategory + "_" + mCurrentPosition,
                         "raw",
                         "bellamica.tech.dreamteenfitness");
 
-        mVideoView.setVideoPath(path);
+        mVideoView.setVideoPath(videoFile);
+        mVideoView.canPause();
+        mVideoView.setOnCompletionListener(new OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mVideoView.start();
+            }
+        });
+
 
         mTitle.setText(exercise.getTitle(mCurrentPosition));
         int exercisePosition = mCurrentPosition + 1;
@@ -136,12 +146,14 @@ public class WorkoutActivity extends Activity {
     public void nextExercise(View view) {
         mCurrentPosition++;
         updateExercise();
+        mVideoView.start();
     }
 
     public void previousExercise(View view) {
         if (mCurrentPosition != 0) {
             mCurrentPosition--;
             updateExercise();
+            mVideoView.start();
         }
     }
 }

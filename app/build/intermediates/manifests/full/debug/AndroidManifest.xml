@@ -107,6 +107,7 @@
         </activity>
         <activity
             android:name="ui.activities.WorkoutActivity"
+            android:hardwareAccelerated="true"
             android:label="@string/title_activity_workout"
             android:parentActivityName="ui.activities.AerobicActivity"
             android:screenOrientation="portrait" >

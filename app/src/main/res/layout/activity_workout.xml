@@ -53,12 +53,13 @@
                 android:layout_height="wrap_content"
                 android:textColor="#3c3c3c"
                 android:layout_gravity="center_horizontal"
-                android:text="Dumbbell Straight-Leg Deadlift"
+                android:text="Front lunges"
                 android:gravity="center_horizontal"
-                android:textSize="22sp"
+                android:textSize="26sp"
                 android:layout_weight="1"
                 android:textIsSelectable="false"
-                android:id="@+id/title"/>
+                android:id="@+id/title"
+                android:paddingTop="8dp"/>
 
             <ImageView
                 android:id="@+id/arrowNext"

@@ -178,11 +178,13 @@ ADDED from AndroidManifest.xml:99:17
 activity#ui.activities.WorkoutActivity
 ADDED from AndroidManifest.xml:102:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:106:13
+		ADDED from AndroidManifest.xml:107:13
 	android:label
-		ADDED from AndroidManifest.xml:105:13
-	android:parentActivityName
+		ADDED from AndroidManifest.xml:106:13
+	android:hardwareAccelerated
 		ADDED from AndroidManifest.xml:104:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:105:13
 	android:name
 		ADDED from AndroidManifest.xml:103:13
 uses-sdk

@@ -60,28 +60,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e838e63-aa6c-41fc-a81b-f5c1e2df2628" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/raw/butt_0.mp4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/raw/butt_1.mp4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/raw/butt_2.mp4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/raw/butt_3.mp4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/raw/butt_4.mp4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/raw/butt_5.mp4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/raw/butt_6.mp4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/raw/butt_7.mp4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/raw/butt_8.mp4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/raw/butt_9.mp4" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\res\drawable\ab_0.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\res\drawable\ab_1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\res\drawable\ab_2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\res\drawable\butt_0.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/model/Exercise.java" afterPath="$PROJECT_DIR$/app/src/main/java/model/Exercise.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/bellamica/tech/dreamteenfitness/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/bellamica/tech/dreamteenfitness/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/facebook/android/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/facebook/android/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/google/android/gms/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/google/android/gms/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/WorkoutActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/WorkoutActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_workout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_workout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DreamFit.iws" />
@@ -105,84 +86,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="activity_workout.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="activity_workout.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_workout.xml">
-          <provider editor-type-id="android-designer">
+          <provider selected="true" editor-type-id="android-designer">
             <state />
           </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.925926" vertical-offset="23" max-vertical-offset="2176">
-              <caret line="6" column="60" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="60" />
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="737" max-vertical-offset="2193">
+              <caret line="55" column="42" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WorkoutActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="WorkoutActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/WorkoutActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.036082473" vertical-offset="1577" max-vertical-offset="2346">
-              <caret line="109" column="45" selection-start-line="109" selection-start-column="45" selection-end-line="109" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="948" max-vertical-offset="2516">
+              <caret line="96" column="14" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
               <folding>
-                <element signature="e#1408#2936#0" expanded="true" />
-                <element signature="e#2925#2926#0" expanded="true" />
-                <element signature="e#2980#3529#0" expanded="true" />
-                <element signature="e#3518#3519#0" expanded="true" />
-                <element signature="e#3574#3919#0" expanded="true" />
-                <element signature="e#3908#3909#0" expanded="true" />
+                <element signature="e#1497#3025#0" expanded="true" />
+                <element signature="e#3014#3015#0" expanded="true" />
+                <element signature="e#3069#3618#0" expanded="true" />
+                <element signature="e#3607#3608#0" expanded="true" />
+                <element signature="e#3663#4008#0" expanded="true" />
+                <element signature="e#3997#3998#0" expanded="true" />
+                <element signature="e#4686#4860#0" expanded="true" />
+                <element signature="e#4849#4850#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_main.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.0875" vertical-offset="1601" max-vertical-offset="4352">
-              <caret line="104" column="65" selection-start-line="103" selection-start-column="59" selection-end-line="104" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Looper.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://D:/android-sdk/platforms/android-21/android.jar!/android/os/Looper.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="341" max-vertical-offset="629">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="arrays.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/arrays.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1121" max-vertical-offset="1751">
-              <caret line="95" column="32" selection-start-line="95" selection-start-column="32" selection-end-line="95" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AerobicActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/AerobicActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Exercise.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/model/Exercise.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="697">
-              <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1441" max-vertical-offset="2040">
+              <caret line="103" column="45" selection-start-line="103" selection-start-column="45" selection-end-line="103" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -1794,10 +1734,10 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/pause_button.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/model/Exercise.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_workout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/WorkoutActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_workout.xml" />
       </list>
     </option>
   </component>
@@ -2798,14 +2738,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32130584" vertical-offset="17" max-vertical-offset="2023">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/model/Exercise.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="697">
@@ -2814,29 +2746,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_workout.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.925926" vertical-offset="23" max-vertical-offset="2176">
-          <caret line="6" column="60" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="60" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1441" max-vertical-offset="2040">
+          <caret line="103" column="45" selection-start-line="103" selection-start-column="45" selection-end-line="103" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/WorkoutActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.036082473" vertical-offset="1577" max-vertical-offset="2346">
-          <caret line="109" column="45" selection-start-line="109" selection-start-column="45" selection-end-line="109" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="948" max-vertical-offset="2516">
+          <caret line="96" column="14" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
           <folding>
-            <element signature="e#1408#2936#0" expanded="true" />
-            <element signature="e#2925#2926#0" expanded="true" />
-            <element signature="e#2980#3529#0" expanded="true" />
-            <element signature="e#3518#3519#0" expanded="true" />
-            <element signature="e#3574#3919#0" expanded="true" />
-            <element signature="e#3908#3909#0" expanded="true" />
+            <element signature="e#1497#3025#0" expanded="true" />
+            <element signature="e#3014#3015#0" expanded="true" />
+            <element signature="e#3069#3618#0" expanded="true" />
+            <element signature="e#3607#3608#0" expanded="true" />
+            <element signature="e#3663#4008#0" expanded="true" />
+            <element signature="e#3997#3998#0" expanded="true" />
+            <element signature="e#4686#4860#0" expanded="true" />
+            <element signature="e#4849#4850#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_workout.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="737" max-vertical-offset="2193">
+          <caret line="55" column="42" selection-start-line="55" selection-start-column="42" selection-end-line="55" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
