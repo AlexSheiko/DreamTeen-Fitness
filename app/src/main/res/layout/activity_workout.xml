@@ -22,7 +22,7 @@
         android:orientation="vertical">
 
         <ImageButton
-            android:id="@+id/controlButton"
+            android:id="@+id/pauseButton"
             android:layout_width="48dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -32,7 +32,7 @@
             android:paddingLeft="12dp"
             android:paddingRight="12dp"
             android:paddingBottom="6dp"
-            android:background="@drawable/play_button"
+            android:background="@drawable/pause_button"
             android:layout_marginTop="8dp"/>
 
         <LinearLayout
@@ -57,8 +57,9 @@
                 android:layout_gravity="center_horizontal"
                 android:text="Dumbbell Straight-Leg Deadlift"
                 android:gravity="center_horizontal"
-                android:textSize="26sp"
-                android:layout_weight="1"/>
+                android:textSize="24sp"
+                android:layout_weight="1"
+                android:textIsSelectable="false"/>
 
             <ImageView
                 android:id="@+id/arrowNext"
@@ -92,23 +93,25 @@
             android:textSize="32sp"
             android:textColor="#685f5f"
             android:text="00:00"
-            android:layout_marginBottom="8dp"/>
+            />
     </LinearLayout>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Start"
-        android:id="@+id/buttonStart"
+        android:id="@+id/startButton"
         android:textAllCaps="true"
-        android:background="#00c84a"/>
+        android:background="#00c84a"
+        android:layout_marginTop="16dp"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Finish"
         android:visibility="gone"
-        android:id="@+id/buttonFinish"
+        android:id="@+id/finishButton"
         android:textAllCaps="true"
-        android:background="#ff4444"/>
+        android:background="#121212"
+        android:layout_marginTop="16dp"/>
 </LinearLayout>

@@ -120,8 +120,8 @@
     </style>
 
     <style name="ImageListView">
-        <item name="android:layout_width">44dp</item>
-        <item name="android:layout_height">44dp</item>
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:layout_marginLeft">40dp</item>
     </style>

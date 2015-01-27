@@ -175,10 +175,10 @@ activity#ui.activities.WorkoutActivity
 ADDED from AndroidManifest.xml:101:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:105:13
-	android:theme
-		ADDED from AndroidManifest.xml:103:13
-	android:parentActivityName
+	android:label
 		ADDED from AndroidManifest.xml:104:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:103:13
 	android:name
 		ADDED from AndroidManifest.xml:102:13
 uses-sdk

@@ -329,6 +329,7 @@
     <string name="title_activity_history">History</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_summary">Summary</string>
+    <string name="title_activity_workout">Training</string>
     <string name="title_facebook_login">Facebook login</string>
     <string name="track_exercise">Track Exercise</string>
     <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/wallet_strings.xml -->
@@ -377,8 +378,8 @@
         <item name="android:background">#dfdfdf</item>
     </style>
     <style name="ImageListView">
-        <item name="android:layout_width">44dp</item>
-        <item name="android:layout_height">44dp</item>
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:layout_marginLeft">40dp</item>
     </style>

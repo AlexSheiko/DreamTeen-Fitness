@@ -101,6 +101,7 @@
         <activity
             android:name="ui.activities.WorkoutActivity"
             android:parentActivityName="ui.activities.AerobicActivity"
+            android:label="@string/title_activity_workout"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
