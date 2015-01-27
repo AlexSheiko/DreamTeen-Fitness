@@ -81,20 +81,20 @@ public class WorkoutActivity extends Activity {
             public void onClick(View view) {
                 mStartButton.setVisibility(View.GONE);
                 mPauseButton.setVisibility(View.VISIBLE);
-                    mFinishButton.setVisibility(View.VISIBLE);
-                    mDurationCounter.setTextColor(
-                    getResources().getColor(R.color.time_counter_dark));
+                mFinishButton.setVisibility(View.VISIBLE);
+                mDurationCounter.setTextColor(
+                        getResources().getColor(R.color.time_counter_dark));
 
-                    if (getActionBar() != null) {
-                        getActionBar().hide();
+                if (getActionBar() != null) {
+                    getActionBar().hide();
+                }
+
+                mTimer = new CountDownTimer(3 * 60 * 1000, 1000) {
+                    public void onTick(long millisUntilFinished) {
+                        mDurationCounter.setText(
+                                convertSecondsToMmSs(millisUntilFinished / 1000));
+                        incrementDuration();
                     }
-
-                    mTimer = new CountDownTimer(3 * 60 * 1000, 1000) {
-                        public void onTick(long millisUntilFinished) {
-                            mDurationCounter.setText(
-                                    convertSecondsToMmSs(millisUntilFinished / 1000));
-                            incrementDuration();
-                        }
 
                     public void onFinish() {
                         mDurationCounter.setText("03:00");
@@ -136,12 +136,14 @@ public class WorkoutActivity extends Activity {
             @Override
             public void onClick(View view) {
                 // Insert calories
+                buildFitnessClient();
                 mClient.connect();
 
                 Toast.makeText(WorkoutActivity.this, "Workout saved",
                         Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(WorkoutActivity.this,
-                        MainActivity.class));
+                startActivity(new Intent(WorkoutActivity.this, MainActivity.class)
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
         });
     }
@@ -199,7 +201,7 @@ public class WorkoutActivity extends Activity {
     }
 
     private void incrementDuration() {
-        mDuration++;
+        mDuration = mDuration + 1;
     }
 
     /**
@@ -273,7 +275,7 @@ public class WorkoutActivity extends Activity {
                 .build();
 
         // Create a data set
-        float caloriesExpanded = 326 / 60 / 60 * mDuration;
+        float caloriesExpanded = 4 * (mDuration / 60);
 
         DataSet dataSet = DataSet.create(dataSource);
         DataPoint dataPoint = dataSet.createDataPoint()
