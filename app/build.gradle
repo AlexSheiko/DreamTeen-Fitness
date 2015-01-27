@@ -29,4 +29,5 @@ dependencies {
     compile 'com.jakewharton:butterknife:6.0.0'
     compile project(':facebook')
     compile files('libs/mpandroidchartlibrary-1-7-4.jar')
+    compile files('libs/simple.facebook-2.2.jar')
 }

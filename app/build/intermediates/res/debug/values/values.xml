@@ -374,6 +374,7 @@
     <string name="store_picture_title">Save image</string>
     <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="title_activity_challenges">Challenges</string>
     <string name="title_activity_email">Recipients</string>
     <string name="title_activity_friends">Friends</string>
     <string name="title_activity_history">History</string>

@@ -21,7 +21,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -36,6 +35,9 @@ import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
 import com.google.android.gms.fitness.request.DataReadRequest;
 import com.google.android.gms.fitness.result.DataReadResult;
+import com.sromku.simple.fb.Permission;
+import com.sromku.simple.fb.SimpleFacebook;
+import com.sromku.simple.fb.SimpleFacebookConfiguration;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -93,6 +95,18 @@ public class MainActivity extends Activity
         }
         buildFitnessClient();
         addSideNavigation();
+
+        Permission[] permissions = new Permission[] {
+                Permission.PUBLISH_ACTION
+        };
+
+        SimpleFacebookConfiguration configuration = new SimpleFacebookConfiguration.Builder()
+                .setAppId("562228307244897")
+                .setNamespace("dreamteen-fitness")
+                .setPermissions(permissions)
+                .build();
+
+        SimpleFacebook.setConfiguration(configuration);
     }
 
     /**
@@ -357,7 +371,7 @@ public class MainActivity extends Activity
             } else if (position == 1) {
                 startActivity(new Intent(MainActivity.this, FriendsActivity.class));
             } else if (position == 2) {
-                comingSoonToast();
+                startActivity(new Intent(MainActivity.this, ChallengesActivity.class));
             } else if (position == 3) {
                 startActivity(new Intent(MainActivity.this, SettingsActivity.class));
             } else if (position == 4) {
@@ -370,10 +384,6 @@ public class MainActivity extends Activity
                 // 3. Go to splash screen to re-login
                 startActivity(new Intent(MainActivity.this, SplashActivity.class));
             }
-        }
-
-        private void comingSoonToast() {
-            Toast.makeText(MainActivity.this, getString(R.string.coming_soon), Toast.LENGTH_SHORT).show();
         }
     }
 

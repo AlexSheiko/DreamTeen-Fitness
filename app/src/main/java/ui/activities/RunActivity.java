@@ -106,9 +106,57 @@ public class RunActivity extends Activity
                     mClient.disconnect();
                 }
                 startActivity(new Intent(this, SummaryActivity.class));
+
+//                onGameOverCloseButtonTouched();
                 break;
         }
     }
+
+//    private void onGameOverCloseButtonTouched() {
+//        // check if the user wants to post their score to facebook
+//        // which requires the publish_actions permissions
+//
+//        Session session = Session.getActiveSession();
+//        if (session == null || !session.isOpened()) {
+//            return;
+//        }
+//        List<String> permissions = session.getPermissions();
+//
+//        // check to see that the user granted the publish_actions permission.
+//        if (!permissions.contains("publish_actions")) {
+//            // the user didn't grant this permission, so we need to prompt them.
+//            askForPublishActionsForScores();
+//            return;
+//        } else {
+//            // Save score and hide the gameOverContainer
+//            postScore();
+//            gameOverContainer.setVisibility(View.INVISIBLE);
+//
+//
+//        }
+//    }
+
+    // Show a dialog prompting the user with an explanation of why we're ablish_actions permission in order to save their scores.
+//    private void askForPublishActionsForScores() {
+//        new AlertDialog.Builder(this)
+//                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int id) {
+//                        // User hit OK. Request Facebook friends permission.
+//                        requestPublishPermissions();
+//                    }
+//                })
+//                .setNegativeButton(R.string.dialog_no, new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int id) {
+//                        // User hit cancel.
+//                        // Hide the gameOverContainer
+//                        gameOverContainer.setVisibility(View.INVISIBLE);
+//                    }
+//                })
+//                .setTitle("Save Score")
+//                .setMessage("Do you want to save your score on Facebook")
+//                .show();
+//    }
 
     /**
      * Build a {@link GoogleApiClient} that will authenticate the user and allow the application
