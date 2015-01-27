@@ -29,8 +29,8 @@
             android:src="@drawable/ic_pause"
             android:visibility="gone"
             android:paddingTop="4dp"
-            android:paddingLeft="12dp"
-            android:paddingRight="12dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
             android:paddingBottom="6dp"
             android:background="@drawable/pause_button"
             android:layout_marginTop="8dp"/>
@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:textColor="#a09292"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
             android:textSize="18sp"
             android:text="Exercise 3/10"/>
 
@@ -112,6 +112,6 @@
         android:visibility="gone"
         android:id="@+id/finishButton"
         android:textAllCaps="true"
-        android:background="#121212"
+        android:background="#ff4444"
         android:layout_marginTop="16dp"/>
 </LinearLayout>
