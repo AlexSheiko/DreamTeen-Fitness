@@ -8,9 +8,7 @@ import java.util.List;
 import bellamica.tech.dreamteenfitness.R;
 
 public class Exercise {
-    private String mCategory;
     private List<String> mTitles;
-    private List<Integer> mImageIds;
 
     public Exercise(Context context, String category) {
         if (category.equals("ab")) {
@@ -26,19 +24,9 @@ public class Exercise {
             mTitles = Arrays.asList(
                     context.getResources().getStringArray(R.array.ab));
         }
-        for (int i = 0; i < mTitles.size(); i++) {
-            mImageIds.add(context.getResources().getIdentifier(
-                    category + "_" + i,
-                    "drawable",
-                    "bellamica.tech.dreamteenfitness"));
-        }
     }
 
-    public List<String> getTitles() {
-        return mTitles;
-    }
-
-    public List<Integer> getImageIds() {
-        return mImageIds;
+    public String getTitle(int position) {
+        return mTitles.get(position);
     }
 }

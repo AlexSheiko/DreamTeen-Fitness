@@ -2,22 +2,27 @@ package ui.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import bellamica.tech.dreamteenfitness.R;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import model.Exercise;
 
 public class WorkoutActivity extends Activity {
 
     private CountDownTimer mTimer;
+    private int mCurrentPosition = 0;
+    private String mCategory;
 
     @InjectView(R.id.startButton)
     Button mStartButton;
@@ -27,6 +32,10 @@ public class WorkoutActivity extends Activity {
     ImageButton mPauseButton;
     @InjectView(R.id.durationCounter)
     TextView mDurationCounter;
+    @InjectView(R.id.image)
+    ImageView mImage;
+    @InjectView(R.id.title)
+    TextView mTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +43,8 @@ public class WorkoutActivity extends Activity {
         setContentView(R.layout.activity_workout);
         ButterKnife.inject(this);
 
-
+        mCategory = getIntent().getStringExtra("category");
+        updateExercise();
 
         mStartButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -93,5 +103,29 @@ public class WorkoutActivity extends Activity {
         long s = seconds % 60;
         long m = (seconds / 60) % 60;
         return String.format("%02d:%02d", m, s);
+    }
+
+    private void updateExercise() {
+        Exercise exercise = new Exercise(this, mCategory);
+        mImage.setImageBitmap(
+                BitmapFactory.decodeResource(getResources(),
+                        getResources().getIdentifier(
+                                mCategory + "_" + mCurrentPosition,
+                                "drawable",
+                                "bellamica.tech.dreamteenfitness")));
+
+        mTitle.setText(exercise.getTitle(mCurrentPosition));
+    }
+
+    public void nextExercise(View view) {
+        mCurrentPosition++;
+        updateExercise();
+    }
+
+    public void previousExercise(View view) {
+        if (mCurrentPosition != 0) {
+            mCurrentPosition--;
+            updateExercise();
+        }
     }
 }

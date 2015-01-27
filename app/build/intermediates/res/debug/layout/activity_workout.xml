@@ -12,8 +12,9 @@
         android:layout_weight="1"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/butt_1"
-        class="ui.utils.SquareImageView"/>
+        android:src="@drawable/butt_0"
+        class="ui.utils.SquareImageView"
+        android:id="@+id/image"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -44,6 +45,8 @@
             <ImageView
                 android:id="@+id/arrowPrevious"
                 android:src="@drawable/arrow_previous"
+                android:clickable="true"
+                android:onClick="previousExercise"
                 style="@style/ArrowControl"
                 android:layout_marginRight="12dp"
                 android:layout_marginLeft="12dp"/>
@@ -57,11 +60,14 @@
                 android:gravity="center_horizontal"
                 android:textSize="24sp"
                 android:layout_weight="1"
-                android:textIsSelectable="false"/>
+                android:textIsSelectable="false"
+                android:id="@+id/title"/>
 
             <ImageView
                 android:id="@+id/arrowNext"
                 android:src="@drawable/arrow_next"
+                android:clickable="true"
+                android:onClick="nextExercise"
                 style="@style/ArrowControl"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"/>

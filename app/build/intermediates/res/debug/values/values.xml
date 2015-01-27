@@ -2,6 +2,11 @@
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
     <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/arrays.xml -->
     <eat-comment/>
+    <string-array name="ab">
+        <item>Facedown Hip External Rotation</item>
+        <item>Dumbbell Straight-Leg Deadlift"</item>
+        <item>Dumbbell Bent-Knee Deadlift"</item>
+    </string-array>
     <string-array name="action_categories">
         <item>Aerobic workout</item>
         <item>Running</item>
