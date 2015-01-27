@@ -2,16 +2,15 @@ package ui.activities;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import bellamica.tech.dreamteenfitness.R;
 import butterknife.ButterKnife;
@@ -23,7 +22,6 @@ public class WorkoutActivity extends Activity {
     private CountDownTimer mTimer;
     private int mCurrentPosition = 0;
     private String mCategory;
-    private static final int MAX_COUNT_EXERCISES = 3;
 
     @InjectView(R.id.startButton)
     Button mStartButton;
@@ -33,8 +31,8 @@ public class WorkoutActivity extends Activity {
     ImageButton mPauseButton;
     @InjectView(R.id.durationCounter)
     TextView mDurationCounter;
-    @InjectView(R.id.image)
-    ImageView mImage;
+    @InjectView(R.id.videoView)
+    VideoView mVideoView;
     @InjectView(R.id.title)
     TextView mTitle;
     @InjectView(R.id.positionLabel)
@@ -61,7 +59,7 @@ public class WorkoutActivity extends Activity {
                 if (getActionBar() != null) {
                     getActionBar().hide();
                 }
-                mTimer = new CountDownTimer(10 * 1000, 1000) {
+                mTimer = new CountDownTimer(3 * 60 * 1000, 1000) {
 
                     public void onTick(long millisUntilFinished) {
                         mDurationCounter.setText(
@@ -70,7 +68,7 @@ public class WorkoutActivity extends Activity {
 
                     public void onFinish() {
                         mDurationCounter.setText("03:00");
-                        if (mCurrentPosition < MAX_COUNT_EXERCISES) {
+                        if (mCurrentPosition < 10) {
                             mCurrentPosition++;
                             updateExercise();
                             mTimer.start();
@@ -82,6 +80,8 @@ public class WorkoutActivity extends Activity {
                         }
                     }
                 }.start();
+
+                mVideoView.start();
             }
         });
 
@@ -120,12 +120,13 @@ public class WorkoutActivity extends Activity {
 
     private void updateExercise() {
         Exercise exercise = new Exercise(this, mCategory);
-        mImage.setImageBitmap(
-                BitmapFactory.decodeResource(getResources(),
-                        getResources().getIdentifier(
-                                mCategory + "_" + mCurrentPosition,
-                                "drawable",
-                                "bellamica.tech.dreamteenfitness")));
+        String path = "android.resource://" + getPackageName() + "/" +
+                getResources().getIdentifier(
+                        mCategory + "_" + mCurrentPosition,
+                        "raw",
+                        "bellamica.tech.dreamteenfitness");
+
+        mVideoView.setVideoPath(path);
 
         mTitle.setText(exercise.getTitle(mCurrentPosition));
         int exercisePosition = mCurrentPosition + 1;

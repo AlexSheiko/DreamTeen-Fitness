@@ -20,6 +20,21 @@
         <item>@string/action_settings</item>
         <item>@string/action_logout</item>
     </string-array>
+    <string-array name="arm">
+        <item/>
+    </string-array>
+    <string-array name="butt">
+        <item>Squat</item>
+        <item>Front Lunges</item>
+        <item>Side Lunges</item>
+        <item>Deadlift</item>
+        <item>Donkey Kick Right</item>
+        <item>Donkey Kick Left</item>
+        <item>Hip Bridge</item>
+        <item>Leg extensions</item>
+        <item>Flutter Kicks</item>
+        <item>Froggy Glute Lifts</item>
+    </string-array>
     <string-array name="days_values">
         <item>1</item>
         <item>2</item>
@@ -56,6 +71,9 @@
     <string-array name="goal_type_values">
         <item>Duration, min</item>
         <item>Calories burned</item>
+    </string-array>
+    <string-array name="leg">
+        <item/>
     </string-array>
     <string-array name="month_values">
         <item>January</item>

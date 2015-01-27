@@ -15,8 +15,8 @@ public class WorkoutActivity$$ViewInjector {
     target.mPauseButton = (android.widget.ImageButton) view;
     view = finder.findRequiredView(source, 2131558465, "field 'mDurationCounter'");
     target.mDurationCounter = (android.widget.TextView) view;
-    view = finder.findRequiredView(source, 2131558459, "field 'mImage'");
-    target.mImage = (android.widget.ImageView) view;
+    view = finder.findRequiredView(source, 2131558459, "field 'mVideoView'");
+    target.mVideoView = (android.widget.VideoView) view;
     view = finder.findRequiredView(source, 2131558462, "field 'mTitle'");
     target.mTitle = (android.widget.TextView) view;
     view = finder.findRequiredView(source, 2131558464, "field 'mPositionLabel'");
@@ -28,7 +28,7 @@ public class WorkoutActivity$$ViewInjector {
     target.mFinishButton = null;
     target.mPauseButton = null;
     target.mDurationCounter = null;
-    target.mImage = null;
+    target.mVideoView = null;
     target.mTitle = null;
     target.mPositionLabel = null;
   }

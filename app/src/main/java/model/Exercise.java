@@ -22,12 +22,12 @@ public class Exercise {
                     context.getResources().getStringArray(R.array.ab));
         } else if (category.equals("butt")) {
             mTitles = Arrays.asList(
-                    context.getResources().getStringArray(R.array.ab));
+                    context.getResources().getStringArray(R.array.butt));
         }
     }
 
     public String getTitle(int position) {
-        if (position <3) {
+        if (position < 10) {
             return mTitles.get(position);
         }
         return null;
