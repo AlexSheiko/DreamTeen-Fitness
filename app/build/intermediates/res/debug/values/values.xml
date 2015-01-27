@@ -3,9 +3,16 @@
     <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/arrays.xml -->
     <eat-comment/>
     <string-array name="ab">
-        <item>Facedown Hip External Rotation</item>
-        <item>Dumbbell Straight-Leg Deadlift"</item>
-        <item>Dumbbell Bent-Knee Deadlift"</item>
+        <item>Basic Crunch</item>
+        <item>Right Oblique Crunch</item>
+        <item>Left Oblique Crunch</item>
+        <item>Bicycle Crunch</item>
+        <item>Reverse Crunch</item>
+        <item>Long Arm Crunch</item>
+        <item>Crossover Crunch</item>
+        <item>Half Curl</item>
+        <item>Vertical Leg Crunch</item>
+        <item>Plank</item>
     </string-array>
     <string-array name="action_categories">
         <item>Aerobic workout</item>
@@ -21,7 +28,16 @@
         <item>@string/action_logout</item>
     </string-array>
     <string-array name="arm">
-        <item/>
+        <item>Overhead Press</item>
+        <item>Bicep Curls</item>
+        <item>Tricep Extension Right</item>
+        <item>Tricep Extension Left</item>
+        <item>Bend Over Row</item>
+        <item>Front Raises</item>
+        <item>Reverse Bridge Dips</item>
+        <item>Half Push-Ups</item>
+        <item>High Side Plank Right</item>
+        <item>High Side Plank Left</item>
     </string-array>
     <string-array name="butt">
         <item>Squat</item>
@@ -73,7 +89,16 @@
         <item>Calories burned</item>
     </string-array>
     <string-array name="leg">
-        <item/>
+        <item>Side Leg Lift Right</item>
+        <item>Side Leg Kick Right</item>
+        <item>Inner Thigh Raise Left</item>
+        <item>Side Leg Lift Left</item>
+        <item>Side Leg Kick Left</item>
+        <item>Inner Thigh Raise Right</item>
+        <item>Hamstring Curls</item>
+        <item>Quad Lifts</item>
+        <item>Static Lunge Right</item>
+        <item>Static Lunge Left</item>
     </string-array>
     <string-array name="month_values">
         <item>January</item>
