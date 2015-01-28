@@ -52,10 +52,10 @@ public class StatsListAdapter extends BaseAdapter {
         LayoutInflater inflater = activity.getLayoutInflater();
 
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.stats_list_item, null);
+            convertView = inflater.inflate(R.layout.scores_list_item, null);
             holder = new ViewHolder();
-            holder.txtFirst = (TextView) convertView.findViewById(R.id.stateCodeLabel);
-            holder.txtSecond = (TextView) convertView.findViewById(R.id.stateDistanceLabel);
+            holder.txtFirst = (TextView) convertView.findViewById(R.id.nameLabel);
+            holder.txtSecond = (TextView) convertView.findViewById(R.id.scoreLabel);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();

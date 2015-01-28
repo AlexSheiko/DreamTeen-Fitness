@@ -32,13 +32,10 @@ public class ChallengesActivity extends Activity {
 
     private SimpleFacebook mSimpleFacebook;
 
-    public static final String FIRST_COLUMN = "First";
-    public static final String SECOND_COLUMN = "Second";
+    public static final String NAME_COLUMN = "First";
+    public static final String SCORE_COLUMN = "Second";
 
     private ArrayList<HashMap> list;
-
-    private String[] names;
-    private String[] scores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,8 +82,6 @@ public class ChallengesActivity extends Activity {
 
         @Override
         public void onSuccess(String s, List<Permission> permissions) {
-            Log.i(TAG, "Successfully requested new permissions.");
-
             Session session = mSimpleFacebook.getSession();
             /* make the API call */
             new Request(
@@ -107,14 +102,13 @@ public class ChallengesActivity extends Activity {
                                     String score = scoreObj.getString("score");
                                     JSONObject userObj = scoreObj.getJSONObject("user");
                                     String name = userObj.getString("name");
-                                    Log.i(TAG, name + ": " + score + " steps");
 
                                     HashMap temp = new HashMap();
-                                    temp.put(FIRST_COLUMN, name);
-                                    temp.put(SECOND_COLUMN, score);
+                                    temp.put(NAME_COLUMN, name);
+                                    temp.put(SCORE_COLUMN, score);
                                     list.add(temp);
                                 }
-                                
+
                                 StatsListAdapter adapter = new StatsListAdapter(ChallengesActivity.this, list);
                                 ListView mListView = (ListView) findViewById(R.id.stats_list);
                                 mListView.setAdapter(adapter);

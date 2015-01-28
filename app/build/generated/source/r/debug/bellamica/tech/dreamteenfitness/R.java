@@ -841,6 +841,7 @@ containing a value of this type.
         public static final int match_parent=0x7f0d000e;
         public static final int monochrome=0x7f0d0016;
         public static final int nameField=0x7f0d0037;
+        public static final int nameLabel=0x7f0d0070;
         public static final int none=0x7f0d0002;
         public static final int normal=0x7f0d0004;
         public static final int pauseButton=0x7f0d003d;
@@ -854,6 +855,7 @@ containing a value of this type.
         public static final int sandbox=0x7f0d000a;
         public static final int satellite=0x7f0d0005;
         public static final int saveButton=0x7f0d0039;
+        public static final int scoreLabel=0x7f0d0071;
         public static final int selectionDetails=0x7f0d000d;
         public static final int share_button=0x7f0d0028;
         public static final int slide_button_container=0x7f0d006a;
@@ -861,8 +863,6 @@ containing a value of this type.
         public static final int standard=0x7f0d0019;
         public static final int startButton=0x7f0d0043;
         public static final int start_button_label=0x7f0d003a;
-        public static final int stateCodeLabel=0x7f0d0070;
-        public static final int stateDistanceLabel=0x7f0d0071;
         public static final int stats_list=0x7f0d0026;
         public static final int stepsContainer=0x7f0d002e;
         public static final int stepsLabel=0x7f0d002f;
@@ -912,8 +912,8 @@ containing a value of this type.
         public static final int grid_item_category=0x7f03001a;
         public static final int nav_item=0x7f03001b;
         public static final int nav_item_small=0x7f03001c;
-        public static final int spinner_item=0x7f03001d;
-        public static final int stats_list_item=0x7f03001e;
+        public static final int scores_list_item=0x7f03001d;
+        public static final int spinner_item=0x7f03001e;
     }
     public static final class menu {
         public static final int menu_run=0x7f0c0000;
@@ -1116,23 +1116,24 @@ containing a value of this type.
         public static final int MyActionBar=0x7f0b000d;
         public static final int MyTheme_ActionBar_TitleTextStyle=0x7f0b000e;
         public static final int NumberPickerWithButton=0x7f0b000f;
-        public static final int SeparatorLight=0x7f0b0010;
-        public static final int SettingsTheme=0x7f0b0011;
-        public static final int ShadowOverlayText=0x7f0b0012;
-        public static final int TextListView=0x7f0b0013;
-        public static final int Theme_IAPTheme=0x7f0b0014;
-        public static final int TripLabelDistance=0x7f0b0015;
-        public static final int TripLabelHeader=0x7f0b0016;
-        public static final int TripLabelUnits=0x7f0b0017;
-        public static final int TripList=0x7f0b0018;
-        public static final int WalletFragmentDefaultButtonTextAppearance=0x7f0b0019;
-        public static final int WalletFragmentDefaultDetailsHeaderTextAppearance=0x7f0b001a;
-        public static final int WalletFragmentDefaultDetailsTextAppearance=0x7f0b001b;
-        public static final int WalletFragmentDefaultStyle=0x7f0b001c;
-        public static final int com_facebook_loginview_default_style=0x7f0b001d;
-        public static final int com_facebook_loginview_silver_style=0x7f0b001e;
-        public static final int tooltip_bubble_text=0x7f0b001f;
-        public static final int total_distance_value=0x7f0b0020;
+        public static final int ScoreListItemLabel=0x7f0b0010;
+        public static final int SeparatorLight=0x7f0b0011;
+        public static final int SettingsTheme=0x7f0b0012;
+        public static final int ShadowOverlayText=0x7f0b0013;
+        public static final int TextListView=0x7f0b0014;
+        public static final int Theme_IAPTheme=0x7f0b0015;
+        public static final int TripLabelDistance=0x7f0b0016;
+        public static final int TripLabelHeader=0x7f0b0017;
+        public static final int TripLabelUnits=0x7f0b0018;
+        public static final int TripList=0x7f0b0019;
+        public static final int WalletFragmentDefaultButtonTextAppearance=0x7f0b001a;
+        public static final int WalletFragmentDefaultDetailsHeaderTextAppearance=0x7f0b001b;
+        public static final int WalletFragmentDefaultDetailsTextAppearance=0x7f0b001c;
+        public static final int WalletFragmentDefaultStyle=0x7f0b001d;
+        public static final int com_facebook_loginview_default_style=0x7f0b001e;
+        public static final int com_facebook_loginview_silver_style=0x7f0b001f;
+        public static final int tooltip_bubble_text=0x7f0b0020;
+        public static final int total_distance_value=0x7f0b0021;
     }
     public static final class xml {
         public static final int preferences=0x7f040000;

@@ -461,6 +461,12 @@
         <item name="android:textColor">@color/white</item>
     </style>
     <style name="NumberPickerWithButton" parent="@android:style/Theme.NoTitleBar.Fullscreen"/>
+    <style name="ScoreListItemLabel">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:focusable">false</item>
+    </style>
     <style name="SeparatorLight">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
@@ -525,7 +531,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:divider">#d7dbde</item>
+        <item name="android:divider">#bdc3c7</item>
         <item name="android:dividerHeight">1dp</item>
     </style>
     <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/wallet_styles.xml -->
