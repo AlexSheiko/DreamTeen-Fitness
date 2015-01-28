@@ -176,14 +176,14 @@ public class MainActivity extends Activity
                 new ResultCallback<DataReadResult>() {
                     @Override
                     public void onResult(DataReadResult dataReadResult) {
-                            for (DataSet dataSet : dataReadResult.getDataSets()) {
+                        for (DataSet dataSet : dataReadResult.getDataSets()) {
 
-                                if (dataSet.getDataType().equals(DataType.TYPE_CALORIES_EXPENDED)) {
-                                    dumpCalories(dataSet);
-                                } else if (dataSet.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)) {
-                                    dumpSteps(dataSet);
-                                }
+                            if (dataSet.getDataType().equals(DataType.TYPE_CALORIES_EXPENDED)) {
+                                dumpCalories(dataSet);
+                            } else if (dataSet.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)) {
+                                dumpSteps(dataSet);
                             }
+                        }
                     }
                 });
     }
@@ -312,8 +312,6 @@ public class MainActivity extends Activity
     OnLoginListener onLoginListener = new OnLoginListener() {
         @Override
         public void onLogin() {
-            // change the state of the button or do whatever you want
-            Log.i(TAG, "Logged in");
         }
 
         @Override
@@ -440,7 +438,7 @@ public class MainActivity extends Activity
     public void navigateToRunning(View view) {
         // startActivity(new Intent(this, RunActivity.class));
         Score score = new Score.Builder()
-                .setScore(25)
+                .setScore(99)
                 .build();
         mSimpleFacebook.publish(score, onPublishListener);
     }
@@ -466,7 +464,6 @@ public class MainActivity extends Activity
         @Override
         public void onThinking() {
             super.onThinking();
-            Log.i(TAG, "Thinking...");
         }
 
         /*

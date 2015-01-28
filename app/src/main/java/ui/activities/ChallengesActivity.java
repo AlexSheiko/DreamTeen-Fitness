@@ -5,6 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.facebook.HttpMethod;
+import com.facebook.Request;
+import com.facebook.Response;
+import com.facebook.Session;
 import com.sromku.simple.fb.Permission;
 import com.sromku.simple.fb.SimpleFacebook;
 import com.sromku.simple.fb.entities.Score;
@@ -34,6 +38,21 @@ public class ChallengesActivity extends Activity {
         @Override
         public void onLogin() {
             mSimpleFacebook.getScores(onScoresListener);
+
+            Session session = mSimpleFacebook.getSession();
+            /* make the API call */
+            new Request(
+                    session,
+                    "/562228307244897/scores",
+                    null,
+                    HttpMethod.GET,
+                    new Request.Callback() {
+                        public void onCompleted(Response response) {
+                            /* handle the result */
+                            Log.i(TAG, "Read my scores result: " + response.getRawResponse());
+                        }
+                    }
+            ).executeAsync();
         }
 
         @Override
@@ -61,7 +80,7 @@ public class ChallengesActivity extends Activity {
         @Override
         public void onComplete(List<Score> scores) {
             // TODO: Parse response with cursor implementation
-            Log.i(TAG, "Number of retrieved scores is " + scores.size());
+            Log.i(TAG, "Score: " + scores.get(0));
         }
 
         @Override
