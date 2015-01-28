@@ -35,9 +35,6 @@ import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
 import com.google.android.gms.fitness.request.DataReadRequest;
 import com.google.android.gms.fitness.result.DataReadResult;
-import com.sromku.simple.fb.Permission;
-import com.sromku.simple.fb.SimpleFacebook;
-import com.sromku.simple.fb.SimpleFacebookConfiguration;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -95,18 +92,6 @@ public class MainActivity extends Activity
         }
         buildFitnessClient();
         addSideNavigation();
-
-        Permission[] permissions = new Permission[] {
-                Permission.PUBLISH_ACTION
-        };
-
-        SimpleFacebookConfiguration configuration = new SimpleFacebookConfiguration.Builder()
-                .setAppId("562228307244897")
-                .setNamespace("dreamteen-fitness")
-                .setPermissions(permissions)
-                .build();
-
-        SimpleFacebook.setConfiguration(configuration);
     }
 
     /**

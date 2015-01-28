@@ -71,5 +71,6 @@
     <string name="email_send">Send</string>
     <string name="title_activity_workout">Training</string>
     <string name="title_activity_challenges">Challenges</string>
+    <string name="title_activity_main2">Main2Activity</string>
 
 </resources>
