@@ -35,6 +35,11 @@ import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
 import com.google.android.gms.fitness.request.DataReadRequest;
 import com.google.android.gms.fitness.result.DataReadResult;
+import com.sromku.simple.fb.Permission;
+import com.sromku.simple.fb.SimpleFacebook;
+import com.sromku.simple.fb.entities.Score;
+import com.sromku.simple.fb.listeners.OnLoginListener;
+import com.sromku.simple.fb.listeners.OnPublishListener;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -78,6 +83,7 @@ public class MainActivity extends Activity
     TextView mStepsLabel;
     @InjectView(R.id.stepsTargetLabel)
     TextView mStepsTargetLabel;
+    private SimpleFacebook mSimpleFacebook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -284,6 +290,7 @@ public class MainActivity extends Activity
                 }
             }
         }
+        mSimpleFacebook.onActivityResult(this, requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
     }
 
@@ -298,7 +305,43 @@ public class MainActivity extends Activity
         super.onResume();
         if (!mSharedPrefs.getBoolean("pref_track_calories", true))
             mCaloriesContainer.setVisibility(View.GONE);
+        mSimpleFacebook = SimpleFacebook.getInstance(this);
+        mSimpleFacebook.login(onLoginListener);
     }
+
+    OnLoginListener onLoginListener = new OnLoginListener() {
+        @Override
+        public void onLogin() {
+            // change the state of the button or do whatever you want
+            Log.i(TAG, "Logged in");
+        }
+
+        @Override
+        public void onNotAcceptingPermissions(Permission.Type type) {
+            // user didn't accept READ or WRITE permission
+            Log.w(TAG, String.format("You didn't accept %s permissions", type.name()));
+        }
+
+        @Override
+        public void onException(Throwable throwable) {
+            Log.e(TAG, throwable.getMessage());
+        }
+
+        @Override
+        public void onFail(String s) {
+            Log.e(TAG, s);
+        }
+
+        @Override
+        public void onThinking() {
+            Log.i(TAG, "Thinking...");
+        }
+
+        /*
+     * You can override other methods here:
+     * onThinking(), onFail(String reason), onException(Throwable throwable)
+     */
+    };
 
     // Navigation drawer
     private ActionBar mActionBar;
@@ -395,8 +438,42 @@ public class MainActivity extends Activity
     }
 
     public void navigateToRunning(View view) {
-        startActivity(new Intent(this, RunActivity.class));
+        // startActivity(new Intent(this, RunActivity.class));
+        Score score = new Score.Builder()
+                .setScore(25)
+                .build();
+        mSimpleFacebook.publish(score, onPublishListener);
     }
+
+    OnPublishListener onPublishListener = new OnPublishListener() {
+        @Override
+        public void onComplete(String postId) {
+            Log.i(TAG, "Published successfully");
+        }
+
+        @Override
+        public void onException(Throwable throwable) {
+            super.onException(throwable);
+            Log.e(TAG, throwable.getMessage());
+        }
+
+        @Override
+        public void onFail(String reason) {
+            super.onFail(reason);
+            Log.e(TAG, "Failed to post score: " + reason);
+        }
+
+        @Override
+        public void onThinking() {
+            super.onThinking();
+            Log.i(TAG, "Thinking...");
+        }
+
+        /*
+     * You can override other methods here:
+     * onThinking(), onFail(String reason), onException(Throwable throwable)
+     */
+    };
 
     public void navigateToAerobic(View view) {
         if (mSharedPrefs.getBoolean("isGoalSet", false)) {
