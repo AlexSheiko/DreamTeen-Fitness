@@ -40,7 +40,7 @@ public class ChallengesActivity extends Activity {
     OnLoginListener onLoginListener = new OnLoginListener() {
         @Override
         public void onLogin() {
-            Permission[] permissions = new Permission[] {
+            Permission[] permissions = new Permission[]{
                     Permission.PUBLISH_ACTION,
                     Permission.USER_FRIENDS
             };

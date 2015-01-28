@@ -92,10 +92,11 @@ public class SummaryActivity extends Activity {
         if (mStepCount != 0) {
                 mSimpleFacebook = SimpleFacebook.getInstance(this);
                 mSimpleFacebook.login(onLoginListener);
+        } else {
+            startActivity(new Intent(SummaryActivity.this, MainActivity.class)
+                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
         }
-        startActivity(new Intent(SummaryActivity.this, MainActivity.class)
-                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
     }
 
     OnLoginListener onLoginListener = new OnLoginListener() {
@@ -170,6 +171,10 @@ public class SummaryActivity extends Activity {
         @Override
         public void onComplete(String postId) {
             Log.i(TAG, "Published successfully");
+
+            startActivity(new Intent(SummaryActivity.this, MainActivity.class)
+                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
         }
 
         @Override
