@@ -1091,13 +1091,12 @@ containing a value of this type.
         public static final int title_activity_email=0x7f0a007d;
         public static final int title_activity_friends=0x7f0a007e;
         public static final int title_activity_history=0x7f0a007f;
-        public static final int title_activity_main2=0x7f0a0080;
-        public static final int title_activity_settings=0x7f0a0081;
-        public static final int title_activity_summary=0x7f0a0082;
-        public static final int title_activity_workout=0x7f0a0083;
-        public static final int title_facebook_login=0x7f0a0084;
-        public static final int track_exercise=0x7f0a0085;
-        public static final int wallet_buy_button_place_holder=0x7f0a0086;
+        public static final int title_activity_settings=0x7f0a0080;
+        public static final int title_activity_summary=0x7f0a0081;
+        public static final int title_activity_workout=0x7f0a0082;
+        public static final int title_facebook_login=0x7f0a0083;
+        public static final int track_exercise=0x7f0a0084;
+        public static final int wallet_buy_button_place_holder=0x7f0a0085;
     }
     public static final class style {
         public static final int AerobicTheme=0x7f0b0000;

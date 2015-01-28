@@ -37,7 +37,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#d7dbde"/>
+        android:background="#bdc3c7"/>
 
     <ListView
         android:id="@+id/stats_list"
