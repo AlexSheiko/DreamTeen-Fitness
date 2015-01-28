@@ -49,17 +49,6 @@ public class ChallengesActivity extends Activity {
         setContentView(R.layout.activity_challenges);
     }
 
-    private void populateList(String[] separatedCodes, String[] separatedDistances) {
-        list = new ArrayList<>();
-
-        for (int i = 0; i < separatedCodes.length; i++) {
-            HashMap temp = new HashMap();
-            temp.put(FIRST_COLUMN, separatedCodes[i]);
-            temp.put(SECOND_COLUMN, separatedDistances[i]);
-            list.add(temp);
-        }
-    }
-
     OnLoginListener onLoginListener = new OnLoginListener() {
         @Override
         public void onLogin() {
@@ -111,6 +100,8 @@ public class ChallengesActivity extends Activity {
                             try {
                                 JSONObject responseBody = new JSONObject(response.getRawResponse());
                                 JSONArray dataArray = responseBody.getJSONArray("data");
+
+                                list = new ArrayList<>();
                                 for(int i = 0; i < dataArray.length(); i++) {
                                     JSONObject scoreObj = dataArray.getJSONObject(i);
                                     String score = scoreObj.getString("score");
@@ -118,11 +109,12 @@ public class ChallengesActivity extends Activity {
                                     String name = userObj.getString("name");
                                     Log.i(TAG, name + ": " + score + " steps");
 
-                                    names[i] = name;
-                                    scores[i] = score;
+                                    HashMap temp = new HashMap();
+                                    temp.put(FIRST_COLUMN, name);
+                                    temp.put(SECOND_COLUMN, score);
+                                    list.add(temp);
                                 }
-                                populateList(names, scores);
-
+                                
                                 StatsListAdapter adapter = new StatsListAdapter(ChallengesActivity.this, list);
                                 ListView mListView = (ListView) findViewById(R.id.stats_list);
                                 mListView.setAdapter(adapter);
