@@ -33,6 +33,11 @@ import com.google.android.gms.fitness.request.DataSourcesRequest;
 import com.google.android.gms.fitness.request.OnDataPointListener;
 import com.google.android.gms.fitness.request.SensorRequest;
 import com.google.android.gms.fitness.result.DataSourcesResult;
+import com.sromku.simple.fb.Permission;
+import com.sromku.simple.fb.SimpleFacebook;
+import com.sromku.simple.fb.entities.Score;
+import com.sromku.simple.fb.listeners.OnLoginListener;
+import com.sromku.simple.fb.listeners.OnPublishListener;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -69,9 +74,14 @@ public class RunActivity extends Activity
     private SharedPreferences mSharedPrefs;
     private int mStepCount = 0;
 
+    private SimpleFacebook mSimpleFacebook;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mSimpleFacebook = SimpleFacebook.getInstance(this);
+        mSimpleFacebook.login(onLoginListener);
+
         setContentView(R.layout.activity_run);
 
         mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -88,6 +98,41 @@ public class RunActivity extends Activity
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        mSimpleFacebook = SimpleFacebook.getInstance(this);
+        mSimpleFacebook.login(onLoginListener);
+    }
+
+    OnLoginListener onLoginListener = new OnLoginListener() {
+        @Override
+        public void onLogin() {
+            // change the state of the button or do whatever you want
+            Log.i(TAG, "Logged in");
+        }
+
+        @Override
+        public void onNotAcceptingPermissions(Permission.Type type) {
+            // user didn't accept READ or WRITE permission
+            Log.w(TAG, String.format("You didn't accept %s permissions", type.name()));
+        }
+
+        @Override
+        public void onThinking() {
+        }
+
+        @Override
+        public void onException(Throwable throwable) {
+            Log.e(TAG, throwable.getMessage());
+        }
+
+        @Override
+        public void onFail(String s) {
+            Log.e(TAG, "Failed. Reason: " + s);
+        }
+    };
+
+    @Override
     public void onWorkoutStateChanged(int state) {
         switch (state) {
             case WORKOUT_START:
@@ -102,63 +147,34 @@ public class RunActivity extends Activity
                 break;
 
             case WORKOUT_FINISH:
+                postScore();
                 if (mClient.isConnected()) {
                     insertCaloriesAndSteps();
                     mClient.disconnect();
                 }
-                startActivity(new Intent(this, SummaryActivity.class)
-                .putExtra("step_count", mStepCount));
-
-//                onGameOverCloseButtonTouched();
+                startActivity(new Intent(this, SummaryActivity.class));
                 break;
         }
     }
 
-//    private void onGameOverCloseButtonTouched() {
-//        // check if the user wants to post their score to facebook
-//        // which requires the publish_actions permissions
-//
-//        Session session = Session.getActiveSession();
-//        if (session == null || !session.isOpened()) {
-//            return;
-//        }
-//        List<String> permissions = session.getPermissions();
-//
-//        // check to see that the user granted the publish_actions permission.
-//        if (!permissions.contains("publish_actions")) {
-//            // the user didn't grant this permission, so we need to prompt them.
-//            askForPublishActionsForScores();
-//            return;
-//        } else {
-//            // Save score and hide the gameOverContainer
-//            postScore();
-//            gameOverContainer.setVisibility(View.INVISIBLE);
-//
-//
-//        }
-//    }
+    private void postScore() {
+        Score score = new Score.Builder()
+                .setScore(mStepCount)
+                .build();
+        mSimpleFacebook.publish(score, onPublishListener);
+    }
 
-    // Show a dialog prompting the user with an explanation of why we're ablish_actions permission in order to save their scores.
-//    private void askForPublishActionsForScores() {
-//        new AlertDialog.Builder(this)
-//                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int id) {
-//                        // User hit OK. Request Facebook friends permission.
-//                        requestPublishPermissions();
-//                    }
-//                })
-//                .setNegativeButton(R.string.dialog_no, new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int id) {
-//                        // User hit cancel.
-//                        // Hide the gameOverContainer
-//                        gameOverContainer.setVisibility(View.INVISIBLE);
-//                    }
-//                })
-//                .setTitle("Save Score")
-//                .setMessage("Do you want to save your score on Facebook")
-//                .show();
-//    }
+    OnPublishListener onPublishListener = new OnPublishListener() {
+        @Override
+        public void onComplete(String postId) {
+            Log.i("TAG", "Published successfully. Step count: " + mStepCount);
+        }
+
+    /*
+     * You can override other methods here:
+     * onThinking(), onFail(String reason), onException(Throwable throwable)
+     */
+    };
 
     /**
      * Build a {@link GoogleApiClient} that will authenticate the user and allow the application

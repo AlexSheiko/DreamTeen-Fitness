@@ -35,9 +35,6 @@ import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
 import com.google.android.gms.fitness.request.DataReadRequest;
 import com.google.android.gms.fitness.result.DataReadResult;
-import com.sromku.simple.fb.Permission;
-import com.sromku.simple.fb.SimpleFacebook;
-import com.sromku.simple.fb.listeners.OnLoginListener;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -67,8 +64,6 @@ public class MainActivity extends Activity
     private int mStepsTaken = 0;
     private static final int CALORIES_DEFAULT = 2150;
 
-    private SimpleFacebook mSimpleFacebook;
-
     @InjectView(R.id.caloriesLabel)
     TextView mCaloriesLabel;
     @InjectView(R.id.progressBar)
@@ -87,9 +82,6 @@ public class MainActivity extends Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mSimpleFacebook = SimpleFacebook.getInstance(this);
-        mSimpleFacebook.login(onLoginListener);
-
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
 
@@ -156,32 +148,6 @@ public class MainActivity extends Activity
                 )
                 .build();
     }
-
-    OnLoginListener onLoginListener = new OnLoginListener() {
-        @Override
-        public void onLogin() {
-        }
-
-        @Override
-        public void onNotAcceptingPermissions(Permission.Type type) {
-            // user didn't accept READ or WRITE permission
-            Log.w(TAG, String.format("You didn't accept %s permissions", type.name()));
-        }
-
-        @Override
-        public void onThinking() {
-        }
-
-        @Override
-        public void onException(Throwable throwable) {
-            Log.e(TAG, throwable.getMessage());
-        }
-
-        @Override
-        public void onFail(String s) {
-            Log.e(TAG, "Failed. Reason: " + s);
-        }
-    };
 
     private void readExpandedCalories() {
         // Setting a start and end date using a range of 1 week before this moment.
@@ -309,8 +275,6 @@ public class MainActivity extends Activity
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        mSimpleFacebook.onActivityResult(this, requestCode, resultCode, data);
-
         if (requestCode == REQUEST_OAUTH) {
             authInProgress = false;
             if (resultCode == RESULT_OK) {
@@ -332,8 +296,6 @@ public class MainActivity extends Activity
     @Override
     protected void onResume() {
         super.onResume();
-        mSimpleFacebook = SimpleFacebook.getInstance(this);
-        mSimpleFacebook.login(onLoginListener);
         if (!mSharedPrefs.getBoolean("pref_track_calories", true))
             mCaloriesContainer.setVisibility(View.GONE);
     }
