@@ -34,6 +34,7 @@ import com.google.android.gms.fitness.request.OnDataPointListener;
 import com.google.android.gms.fitness.request.SensorRequest;
 import com.google.android.gms.fitness.result.DataSourcesResult;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -93,6 +94,7 @@ public class RunActivity extends Activity
             case WORKOUT_START:
                 // Connect to the Fitness API
                 mClient.connect();
+                setStartTime();
                 break;
 
             case WORKOUT_PAUSE:
@@ -110,6 +112,12 @@ public class RunActivity extends Activity
                         .putExtra("step_count", mStepCount));
                 break;
         }
+    }
+
+    private void setStartTime() {
+        String startTime =
+                new SimpleDateFormat("dd MMM, hh:mm").format(new Date()).toLowerCase();
+        mSharedPrefs.edit().putString("start_time", startTime).apply();
     }
 
     /**
@@ -285,60 +293,6 @@ public class RunActivity extends Activity
                         }
                     }
                 });
-
-
-        //            final int stepsTarget = mSharedPrefs.getInt("steps_target",
-        //                    Integer.parseInt(getResources().getString(R.string.steps_target_default_value)));
-        //            mStepsListener = new OnDataPointListener() {
-        //
-        //                private int stepsTaken = 0;
-        //
-        //                @Override
-        //                public void onDataPoint(DataPoint dataPoint) {
-        //                    for (Field field : dataPoint.getDataType().getFields()) {
-        //                        Value value = dataPoint.getValue(field);
-        //                        if (field.equals(Field.FIELD_STEPS)) {
-        //                            stepsTaken = stepsTaken + value.asInt();
-        //                            if (stepsTaken > stepsTarget * 0.25 && !is25notified) {
-        //                                showNotification(25);
-        //                                is25notified = true;
-        //                            } else if (stepsTaken > stepsTarget * 0.5 && !is50notified) {
-        //                                showNotification(50);
-        //                                is50notified = true;
-        //                            } else if (stepsTaken > stepsTarget * 0.75 && !is75notified) {
-        //                                showNotification(75);
-        //                                is75notified = true;
-        //                            } else if (stepsTaken >= stepsTarget && !is100notified) {
-        //                                showNotification(100);
-        //                                is100notified = true;
-        //                            }
-        //                        }
-        //                    }
-        //                }
-        //
-        //                private void showNotification(int progress) {
-        //                    String title;
-        //                    if (progress == 100) {
-        //                        title = "Daily step goal reached!";
-        //                    } else {
-        //                        title = "Step goal is " + progress + "% reached";
-        //                    }
-        //
-        //                    NotificationCompat.Builder mBuilder =
-        //                            new NotificationCompat.Builder(RunActivity.this)
-        //                                    .setSmallIcon(R.drawable.ic_launcher)
-        //                                    .setContentTitle(title);
-        //
-        //                    // Sets an ID for the notification
-        //                    int mNotificationId = 1;
-        //                    // Gets an instance of the NotificationManager service
-        //                    NotificationManager mNotifyMgr =
-        //                            (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        //                    // Builds the notification and issues it.
-        //                    mNotifyMgr.notify(mNotificationId, mBuilder.build());
-        //                }
-        //            };
-        // [END register_data_listener]
     }
 
     private void sendLocation(Double latitude, Double longitude) {

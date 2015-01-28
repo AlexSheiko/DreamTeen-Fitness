@@ -578,7 +578,7 @@ int string run_activity_title 0x7f0a006f
 int string run_was_label 0x7f0a0070
 int string running_label 0x7f0a0071
 int string save_button_label 0x7f0a0072
-int string save_run_button_label 0x7f0a0073
+int string save_score_button_label 0x7f0a0073
 int string start 0x7f0a0074
 int string start_run_button_label 0x7f0a0075
 int string start_time_key 0x7f0a0076
