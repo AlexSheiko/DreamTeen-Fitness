@@ -67,6 +67,7 @@ public class RunActivity extends Activity
     private OnDataPointListener mStepsListener;
 
     private SharedPreferences mSharedPrefs;
+    private int mStepCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,7 +106,8 @@ public class RunActivity extends Activity
                     insertCaloriesAndSteps();
                     mClient.disconnect();
                 }
-                startActivity(new Intent(this, SummaryActivity.class));
+                startActivity(new Intent(this, SummaryActivity.class)
+                .putExtra("step_count", mStepCount));
 
 //                onGameOverCloseButtonTouched();
                 break;
@@ -253,12 +255,12 @@ public class RunActivity extends Activity
                 .build();
 
         // Create a data set
-        int stepCount = (int) (totalDistance * 2000);
+        mStepCount = (int) (totalDistance * 2000);
 
         dataSet = DataSet.create(dataSource);
         dataPoint = dataSet.createDataPoint()
                 .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS);
-        dataPoint.getValue(Field.FIELD_STEPS).setInt(stepCount);
+        dataPoint.getValue(Field.FIELD_STEPS).setInt(mStepCount);
         dataSet.add(dataPoint);
 
         // Invoke the History API to insert the data

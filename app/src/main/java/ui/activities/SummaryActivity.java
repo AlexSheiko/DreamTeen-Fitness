@@ -24,6 +24,7 @@ import butterknife.InjectView;
 public class SummaryActivity extends Activity {
 
     private float mDistance;
+    private int mStepCount;
 
     private SharedPreferences mSharedPrefs;
 
@@ -41,6 +42,8 @@ public class SummaryActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mSimpleFacebook = SimpleFacebook.getInstance(this);
+
         setContentView(R.layout.activity_summary);
         ButterKnife.inject(this);
 
@@ -50,6 +53,10 @@ public class SummaryActivity extends Activity {
             mUnitsLabel.setText("miles");
         } else {
             mUnitsLabel.setText("km");
+        }
+
+        if (getIntent() != null) {
+            mStepCount = getIntent().getIntExtra("step_count", 0);
         }
 
         // Get run info
@@ -74,7 +81,7 @@ public class SummaryActivity extends Activity {
                 .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
 
         Score score = new Score.Builder()
-                .setScore(25)
+                .setScore(mStepCount)
                 .build();
 
         mSimpleFacebook.publish(score, onPublishListener);
