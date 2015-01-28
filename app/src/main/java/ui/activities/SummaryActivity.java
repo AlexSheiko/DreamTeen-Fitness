@@ -13,11 +13,19 @@ import android.widget.EditText;
 import android.widget.ShareActionProvider;
 import android.widget.TextView;
 
+import com.facebook.HttpMethod;
+import com.facebook.Request;
+import com.facebook.Response;
+import com.facebook.Session;
 import com.sromku.simple.fb.Permission;
 import com.sromku.simple.fb.SimpleFacebook;
 import com.sromku.simple.fb.entities.Score;
 import com.sromku.simple.fb.listeners.OnLoginListener;
 import com.sromku.simple.fb.listeners.OnPublishListener;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import bellamica.tech.dreamteenfitness.R;
 import butterknife.ButterKnife;
@@ -57,7 +65,7 @@ public class SummaryActivity extends Activity {
         }
         // Get run info
         mDistance = mSharedPrefs.getFloat("Distance", 0);
-        mStepCount = (int) (mDistance * 2000);;
+        mStepCount = (int) (mDistance * 2000);
 
         // Update UI with run info
         mDistanceLabel.setText(String.format("%.2f", mDistance));
@@ -94,10 +102,7 @@ public class SummaryActivity extends Activity {
     OnLoginListener onLoginListener = new OnLoginListener() {
         @Override
         public void onLogin() {
-            Score score = new Score.Builder()
-                    .setScore(mStepCount)
-                    .build();
-            mSimpleFacebook.publish(score, onPublishListener);
+            publishScoreIfBest();
         }
 
         @Override
@@ -121,6 +126,47 @@ public class SummaryActivity extends Activity {
             Log.i(TAG, "Thinking...");
         }
     };
+
+    private void publishScoreIfBest() {
+
+        Session session = mSimpleFacebook.getSession();
+            /* make the API call */
+        new Request(
+                session,
+                "/me/scores",
+                null,
+                HttpMethod.GET,
+                new Request.Callback() {
+                    public void onCompleted(Response response) {
+                            /* handle the result */
+                        Log.i(TAG, "Read my scores result: " + response.getRawResponse());
+                        try {
+                            JSONObject responseBody = new JSONObject(response.getRawResponse());
+                            JSONArray data = responseBody.getJSONArray("data");
+                            JSONObject scoreObj = data.getJSONObject(0);
+                            if (!scoreObj.getString("score").isEmpty()) {
+                                int previousValue = Integer.parseInt(scoreObj.getString("score"));
+
+                                if (mStepCount > previousValue) {
+                                    publishNewScore();
+                                }
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            publishNewScore();
+                        }
+                    }
+                }
+        ).executeAsync();
+    }
+
+    private void publishNewScore() {
+        Score newValue = new Score.Builder()
+                .setScore(mStepCount)
+                .build();
+        mSimpleFacebook.publish(newValue, onPublishListener);
+    }
 
     OnPublishListener onPublishListener = new OnPublishListener() {
         @Override

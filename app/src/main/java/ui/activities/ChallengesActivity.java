@@ -32,6 +32,8 @@ public class ChallengesActivity extends Activity {
         mSimpleFacebook.login(onLoginListener);
 
         setContentView(R.layout.activity_challenges);
+
+        // TODO: Add USER_FRIENDS permission
     }
 
     OnLoginListener onLoginListener = new OnLoginListener() {
@@ -79,7 +81,6 @@ public class ChallengesActivity extends Activity {
     OnScoresListener onScoresListener = new OnScoresListener() {
         @Override
         public void onComplete(List<Score> scores) {
-            // TODO: Parse response with cursor implementation
             Log.i(TAG, "Score: " + scores.get(0));
         }
 
@@ -100,11 +101,6 @@ public class ChallengesActivity extends Activity {
             super.onFail(reason);
             Log.e(TAG, "Failed. Reason: " + reason);
         }
-
-        /*
-     * You can override other methods here:
-     * onThinking(), onFail(String reason), onException(Throwable throwable)
-     */
     };
 
     @Override
