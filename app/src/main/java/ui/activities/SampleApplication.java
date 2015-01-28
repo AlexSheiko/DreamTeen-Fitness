@@ -25,8 +25,9 @@ public class SampleApplication extends Application {
                 .setAppId(APP_ID)
                 .setNamespace(APP_NAMESPACE)
                 .setPermissions(permissions)
+                .setAppSecret("336dbdfdda092995f17b42967bde648d")
                 .setDefaultAudience(SessionDefaultAudience.FRIENDS)
-                .setAskForAllPermissionsAtOnce(true)
+                .setAskForAllPermissionsAtOnce(false)
                 .build();
 
         SimpleFacebook.setConfiguration(configuration);

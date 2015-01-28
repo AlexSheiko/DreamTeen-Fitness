@@ -90,10 +90,9 @@ public class SummaryActivity extends Activity {
         mSharedPrefs.edit().putFloat("Distance", 0).apply();
 
         if (mStepCount != 0) {
-            mSimpleFacebook = SimpleFacebook.getInstance(this);
-            mSimpleFacebook.login(onLoginListener);
+                mSimpleFacebook = SimpleFacebook.getInstance(this);
+                mSimpleFacebook.login(onLoginListener);
         }
-
         startActivity(new Intent(SummaryActivity.this, MainActivity.class)
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
@@ -113,12 +112,12 @@ public class SummaryActivity extends Activity {
 
         @Override
         public void onException(Throwable throwable) {
-            Log.e(TAG, throwable.getMessage());
+            Log.e(TAG, "Exception caught: " + throwable.getMessage());
         }
 
         @Override
         public void onFail(String s) {
-            Log.e(TAG, s);
+            Log.e(TAG, "Login failed. Cause: " + s);
         }
 
         @Override
