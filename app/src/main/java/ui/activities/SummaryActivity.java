@@ -139,7 +139,6 @@ public class SummaryActivity extends Activity {
                 new Request.Callback() {
                     public void onCompleted(Response response) {
                             /* handle the result */
-                        Log.i(TAG, "Read my scores result: " + response.getRawResponse());
                         try {
                             JSONObject responseBody = new JSONObject(response.getRawResponse());
                             JSONArray data = responseBody.getJSONArray("data");

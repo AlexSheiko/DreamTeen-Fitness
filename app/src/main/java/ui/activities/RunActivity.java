@@ -91,7 +91,11 @@ public class RunActivity extends Activity
         switch (state) {
             case WORKOUT_START:
                 // Connect to the Fitness API
-                mClient.connect();
+                if (!mClient.isConnected()) {
+                    mClient.connect();
+                } else {
+                    findLocationDataSources();
+                }
                 setStartTime();
                 break;
 
@@ -238,8 +242,7 @@ public class RunActivity extends Activity
                     public void onResult(DataSourcesResult dataSourcesResult) {
                         for (DataSource dataSource : dataSourcesResult.getDataSources()) {
                             //Let's register a listener to receive Activity data!
-                            if (dataSource.getDataType().equals(DataType.TYPE_LOCATION_SAMPLE)
-                                    && mLocationListener == null) {
+                            if (dataSource.getDataType().equals(DataType.TYPE_LOCATION_SAMPLE)) {
                                 registerLocationListener(dataSource,
                                         DataType.TYPE_LOCATION_SAMPLE);
                             }

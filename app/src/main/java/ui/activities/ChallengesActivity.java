@@ -13,6 +13,7 @@ import com.sromku.simple.fb.Permission;
 import com.sromku.simple.fb.SimpleFacebook;
 import com.sromku.simple.fb.entities.Score;
 import com.sromku.simple.fb.listeners.OnLoginListener;
+import com.sromku.simple.fb.listeners.OnNewPermissionsListener;
 import com.sromku.simple.fb.listeners.OnScoresListener;
 
 import java.util.List;
@@ -39,7 +40,41 @@ public class ChallengesActivity extends Activity {
     OnLoginListener onLoginListener = new OnLoginListener() {
         @Override
         public void onLogin() {
-            mSimpleFacebook.getScores(onScoresListener);
+            Permission[] permissions = new Permission[] {
+                    Permission.PUBLISH_ACTION,
+                    Permission.USER_FRIENDS
+            };
+
+            boolean showPublish = true;
+            mSimpleFacebook.requestNewPermissions(permissions, showPublish, onNewPermissionsListener);
+        }
+
+        @Override
+        public void onNotAcceptingPermissions(Permission.Type type) {
+            // user didn't accept READ or WRITE permission
+            Log.w(TAG, String.format("You didn't accept %s permissions", type.name()));
+        }
+
+        @Override
+        public void onThinking() {
+        }
+
+        @Override
+        public void onException(Throwable throwable) {
+            Log.e(TAG, throwable.getMessage());
+        }
+
+        @Override
+        public void onFail(String s) {
+            Log.e(TAG, "Failed. Reason: " + s);
+        }
+    };
+
+    OnNewPermissionsListener onNewPermissionsListener = new OnNewPermissionsListener() {
+
+        @Override
+        public void onSuccess(String s, List<Permission> permissions) {
+            Log.i(TAG, "Successfully requested new permissions.");
 
             Session session = mSimpleFacebook.getSession();
             /* make the API call */
@@ -74,7 +109,7 @@ public class ChallengesActivity extends Activity {
 
         @Override
         public void onFail(String s) {
-            Log.e(TAG, "Failed. Reason: " + s);
+            Log.i(TAG, "Failed to request new permissions. Cause: " + s);
         }
     };
 
