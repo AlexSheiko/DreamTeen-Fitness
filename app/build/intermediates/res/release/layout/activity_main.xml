@@ -128,7 +128,7 @@
                         android:layout_marginTop="5dp"
                         android:paddingLeft="0dp"
                         android:paddingRight="0dp"
-                        android:progress="50"
+                        android:progress="0"
                         android:progressDrawable="@drawable/progress_bar_calories"
                         />
 
@@ -197,7 +197,8 @@
                             android:gravity="bottom"
                             android:text="steps today"
                             android:textColor="@color/black"
-                            android:textSize="24sp"/>
+                            android:textSize="24sp"
+                            android:singleLine="true"/>
 
                     </LinearLayout>
 

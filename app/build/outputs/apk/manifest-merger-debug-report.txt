@@ -198,13 +198,13 @@ ADDED from AndroidManifest.xml:113:9
 	android:name
 		ADDED from AndroidManifest.xml:114:13
 provider#com.facebook.NativeAppCallContentProvider
-ADDED from AndroidManifest.xml:122:5
+ADDED from AndroidManifest.xml:121:9
 	android:exported
-		ADDED from AndroidManifest.xml:125:9
+		ADDED from AndroidManifest.xml:124:13
 	android:authorities
-		ADDED from AndroidManifest.xml:124:9
+		ADDED from AndroidManifest.xml:123:13
 	android:name
-		ADDED from AndroidManifest.xml:123:9
+		ADDED from AndroidManifest.xml:122:13
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.android.support:support-v4:21.0.3:15:5

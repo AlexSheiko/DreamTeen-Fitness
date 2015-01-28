@@ -118,10 +118,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ui.activities.MainActivity" />
         </activity>
+        <provider
+            android:name="com.facebook.NativeAppCallContentProvider"
+            android:authorities="com.facebook.app.NativeAppCallContentProvider562228307244897"
+            android:exported="true" />
     </application>
-    <provider
-        android:name="com.facebook.NativeAppCallContentProvider"
-        android:authorities="com.facebook.app.NativeAppCallContentProvider562228307244897"
-        android:exported="true" />
 
 </manifest>

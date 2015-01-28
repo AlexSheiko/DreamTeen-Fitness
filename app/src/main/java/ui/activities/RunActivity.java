@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.facebook.Session;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.Scopes;
@@ -35,7 +36,6 @@ import com.google.android.gms.fitness.request.SensorRequest;
 import com.google.android.gms.fitness.result.DataSourcesResult;
 import com.sromku.simple.fb.Permission;
 import com.sromku.simple.fb.SimpleFacebook;
-import com.sromku.simple.fb.entities.Score;
 import com.sromku.simple.fb.listeners.OnLoginListener;
 import com.sromku.simple.fb.listeners.OnPublishListener;
 
@@ -75,12 +75,21 @@ public class RunActivity extends Activity
     private int mStepCount = 0;
 
     private SimpleFacebook mSimpleFacebook;
+    private Session mSession;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         mSimpleFacebook = SimpleFacebook.getInstance(this);
         mSimpleFacebook.login(onLoginListener);
+
+//        Session.openActiveSession(this, false, new StatusCallback() {
+//            @Override
+//            public void call(Session session, SessionState state, Exception exception) {
+//                Log.i(TAG, "Open session request sent. State: " + state);
+//            }
+//        });
 
         setContentView(R.layout.activity_run);
 
@@ -101,14 +110,14 @@ public class RunActivity extends Activity
     public void onResume() {
         super.onResume();
         mSimpleFacebook = SimpleFacebook.getInstance(this);
-        mSimpleFacebook.login(onLoginListener);
     }
 
     OnLoginListener onLoginListener = new OnLoginListener() {
         @Override
         public void onLogin() {
-            // change the state of the button or do whatever you want
-            Log.i(TAG, "Logged in");
+            mSession = Session.getActiveSession();
+            Log.i(TAG, "Logged in with Simple Facebook API. Session state: " + mSession.getState());
+//            postScore();
         }
 
         @Override
@@ -147,22 +156,31 @@ public class RunActivity extends Activity
                 break;
 
             case WORKOUT_FINISH:
-                postScore();
                 if (mClient.isConnected()) {
                     insertCaloriesAndSteps();
                     mClient.disconnect();
                 }
-                startActivity(new Intent(this, SummaryActivity.class));
+                //                startActivity(new Intent(this, SummaryActivity.class));
                 break;
         }
     }
 
-    private void postScore() {
-        Score score = new Score.Builder()
-                .setScore(mStepCount)
-                .build();
-        mSimpleFacebook.publish(score, onPublishListener);
-    }
+//TODO    private void postScore() {
+//        Bundle params = new Bundle();
+//        params.putString("score", "3444");
+//        /* make the API call */
+//        new Request(
+//                session,
+//                "/me/scores",
+//                params,
+//                HttpMethod.POST,
+//                new Request.Callback() {
+//                    public void onCompleted(Response response) {
+//            /* handle the result */
+//                    }
+//                }
+//        ).executeAsync();
+//    }
 
     OnPublishListener onPublishListener = new OnPublishListener() {
         @Override
@@ -170,10 +188,23 @@ public class RunActivity extends Activity
             Log.i("TAG", "Published successfully. Step count: " + mStepCount);
         }
 
-    /*
-     * You can override other methods here:
-     * onThinking(), onFail(String reason), onException(Throwable throwable)
-     */
+        @Override
+        public void onException(Throwable throwable) {
+            super.onException(throwable);
+            Log.e(TAG, throwable.getMessage());
+        }
+
+        @Override
+        public void onFail(String reason) {
+            super.onFail(reason);
+            Log.e(TAG, "Failed to publish score. Reason: " + reason);
+        }
+
+        @Override
+        public void onThinking() {
+            super.onThinking();
+            Log.i(TAG, "Thinking...");
+        }
     };
 
     /**

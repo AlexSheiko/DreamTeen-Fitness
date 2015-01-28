@@ -30,7 +30,6 @@ import java.util.TimerTask;
 
 import bellamica.tech.dreamteenfitness.R;
 import ui.utils.helpers.Constants;
-import ui.activities.SummaryActivity;
 
 public class MapPane extends Fragment
         implements OnClickListener {
@@ -153,8 +152,6 @@ public class MapPane extends Fragment
                         .putFloat("Distance", mTotalDistance)
                         .putString("Duration", convertSecondsToHMmSs(elapsedSeconds))
                         .commit();
-
-                startActivity(new Intent(this.getActivity(), SummaryActivity.class));
                 break;
         }
     }

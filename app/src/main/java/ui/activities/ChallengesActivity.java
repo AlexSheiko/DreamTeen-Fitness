@@ -30,12 +30,9 @@ public class ChallengesActivity extends Activity {
         setContentView(R.layout.activity_challenges);
     }
 
-
-
     OnLoginListener onLoginListener = new OnLoginListener() {
         @Override
         public void onLogin() {
-            // change the state of the button or do whatever you want
             mSimpleFacebook.getScores(onScoresListener);
         }
 
@@ -95,7 +92,6 @@ public class ChallengesActivity extends Activity {
     public void onResume() {
         super.onResume();
         mSimpleFacebook = SimpleFacebook.getInstance(this);
-        mSimpleFacebook.login(onLoginListener);
     }
 
     @Override

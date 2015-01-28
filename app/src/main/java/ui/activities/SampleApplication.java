@@ -18,7 +18,8 @@ public class SampleApplication extends Application {
 
         // initialize facebook configuration
         Permission[] permissions = new Permission[] {
-                Permission.PUBLISH_ACTION
+                Permission.PUBLISH_ACTION,
+                Permission.USER_GAMES_ACTIVITY
         };
 
         SimpleFacebookConfiguration configuration = new SimpleFacebookConfiguration.Builder()

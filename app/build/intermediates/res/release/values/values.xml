@@ -2,6 +2,18 @@
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
     <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/arrays.xml -->
     <eat-comment/>
+    <string-array name="ab">
+        <item>Basic Crunch</item>
+        <item>Right Oblique Crunch</item>
+        <item>Left Oblique Crunch</item>
+        <item>Bicycle Crunch</item>
+        <item>Reverse Crunch</item>
+        <item>Long Arm Crunch</item>
+        <item>Crossover Crunch</item>
+        <item>Half Curl</item>
+        <item>Vertical Leg Crunch</item>
+        <item>Plank</item>
+    </string-array>
     <string-array name="action_categories">
         <item>Aerobic workout</item>
         <item>Running</item>
@@ -9,11 +21,35 @@
         <item>Challenges</item>
     </string-array>
     <string-array name="action_titles">
-        <item>@string/action_history</item>
+        <item>@string/action_dashboard</item>
         <item>@string/action_invite_friends</item>
         <item>@string/action_challenges</item>
         <item>@string/action_settings</item>
         <item>@string/action_logout</item>
+    </string-array>
+    <string-array name="arm">
+        <item>Overhead Press</item>
+        <item>Bicep Curls</item>
+        <item>Tricep Extension Right</item>
+        <item>Tricep Extension Left</item>
+        <item>Bend Over Row</item>
+        <item>Front Raises</item>
+        <item>Reverse Bridge Dips</item>
+        <item>Half Push-Ups</item>
+        <item>High Side Plank Right</item>
+        <item>High Side Plank Left</item>
+    </string-array>
+    <string-array name="butt">
+        <item>Squat</item>
+        <item>Front Lunges</item>
+        <item>Side Lunges</item>
+        <item>Deadlift</item>
+        <item>Donkey Kick Right</item>
+        <item>Donkey Kick Left</item>
+        <item>Hip Bridge</item>
+        <item>Leg extensions</item>
+        <item>Flutter Kicks</item>
+        <item>Froggy Glute Lifts</item>
     </string-array>
     <string-array name="days_values">
         <item>1</item>
@@ -47,6 +83,22 @@
         <item>29</item>
         <item>30</item>
         <item>31</item>
+    </string-array>
+    <string-array name="goal_type_values">
+        <item>Duration, min</item>
+        <item>Calories burned</item>
+    </string-array>
+    <string-array name="leg">
+        <item>Side Leg Lift Right</item>
+        <item>Side Leg Kick Right</item>
+        <item>Inner Thigh Raise Left</item>
+        <item>Side Leg Lift Left</item>
+        <item>Side Leg Kick Left</item>
+        <item>Inner Thigh Raise Right</item>
+        <item>Hamstring Curls</item>
+        <item>Quad Lifts</item>
+        <item>Static Lunge Right</item>
+        <item>Static Lunge Left</item>
     </string-array>
     <string-array name="month_values">
         <item>January</item>
@@ -110,6 +162,8 @@
     <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="settings_background">#eff4f7</color>
+    <color name="time_counter_dark">#685f5f</color>
+    <color name="time_counter_light">#bdb1b1</color>
     <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/wallet_colors.xml -->
     <eat-comment/>
     <color name="wallet_bright_foreground_disabled_holo_light">#ffb2b2b2</color>
@@ -184,13 +238,13 @@
     <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="action_challenges">Challenges</string>
-    <string name="action_history">History</string>
+    <string name="action_dashboard">Dashboard</string>
     <string name="action_invite_friends">Friends</string>
     <string name="action_logout">Log out</string>
     <string name="action_settings">Settings</string>
     <string name="action_share">Share</string>
     <string name="aerobic">Aerobic</string>
-    <string name="aerobic_activity_title">Aerobic</string>
+    <string name="aerobic_activity_title">Choose exercise</string>
     <string name="app_name">DreamTeen Fitness</string>
     <string name="app_name_splash">DreamTeen\nFitness</string>
     <string name="app_slogan">Make Fitness Better</string>
@@ -272,14 +326,13 @@
     <string name="discard_trip_dialog_message">You\'ll lose the data about it.</string>
     <string name="discard_trip_dialog_title">Discard the trip?</string>
     <string name="distance_default_value">0.00</string>
-    <string name="distance_key" translatable="false">Distance</string>
     <string name="distance_label">Distance</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="duration_default_value" translateble="false">00:00:00</string>
-    <string name="duration_key" translatable="false">Duration</string>
     <string name="duration_label">Duration</string>
     <string name="duration_units">min</string>
+    <string name="email_send">Send</string>
     <string name="facebook_app_id">562228307244897</string>
     <string name="finish_run">Finish run</string>
     <string name="finish_trip_button_label">Slide to Finish</string>
@@ -321,10 +374,14 @@
     <string name="store_picture_title">Save image</string>
     <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="title_activity_challenges">Challenges</string>
+    <string name="title_activity_email">Recipients</string>
     <string name="title_activity_friends">Friends</string>
     <string name="title_activity_history">History</string>
+    <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_summary">Summary</string>
+    <string name="title_activity_workout">Training</string>
     <string name="title_facebook_login">Facebook login</string>
     <string name="track_exercise">Track Exercise</string>
     <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/wallet_strings.xml -->
@@ -338,6 +395,14 @@
     <style name="AppTheme" parent="android:Theme.Holo">
         <item name="android:actionBarStyle">@style/MyActionBar</item>
         <item name="android:windowBackground">@color/window_background</item>
+    </style>
+    <style name="AppTheme.NoActionBar" parent="android:Theme.Holo.NoActionBar">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+    </style>
+    <style name="ArrowControl">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_gravity">center</item>
     </style>
     <style name="CardContainer">
     </style>
@@ -359,6 +424,17 @@
         <item name="android:orientation">vertical</item>
         <item name="android:layout_marginTop">25dp</item>
     </style>
+    <style name="DividerListItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:background">#dfdfdf</item>
+    </style>
+    <style name="ImageListView">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">40dp</item>
+    </style>
     <style name="InputBackground">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
@@ -370,6 +446,15 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@color/actionbar_background</item>
         <item name="android:orientation">vertical</item>
+    </style>
+    <style name="ListItem">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">80dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:clickable">true</item>
+        <item name="android:onClick">navigateToCategory</item>
     </style>
     <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
         <item name="android:background">@drawable/action_bar_background</item>
@@ -388,6 +473,14 @@
         <item name="android:shadowDx">-1</item>
         <item name="android:shadowDy">-1</item>
         <item name="android:shadowRadius">1</item>
+    </style>
+    <style name="TextListView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#575555</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:paddingLeft">16dp</item>
     </style>
     <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/admob_iap_style.xml -->
     <eat-comment/>

@@ -64,6 +64,8 @@ public class SummaryActivity extends Activity {
         startActivity(new Intent(SummaryActivity.this, MainActivity.class)
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+
+        mSharedPrefs.edit().putFloat("Distance", 0).apply();
     }
 
     @Override

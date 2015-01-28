@@ -44,5 +44,21 @@
         android:paddingRight="8dp"
         android:text="Find on Google"/>
 
+    <Button
+        android:id="@+id/emailButton"
+        android:layout_width="188dp"
+        android:drawableLeft="@drawable/ic_email"
+        android:layout_height="wrap_content"
+        android:background="#fcb422"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        android:textSize="16sp"
+        android:gravity="left|center_vertical"
+        android:drawablePadding="8dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="8dp"
+        android:onClick="chooseRecipients"
+        android:text="Send an Email"/>
+
 </LinearLayout>
 <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/layout/activity_friends.xml -->

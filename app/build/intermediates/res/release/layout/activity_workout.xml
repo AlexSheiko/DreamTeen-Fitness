@@ -1,0 +1,124 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#eee"
+              android:orientation="vertical"
+              tools:context="ui.activities.WorkoutActivity">
+
+    <VideoView
+        android:layout_width="match_parent"
+        android:layout_height="306dp"
+        android:id="@+id/videoView"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/pauseButton"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_pause"
+            android:visibility="gone"
+            android:paddingTop="4dp"
+            android:paddingBottom="6dp"
+            android:background="@drawable/pause_button"
+            android:layout_marginTop="8dp"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <ImageView
+                android:id="@+id/arrowPrevious"
+                android:src="@drawable/arrow_previous"
+                android:clickable="true"
+                android:onClick="previousExercise"
+                style="@style/ArrowControl"
+                android:layout_marginRight="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_gravity="top"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="#3c3c3c"
+                android:layout_gravity="center_horizontal"
+                android:text="Front lunges"
+                android:gravity="center_horizontal"
+                android:textSize="26sp"
+                android:layout_weight="1"
+                android:textIsSelectable="false"
+                android:id="@+id/title"
+                android:paddingTop="8dp"/>
+
+            <ImageView
+                android:id="@+id/arrowNext"
+                android:src="@drawable/arrow_next"
+                android:clickable="true"
+                android:onClick="nextExercise"
+                style="@style/ArrowControl"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_gravity="top"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/positionLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textColor="#a09292"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:text="Exercise 1/8"
+                android:layout_gravity="center_horizontal|bottom"/>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/durationCounter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="32sp"
+            android:textColor="@color/time_counter_light"
+            android:text="03:00"
+            />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:id="@+id/startButton"
+        android:textAllCaps="true"
+        android:background="#00c84a"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Finish"
+        android:visibility="gone"
+        android:id="@+id/finishButton"
+        android:textAllCaps="true"
+        android:background="#ff4444"
+        android:layout_marginTop="16dp"/>
+</LinearLayout>
+<!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/layout/activity_workout.xml -->
