@@ -81,8 +81,10 @@ public class SummaryActivity extends Activity {
     public void saveRun(View view) {
         mSharedPrefs.edit().putFloat("Distance", 0).apply();
 
-        mSimpleFacebook = SimpleFacebook.getInstance(this);
-        mSimpleFacebook.login(onLoginListener);
+        if (mStepCount != 0) {
+            mSimpleFacebook = SimpleFacebook.getInstance(this);
+            mSimpleFacebook.login(onLoginListener);
+        }
 
         startActivity(new Intent(SummaryActivity.this, MainActivity.class)
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
