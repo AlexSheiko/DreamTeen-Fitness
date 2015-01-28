@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListView;
 
 import com.facebook.HttpMethod;
 import com.facebook.Request;
@@ -18,15 +19,26 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import bellamica.tech.dreamteenfitness.R;
+import ui.utils.adapters.StatsListAdapter;
 
 public class ChallengesActivity extends Activity {
 
     private static final String TAG = ChallengesActivity.class.getSimpleName();
 
     private SimpleFacebook mSimpleFacebook;
+
+    public static final String FIRST_COLUMN = "First";
+    public static final String SECOND_COLUMN = "Second";
+
+    private ArrayList<HashMap> list;
+
+    private String[] names;
+    private String[] scores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +47,17 @@ public class ChallengesActivity extends Activity {
         mSimpleFacebook.login(onLoginListener);
 
         setContentView(R.layout.activity_challenges);
+    }
 
-        // TODO: Add USER_FRIENDS permission
+    private void populateList(String[] separatedCodes, String[] separatedDistances) {
+        list = new ArrayList<>();
+
+        for (int i = 0; i < separatedCodes.length; i++) {
+            HashMap temp = new HashMap();
+            temp.put(FIRST_COLUMN, separatedCodes[i]);
+            temp.put(SECOND_COLUMN, separatedDistances[i]);
+            list.add(temp);
+        }
     }
 
     OnLoginListener onLoginListener = new OnLoginListener() {
@@ -47,8 +68,7 @@ public class ChallengesActivity extends Activity {
                     Permission.USER_FRIENDS
             };
 
-            boolean showPublish = true;
-            mSimpleFacebook.requestNewPermissions(permissions, showPublish, onNewPermissionsListener);
+            mSimpleFacebook.requestNewPermissions(permissions, false, onNewPermissionsListener);
         }
 
         @Override
@@ -97,7 +117,16 @@ public class ChallengesActivity extends Activity {
                                     JSONObject userObj = scoreObj.getJSONObject("user");
                                     String name = userObj.getString("name");
                                     Log.i(TAG, name + ": " + score + " steps");
+
+                                    names[i] = name;
+                                    scores[i] = score;
                                 }
+                                populateList(names, scores);
+
+                                StatsListAdapter adapter = new StatsListAdapter(ChallengesActivity.this, list);
+                                ListView mListView = (ListView) findViewById(R.id.stats_list);
+                                mListView.setAdapter(adapter);
+
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }

@@ -11,7 +11,7 @@
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="action_dashboard">Dashboard</string>
-    <string name="action_challenges">Challenges</string>
+    <string name="action_challenge">Challenge</string>
     <string name="aerobic">Aerobic</string>
     <string name="run_activity_title">Run</string>
     <string name="kg_test_value" translatable="false">8</string>
@@ -70,7 +70,7 @@
     <string name="title_activity_email">Recipients</string>
     <string name="email_send">Send</string>
     <string name="title_activity_workout">Training</string>
-    <string name="title_activity_challenges">Challenges</string>
+    <string name="title_activity_challenges">Challenge</string>
     <string name="title_activity_main2">Main2Activity</string>
 
 </resources>

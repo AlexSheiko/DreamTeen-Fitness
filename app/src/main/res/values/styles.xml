@@ -141,5 +141,27 @@
         <item name="android:layout_gravity">center</item>
     </style>
 
-    <color name="aerobic_background">#eff4f7</color>
+    <style name="SeparatorLight">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">#f2f3f5</item>
+    </style>
+
+    <style name="total_distance_value">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/medium_gray</item>
+    </style>
+
+    <style name="TripList">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:divider">#d7dbde</item>
+        <item name="android:dividerHeight">1dp</item>
+    </style>
+
+
+
 </resources>
