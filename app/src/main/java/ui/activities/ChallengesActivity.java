@@ -11,10 +11,12 @@ import com.facebook.Response;
 import com.facebook.Session;
 import com.sromku.simple.fb.Permission;
 import com.sromku.simple.fb.SimpleFacebook;
-import com.sromku.simple.fb.entities.Score;
 import com.sromku.simple.fb.listeners.OnLoginListener;
 import com.sromku.simple.fb.listeners.OnNewPermissionsListener;
-import com.sromku.simple.fb.listeners.OnScoresListener;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -86,7 +88,19 @@ public class ChallengesActivity extends Activity {
                     new Request.Callback() {
                         public void onCompleted(Response response) {
                             /* handle the result */
-                            Log.i(TAG, "Read my scores result: " + response.getRawResponse());
+                            try {
+                                JSONObject responseBody = new JSONObject(response.getRawResponse());
+                                JSONArray dataArray = responseBody.getJSONArray("data");
+                                for(int i = 0; i < dataArray.length(); i++) {
+                                    JSONObject scoreObj = dataArray.getJSONObject(i);
+                                    String score = scoreObj.getString("score");
+                                    JSONObject userObj = scoreObj.getJSONObject("user");
+                                    String name = userObj.getString("name");
+                                    Log.i(TAG, name + ": " + score + " steps");
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
             ).executeAsync();
@@ -110,31 +124,6 @@ public class ChallengesActivity extends Activity {
         @Override
         public void onFail(String s) {
             Log.i(TAG, "Failed to request new permissions. Cause: " + s);
-        }
-    };
-
-    OnScoresListener onScoresListener = new OnScoresListener() {
-        @Override
-        public void onComplete(List<Score> scores) {
-            Log.i(TAG, "Score: " + scores.get(0));
-        }
-
-        @Override
-        public void onException(Throwable throwable) {
-            super.onException(throwable);
-            throwable.printStackTrace();
-        }
-
-        @Override
-        public void onThinking() {
-            super.onThinking();
-            Log.d(TAG, "Thinking");
-        }
-
-        @Override
-        public void onFail(String reason) {
-            super.onFail(reason);
-            Log.e(TAG, "Failed. Reason: " + reason);
         }
     };
 

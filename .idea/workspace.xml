@@ -61,7 +61,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8e838e63-aa6c-41fc-a81b-f5c1e2df2628" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/ChallengesActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/ChallengesActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DreamFit.iws" />
@@ -88,34 +88,34 @@
       <file leaf-file-name="ChallengesActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/ChallengesActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1611" max-vertical-offset="2261">
-              <caret line="149" column="37" selection-start-line="149" selection-start-column="37" selection-end-line="149" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="914" max-vertical-offset="2074">
+              <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
               <folding>
-                <element signature="method#onThinking#0;class#1178:2128" expanded="false" />
-                <element signature="e#2658#2946#0" expanded="true" />
-                <element signature="e#2923#2924#0" expanded="true" />
-                <element signature="e#3369#3370#0" expanded="true" />
-                <element signature="e#3427#3428#0" expanded="true" />
+                <element signature="method#onThinking#0;class#1165:2115" expanded="false" />
+                <element signature="e#2645#3725#0" expanded="true" />
+                <element signature="e#3702#3703#0" expanded="true" />
+                <element signature="e#4148#4149#0" expanded="true" />
+                <element signature="e#4206#4207#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Session.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/facebook/src/com/facebook/Session.java">
+      <file leaf-file-name="FriendsActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="20319" max-vertical-offset="37825">
-              <caret line="1247" column="0" selection-start-line="1247" selection-start-column="0" selection-end-line="1247" selection-end-column="0" />
+            <state vertical-scroll-proportion="1.9902439" vertical-offset="272" max-vertical-offset="3570">
+              <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SummaryActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SummaryActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.8585366" vertical-offset="2033" max-vertical-offset="3400">
-              <caret line="176" column="63" selection-start-line="176" selection-start-column="63" selection-end-line="176" selection-end-column="63" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1659" max-vertical-offset="3400">
+              <caret line="156" column="25" selection-start-line="141" selection-start-column="24" selection-end-line="156" selection-end-column="25" />
               <folding>
                 <element signature="e#3344#3345#0" expanded="true" />
                 <element signature="e#3388#3389#0" expanded="true" />
@@ -123,28 +123,6 @@
                 <element signature="e#3910#3911#0" expanded="true" />
                 <element signature="e#3964#3965#0" expanded="true" />
                 <element signature="e#4013#4014#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RunActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="588" max-vertical-offset="5270">
-              <caret line="96" column="46" selection-start-line="96" selection-start-column="46" selection-end-line="96" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SampleApplication.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/SampleApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="98" max-vertical-offset="697">
-              <caret line="28" column="67" selection-start-line="28" selection-start-column="67" selection-end-line="28" selection-end-column="67" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1727,7 +1705,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_email.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_email.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/EmailActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_aerobic_goal.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/spinner_item.xml" />
@@ -1758,8 +1735,9 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/SampleApplication.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/ChallengesActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/ChallengesActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java" />
       </list>
     </option>
   </component>
@@ -2761,14 +2739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="680" max-vertical-offset="3604">
-          <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/facebook/src/com/facebook/FacebookDialogException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.642857" vertical-offset="41" max-vertical-offset="697">
@@ -2895,24 +2865,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/ChallengesActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1611" max-vertical-offset="2261">
-          <caret line="149" column="37" selection-start-line="149" selection-start-column="37" selection-end-line="149" selection-end-column="37" />
-          <folding>
-            <element signature="method#onThinking#0;class#1178:2128" expanded="false" />
-            <element signature="e#2658#2946#0" expanded="true" />
-            <element signature="e#2923#2924#0" expanded="true" />
-            <element signature="e#3369#3370#0" expanded="true" />
-            <element signature="e#3427#3428#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8585366" vertical-offset="2033" max-vertical-offset="3400">
-          <caret line="176" column="63" selection-start-line="176" selection-start-column="63" selection-end-line="176" selection-end-column="63" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1659" max-vertical-offset="3400">
+          <caret line="156" column="25" selection-start-line="141" selection-start-column="24" selection-end-line="156" selection-end-column="25" />
           <folding>
             <element signature="e#3344#3345#0" expanded="true" />
             <element signature="e#3388#3389#0" expanded="true" />
@@ -2921,6 +2877,28 @@
             <element signature="e#3964#3965#0" expanded="true" />
             <element signature="e#4013#4014#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/ChallengesActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="914" max-vertical-offset="2074">
+          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <folding>
+            <element signature="method#onThinking#0;class#1165:2115" expanded="false" />
+            <element signature="e#2645#3725#0" expanded="true" />
+            <element signature="e#3702#3703#0" expanded="true" />
+            <element signature="e#4148#4149#0" expanded="true" />
+            <element signature="e#4206#4207#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.9902439" vertical-offset="272" max-vertical-offset="3570">
+          <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

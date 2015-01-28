@@ -61,7 +61,6 @@ public class FriendsActivity extends Activity
             };
 
     private void onSessionStateChange(Session session) {
-
         if (session.isOpened()) {
             Bundle params = new Bundle();
             params.putString("message", "I just smashed " + "3" +
@@ -74,7 +73,6 @@ public class FriendsActivity extends Activity
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         uiHelper.onActivityResult(requestCode, resultCode, data);
-
     }
 
     @Override
