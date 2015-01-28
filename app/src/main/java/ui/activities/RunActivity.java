@@ -213,7 +213,6 @@ public class RunActivity extends Activity
 
         // Create a data set
         int stepCount = (int) (totalDistance * 2000);
-        mSharedPrefs.edit().putInt("step_count", stepCount).apply();
 
         dataSet = DataSet.create(dataSource);
         dataPoint = dataSet.createDataPoint()
