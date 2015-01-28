@@ -65,10 +65,8 @@ public class RunActivity extends Activity
 
     private GoogleApiClient mClient = null;
     private OnDataPointListener mLocationListener;
-    private OnDataPointListener mStepsListener;
 
     private SharedPreferences mSharedPrefs;
-    private int mStepCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,8 +106,7 @@ public class RunActivity extends Activity
                     insertCaloriesAndSteps();
                     mClient.disconnect();
                 }
-                startActivity(new Intent(this, SummaryActivity.class)
-                        .putExtra("step_count", mStepCount));
+                startActivity(new Intent(this, SummaryActivity.class));
                 break;
         }
     }
@@ -215,12 +212,13 @@ public class RunActivity extends Activity
                 .build();
 
         // Create a data set
-        mStepCount = (int) (totalDistance * 2000);
+        int stepCount = (int) (totalDistance * 2000);
+        mSharedPrefs.edit().putInt("step_count", stepCount).commit();
 
         dataSet = DataSet.create(dataSource);
         dataPoint = dataSet.createDataPoint()
                 .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS);
-        dataPoint.getValue(Field.FIELD_STEPS).setInt(mStepCount);
+        dataPoint.getValue(Field.FIELD_STEPS).setInt(stepCount);
         dataSet.add(dataPoint);
 
         // Invoke the History API to insert the data
@@ -234,7 +232,7 @@ public class RunActivity extends Activity
         // [START find_data_sources]
         Fitness.SensorsApi.findDataSources(mClient, new DataSourcesRequest.Builder()
                 .setDataTypes(DataType.TYPE_LOCATION_SAMPLE)
-                .setDataSourceTypes(DataSource.TYPE_RAW, DataSource.TYPE_RAW)
+                .setDataSourceTypes(DataSource.TYPE_RAW)
                 .build())
                 .setResultCallback(new ResultCallback<DataSourcesResult>() {
                     @Override
@@ -306,7 +304,7 @@ public class RunActivity extends Activity
      * Unregister the listener with the Sensors API.
      */
     private void unregisterLocationListener() {
-        if (mLocationListener == null || mStepsListener == null) return;
+        if (mLocationListener == null) return;
 
         Fitness.SensorsApi.remove(
                 mClient,

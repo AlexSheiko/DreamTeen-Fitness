@@ -57,10 +57,8 @@ public class SummaryActivity extends Activity {
         }
         // Get run info
         mDistance = mSharedPrefs.getFloat("Distance", 0);
+        mStepCount = mSharedPrefs.getInt("step_count", 0);
 
-        if (getIntent() != null) {
-            mStepCount = getIntent().getIntExtra("step_count", 0);
-        }
         // Update UI with run info
         mDistanceLabel.setText(String.format("%.2f", mDistance));
         mNameField.setHint("Run on " +

@@ -37,7 +37,7 @@
     <string name="title_activity_summary">Summary</string>
     <string name="run_was_label">Run was</string>
     <string name="notes_field_hint">Additional notes</string>
-    <string name="save_score_button_label">Save Score</string>
+    <string name="save_run_button_label">Save Run</string>
     <string name="discard_button_label">Resume</string>
     <string name="discard_trip_dialog_title">Discard the trip?</string>
     <string name="discard_trip_dialog_message">You\'ll lose the data about it.</string>
