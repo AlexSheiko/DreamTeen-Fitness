@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:text="@string/save_run_button_label"
+                android:text="@string/save_score_button_label"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"/>
 

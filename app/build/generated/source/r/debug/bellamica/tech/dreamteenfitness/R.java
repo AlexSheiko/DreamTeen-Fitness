@@ -1073,7 +1073,7 @@ containing a value of this type.
         public static final int run_was_label=0x7f0a0070;
         public static final int running_label=0x7f0a0071;
         public static final int save_button_label=0x7f0a0072;
-        public static final int save_run_button_label=0x7f0a0073;
+        public static final int save_score_button_label =0x7f0a0073;
         public static final int start=0x7f0a0074;
         public static final int start_run_button_label=0x7f0a0075;
         public static final int start_time_key=0x7f0a0076;

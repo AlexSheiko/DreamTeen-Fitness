@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.facebook.Session;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.Scopes;
@@ -34,10 +33,6 @@ import com.google.android.gms.fitness.request.DataSourcesRequest;
 import com.google.android.gms.fitness.request.OnDataPointListener;
 import com.google.android.gms.fitness.request.SensorRequest;
 import com.google.android.gms.fitness.result.DataSourcesResult;
-import com.sromku.simple.fb.Permission;
-import com.sromku.simple.fb.SimpleFacebook;
-import com.sromku.simple.fb.listeners.OnLoginListener;
-import com.sromku.simple.fb.listeners.OnPublishListener;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -74,23 +69,9 @@ public class RunActivity extends Activity
     private SharedPreferences mSharedPrefs;
     private int mStepCount = 0;
 
-    private SimpleFacebook mSimpleFacebook;
-    private Session mSession;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        mSimpleFacebook = SimpleFacebook.getInstance(this);
-        mSimpleFacebook.login(onLoginListener);
-
-//        Session.openActiveSession(this, false, new StatusCallback() {
-//            @Override
-//            public void call(Session session, SessionState state, Exception exception) {
-//                Log.i(TAG, "Open session request sent. State: " + state);
-//            }
-//        });
-
         setContentView(R.layout.activity_run);
 
         mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -105,41 +86,6 @@ public class RunActivity extends Activity
         ft.replace(R.id.fragment_container, mapFragment);
         ft.commit();
     }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        mSimpleFacebook = SimpleFacebook.getInstance(this);
-    }
-
-    OnLoginListener onLoginListener = new OnLoginListener() {
-        @Override
-        public void onLogin() {
-            mSession = Session.getActiveSession();
-            Log.i(TAG, "Logged in with Simple Facebook API. Session state: " + mSession.getState());
-//            postScore();
-        }
-
-        @Override
-        public void onNotAcceptingPermissions(Permission.Type type) {
-            // user didn't accept READ or WRITE permission
-            Log.w(TAG, String.format("You didn't accept %s permissions", type.name()));
-        }
-
-        @Override
-        public void onThinking() {
-        }
-
-        @Override
-        public void onException(Throwable throwable) {
-            Log.e(TAG, throwable.getMessage());
-        }
-
-        @Override
-        public void onFail(String s) {
-            Log.e(TAG, "Failed. Reason: " + s);
-        }
-    };
 
     @Override
     public void onWorkoutStateChanged(int state) {
@@ -160,52 +106,11 @@ public class RunActivity extends Activity
                     insertCaloriesAndSteps();
                     mClient.disconnect();
                 }
-                //                startActivity(new Intent(this, SummaryActivity.class));
+                startActivity(new Intent(this, SummaryActivity.class)
+                        .putExtra("step_count", mStepCount));
                 break;
         }
     }
-
-//TODO    private void postScore() {
-//        Bundle params = new Bundle();
-//        params.putString("score", "3444");
-//        /* make the API call */
-//        new Request(
-//                session,
-//                "/me/scores",
-//                params,
-//                HttpMethod.POST,
-//                new Request.Callback() {
-//                    public void onCompleted(Response response) {
-//            /* handle the result */
-//                    }
-//                }
-//        ).executeAsync();
-//    }
-
-    OnPublishListener onPublishListener = new OnPublishListener() {
-        @Override
-        public void onComplete(String postId) {
-            Log.i("TAG", "Published successfully. Step count: " + mStepCount);
-        }
-
-        @Override
-        public void onException(Throwable throwable) {
-            super.onException(throwable);
-            Log.e(TAG, throwable.getMessage());
-        }
-
-        @Override
-        public void onFail(String reason) {
-            super.onFail(reason);
-            Log.e(TAG, "Failed to publish score. Reason: " + reason);
-        }
-
-        @Override
-        public void onThinking() {
-            super.onThinking();
-            Log.i(TAG, "Thinking...");
-        }
-    };
 
     /**
      * Build a {@link GoogleApiClient} that will authenticate the user and allow the application
