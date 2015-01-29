@@ -167,7 +167,7 @@ public class FriendsActivity extends Activity
         final ArrayList seletedItems = new ArrayList();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Choose recipients");
+        builder.setTitle("Choose recipient or Go to Email");
         builder.setMultiChoiceItems(items, null,
                 new DialogInterface.OnMultiChoiceClickListener() {
                     // indexSelected contains the index of item (of which checkbox checked)
@@ -186,7 +186,7 @@ public class FriendsActivity extends Activity
                     }
                 })
                 // Set the action buttons
-                .setPositiveButton("Send", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Go To Email", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         mRecipients = new String[seletedItems.size()];

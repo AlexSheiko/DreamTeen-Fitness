@@ -23,7 +23,7 @@
     <string-array name="action_titles">
         <item>@string/action_dashboard</item>
         <item>@string/action_invite_friends</item>
-        <item>@string/action_challenges</item>
+        <item>@string/action_challenge</item>
         <item>@string/action_settings</item>
         <item>@string/action_logout</item>
     </string-array>
@@ -126,11 +126,7 @@
     <eat-comment/>
     <color name="actionbar_background">#69a8d2</color>
     <color name="actionbar_shadow">#5096c5</color>
-    <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/styles.xml -->
-    <eat-comment/>
     <color name="aerobic_background">#eff4f7</color>
-    <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/colors.xml -->
-    <eat-comment/>
     <color name="black">#000000</color>
     <color name="card_background">@color/white</color>
     <color name="card_text">#7a7575</color>
@@ -161,6 +157,7 @@
     <color name="common_signin_btn_light_text_pressed">@android:color/white</color>
     <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/colors.xml -->
     <eat-comment/>
+    <color name="medium_gray">#8a8686</color>
     <color name="settings_background">#eff4f7</color>
     <color name="time_counter_dark">#685f5f</color>
     <color name="time_counter_light">#bdb1b1</color>
@@ -237,7 +234,7 @@
     <string name="accept">Accept</string>
     <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="action_challenges">Challenges</string>
+    <string name="action_challenge">Challenge</string>
     <string name="action_dashboard">Dashboard</string>
     <string name="action_invite_friends">Friends</string>
     <string name="action_logout">Log out</string>
@@ -374,11 +371,10 @@
     <string name="store_picture_title">Save image</string>
     <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="title_activity_challenges">Challenges</string>
+    <string name="title_activity_challenges">Max run, steps</string>
     <string name="title_activity_email">Recipients</string>
     <string name="title_activity_friends">Friends</string>
     <string name="title_activity_history">History</string>
-    <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_summary">Summary</string>
     <string name="title_activity_workout">Training</string>
@@ -464,6 +460,17 @@
         <item name="android:textColor">@color/white</item>
     </style>
     <style name="NumberPickerWithButton" parent="@android:style/Theme.NoTitleBar.Fullscreen"/>
+    <style name="ScoreListItemLabel">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:focusable">false</item>
+    </style>
+    <style name="SeparatorLight">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">#f2f3f5</item>
+    </style>
     <style name="SettingsTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/MyActionBar</item>
         <item name="android:windowBackground">@color/settings_background</item>
@@ -518,6 +525,13 @@
         <item name="android:textSize">18sp</item>
         <item name="android:layout_marginTop">4dp</item>
         <item name="android:layout_marginBottom">14dp</item>
+    </style>
+    <style name="TripList">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:divider">#d7dbde</item>
+        <item name="android:dividerHeight">1dp</item>
     </style>
     <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/wallet_styles.xml -->
     <eat-comment/>
@@ -581,5 +595,13 @@
 	    <item name="android:shadowDy">-1</item>
 	    <item name="android:shadowRadius">0.25</item>
 	    <item name="android:shadowColor">#40000000</item>
+    </style>
+    <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="total_distance_value">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/medium_gray</item>
     </style>
 </resources>
