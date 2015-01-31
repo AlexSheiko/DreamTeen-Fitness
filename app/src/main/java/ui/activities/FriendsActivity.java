@@ -176,11 +176,9 @@ public class FriendsActivity extends Activity
                                         boolean isChecked) {
                         if (isChecked) {
                             // If the user checked the item, add it to the selected items
-                            // write your code when user checked the checkbox
                             seletedItems.add(indexSelected);
                         } else if (seletedItems.contains(indexSelected)) {
                             // Else, if the item is already in the array, remove it
-                            // write your code when user Uchecked the checkbox
                             seletedItems.remove(Integer.valueOf(indexSelected));
                         }
                     }
