@@ -5,6 +5,7 @@ import android.app.DialogFragment;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -276,16 +277,49 @@ public class ChallengesActivity extends Activity
                 mProgressBarDailySteps.setVisibility(View.VISIBLE);
                 mProgressBarDailySteps.setMax(dailySteps);
                 mProgressBarDailySteps.setProgress(mDailyStepsTaken);
+                if (mDailyStepsTaken >= dailySteps) {
+                    Rect bounds = mProgressBarDailySteps.getProgressDrawable().getBounds();
+                    mProgressBarDailySteps.setProgressDrawable(
+                            getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));
+                    mProgressBarDailySteps.getProgressDrawable().setBounds(bounds);
+                } else {
+                    Rect bounds = mProgressBarDailySteps.getProgressDrawable().getBounds();
+                    mProgressBarDailySteps.setProgressDrawable(
+                            getResources().getDrawable(R.drawable.progress_bar_daily_steps));
+                    mProgressBarDailySteps.getProgressDrawable().setBounds(bounds);
+                }
             }
             if (weeklySteps != -1) {
                 mProgressBarWeeklySteps.setVisibility(View.VISIBLE);
                 mProgressBarWeeklySteps.setMax(weeklySteps);
                 mProgressBarWeeklySteps.setProgress(mWeeklyStepsTaken);
+                if (mWeeklyStepsTaken >= weeklySteps) {
+                    Rect bounds = mProgressBarWeeklySteps.getProgressDrawable().getBounds();
+                    mProgressBarWeeklySteps.setProgressDrawable(
+                            getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));
+                    mProgressBarWeeklySteps.getProgressDrawable().setBounds(bounds);
+                } else {
+                    Rect bounds = mProgressBarWeeklySteps.getProgressDrawable().getBounds();
+                    mProgressBarWeeklySteps.setProgressDrawable(
+                            getResources().getDrawable(R.drawable.progress_bar_weekly_steps));
+                    mProgressBarWeeklySteps.getProgressDrawable().setBounds(bounds);
+                }
             }
             if (monthlySteps != -1) {
                 mProgressBarMonthlySteps.setVisibility(View.VISIBLE);
                 mProgressBarMonthlySteps.setMax(monthlySteps);
                 mProgressBarMonthlySteps.setProgress(mMonthlyStepsTaken);
+                if (mMonthlyStepsTaken >= monthlySteps) {
+                    Rect bounds = mProgressBarMonthlySteps.getProgressDrawable().getBounds();
+                    mProgressBarMonthlySteps.setProgressDrawable(
+                            getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));
+                    mProgressBarMonthlySteps.getProgressDrawable().setBounds(bounds);
+                } else {
+                    Rect bounds = mProgressBarMonthlySteps.getProgressDrawable().getBounds();
+                    mProgressBarMonthlySteps.setProgressDrawable(
+                            getResources().getDrawable(R.drawable.progress_bar_monthly_steps));
+                    mProgressBarMonthlySteps.getProgressDrawable().setBounds(bounds);
+                }
             }
         }
         boolean isDurationGoalSet = false;

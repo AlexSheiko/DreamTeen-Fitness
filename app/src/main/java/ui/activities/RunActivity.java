@@ -225,6 +225,7 @@ public class RunActivity extends Activity
         dataSet.add(dataPoint);
 
         // Invoke the History API to insert the data
+
         Fitness.HistoryApi.insertData(mClient, dataSet);
     }
 

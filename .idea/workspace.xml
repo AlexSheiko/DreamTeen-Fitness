@@ -65,9 +65,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e838e63-aa6c-41fc-a81b-f5c1e2df2628" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/fragments/ChallengeGoalDialog.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/fragments/ChallengeGoalDialog.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/ChallengesActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/ChallengesActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/bellamica/tech/dreamteenfitness/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/bellamica/tech/dreamteenfitness/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/facebook/android/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/facebook/android/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_challenges.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_challenges.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DreamFit.iws" />
@@ -91,50 +94,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ChallengesActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="RunActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3060" max-vertical-offset="5287">
+              <caret line="227" column="0" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChallengesActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/ChallengesActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="370" max-vertical-offset="5695">
-              <caret line="365" column="28" selection-start-line="365" selection-start-column="28" selection-end-line="365" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.35738832" vertical-offset="4076" max-vertical-offset="6069">
+              <caret line="301" column="14" selection-start-line="301" selection-start-column="14" selection-end-line="301" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.571429" vertical-offset="2740" max-vertical-offset="6375">
+              <caret line="224" column="8" selection-start-line="224" selection-start-column="8" selection-end-line="234" selection-end-column="9" />
               <folding>
-                <element signature="e#7385#7855#0" expanded="true" />
-                <element signature="e#7836#7837#0" expanded="true" />
-                <element signature="e#8468#8939#0" expanded="true" />
-                <element signature="e#8920#8921#0" expanded="true" />
-                <element signature="e#9538#10010#0" expanded="true" />
-                <element signature="e#9991#9992#0" expanded="true" />
-                <element signature="e#14684#14685#0" expanded="true" />
-                <element signature="e#14719#14720#0" expanded="true" />
+                <element signature="e#7078#7703#0" expanded="true" />
+                <element signature="e#7684#7685#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RunGoalDialog.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/fragments/RunGoalDialog.java">
+      <file leaf-file-name="SummaryActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="227" max-vertical-offset="1360">
-              <caret line="46" column="5" selection-start-line="34" selection-start-column="4" selection-end-line="46" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChallengeGoalDialog.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/fragments/ChallengeGoalDialog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5117493" vertical-offset="144" max-vertical-offset="2176">
-              <caret line="34" column="32" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AerobicGoalDialog.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/fragments/AerobicGoalDialog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
-              <caret line="56" column="34" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="1581">
+              <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1882,7 +1879,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_aerobic_goal.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/spinner_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/fragments/AerobicGoalDialog.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/play_button.xml" />
@@ -1899,13 +1895,11 @@
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/Application.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/fragments/MapPane.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_summary.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/SampleApplication.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/utils/adapters/StatsListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/scores_list_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/target_container_grayed.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/WorkoutActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/model/Exercise.java" />
@@ -1927,12 +1921,15 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/progress_bar_monthly_duration.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/progress_bar_monthly_steps.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/progress_bar_weekly_duration.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_challenges.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/progress_bar_calories.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/fragments/RunGoalDialog.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/ChallengesActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/fragments/ChallengeGoalDialog.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_challenges.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/progress_bar_challenges_goal_reached.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/ChallengesActivity.java" />
       </list>
     </option>
   </component>
@@ -2357,6 +2354,7 @@
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="release" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/DreamTeen-Fitness/app/src/main/java/ui/activities/RunActivity.java" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -2600,7 +2598,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36557376" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3262295" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6557377" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2673,17 +2671,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="99" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java</url>
+          <line>194</line>
+          <properties />
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="102" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/facebook/src/com/facebook/internal/NativeProtocol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="9801" max-vertical-offset="12019">
-          <caret line="620" column="11" selection-start-line="620" selection-start-column="11" selection-end-line="620" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/AerobicActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
@@ -2802,13 +2801,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="1462">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/target_container.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="582">
@@ -2865,16 +2857,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1462" max-vertical-offset="4454">
           <caret line="94" column="5" selection-start-line="87" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-30.25" vertical-offset="547" max-vertical-offset="5967">
-          <caret line="82" column="8" selection-start-line="82" selection-start-column="8" selection-end-line="85" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2986,14 +2968,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1660" max-vertical-offset="6324">
-          <caret line="153" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/progress_bar_weekly_steps.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
@@ -3050,17 +3024,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_challenges.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5207207" vertical-offset="221" max-vertical-offset="3791">
-          <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43814433" vertical-offset="0" max-vertical-offset="582">
@@ -3085,27 +3048,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/ChallengesActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/fragments/ChallengeGoalDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4994" max-vertical-offset="5695">
-          <caret line="365" column="28" selection-start-line="365" selection-start-column="28" selection-end-line="365" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="2176">
+          <caret line="34" column="74" selection-start-line="34" selection-start-column="74" selection-end-line="34" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_challenges.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.9259257" vertical-offset="595" max-vertical-offset="3825">
+          <caret line="46" column="43" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="999" max-vertical-offset="1581">
+          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.571429" vertical-offset="2740" max-vertical-offset="6375">
+          <caret line="224" column="8" selection-start-line="224" selection-start-column="8" selection-end-line="234" selection-end-column="9" />
           <folding>
-            <element signature="e#7385#7855#0" expanded="true" />
-            <element signature="e#7836#7837#0" expanded="true" />
-            <element signature="e#8468#8939#0" expanded="true" />
-            <element signature="e#8920#8921#0" expanded="true" />
-            <element signature="e#9538#10010#0" expanded="true" />
-            <element signature="e#9991#9992#0" expanded="true" />
-            <element signature="e#14684#14685#0" expanded="true" />
-            <element signature="e#14719#14720#0" expanded="true" />
+            <element signature="e#7078#7703#0" expanded="true" />
+            <element signature="e#7684#7685#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/fragments/ChallengeGoalDialog.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5117493" vertical-offset="144" max-vertical-offset="2176">
-          <caret line="34" column="32" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="3060" max-vertical-offset="5287">
+          <caret line="227" column="0" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/ChallengesActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35738832" vertical-offset="4076" max-vertical-offset="6069">
+          <caret line="301" column="14" selection-start-line="301" selection-start-column="14" selection-end-line="301" selection-end-column="14" />
           <folding />
         </state>
       </provider>

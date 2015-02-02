@@ -94,4 +94,11 @@ public class SummaryActivity extends Activity {
         intent.putExtra(android.content.Intent.EXTRA_TEXT, message);
         return intent;
     }
+
+    public void saveRun(View view) {
+        mSharedPrefs.edit().putFloat("Distance", 0).apply();
+        startActivity(new Intent(SummaryActivity.this, MainActivity.class)
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+    }
 }

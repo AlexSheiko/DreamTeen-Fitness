@@ -36,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="24sp"
                 android:text="Step count"
+                android:layout_marginBottom="5dp"
                 android:textColor="#4a4a4a"/>
 
             <ProgressBar
@@ -43,7 +44,7 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="7dp"
                 android:progress="60"
                 android:progressDrawable="@drawable/progress_bar_daily_steps"
                 android:visibility="gone"/>
@@ -141,6 +142,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="24sp"
                 android:text="Run duration"
+                android:layout_marginBottom="7dp"
                 android:textColor="#4a4a4a"/>
 
             <ProgressBar
@@ -148,7 +150,7 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="5dp"
                 android:paddingLeft="0dp"
                 android:paddingRight="0dp"
                 android:progress="60"
