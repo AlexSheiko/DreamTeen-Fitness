@@ -14,6 +14,9 @@
         <item>Vertical Leg Crunch</item>
         <item>Plank</item>
     </string-array>
+    <string-array name="ab_desc">
+        <item>@string/ab_exercise_1</item>
+    </string-array>
     <string-array name="action_categories">
         <item>Aerobic workout</item>
         <item>Running</item>
@@ -229,6 +232,13 @@
     <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/version.xml -->
     <eat-comment/>
     <integer name="google_play_services_version">6587000</integer>
+    <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/arrays.xml -->
+    <eat-comment/>
+    <string name="ab_exercise_1">
+        • Sit tall on the edge of a chair and place your hands on the edge.\n\n
+        • Tighten your abs and bring your toes off the floor.\n\n
+        • Lift your butt off the chair.\n\n
+        • Lower yourself down and repeat.</string>
     <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/admob_strings.xml -->
     <eat-comment/>
     <string name="accept">Accept</string>
