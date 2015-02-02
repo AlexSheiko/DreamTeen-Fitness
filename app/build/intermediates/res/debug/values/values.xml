@@ -206,6 +206,7 @@
     <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="medium_gray">#8a8686</color>
+    <color name="progressbar_background">#f6f2f6</color>
     <color name="settings_background">#eff4f7</color>
     <color name="time_counter_dark">#685f5f</color>
     <color name="time_counter_light">#bdb1b1</color>
