@@ -13,6 +13,8 @@ public class MainActivity$$ViewInjector {
     target.mProgressBar = (android.widget.ProgressBar) view;
     view = finder.findRequiredView(source, 2131558454, "field 'mCaloriesContainer'");
     target.mCaloriesContainer = (android.widget.LinearLayout) view;
+    view = finder.findRequiredView(source, 2131558438, "field 'mStepsContainer'");
+    target.mStepsContainer = (android.widget.LinearLayout) view;
     view = finder.findRequiredView(source, 2131558453, "field 'mDrawerLayout'");
     target.mDrawerLayout = (android.support.v4.widget.DrawerLayout) view;
     view = finder.findRequiredView(source, 2131558459, "field 'mDrawerList'");
@@ -27,6 +29,7 @@ public class MainActivity$$ViewInjector {
     target.mCaloriesLabel = null;
     target.mProgressBar = null;
     target.mCaloriesContainer = null;
+    target.mStepsContainer = null;
     target.mDrawerLayout = null;
     target.mDrawerList = null;
     target.mStepsLabel = null;

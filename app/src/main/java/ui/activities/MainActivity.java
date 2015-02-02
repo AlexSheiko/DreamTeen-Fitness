@@ -77,6 +77,8 @@ public class MainActivity extends Activity
     ProgressBar mProgressBar;
     @InjectView(R.id.caloriesContainer)
     LinearLayout mCaloriesContainer;
+    @InjectView(R.id.stepsContainer)
+    LinearLayout mStepsContainer;
     @InjectView(R.id.drawerLayout)
     DrawerLayout mDrawerLayout;
     @InjectView(R.id.drawerList)
@@ -401,6 +403,8 @@ public class MainActivity extends Activity
         super.onResume();
         if (!mSharedPrefs.getBoolean("pref_track_calories", true))
             mCaloriesContainer.setVisibility(View.GONE);
+        if (!mSharedPrefs.getBoolean("pref_track_steps", true))
+            mStepsContainer.setVisibility(View.GONE);
     }
 
     // Navigation drawer
