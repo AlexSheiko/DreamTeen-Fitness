@@ -25,8 +25,12 @@ import com.google.android.gms.fitness.data.DataPoint;
 import com.google.android.gms.fitness.data.DataSet;
 import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
+import com.google.android.gms.fitness.data.Session;
 import com.google.android.gms.fitness.request.DataReadRequest;
+import com.google.android.gms.fitness.request.SessionReadRequest;
+import com.google.android.gms.fitness.request.SessionReadRequest.Builder;
 import com.google.android.gms.fitness.result.DataReadResult;
+import com.google.android.gms.fitness.result.SessionReadResult;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -42,10 +46,15 @@ public class ChallengesActivity extends Activity
         implements OnChallengeValueChanged {
 
     public static final String TAG = ChallengesActivity.class.getSimpleName();
+    public static final String SESSION_NAME = "Afternoon run";
 
     private int mDailyStepsTaken;
     private int mWeeklyStepsTaken;
     private int mMonthlyStepsTaken;
+
+    private long mDailyDuration;
+    private long mWeeklyDuration;
+    private long mMonthlyDuration;
 
     private static final int REQUEST_OAUTH = 1;
     private static final String AUTH_PENDING = "auth_state_pending";
@@ -116,6 +125,7 @@ public class ChallengesActivity extends Activity
                             public void onConnected(Bundle bundle) {
                                 // Now you can make calls to the Fitness APIs.
                                 readStepCount();
+                                readMinutes();
                             }
 
                             @Override
@@ -262,6 +272,137 @@ public class ChallengesActivity extends Activity
         updateProgressBar();
     }
 
+    private void increaseDailyStepCount(int increment) {
+        mDailyStepsTaken = mDailyStepsTaken + increment;
+    }
+
+    private void increaseWeeklyStepCount(int increment) {
+        mWeeklyStepsTaken = mWeeklyStepsTaken + increment;
+    }
+
+    private void increaseMonthlyStepCount(int increment) {
+        mMonthlyStepsTaken = mMonthlyStepsTaken + increment;
+    }
+
+    private SessionReadRequest readMinutes() {
+        // [START build_read_session_request]
+        // Set a start and end time for our query, using a start time of 1 week before this moment.
+        Calendar cal = Calendar.getInstance();
+        Date now = new Date();
+        cal.setTime(now);
+        long endTime = cal.getTimeInMillis();
+        cal.add(Calendar.DAY_OF_YEAR, -Calendar.DAY_OF_YEAR);
+        long startTime = cal.getTimeInMillis();
+
+        // Build a session read request
+        SessionReadRequest readRequest = new Builder()
+                .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS)
+                .setSessionName(SESSION_NAME)
+                .build();
+        // [END build_read_session_request]
+
+        Fitness.SessionsApi.readSession(mClient, readRequest)
+                .setResultCallback(new ResultCallback<SessionReadResult>() {
+                    @Override
+                    public void onResult(SessionReadResult sessionReadResult) {
+                        // Get a list of the sessions that match the criteria to check the result.
+                        for (Session session : sessionReadResult.getSessions()) {
+                            // Process the session
+                            dumpDailyDuration(session);
+                        }
+                    }
+                });
+
+        cal = Calendar.getInstance();
+        now = new Date();
+        cal.setTime(now);
+        endTime = cal.getTimeInMillis();
+        cal.add(Calendar.WEEK_OF_YEAR, -Calendar.WEEK_OF_YEAR);
+        startTime = cal.getTimeInMillis();
+
+        // Build a session read request
+        readRequest = new Builder()
+                .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS)
+                .setSessionName(SESSION_NAME)
+                .build();
+        // [END build_read_session_request]
+
+        Fitness.SessionsApi.readSession(mClient, readRequest)
+                .setResultCallback(new ResultCallback<SessionReadResult>() {
+                    @Override
+                    public void onResult(SessionReadResult sessionReadResult) {
+                        // Get a list of the sessions that match the criteria to check the result.
+                        for (Session session : sessionReadResult.getSessions()) {
+                            // Process the session
+                            dumpWeeklyDuration(session);
+                        }
+                    }
+                });
+
+        cal = Calendar.getInstance();
+        now = new Date();
+        cal.setTime(now);
+        endTime = cal.getTimeInMillis();
+        cal.add(Calendar.MONTH, -Calendar.MONTH);
+        startTime = cal.getTimeInMillis();
+
+        // Build a session read request
+        readRequest = new Builder()
+                .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS)
+                .setSessionName(SESSION_NAME)
+                .build();
+        // [END build_read_session_request]
+
+        Fitness.SessionsApi.readSession(mClient, readRequest)
+                .setResultCallback(new ResultCallback<SessionReadResult>() {
+                    @Override
+                    public void onResult(SessionReadResult sessionReadResult) {
+                        // Get a list of the sessions that match the criteria to check the result.
+                        for (Session session : sessionReadResult.getSessions()) {
+                            // Process the session
+                            dumpMonthlyDuration(session);
+                        }
+                    }
+                });
+        return readRequest;
+    }
+
+    private void dumpDailyDuration(Session session) {
+        long startTime = session.getStartTime(TimeUnit.MILLISECONDS);
+        long endTime = session.getEndTime(TimeUnit.MILLISECONDS);
+        long diffInMs = endTime - startTime;
+        long increment = TimeUnit.MILLISECONDS.toSeconds(diffInMs);
+        increaseDailyDuration(increment);
+    }
+
+    private void dumpWeeklyDuration(Session session) {
+        long startTime = session.getStartTime(TimeUnit.MILLISECONDS);
+        long endTime = session.getEndTime(TimeUnit.MILLISECONDS);
+        long diffInMs = endTime - startTime;
+        long increment = TimeUnit.MILLISECONDS.toSeconds(diffInMs);
+        increaseWeeklyDuration(increment);
+    }
+
+    private void dumpMonthlyDuration(Session session) {
+        long startTime = session.getStartTime(TimeUnit.MILLISECONDS);
+        long endTime = session.getEndTime(TimeUnit.MILLISECONDS);
+        long diffInMs = endTime - startTime;
+        long increment = TimeUnit.MILLISECONDS.toSeconds(diffInMs);
+        increaseMonthlyDuration(increment);
+    }
+
+    private void increaseDailyDuration(long increment) {
+        mDailyDuration = mDailyDuration + increment;
+    }
+
+    private void increaseWeeklyDuration(long increment) {
+        mWeeklyDuration = mWeeklyDuration + increment;
+    }
+
+    private void increaseMonthlyDuration(long increment) {
+        mMonthlyDuration = mMonthlyDuration + increment;
+    }
+
     private void updateProgressBar() {
         int dailySteps = mSharedPrefs.getInt("daily_steps", -1);
         int weeklySteps = mSharedPrefs.getInt("weekly_steps", -1);
@@ -345,20 +486,6 @@ public class ChallengesActivity extends Activity
             mSetDurationButton.setVisibility(View.GONE);
         }
     }
-
-    private void increaseDailyStepCount(int increment) {
-        mDailyStepsTaken = mDailyStepsTaken + increment;
-    }
-
-    private void increaseWeeklyStepCount(int increment) {
-        mWeeklyStepsTaken = mWeeklyStepsTaken + increment;
-    }
-
-    private void increaseMonthlyStepCount(int increment) {
-        mMonthlyStepsTaken = mMonthlyStepsTaken + increment;
-    }
-
-
 
     @Override
     protected void onStart() {

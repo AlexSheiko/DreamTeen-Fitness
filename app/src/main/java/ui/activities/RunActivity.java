@@ -23,11 +23,13 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.fitness.Fitness;
+import com.google.android.gms.fitness.FitnessActivities;
 import com.google.android.gms.fitness.data.DataPoint;
 import com.google.android.gms.fitness.data.DataSet;
 import com.google.android.gms.fitness.data.DataSource;
 import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
+import com.google.android.gms.fitness.data.Session;
 import com.google.android.gms.fitness.data.Value;
 import com.google.android.gms.fitness.request.DataSourcesRequest;
 import com.google.android.gms.fitness.request.OnDataPointListener;
@@ -49,6 +51,7 @@ public class RunActivity extends Activity
 
     public static final String TAG = "DreamTeen Fitness";
     private static final int REQUEST_OAUTH = 1;
+    public static final String SESSION_NAME = "Afternoon run";
 
     private static final int WORKOUT_START = 1;
     private static final int WORKOUT_PAUSE = 2;
@@ -67,6 +70,7 @@ public class RunActivity extends Activity
     private OnDataPointListener mLocationListener;
 
     private SharedPreferences mSharedPrefs;
+    private Session mSession;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +104,7 @@ public class RunActivity extends Activity
                 break;
 
             case WORKOUT_PAUSE:
+                Fitness.SessionsApi.stopSession(mClient, mSession.getIdentifier());
                 if (mClient.isConnected()) {
                     unregisterLocationListener();
                 }
@@ -113,6 +118,21 @@ public class RunActivity extends Activity
                 startActivity(new Intent(this, SummaryActivity.class));
                 break;
         }
+    }
+
+    private void startSession() {
+        Calendar cal = Calendar.getInstance();
+        Date now = new Date();
+        cal.setTime(now);
+        long startTime = cal.getTimeInMillis();
+
+        mSession = new Session.Builder()
+                .setName(SESSION_NAME)
+                .setIdentifier(SESSION_NAME + " " + now)
+                .setStartTime(startTime, TimeUnit.MILLISECONDS)
+                .setActivity(FitnessActivities.RUNNING)
+                .build();
+        Fitness.SessionsApi.startSession(mClient, mSession);
     }
 
     private void setStartTime() {
@@ -137,6 +157,7 @@ public class RunActivity extends Activity
                             public void onConnected(Bundle bundle) {
                                 // Start updating map focus and counting steps
                                 findLocationDataSources();
+                                startSession();
                             }
 
                             @Override
