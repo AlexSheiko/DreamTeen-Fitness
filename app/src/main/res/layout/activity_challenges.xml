@@ -65,7 +65,7 @@
                 android:background="@drawable/set_goal_button"
                 android:fontFamily="sans-serif-bold"
                 android:paddingRight="12dp"
-                android:onClick="addFitnessGoal"
+                android:onClick="addChallengeGoal"
                 android:text="Add"/>
 
         </FrameLayout>
@@ -129,7 +129,7 @@
                 android:background="@drawable/set_goal_button"
                 android:fontFamily="sans-serif-bold"
                 android:paddingRight="12dp"
-                android:onClick="addFitnessGoal"
+                android:onClick="addChallengeGoal"
                 android:text="Add"/>
 
         </FrameLayout>
