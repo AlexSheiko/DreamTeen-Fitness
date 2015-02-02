@@ -97,9 +97,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:text="Medium Text"
+                android:text="@string/ab_exercise_1"
                 android:textColor="#4b4444"
-                android:id="@+id/textView"
+                android:id="@+id/description"
                 android:layout_gravity="left|top"/>
         </FrameLayout>
 

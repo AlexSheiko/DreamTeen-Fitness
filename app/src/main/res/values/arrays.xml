@@ -84,6 +84,9 @@
         <item>Vertical Leg Crunch</item>
         <item>Plank</item>
     </string-array>
+    <string-array name="ab_desc">
+        <item>@string/ab_exercise_1</item>
+    </string-array>
     <string-array name="leg">
         <item>Side Leg Lift Right</item>
         <item>Side Leg Kick Right</item>
@@ -120,4 +123,9 @@
         <item>Flutter Kicks</item>
         <item>Froggy Glute Lifts</item>
     </string-array>
+    <string name="ab_exercise_1">
+        • Sit tall on the edge of a chair and place your hands on the edge.\n\n
+        • Tighten your abs and bring your toes off the floor.\n\n
+        • Lift your butt off the chair.\n\n
+        • Lower yourself down and repeat.</string>
 </resources>

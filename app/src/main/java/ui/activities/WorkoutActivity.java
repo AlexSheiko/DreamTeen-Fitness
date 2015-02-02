@@ -3,8 +3,6 @@ package ui.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentSender.SendIntentException;
-import android.media.MediaPlayer;
-import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -14,7 +12,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -60,12 +57,12 @@ public class WorkoutActivity extends Activity {
     ImageButton mPauseButton;
     @InjectView(R.id.durationCounter)
     TextView mDurationCounter;
-    @InjectView(R.id.videoView)
-    VideoView mVideoView;
-    @InjectView(R.id.title)
-    TextView mTitle;
     @InjectView(R.id.positionLabel)
     TextView mPositionLabel;
+    @InjectView(R.id.title)
+    TextView mTitleTextView;
+    @InjectView(R.id.description)
+    TextView mDescriptionTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,8 +107,6 @@ public class WorkoutActivity extends Activity {
                         }
                     }
                 }.start();
-
-                mVideoView.start();
             }
         });
 
@@ -128,7 +123,6 @@ public class WorkoutActivity extends Activity {
                         getResources().getColor(R.color.time_counter_light));
 
                 mTimer.cancel();
-                mVideoView.pause();
             }
         });
 
@@ -156,23 +150,9 @@ public class WorkoutActivity extends Activity {
 
     private void updateExercise() {
         Exercise exercise = new Exercise(this, mCategory);
-        String videoFile = "android.resource://" + getPackageName() + "/" +
-                getResources().getIdentifier(
-                        mCategory + "_" + mCurrentPosition,
-                        "raw",
-                        "bellamica.tech.dreamteenfitness");
 
-        mVideoView.setVideoPath(videoFile);
-        mVideoView.seekTo(1);
-        mVideoView.canPause();
-        mVideoView.setOnCompletionListener(new OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mediaPlayer) {
-                mVideoView.start();
-            }
-        });
-
-        mTitle.setText(exercise.getTitle(mCurrentPosition));
+        mTitleTextView.setText(exercise.getTitle(mCurrentPosition));
+        mDescriptionTextView.setText(exercise.getDescription(mCurrentPosition));
         int exercisePosition = mCurrentPosition + 1;
         mPositionLabel.setText("Exercise " + exercisePosition + "/10");
     }
