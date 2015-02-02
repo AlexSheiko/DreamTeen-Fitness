@@ -254,6 +254,7 @@ public class RunActivity extends Activity
      * Find available data sources and attempt to register on a specific {@link DataType}.
      */
     private void findLocationDataSources() {
+        startSession();
         // [START find_data_sources]
         Fitness.SensorsApi.findDataSources(mClient, new DataSourcesRequest.Builder()
                 .setDataTypes(DataType.TYPE_LOCATION_SAMPLE)

@@ -373,6 +373,7 @@ public class ChallengesActivity extends Activity
         long diffInMs = endTime - startTime;
         long increment = TimeUnit.MILLISECONDS.toSeconds(diffInMs);
         increaseDailyDuration(increment);
+        updateProgressBar();
     }
 
     private void dumpWeeklyDuration(Session session) {
@@ -381,6 +382,7 @@ public class ChallengesActivity extends Activity
         long diffInMs = endTime - startTime;
         long increment = TimeUnit.MILLISECONDS.toSeconds(diffInMs);
         increaseWeeklyDuration(increment);
+        updateProgressBar();
     }
 
     private void dumpMonthlyDuration(Session session) {
@@ -389,6 +391,7 @@ public class ChallengesActivity extends Activity
         long diffInMs = endTime - startTime;
         long increment = TimeUnit.MILLISECONDS.toSeconds(diffInMs);
         increaseMonthlyDuration(increment);
+        updateProgressBar();
     }
 
     private void increaseDailyDuration(long increment) {
@@ -468,12 +471,51 @@ public class ChallengesActivity extends Activity
             isDurationGoalSet = true;
             if (dailyDuration != -1) {
                 mProgressBarDailyDuration.setVisibility(View.VISIBLE);
+                mProgressBarDailyDuration.setMax(dailyDuration * 60); // Minutes in seconds
+                mProgressBarDailyDuration.setProgress((int) mDailyDuration);
+                if (mDailyDuration >= dailyDuration * 60) {
+                    Rect bounds = mProgressBarDailyDuration.getProgressDrawable().getBounds();
+                    mProgressBarDailyDuration.setProgressDrawable(
+                            getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));
+                    mProgressBarDailyDuration.getProgressDrawable().setBounds(bounds);
+                } else {
+                    Rect bounds = mProgressBarDailyDuration.getProgressDrawable().getBounds();
+                    mProgressBarDailyDuration.setProgressDrawable(
+                            getResources().getDrawable(R.drawable.progress_bar_daily_duration));
+                    mProgressBarDailyDuration.getProgressDrawable().setBounds(bounds);
+                }
             }
             if (weeklyDuration != -1) {
                 mProgressBarWeeklyDuration.setVisibility(View.VISIBLE);
+                mProgressBarWeeklyDuration.setMax(weeklyDuration * 60);
+                mProgressBarWeeklyDuration.setProgress((int) mWeeklyDuration);
+                if (mWeeklyDuration >= weeklyDuration * 60) {
+                    Rect bounds = mProgressBarWeeklyDuration.getProgressDrawable().getBounds();
+                    mProgressBarWeeklyDuration.setProgressDrawable(
+                            getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));
+                    mProgressBarWeeklyDuration.getProgressDrawable().setBounds(bounds);
+                } else {
+                    Rect bounds = mProgressBarWeeklyDuration.getProgressDrawable().getBounds();
+                    mProgressBarWeeklyDuration.setProgressDrawable(
+                            getResources().getDrawable(R.drawable.progress_bar_weekly_duration));
+                    mProgressBarWeeklyDuration.getProgressDrawable().setBounds(bounds);
+                }
             }
             if (monthlyDuration != -1) {
                 mProgressBarMonthlyDuration.setVisibility(View.VISIBLE);
+                mProgressBarMonthlyDuration.setMax(monthlyDuration * 60);
+                mProgressBarMonthlyDuration.setProgress((int) mMonthlyDuration);
+                if (mMonthlyDuration >= monthlyDuration * 60) {
+                    Rect bounds = mProgressBarMonthlyDuration.getProgressDrawable().getBounds();
+                    mProgressBarMonthlyDuration.setProgressDrawable(
+                            getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));
+                    mProgressBarMonthlyDuration.getProgressDrawable().setBounds(bounds);
+                } else {
+                    Rect bounds = mProgressBarMonthlyDuration.getProgressDrawable().getBounds();
+                    mProgressBarMonthlyDuration.setProgressDrawable(
+                            getResources().getDrawable(R.drawable.progress_bar_monthly_duration));
+                    mProgressBarMonthlyDuration.getProgressDrawable().setBounds(bounds);
+                }
             }
         }
 

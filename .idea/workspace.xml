@@ -93,8 +93,8 @@
       <file leaf-file-name="RunActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5610">
-              <caret line="53" column="62" selection-start-line="52" selection-start-column="47" selection-end-line="53" selection-end-column="62" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1591" max-vertical-offset="5627">
+              <caret line="159" column="0" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -103,8 +103,8 @@
       <file leaf-file-name="ChallengesActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/ChallengesActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.91237116" vertical-offset="5402" max-vertical-offset="8160">
-              <caret line="402" column="16" selection-start-line="402" selection-start-column="16" selection-end-line="402" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.82474226" vertical-offset="7238" max-vertical-offset="8908">
+              <caret line="507" column="60" selection-start-line="507" selection-start-column="60" selection-end-line="507" selection-end-column="60" />
               <folding>
                 <element signature="e#12702#13207#0" expanded="true" />
                 <element signature="e#13188#13189#0" expanded="true" />
@@ -112,6 +112,8 @@
                 <element signature="e#14303#14304#0" expanded="true" />
                 <element signature="e#14917#15424#0" expanded="true" />
                 <element signature="e#15405#15406#0" expanded="true" />
+                <element signature="e#25549#25550#0" expanded="true" />
+                <element signature="e#25584#25585#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2585,7 +2587,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30408472" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30408472" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2704918" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2651,7 +2653,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="102" />
+      <option name="time" value="106" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -3058,14 +3060,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5610">
-          <caret line="53" column="62" selection-start-line="52" selection-start-column="47" selection-end-line="53" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/BasicHistorySessions/app/src/main/java/com/google/android/gms/fit/samples/basichistorysessions/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="78" max-vertical-offset="7565">
@@ -3081,10 +3075,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1591" max-vertical-offset="5627">
+          <caret line="159" column="0" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/ChallengesActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.91237116" vertical-offset="5402" max-vertical-offset="8160">
-          <caret line="402" column="16" selection-start-line="402" selection-start-column="16" selection-end-line="402" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.82474226" vertical-offset="7238" max-vertical-offset="8908">
+          <caret line="507" column="60" selection-start-line="507" selection-start-column="60" selection-end-line="507" selection-end-column="60" />
           <folding>
             <element signature="e#12702#13207#0" expanded="true" />
             <element signature="e#13188#13189#0" expanded="true" />
@@ -3092,6 +3094,8 @@
             <element signature="e#14303#14304#0" expanded="true" />
             <element signature="e#14917#15424#0" expanded="true" />
             <element signature="e#15405#15406#0" expanded="true" />
+            <element signature="e#25549#25550#0" expanded="true" />
+            <element signature="e#25584#25585#0" expanded="true" />
           </folding>
         </state>
       </provider>
