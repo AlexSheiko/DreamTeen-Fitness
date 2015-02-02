@@ -8,7 +8,6 @@
               android:paddingTop="16dp"
               android:paddingRight="16dp">
 
-    <!-- Set goal container-->
     <LinearLayout
         android:id="@+id/stepsContainer"
         android:layout_width="match_parent"
@@ -30,8 +29,7 @@
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            >
+            android:paddingBottom="12dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -39,6 +37,43 @@
                 android:textSize="24sp"
                 android:text="Step count"
                 android:textColor="#4a4a4a"/>
+
+            <ProgressBar
+                android:id="@+id/progressBarDailySteps"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:progress="60"
+                android:progressDrawable="@drawable/progress_bar_daily_steps"
+                />
+
+            <ProgressBar
+                android:id="@+id/progressBarWeeklySteps"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:progress="30"
+                android:progressDrawable="@drawable/progress_bar_weekly_steps"
+                />
+
+            <ProgressBar
+                android:id="@+id/progressBarMonthlySteps"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="8dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:progress="10"
+                android:progressDrawable="@drawable/progress_bar_monthly_steps"
+                />
 
             <TextView
                 android:id="@+id/stepsNotSetLabel"
@@ -48,7 +83,8 @@
                 android:text="Goal not set"
                 android:fontFamily="sans-serif-light"
                 android:textSize="18sp"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="8dp"
+                android:visibility="gone"/>
 
         </LinearLayout>
 
@@ -68,7 +104,8 @@
                 android:background="@drawable/set_goal_button_purple"
                 android:fontFamily="sans-serif-bold"
                 android:paddingRight="12dp"
-                android:text="Add"/>
+                android:text="Add"
+                android:visibility="gone"/>
 
         </FrameLayout>
 

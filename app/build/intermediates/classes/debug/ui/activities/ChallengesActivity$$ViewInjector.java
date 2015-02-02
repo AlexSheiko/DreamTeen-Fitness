@@ -7,13 +7,13 @@ import butterknife.ButterKnife.Finder;
 public class ChallengesActivity$$ViewInjector {
   public static void inject(Finder finder, final ui.activities.ChallengesActivity target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131558439, "field 'mStepsNotSetLabel'");
+    view = finder.findRequiredView(source, 2131558442, "field 'mStepsNotSetLabel'");
     target.mStepsNotSetLabel = (android.widget.TextView) view;
-    view = finder.findRequiredView(source, 2131558442, "field 'mDurationNotSetLabel'");
+    view = finder.findRequiredView(source, 2131558445, "field 'mDurationNotSetLabel'");
     target.mDurationNotSetLabel = (android.widget.TextView) view;
-    view = finder.findRequiredView(source, 2131558440, "field 'mSetStepsButton'");
+    view = finder.findRequiredView(source, 2131558443, "field 'mSetStepsButton'");
     target.mSetStepsButton = (android.widget.Button) view;
-    view = finder.findRequiredView(source, 2131558443, "field 'mSetDurationButton'");
+    view = finder.findRequiredView(source, 2131558446, "field 'mSetDurationButton'");
     target.mSetDurationButton = (android.widget.Button) view;
   }
 
