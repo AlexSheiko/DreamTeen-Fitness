@@ -77,6 +77,15 @@
     </string-array>
     <string-array name="butt_desc">
         <item>@string/butt_exercise_1</item>
+        <item>@string/butt_exercise_2</item>
+        <item>@string/butt_exercise_3</item>
+        <item>@string/butt_exercise_4</item>
+        <item>@string/butt_exercise_5</item>
+        <item>@string/butt_exercise_6</item>
+        <item>@string/butt_exercise_7</item>
+        <item>@string/butt_exercise_8</item>
+        <item>@string/butt_exercise_9</item>
+        <item>@string/butt_exercise_10</item>
     </string-array>
     <string-array name="days_values">
         <item>1</item>
@@ -568,7 +577,7 @@
     <string name="store_picture_title">Save image</string>
     <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="title_activity_challenges">Max run, steps</string>
+    <string name="title_activity_challenges">Set goal</string>
     <string name="title_activity_email">Recipients</string>
     <string name="title_activity_friends">Friends</string>
     <string name="title_activity_history">History</string>

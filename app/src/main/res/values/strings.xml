@@ -70,6 +70,6 @@
     <string name="title_activity_email">Recipients</string>
     <string name="email_send">Send</string>
     <string name="title_activity_workout">Training</string>
-    <string name="title_activity_challenges">Max run, steps</string>
+    <string name="title_activity_challenges">Set goal</string>
 
 </resources>

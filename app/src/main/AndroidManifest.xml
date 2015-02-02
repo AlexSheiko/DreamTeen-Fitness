@@ -5,11 +5,10 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <!-- Google Maps -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- Contacts -->
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <uses-feature
         android:glEsVersion="0x00020000"
@@ -117,10 +116,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ui.activities.MainActivity" />
         </activity>
-        <provider
-            android:name="com.facebook.NativeAppCallContentProvider"
-            android:authorities="com.facebook.app.NativeAppCallContentProvider562228307244897"
-            android:exported="true" />
     </application>
 
 </manifest>

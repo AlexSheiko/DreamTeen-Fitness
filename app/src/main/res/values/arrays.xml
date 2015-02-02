@@ -158,6 +158,15 @@
     </string-array>
     <string-array name="butt_desc">
         <item>@string/butt_exercise_1</item>
+        <item>@string/butt_exercise_2</item>
+        <item>@string/butt_exercise_3</item>
+        <item>@string/butt_exercise_4</item>
+        <item>@string/butt_exercise_5</item>
+        <item>@string/butt_exercise_6</item>
+        <item>@string/butt_exercise_7</item>
+        <item>@string/butt_exercise_8</item>
+        <item>@string/butt_exercise_9</item>
+        <item>@string/butt_exercise_10</item>
     </string-array>
     <string name="ab_exercise_1">
         • Lie on your back with your knees bent and feet flat on the floor.\n\n
