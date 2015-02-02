@@ -86,6 +86,15 @@
     </string-array>
     <string-array name="ab_desc">
         <item>@string/ab_exercise_1</item>
+        <item>@string/ab_exercise_2</item>
+        <item>@string/ab_exercise_3</item>
+        <item>@string/ab_exercise_4</item>
+        <item>@string/ab_exercise_5</item>
+        <item>@string/ab_exercise_6</item>
+        <item>@string/ab_exercise_7</item>
+        <item>@string/ab_exercise_8</item>
+        <item>@string/ab_exercise_9</item>
+        <item>@string/ab_exercise_10</item>
     </string-array>
     <string-array name="leg">
         <item>Side Leg Lift Right</item>
@@ -124,8 +133,45 @@
         <item>Froggy Glute Lifts</item>
     </string-array>
     <string name="ab_exercise_1">
-        • Sit tall on the edge of a chair and place your hands on the edge.\n\n
-        • Tighten your abs and bring your toes off the floor.\n\n
-        • Lift your butt off the chair.\n\n
-        • Lower yourself down and repeat.</string>
+        • Lie on your back with your knees bent and feet flat on the floor.\n\n
+        • Curl up and forward so that your head, neck, and shoulder blades lift off the floor.\n\n
+        • Hold for a moment at the top and then lower back down.</string>
+    <string name="ab_exercise_2">
+        • Lie on your back with bent knees.\n\n
+        • Prop your right ankle on the upper thigh of your bent left knee.\n\n
+        • With the hand behind your head, perform crunches toward the right knee.</string>
+    <string name="ab_exercise_3">
+        • Lie on your back with bent knees.\n\n
+        • Prop your left ankle on the upper thigh of your bent right knee.\n\n
+        • With the hand behind your head, perform crunches toward the left knee.</string>
+    <string name="ab_exercise_4">
+        • Press your lower back to the ground and contract your core muscles.\n\n
+        • With your hands gently holding your head, lift your knees to about a 45-degree angle.\n\n
+        • Slowly go through a bicycle pedal motion.</string>
+    <string name="ab_exercise_5">
+        • Place your hands behind the head.\n\n
+        • Bring the knees in towards the chest until they're bent to 90 degrees, with feet together or crossed.\n\n
+        • Contract the abs to curl the hips off the floor, reaching the legs up towards the ceiling.</string>
+    <string name="ab_exercise_6">
+        • Lie on your back with your arms over your head with hands clasped and arms close to your ears.\n\n
+        • Keep your knees bent with feet flat on the floor.\n\n
+        • Contract your abs and lift your shoulder blades off the floor.</string>
+    <string name="ab_exercise_7">
+        • Lie on your back with your knees bent and feet flat on the floor.\n\n
+        • Cross your right leg over your left leg so your right ankle is resting on your left knee.\n\n
+        • Contract your abdominal muscles as though you are doing a crunch.\n\n
+        • Slowly twist your torso and touch your left elbow to your right knee.</string>
+    <string name="ab_exercise_8">
+        • Place your palms on your thighs.\n\n
+        • Contract your abdominal muscles and curl up until your fingertips reach your knees.\n\n
+        • Slowly lower to the start position.</string>
+    <string name="ab_exercise_9">
+        • Extend the legs straight up with knees crossed.\n\n
+        • Contract the abs to lift the shoulder blades off the floor, as though reaching your chest towards your feet.\n\n
+        • Keep the legs in a fixed position.</string>
+    <string name="ab_exercise_10">
+        • Lie face down on mat resting on the forearms, palms flat on the floor.\n\n
+        • Push off the floor, raising up onto toes and resting on the elbows.\n\n
+        • Hold your back flat for 30 seconds.</string>
+
 </resources>
