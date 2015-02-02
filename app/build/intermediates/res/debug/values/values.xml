@@ -805,7 +805,8 @@
         <item name="android:layout_marginRight">8dp</item>
         <item name="android:layout_marginBottom">10dp</item>
         <item name="android:textColor">@android:color/black</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:maxLength">6</item>
     </style>
     <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.facebook.android/facebook/3.21.1/res/values/values.xml -->

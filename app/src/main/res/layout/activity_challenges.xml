@@ -41,6 +41,7 @@
                 android:textColor="#4a4a4a"/>
 
             <TextView
+                android:id="@+id/stepsNotSetLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
@@ -106,6 +107,7 @@
                 android:textColor="#4a4a4a"/>
 
             <TextView
+                android:id="@+id/durationNotSetLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
