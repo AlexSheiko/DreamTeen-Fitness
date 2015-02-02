@@ -47,20 +47,20 @@ public class ChallengeGoalDialog extends DialogFragment {
                 mDailyValueField.setText(dailySteps);
             }
             if (!weeklySteps.equals("-1")) {
-                mDailyValueField.setText(weeklySteps);
+                mWeeklyValueField.setText(weeklySteps);
             }
             if (!monthlySteps.equals("-1")) {
-                mDailyValueField.setText(monthlySteps);
+                mMonthlyValueField.setText(monthlySteps);
             }
         } else if (key.equals("duration")) {
             if (!dailyDuration.equals("-1")) {
                 mDailyValueField.setText(dailyDuration);
             }
             if (!weeklyDuration.equals("-1")) {
-                mDailyValueField.setText(weeklyDuration);
+                mWeeklyValueField.setText(weeklyDuration);
             }
             if (!monthlyDuration.equals("-1")) {
-                mDailyValueField.setText(monthlyDuration);
+                mMonthlyValueField.setText(monthlyDuration);
             }
         }
 
