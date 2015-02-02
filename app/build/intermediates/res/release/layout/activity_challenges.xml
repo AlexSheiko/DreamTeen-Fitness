@@ -3,44 +3,218 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              tools:context="sheyko.aleksey.mapthetrip.ui.activities.StatsActivity">
+              tools:context="sheyko.aleksey.mapthetrip.ui.activities.ChallengesActivity"
+              android:paddingLeft="16dp"
+              android:paddingTop="16dp"
+              android:paddingRight="16dp">
 
     <LinearLayout
+        android:id="@+id/stepsContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/target_container"
+        android:orientation="horizontal"
         android:paddingLeft="12dp"
-        android:paddingRight="8dp"
-        android:background="#fefefe"
-        android:orientation="horizontal">
+        android:paddingRight="12dp"
+        android:paddingBottom="5dp"
+        android:clickable="true"
+        android:onClick="addChallengeGoal">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:layout_height="wrap_content"
-            android:text="Name"
-            android:textColor="#929297"
-            android:textSize="16sp"/>
-
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Steps"
-            android:layout_marginLeft="8dp"
-            android:textColor="#929297"
-            android:textSize="16sp"/>
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:text="Step count"
+                android:layout_marginBottom="5dp"
+                android:textColor="#4a4a4a"/>
+
+            <ProgressBar
+                android:id="@+id/progressBarDailySteps"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:progress="60"
+                android:progressDrawable="@drawable/progress_bar_daily_steps"
+                android:visibility="gone"/>
+
+            <ProgressBar
+                android:id="@+id/progressBarWeeklySteps"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:progress="30"
+                android:progressDrawable="@drawable/progress_bar_weekly_steps"
+                android:visibility="gone"/>
+
+            <ProgressBar
+                android:id="@+id/progressBarMonthlySteps"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:progress="10"
+                android:progressDrawable="@drawable/progress_bar_monthly_steps"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/stepsNotSetLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="Goal not set"
+                android:fontFamily="sans-serif-light"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"
+                />
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="12dp">
+
+            <Button
+                android:id="@+id/setStepsButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:paddingLeft="12dp"
+                android:background="@drawable/set_goal_button_purple"
+                android:fontFamily="sans-serif-bold"
+                android:paddingRight="12dp"
+                android:onClick="addChallengeGoal"
+                android:text="Add"
+                />
+
+        </FrameLayout>
 
     </LinearLayout>
 
-    <FrameLayout
+    <!-- Set goal container-->
+    <LinearLayout
+        android:id="@+id/durationContainer"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#bdc3c7"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/target_container"
+        android:orientation="horizontal"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingBottom="5dp"
+        android:clickable="true"
+        android:onClick="addChallengeGoal">
 
-    <ListView
-        android:id="@+id/stats_list"
-        style="@style/TripList"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:text="Run duration"
+                android:layout_marginBottom="7dp"
+                android:textColor="#4a4a4a"/>
+
+            <ProgressBar
+                android:id="@+id/progressBarDailyDuration"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:progress="60"
+                android:progressDrawable="@drawable/progress_bar_daily_duration"
+                android:visibility="gone"/>
+
+            <ProgressBar
+                android:id="@+id/progressBarWeeklyDuration"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:progress="30"
+                android:progressDrawable="@drawable/progress_bar_weekly_duration"
+                android:visibility="gone"/>
+
+            <ProgressBar
+                android:id="@+id/progressBarMonthlyDuration"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:progress="10"
+                android:progressDrawable="@drawable/progress_bar_monthly_duration"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/durationNotSetLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="Goal not set"
+                android:fontFamily="sans-serif-light"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"/>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="12dp">
+
+            <Button
+                android:id="@+id/setDurationButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:paddingLeft="12dp"
+                android:background="@drawable/set_goal_button"
+                android:fontFamily="sans-serif-bold"
+                android:paddingRight="12dp"
+                android:onClick="addChallengeGoal"
+                android:text="Add"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
 
 </LinearLayout><!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/layout/activity_challenges.xml -->

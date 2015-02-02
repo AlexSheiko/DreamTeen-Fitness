@@ -14,6 +14,18 @@
         <item>Vertical Leg Crunch</item>
         <item>Plank</item>
     </string-array>
+    <string-array name="ab_desc">
+        <item>@string/ab_exercise_1</item>
+        <item>@string/ab_exercise_2</item>
+        <item>@string/ab_exercise_3</item>
+        <item>@string/ab_exercise_4</item>
+        <item>@string/ab_exercise_5</item>
+        <item>@string/ab_exercise_6</item>
+        <item>@string/ab_exercise_7</item>
+        <item>@string/ab_exercise_8</item>
+        <item>@string/ab_exercise_9</item>
+        <item>@string/ab_exercise_10</item>
+    </string-array>
     <string-array name="action_categories">
         <item>Aerobic workout</item>
         <item>Running</item>
@@ -39,6 +51,18 @@
         <item>High Side Plank Right</item>
         <item>High Side Plank Left</item>
     </string-array>
+    <string-array name="arm_desc">
+        <item>@string/arm_exercise_1</item>
+        <item>@string/arm_exercise_2</item>
+        <item>@string/arm_exercise_3</item>
+        <item>@string/arm_exercise_4</item>
+        <item>@string/arm_exercise_5</item>
+        <item>@string/arm_exercise_6</item>
+        <item>@string/arm_exercise_7</item>
+        <item>@string/arm_exercise_8</item>
+        <item>@string/arm_exercise_9</item>
+        <item>@string/arm_exercise_10</item>
+    </string-array>
     <string-array name="butt">
         <item>Squat</item>
         <item>Front Lunges</item>
@@ -50,6 +74,18 @@
         <item>Leg extensions</item>
         <item>Flutter Kicks</item>
         <item>Froggy Glute Lifts</item>
+    </string-array>
+    <string-array name="butt_desc">
+        <item>@string/butt_exercise_1</item>
+        <item>@string/butt_exercise_2</item>
+        <item>@string/butt_exercise_3</item>
+        <item>@string/butt_exercise_4</item>
+        <item>@string/butt_exercise_5</item>
+        <item>@string/butt_exercise_6</item>
+        <item>@string/butt_exercise_7</item>
+        <item>@string/butt_exercise_8</item>
+        <item>@string/butt_exercise_9</item>
+        <item>@string/butt_exercise_10</item>
     </string-array>
     <string-array name="days_values">
         <item>1</item>
@@ -99,6 +135,18 @@
         <item>Quad Lifts</item>
         <item>Static Lunge Right</item>
         <item>Static Lunge Left</item>
+    </string-array>
+    <string-array name="leg_desc">
+        <item>@string/leg_exercise_1</item>
+        <item>@string/leg_exercise_2</item>
+        <item>@string/leg_exercise_3</item>
+        <item>@string/leg_exercise_4</item>
+        <item>@string/leg_exercise_5</item>
+        <item>@string/leg_exercise_6</item>
+        <item>@string/leg_exercise_7</item>
+        <item>@string/leg_exercise_8</item>
+        <item>@string/leg_exercise_9</item>
+        <item>@string/leg_exercise_10</item>
     </string-array>
     <string-array name="month_values">
         <item>January</item>
@@ -158,6 +206,7 @@
     <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="medium_gray">#8a8686</color>
+    <color name="progressbar_background">#f9f6f9</color>
     <color name="settings_background">#eff4f7</color>
     <color name="time_counter_dark">#685f5f</color>
     <color name="time_counter_light">#bdb1b1</color>
@@ -229,6 +278,48 @@
     <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/version.xml -->
     <eat-comment/>
     <integer name="google_play_services_version">6587000</integer>
+    <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/arrays.xml -->
+    <eat-comment/>
+    <string name="ab_exercise_1">
+        • Lie on your back with your knees bent and feet flat on the floor.\n\n
+        • Curl up and forward so that your head, neck, and shoulder blades lift off the floor.\n\n
+        • Hold for a moment at the top and then lower back down.</string>
+    <string name="ab_exercise_10">
+        • Lie face down on mat resting on the forearms.\n\n
+        • Push off the floor, raising up onto toes and resting on the elbows.\n\n
+        • Hold your back flat for 30 seconds.</string>
+    <string name="ab_exercise_2">
+        • Lie on your back with bent knees.\n\n
+        • Prop your right ankle on the upper thigh of your bent left knee.\n\n
+        • With the hand behind your head, perform crunches toward the right knee.</string>
+    <string name="ab_exercise_3">
+        • Lie on your back with bent knees.\n\n
+        • Prop your left ankle on the upper thigh of your bent right knee.\n\n
+        • With the hand behind your head, perform crunches toward the left knee.</string>
+    <string name="ab_exercise_4">
+        • Press your lower back to the ground and contract your core muscles.\n\n
+        • Lift your knees to a 45-degree angle.\n\n
+        • Slowly go through a bicycle pedal motion.</string>
+    <string name="ab_exercise_5">
+        • Place your hands behind the head.\n\n
+        • Bring the knees in towards the chest until they\'re bent to 90 degrees.\n\n
+        • Contract the abs to curl the hips off the floor.</string>
+    <string name="ab_exercise_6">
+        • Lie on your back with your arms over your head.\n\n
+        • Keep your knees bent with feet flat on the floor.\n\n
+        • Contract your abs and lift your shoulder blades off the floor.</string>
+    <string name="ab_exercise_7">
+        • Lie on your back with your knees bent and feet flat on the floor.\n\n
+        • Cross your right leg over your left leg.\n\n
+        • Contract your abdominal muscles, twist your torso and touch your left elbow to your right knee.</string>
+    <string name="ab_exercise_8">
+        • Place your palms on your thighs.\n\n
+        • Contract your abdominal muscles and curl up until your fingertips reach your knees.\n\n
+        • Slowly lower to the start position.</string>
+    <string name="ab_exercise_9">
+        • Extend the legs straight up with knees crossed.\n\n
+        • Contract the abs to lift the shoulder blades off the floor.\n\n
+        • Keep the legs in a fixed position.</string>
     <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/admob_strings.xml -->
     <eat-comment/>
     <string name="accept">Accept</string>
@@ -245,6 +336,78 @@
     <string name="app_name">DreamTeen Fitness</string>
     <string name="app_name_splash">DreamTeen\nFitness</string>
     <string name="app_slogan">Make Fitness Better</string>
+    <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/arrays.xml -->
+    <eat-comment/>
+    <string name="arm_exercise_1">
+        • Stand with your legs hip-width apart, knees soft.\n\n
+        • Exhale as you slowly straighten arms until they are straight-up toward the ceiling.\n\n
+        • Inhale as you return your arms back to the starting position.</string>
+    <string name="arm_exercise_10">
+        • Lie on your right side with your knees straight.\n\n
+        • Raise your hips until your body forms a straight line from your ankles to your shoulders</string>
+    <string name="arm_exercise_2">
+        • Pull your abdominals in, stand tall, and keep your knees slightly bent.\n\n
+        • Curl both arms upward until they’re in front of your shoulders.\n\n
+        • Slowly lower the dumbbells back down.</string>
+    <string name="arm_exercise_3">
+        • Take your right arm over your head and your left hand behind your back at waist height.\n\n
+        • With the band behind your back pull the band tight.\n\n
+        • Extend your right arm up towards the ceiling and then back down.</string>
+    <string name="arm_exercise_4">
+        • Take your left arm over your head and your right hand behind your back at waist height.\n\n
+        • With the band behind your back pull the band tight.\n\n
+        • Extend your left arm up towards the ceiling and then back down.</string>
+    <string name="arm_exercise_5">
+        • Keep the torso stationary and lift the barbell to you.\n\n
+        • At the top contracted position, squeeze the back muscles and hold for a brief pause.\n\n
+        • Lower the barbell back to the starting position.</string>
+    <string name="arm_exercise_6">
+        • Position dumbbells in front of upper legs.\n\n
+        • Raise dumbbells forward and upward until upper arms are above horizontal.</string>
+    <string name="arm_exercise_7">
+        • Sit down on floor with knees bent, feet on floor, and push up bars behind buttocks.\n\n
+        • Raise one leg off of the ground so that raised leg is parallel with the ground.\n\n
+        • Bend elbows to lower body down to the ground.</string>
+    <string name="arm_exercise_8">
+        • Place your hands directly under your shoulders.\n\n
+        • Bend your arms to about 90 and lower your body, keeping your head in line with your spine.</string>
+    <string name="arm_exercise_9">
+        • Lie on your left side with your knees straight.\n\n
+        • Raise your hips until your body forms a straight line from your ankles to your shoulders</string>
+    <string name="butt_exercise_1">
+        • Stand with your feet slightly wider than hip-width apart, back straight, shoulders down.\n\n
+        • Lower your body down, until your thighs are parallel to the ground.</string>
+    <string name="butt_exercise_10">
+        • Lie down on the bench with your hips on the edge and your legs tucked underneath.\n\n
+        • Fully extend both legs straight out.\n\n
+        • Pull your knees back into the tucked position.</string>
+    <string name="butt_exercise_2">
+        • Step forward with one leg and lower your body to 90 degrees at both knees.\n\n
+        • Push up and back to the starting position.</string>
+    <string name="butt_exercise_3">
+        • Take a large step to the side and lunge toward the floor.\n\n
+        • Push off through your right foot to return to the start to complete one.</string>
+    <string name="butt_exercise_4">
+        • Squat down and grasp bar with shoulder width.\n\n
+        • Lift bar by extending hips and knees to full extension.\n\n
+        • Pull shoulders back at top of lift if rounded.</string>
+    <string name="butt_exercise_5">
+        • Bend over and place your palms on the floor three feet in front of your toes.\n\n
+        • Extend your left leg, then push off your right foot.</string>
+    <string name="butt_exercise_6">
+        • Bend over and place your palms on the floor three feet in front of your toes.\n\n
+        • Extend your right leg, then push off your left foot.</string>
+    <string name="butt_exercise_7">
+        • Lie flat on the floor.\n\n
+        • Lift your hips off the floor while keeping your back straight.</string>
+    <string name="butt_exercise_8">
+        • Sit on the padded seat.\n\n
+        • Hold the head steady, grip the bars firmly at each side.</string>
+    <string name="butt_exercise_9">
+        • Contract your abs and keep them tight throughout the exercise.\n\n
+        • Raise on leg up a few inches and bring it back to the starting position.</string>
+    <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
     <string name="calories_burned">calories burned</string>
     <string name="calories_default_value">0</string>
     <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.facebook.android/facebook/3.21.1/res/values/values.xml -->
@@ -338,6 +501,50 @@
     <string name="hello_world">Hello world!</string>
     <string name="invite_button_label_fb">Find on Facebook</string>
     <string name="kg_test_value" translatable="false">8</string>
+    <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/arrays.xml -->
+    <eat-comment/>
+    <string name="leg_exercise_1">
+        • Lie down on the right side of your body.\n\n
+        • Stretch you right arm long and relax your head down.\n\n
+        • Pull your abdominals, exhale and raise your right leg up and down.</string>
+    <string name="leg_exercise_10">
+        • Step your left foot forward, raise right.\n\n
+        • Bend both knees to lower body down as far as possible.\n\n
+        • Exhale and extend both knees up to return to starting position.</string>
+    <string name="leg_exercise_2">
+        • Lie on left side, supported on elbow, legs long and slightly in front of body.\n\n
+        • Raise right leg to hip height.\n\n
+        • Pulse, inhale, lengthen leg to back.</string>
+    <string name="leg_exercise_3">
+        • Lie down in a straight line.\n\n
+        • Bring your right leg over top of your left long leg and place your foot on to your mat.\n\n
+        • Pull your abdominals in, exhale and raise your left leg up and down.</string>
+    <string name="leg_exercise_4">
+        • Lie down on the left side of your body.\n\n
+        • Stretch you left arm long and relax your head down.\n\n
+        • Pull your abdominals, exhale and raise your left leg up and down.</string>
+    <string name="leg_exercise_5">
+        • Lie on left side, supported on elbow, legs long and slightly in front of body.\n\n
+        • Raise right leg to hip height.\n\n
+        • Pulse, inhale, lengthen leg to back.</string>
+    <string name="leg_exercise_6">
+        • Lie down in a straight line.\n\n
+        • Bring your left leg over top of your right long leg and place your foot on to your mat.\n\n
+        • Pull your abdominals in (belly button to spine) exhale and raise your right leg up and down.</string>
+    <string name="leg_exercise_7">
+        • Lie flat on your stomach, resting your head on your forearms.\n\n
+        • Bend at knees to pull dumbbell toward butt.\n\n
+        • Stay in a straight line, do not allow the dumbbell to drift to one side of the body.</string>
+    <string name="leg_exercise_8">
+        • Sitting in a chair with your abs contracted, extend your leg with your foot up, knee straight.\n\n
+        • Slightly raise your thigh off the chair, lower and repeat.\n\n
+        • Repeat with the other leg.</string>
+    <string name="leg_exercise_9">
+        • Step your right foot forward, raise left.\n\n
+        • Bend both knees to lower body down as far as possible.\n\n
+        • Exhale and extend both knees up to return to starting position.</string>
+    <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
     <string name="log_activity_label">Log workout</string>
     <string name="login_button_label">Connect to Google Fit</string>
     <string name="network_error">Network error</string>
@@ -371,7 +578,7 @@
     <string name="store_picture_title">Save image</string>
     <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="title_activity_challenges">Max run, steps</string>
+    <string name="title_activity_challenges">Challenges</string>
     <string name="title_activity_email">Recipients</string>
     <string name="title_activity_friends">Friends</string>
     <string name="title_activity_history">History</string>
@@ -588,6 +795,23 @@
         <item name="android:textColor">#4B5164</item>
         <item name="android:gravity">center</item>
     </style>
+    <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="fieldChallengeGoal">
+        <item name="android:inputType">number</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:maxLength">6</item>
+    </style>
+    <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.facebook.android/facebook/3.21.1/res/values/values.xml -->
+    <eat-comment/>
     <style name="tooltip_bubble_text">
 	    <item name="android:textColor">@android:color/white</item>
 	    <item name="android:gravity">left</item>

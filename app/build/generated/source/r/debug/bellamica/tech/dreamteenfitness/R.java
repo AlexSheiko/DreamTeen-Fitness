@@ -949,47 +949,7 @@ containing a value of this type.
         public static final int menu_summary=0x7f0c0001;
     }
     public static final class raw {
-        public static final int ab_0=0x7f050000;
-        public static final int ab_1=0x7f050001;
-        public static final int ab_2=0x7f050002;
-        public static final int ab_3=0x7f050003;
-        public static final int ab_4=0x7f050004;
-        public static final int ab_5=0x7f050005;
-        public static final int ab_6=0x7f050006;
-        public static final int ab_7=0x7f050007;
-        public static final int ab_8=0x7f050008;
-        public static final int ab_9=0x7f050009;
-        public static final int arm_0=0x7f05000a;
-        public static final int arm_1=0x7f05000b;
-        public static final int arm_2=0x7f05000c;
-        public static final int arm_3=0x7f05000d;
-        public static final int arm_4=0x7f05000e;
-        public static final int arm_5=0x7f05000f;
-        public static final int arm_6=0x7f050010;
-        public static final int arm_7=0x7f050011;
-        public static final int arm_8=0x7f050012;
-        public static final int arm_9=0x7f050013;
-        public static final int butt_0=0x7f050014;
-        public static final int butt_1=0x7f050015;
-        public static final int butt_2=0x7f050016;
-        public static final int butt_3=0x7f050017;
-        public static final int butt_4=0x7f050018;
-        public static final int butt_5=0x7f050019;
-        public static final int butt_6=0x7f05001a;
-        public static final int butt_7=0x7f05001b;
-        public static final int butt_8=0x7f05001c;
-        public static final int butt_9=0x7f05001d;
-        public static final int gtm_analytics=0x7f05001e;
-        public static final int leg_0=0x7f05001f;
-        public static final int leg_1=0x7f050020;
-        public static final int leg_2=0x7f050021;
-        public static final int leg_3=0x7f050022;
-        public static final int leg_4=0x7f050023;
-        public static final int leg_5=0x7f050024;
-        public static final int leg_6=0x7f050025;
-        public static final int leg_7=0x7f050026;
-        public static final int leg_8=0x7f050027;
-        public static final int leg_9=0x7f050028;
+        public static final int gtm_analytics=0x7f050000;
     }
     public static final class string {
         public static final int ab_exercise_1=0x7f0a0000;

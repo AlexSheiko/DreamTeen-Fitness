@@ -6,16 +6,97 @@
               android:orientation="vertical"
               tools:context="ui.activities.WorkoutActivity">
 
-    <VideoView
-        android:layout_width="match_parent"
-        android:layout_height="306dp"
-        android:id="@+id/videoView"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="16dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <ImageView
+                android:id="@+id/arrowPrevious"
+                android:src="@drawable/arrow_previous"
+                android:clickable="true"
+                android:onClick="previousExercise"
+                style="@style/ArrowControl"
+                android:layout_marginRight="12dp"
+                android:layout_gravity="top"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="#3c3c3c"
+                android:layout_gravity="center_horizontal"
+                android:text="Front lunges"
+                android:gravity="center_horizontal"
+                android:textSize="22sp"
+                android:layout_weight="1"
+                android:textIsSelectable="false"
+                android:id="@+id/title"
+                android:paddingTop="8dp"
+                android:singleLine="true"/>
+
+            <ImageView
+                android:id="@+id/arrowNext"
+                android:src="@drawable/arrow_next"
+                android:clickable="true"
+                android:onClick="nextExercise"
+                style="@style/ArrowControl"
+                android:layout_marginLeft="12dp"
+                android:layout_gravity="top"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/positionLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="#a09292"
+            android:textSize="16sp"
+            android:text="Exercise 1/8"
+            android:layout_gravity="center_horizontal|bottom"
+            />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/target_container_grayed"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="20dp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/scrollView"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="@string/ab_exercise_1"
+                    android:textColor="#4b4444"
+                    android:id="@+id/description"
+                    android:padding="24dp"
+                    android:layout_gravity="left|top"/>
+            </ScrollView>
+        </FrameLayout>
 
         <ImageButton
             android:id="@+id/pauseButton"
@@ -27,69 +108,7 @@
             android:paddingTop="4dp"
             android:paddingBottom="6dp"
             android:background="@drawable/pause_button"
-            android:layout_marginTop="8dp"/>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp">
-
-            <ImageView
-                android:id="@+id/arrowPrevious"
-                android:src="@drawable/arrow_previous"
-                android:clickable="true"
-                android:onClick="previousExercise"
-                style="@style/ArrowControl"
-                android:layout_marginRight="12dp"
-                android:layout_marginLeft="12dp"
-                android:layout_gravity="top"
-                android:layout_marginTop="8dp"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textColor="#3c3c3c"
-                android:layout_gravity="center_horizontal"
-                android:text="Front lunges"
-                android:gravity="center_horizontal"
-                android:textSize="26sp"
-                android:layout_weight="1"
-                android:textIsSelectable="false"
-                android:id="@+id/title"
-                android:paddingTop="8dp"/>
-
-            <ImageView
-                android:id="@+id/arrowNext"
-                android:src="@drawable/arrow_next"
-                android:clickable="true"
-                android:onClick="nextExercise"
-                style="@style/ArrowControl"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_gravity="top"
-                android:layout_marginTop="8dp"/>
-
-        </LinearLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/positionLabel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:textColor="#a09292"
-                android:layout_marginTop="10dp"
-                android:textSize="18sp"
-                android:text="Exercise 1/8"
-                android:layout_gravity="center_horizontal|bottom"/>
-        </FrameLayout>
+            android:layout_marginBottom="4dp"/>
 
         <TextView
             android:id="@+id/durationCounter"
