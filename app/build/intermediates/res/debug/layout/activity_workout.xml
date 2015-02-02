@@ -13,18 +13,6 @@
         android:orientation="vertical"
         android:paddingTop="16dp">
 
-        <ImageButton
-            android:id="@+id/pauseButton"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/ic_pause"
-            android:visibility="gone"
-            android:paddingTop="4dp"
-            android:paddingBottom="6dp"
-            android:background="@drawable/pause_button"
-            android:layout_marginTop="8dp"/>
-
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
@@ -40,9 +28,9 @@
                 android:onClick="previousExercise"
                 style="@style/ArrowControl"
                 android:layout_marginRight="12dp"
-                android:layout_marginLeft="12dp"
                 android:layout_gravity="top"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp"/>
 
             <TextView
                 android:layout_width="0dp"
@@ -51,11 +39,12 @@
                 android:layout_gravity="center_horizontal"
                 android:text="Front lunges"
                 android:gravity="center_horizontal"
-                android:textSize="26sp"
+                android:textSize="22sp"
                 android:layout_weight="1"
                 android:textIsSelectable="false"
                 android:id="@+id/title"
-                android:paddingTop="8dp"/>
+                android:paddingTop="8dp"
+                android:singleLine="true"/>
 
             <ImageView
                 android:id="@+id/arrowNext"
@@ -64,9 +53,9 @@
                 android:onClick="nextExercise"
                 style="@style/ArrowControl"
                 android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
                 android:layout_gravity="top"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"/>
 
         </LinearLayout>
 
@@ -79,7 +68,7 @@
             android:textSize="16sp"
             android:text="Exercise 1/8"
             android:layout_gravity="center_horizontal|bottom"
-            android:layout_marginTop="4dp"/>
+            />
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -94,7 +83,8 @@
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/scrollView">
+                android:id="@+id/scrollView"
+                android:layout_marginBottom="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -107,6 +97,18 @@
                     android:layout_gravity="left|top"/>
             </ScrollView>
         </FrameLayout>
+
+        <ImageButton
+            android:id="@+id/pauseButton"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_pause"
+            android:visibility="gone"
+            android:paddingTop="4dp"
+            android:paddingBottom="6dp"
+            android:background="@drawable/pause_button"
+            android:layout_marginBottom="4dp"/>
 
         <TextView
             android:id="@+id/durationCounter"

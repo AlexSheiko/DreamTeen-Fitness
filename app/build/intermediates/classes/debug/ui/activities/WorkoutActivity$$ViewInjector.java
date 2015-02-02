@@ -11,15 +11,15 @@ public class WorkoutActivity$$ViewInjector {
     target.mStartButton = (android.widget.Button) view;
     view = finder.findRequiredView(source, 2131558469, "field 'mFinishButton'");
     target.mFinishButton = (android.widget.Button) view;
-    view = finder.findRequiredView(source, 2131558460, "field 'mPauseButton'");
+    view = finder.findRequiredView(source, 2131558466, "field 'mPauseButton'");
     target.mPauseButton = (android.widget.ImageButton) view;
     view = finder.findRequiredView(source, 2131558467, "field 'mDurationCounter'");
     target.mDurationCounter = (android.widget.TextView) view;
-    view = finder.findRequiredView(source, 2131558464, "field 'mPositionLabel'");
+    view = finder.findRequiredView(source, 2131558463, "field 'mPositionLabel'");
     target.mPositionLabel = (android.widget.TextView) view;
-    view = finder.findRequiredView(source, 2131558462, "field 'mTitleTextView'");
+    view = finder.findRequiredView(source, 2131558461, "field 'mTitleTextView'");
     target.mTitleTextView = (android.widget.TextView) view;
-    view = finder.findRequiredView(source, 2131558466, "field 'mDescriptionTextView'");
+    view = finder.findRequiredView(source, 2131558465, "field 'mDescriptionTextView'");
     target.mDescriptionTextView = (android.widget.TextView) view;
   }
 

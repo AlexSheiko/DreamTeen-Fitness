@@ -21,17 +21,17 @@ public class Exercise {
             mTitles = Arrays.asList(
                     context.getResources().getStringArray(R.array.leg));
             mDescriptions = Arrays.asList(
-                    context.getResources().getStringArray(R.array.ab_desc));
+                    context.getResources().getStringArray(R.array.leg_desc));
         } else if (category.equals("arm")) {
             mTitles = Arrays.asList(
                     context.getResources().getStringArray(R.array.arm));
             mDescriptions = Arrays.asList(
-                    context.getResources().getStringArray(R.array.ab_desc));
+                    context.getResources().getStringArray(R.array.arm_desc));
         } else if (category.equals("butt")) {
             mTitles = Arrays.asList(
                     context.getResources().getStringArray(R.array.butt));
             mDescriptions = Arrays.asList(
-                    context.getResources().getStringArray(R.array.ab_desc));
+                    context.getResources().getStringArray(R.array.butt_desc));
         }
     }
 
