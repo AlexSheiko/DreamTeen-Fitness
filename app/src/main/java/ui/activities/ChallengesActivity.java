@@ -35,8 +35,10 @@ import bellamica.tech.dreamteenfitness.R;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import ui.fragments.ChallengeGoalDialog;
+import ui.fragments.ChallengeGoalDialog.OnChallengeValueChanged;
 
-public class ChallengesActivity extends Activity {
+public class ChallengesActivity extends Activity
+        implements OnChallengeValueChanged {
 
     public static final String TAG = ChallengesActivity.class.getSimpleName();
 
@@ -357,5 +359,10 @@ public class ChallengesActivity extends Activity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean(AUTH_PENDING, authInProgress);
+    }
+
+    @Override
+    public void onChallengeValueChanged() {
+        updateProgressBar();
     }
 }

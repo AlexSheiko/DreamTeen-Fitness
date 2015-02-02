@@ -1,5 +1,6 @@
 package ui.fragments;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
@@ -20,6 +21,27 @@ public class ChallengeGoalDialog extends DialogFragment {
     private EditText mDailyValueField;
     private EditText mWeeklyValueField;
     private EditText mMonthlyValueField;
+
+    public interface OnChallengeValueChanged {
+        public void onChallengeValueChanged();
+    }
+
+    // Use this instance of the interface to deliver action events
+    OnChallengeValueChanged mListener;
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        // Verify that the host activity implements the callback interface
+        try {
+            // Instantiate the NoticeDialogListener so we can send events to the host
+            mListener = (OnChallengeValueChanged) activity;
+        } catch (ClassCastException e) {
+            // The activity doesn't implement the interface, throw exception
+            throw new ClassCastException(activity.toString()
+                    + " must implement OnChallengeValueChanged");
+        }
+    }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -85,6 +107,7 @@ public class ChallengeGoalDialog extends DialogFragment {
                             } else if (key.equals("duration")) {
                                 mSharedPrefs.edit().putInt("daily_duration", newValue).apply();
                             }
+                            mListener.onChallengeValueChanged();
                         }
                         if (!mWeeklyValueField.getText().toString().isEmpty()) {
                             int newValue = Integer.parseInt(
@@ -94,6 +117,7 @@ public class ChallengeGoalDialog extends DialogFragment {
                             } else if (key.equals("duration")) {
                                 mSharedPrefs.edit().putInt("weekly_duration", newValue).apply();
                             }
+                            mListener.onChallengeValueChanged();
                         }
                         if (!mMonthlyValueField.getText().toString().isEmpty()) {
                             int newValue = Integer.parseInt(
@@ -103,6 +127,7 @@ public class ChallengeGoalDialog extends DialogFragment {
                             } else if (key.equals("duration")) {
                                 mSharedPrefs.edit().putInt("monthly_duration", newValue).apply();
                             }
+                            mListener.onChallengeValueChanged();
                         }
                         ChallengeGoalDialog.this.getDialog().cancel();
                     }
