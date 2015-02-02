@@ -132,6 +132,18 @@
         <item>High Side Plank Right</item>
         <item>High Side Plank Left</item>
     </string-array>
+    <string-array name="arm_desc">
+        <item>@string/arm_exercise_1</item>
+        <item>@string/arm_exercise_2</item>
+        <item>@string/arm_exercise_3</item>
+        <item>@string/arm_exercise_4</item>
+        <item>@string/arm_exercise_5</item>
+        <item>@string/arm_exercise_6</item>
+        <item>@string/arm_exercise_7</item>
+        <item>@string/arm_exercise_8</item>
+        <item>@string/arm_exercise_9</item>
+        <item>@string/arm_exercise_10</item>
+    </string-array>
     <string-array name="butt">
         <item>Squat</item>
         <item>Front Lunges</item>
@@ -224,6 +236,42 @@
         • Step your left foot forward, raise right.\n\n
         • Bend both knees to lower body down as far as possible.\n\n
         • Exhale and extend both knees up to return to starting position.</string>
+    <string name="arm_exercise_1">
+        • Stand with your legs hip-width apart, knees soft.\n\n
+        • Exhale as you slowly straighten arms until they are straight-up toward the ceiling.\n\n
+        • Inhale as you return your arms back to the starting position.</string>
+    <string name="arm_exercise_2">
+        • Pull your abdominals in, stand tall, and keep your knees slightly bent.\n\n
+        • Curl both arms upward until they’re in front of your shoulders.\n\n
+        • Slowly lower the dumbbells back down.</string>
+    <string name="arm_exercise_3">
+        • Take your right arm over your head and your left hand behind your back at waist height.\n\n
+        • With the band behind your back pull the band tight.\n\n
+        • Extend your right arm up towards the ceiling and then back down.</string>
+    <string name="arm_exercise_4">
+        • Take your left arm over your head and your right hand behind your back at waist height.\n\n
+        • With the band behind your back pull the band tight.\n\n
+        • Extend your left arm up towards the ceiling and then back down.</string>
+    <string name="arm_exercise_5">
+        • Keep the torso stationary and lift the barbell to you.\n\n
+        • At the top contracted position, squeeze the back muscles and hold for a brief pause.\n\n
+        • Lower the barbell back to the starting position.</string>
+    <string name="arm_exercise_6">
+        • Position dumbbells in front of upper legs.\n\n
+        • Raise dumbbells forward and upward until upper arms are above horizontal.</string>
+    <string name="arm_exercise_7">
+        • Sit down on floor with knees bent, feet on floor, and push up bars behind buttocks.\n\n
+        • Raise one leg off of the ground so that raised leg is parallel with the ground.\n\n
+        • Bend elbows to lower body down to the ground.</string>
+    <string name="arm_exercise_8">
+        • Place your hands directly under your shoulders.\n\n
+        • Bend your arms to about 90 and lower your body, keeping your head in line with your spine.</string>
+    <string name="arm_exercise_9">
+        • Lie on your left side with your knees straight.\n\n
+        • Raise your hips until your body forms a straight line from your ankles to your shoulders</string>
+    <string name="arm_exercise_10">
+        • Lie on your right side with your knees straight.\n\n
+        • Raise your hips until your body forms a straight line from your ankles to your shoulders</string>
 
 
 </resources>
