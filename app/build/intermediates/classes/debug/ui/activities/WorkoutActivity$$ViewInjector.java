@@ -7,19 +7,19 @@ import butterknife.ButterKnife.Finder;
 public class WorkoutActivity$$ViewInjector {
   public static void inject(Finder finder, final ui.activities.WorkoutActivity target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131558475, "field 'mStartButton'");
+    view = finder.findRequiredView(source, 2131558478, "field 'mStartButton'");
     target.mStartButton = (android.widget.Button) view;
-    view = finder.findRequiredView(source, 2131558476, "field 'mFinishButton'");
+    view = finder.findRequiredView(source, 2131558479, "field 'mFinishButton'");
     target.mFinishButton = (android.widget.Button) view;
-    view = finder.findRequiredView(source, 2131558473, "field 'mPauseButton'");
+    view = finder.findRequiredView(source, 2131558476, "field 'mPauseButton'");
     target.mPauseButton = (android.widget.ImageButton) view;
-    view = finder.findRequiredView(source, 2131558474, "field 'mDurationCounter'");
+    view = finder.findRequiredView(source, 2131558477, "field 'mDurationCounter'");
     target.mDurationCounter = (android.widget.TextView) view;
-    view = finder.findRequiredView(source, 2131558470, "field 'mPositionLabel'");
+    view = finder.findRequiredView(source, 2131558473, "field 'mPositionLabel'");
     target.mPositionLabel = (android.widget.TextView) view;
-    view = finder.findRequiredView(source, 2131558468, "field 'mTitleTextView'");
+    view = finder.findRequiredView(source, 2131558471, "field 'mTitleTextView'");
     target.mTitleTextView = (android.widget.TextView) view;
-    view = finder.findRequiredView(source, 2131558472, "field 'mDescriptionTextView'");
+    view = finder.findRequiredView(source, 2131558475, "field 'mDescriptionTextView'");
     target.mDescriptionTextView = (android.widget.TextView) view;
   }
 

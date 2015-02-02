@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import bellamica.tech.dreamteenfitness.R;
@@ -24,6 +25,18 @@ public class ChallengesActivity extends Activity {
     Button mSetStepsButton;
     @InjectView(R.id.setDurationButton)
     Button mSetDurationButton;
+    @InjectView(R.id.progressBarDailySteps)
+    ProgressBar mProgressBarDailySteps;
+    @InjectView(R.id.progressBarWeeklySteps)
+    ProgressBar mProgressBarWeeklySteps;
+    @InjectView(R.id.progressBarMonthlySteps)
+    ProgressBar mProgressBarMonthlySteps;
+    @InjectView(R.id.progressBarDailyDuration)
+    ProgressBar mProgressBarDailyDuration;
+    @InjectView(R.id.progressBarWeeklyDuration)
+    ProgressBar mProgressBarWeeklyDuration;
+    @InjectView(R.id.progressBarMonthlyDuration)
+    ProgressBar mProgressBarMonthlyDuration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +56,28 @@ public class ChallengesActivity extends Activity {
         boolean isStepsGoalSet = false;
         if (dailySteps != -1 || weeklySteps != -1 || monthlySteps != -1) {
             isStepsGoalSet = true;
+            if (dailySteps != -1) {
+                mProgressBarDailySteps.setVisibility(View.VISIBLE);
+            }
+            if (weeklySteps != -1) {
+                mProgressBarWeeklySteps.setVisibility(View.VISIBLE);
+            }
+            if (monthlySteps != -1) {
+                mProgressBarMonthlySteps.setVisibility(View.VISIBLE);
+            }
         }
         boolean isDurationGoalSet = false;
         if (dailyDuration != -1 || weeklyDuration != -1 || monthlyDuration != -1) {
             isDurationGoalSet = true;
+            if (dailyDuration != -1) {
+                mProgressBarDailyDuration.setVisibility(View.VISIBLE);
+            }
+            if (weeklyDuration != -1) {
+                mProgressBarWeeklyDuration.setVisibility(View.VISIBLE);
+            }
+            if (monthlyDuration != -1) {
+                mProgressBarMonthlyDuration.setVisibility(View.VISIBLE);
+            }
         }
 
         if (isStepsGoalSet) {

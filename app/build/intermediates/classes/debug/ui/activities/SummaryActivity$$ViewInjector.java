@@ -7,13 +7,13 @@ import butterknife.ButterKnife.Finder;
 public class SummaryActivity$$ViewInjector {
   public static void inject(Finder finder, final ui.activities.SummaryActivity target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131558461, "field 'mUnitsLabel'");
+    view = finder.findRequiredView(source, 2131558464, "field 'mUnitsLabel'");
     target.mUnitsLabel = (android.widget.TextView) view;
-    view = finder.findRequiredView(source, 2131558460, "field 'mDistanceLabel'");
+    view = finder.findRequiredView(source, 2131558463, "field 'mDistanceLabel'");
     target.mDistanceLabel = (android.widget.TextView) view;
-    view = finder.findRequiredView(source, 2131558462, "field 'mNameField'");
+    view = finder.findRequiredView(source, 2131558465, "field 'mNameField'");
     target.mNameField = (android.widget.EditText) view;
-    view = finder.findRequiredView(source, 2131558466, "field 'mDiscardButton'");
+    view = finder.findRequiredView(source, 2131558469, "field 'mDiscardButton'");
     target.mDiscardButton = (android.widget.TextView) view;
   }
 
