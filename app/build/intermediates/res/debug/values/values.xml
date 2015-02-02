@@ -794,6 +794,22 @@
         <item name="android:textColor">#4B5164</item>
         <item name="android:gravity">center</item>
     </style>
+    <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="fieldChallengeGoal">
+        <item name="android:inputType">number</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:maxEms">7</item>
+    </style>
+    <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.facebook.android/facebook/3.21.1/res/values/values.xml -->
+    <eat-comment/>
     <style name="tooltip_bubble_text">
 	    <item name="android:textColor">@android:color/white</item>
 	    <item name="android:gravity">left</item>

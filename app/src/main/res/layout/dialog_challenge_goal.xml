@@ -6,43 +6,19 @@
 
     <EditText
         android:id="@+id/dailyField"
-        android:inputType="number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="10dp"
         android:hint="Daily"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"/>
+        style="@style/fieldChallengeGoal"/>
 
     <requestFocus/>
 
     <EditText
         android:id="@+id/weeklyField"
-        android:inputType="number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="10dp"
         android:hint="Weekly"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"/>
+        style="@style/fieldChallengeGoal"/>
 
     <EditText
         android:id="@+id/monthlyField"
-        android:inputType="number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="10dp"
         android:hint="Monthly"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"/>
+        style="@style/fieldChallengeGoal"/>
 
 </LinearLayout>

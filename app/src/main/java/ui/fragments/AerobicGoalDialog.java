@@ -36,7 +36,7 @@ public class AerobicGoalDialog extends DialogFragment {
         final Spinner mGoalTypeSpinner = (Spinner) view.findViewById(R.id.goalTypeSpinner);
         mGoalTypeSpinner.setAdapter(mTypeSpinnerAdapter);
 
-        final EditText valueField = (EditText) view.findViewById(R.id.valueField);
+        final EditText valueField = (EditText) view.findViewById(R.id.valueFieldDay);
 
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout

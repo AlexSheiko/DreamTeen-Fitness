@@ -18,7 +18,9 @@
         android:background="@drawable/target_container"
         android:orientation="horizontal"
         android:paddingLeft="12dp"
-        android:paddingRight="12dp">
+        android:paddingRight="12dp"
+        android:clickable="true"
+        android:onClick="addChallengeGoal">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -62,10 +64,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|right"
                 android:paddingLeft="12dp"
-                android:background="@drawable/set_goal_button"
+                android:background="@drawable/set_goal_button_purple"
                 android:fontFamily="sans-serif-bold"
                 android:paddingRight="12dp"
-                android:onClick="addFitnessGoal"
                 android:text="Add"/>
 
         </FrameLayout>
@@ -82,7 +83,9 @@
         android:background="@drawable/target_container"
         android:orientation="horizontal"
         android:paddingLeft="12dp"
-        android:paddingRight="12dp">
+        android:paddingRight="12dp"
+        android:clickable="true"
+        android:onClick="addChallengeGoal">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -129,7 +132,6 @@
                 android:background="@drawable/set_goal_button"
                 android:fontFamily="sans-serif-bold"
                 android:paddingRight="12dp"
-                android:onClick="addFitnessGoal"
                 android:text="Add"/>
 
         </FrameLayout>

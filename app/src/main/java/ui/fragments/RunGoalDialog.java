@@ -56,7 +56,7 @@ public class RunGoalDialog extends DialogFragment {
         SharedPreferences mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         Bundle bundle = getArguments();
         final String key = bundle.getString("key");
-        final EditText mValueField = (EditText) view.findViewById(R.id.valueField);
+        final EditText mValueField = (EditText) view.findViewById(R.id.valueFieldDay);
         if (key.equals("calories")) {
             mValueField.setHint(mSharedPrefs.getInt("calories_norm", CALORIES_DEFAULT) + "");
         } else if (key.equals("steps")) {

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/dailyField"
+        android:hint="Daily"
+        style="@style/fieldChallengeGoal"/>
+
+    <requestFocus/>
+
+    <EditText
+        android:id="@+id/weeklyField"
+        android:hint="Weekly"
+        style="@style/fieldChallengeGoal"/>
+
+    <EditText
+        android:id="@+id/monthlyField"
+        android:hint="Monthly"
+        style="@style/fieldChallengeGoal"/>
+
+</LinearLayout><!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/layout/dialog_challenge_goal.xml -->

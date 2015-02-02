@@ -20,10 +20,10 @@ public class ChallengesActivity extends Activity {
     public void addChallengeGoal(View view) {
         Bundle bundle = new Bundle();
         switch (view.getId()) {
-            case R.id.setStepsButton:
+            case R.id.stepsContainer:
                 bundle.putString("key", "steps");
                 break;
-            case R.id.setDurationButton:
+            case R.id.durationContainer:
                 bundle.putString("key", "duration");
                 break;
         }

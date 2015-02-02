@@ -1,6 +1,5 @@
 package ui.fragments;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
@@ -18,34 +17,6 @@ import bellamica.tech.dreamteenfitness.R;
 
 public class ChallengeGoalDialog extends DialogFragment {
 
-    private static final int CALORIES_DEFAULT = 2150;
-
-    /* The activity that creates an instance of this dialog fragment must
-     * implement this interface in order to receive event callbacks.
-     * Each method passes the DialogFragment in case the host needs to query it. */
-    public interface CaloriesDialogListener {
-        public void onCaloriesGoalChanged(DialogFragment dialog, int newValue);
-        public void onStepsGoalChanged(DialogFragment dialog, int newValue);
-    }
-
-    // Use this instance of the interface to deliver action events
-    CaloriesDialogListener mListener;
-
-    // Override the Fragment.onAttach() method to instantiate the NoticeDialogListener
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        // Verify that the host activity implements the callback interface
-        try {
-            // Instantiate the NoticeDialogListener so we can send events to the host
-            mListener = (CaloriesDialogListener) activity;
-        } catch (ClassCastException e) {
-            // The activity doesn't implement the interface, throw exception
-            throw new ClassCastException(activity.toString()
-                    + " must implement CaloriesDialogListener");
-        }
-    }
-
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final Builder builder = new Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT);
@@ -53,32 +24,51 @@ public class ChallengeGoalDialog extends DialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_challenge_goal, null);
 
-        SharedPreferences mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        final SharedPreferences mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         Bundle bundle = getArguments();
         final String key = bundle.getString("key");
-        final EditText mValueField = (EditText) view.findViewById(R.id.valueField);
-        if (key.equals("calories")) {
-            mValueField.setHint(mSharedPrefs.getInt("calories_norm", CALORIES_DEFAULT) + "");
-        } else if (key.equals("steps")) {
-            int stepsDefault = Integer.parseInt(getResources().getString(R.string.steps_target_default_value));
-            mValueField.setHint(mSharedPrefs.getInt("steps_target", stepsDefault) + "");
-        }
+        final EditText mDailyValueField = (EditText) view.findViewById(R.id.dailyField);
+        final EditText mWeeklyValueField = (EditText) view.findViewById(R.id.weeklyField);
+        final EditText mMonthlyValueField = (EditText) view.findViewById(R.id.monthlyField);
 
+        String title = null;
+        if (key.equals("steps")) {
+            title = "Step count, goal";
+        } else if (key.equals("duration")) {
+            title = "Run duration, min";
+        }
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
         builder.setView(view)
-                .setTitle("Goal, " + key)
+                .setTitle(title)
                         // Add action buttons
                 .setPositiveButton("Set", new OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        // Send the positive button event back to the host activity
-                        if (!mValueField.getText().toString().isEmpty()) {
+                        if (!mDailyValueField.getText().toString().isEmpty()) {
                             int newValue = Integer.parseInt(
-                                    mValueField.getText().toString());
-                            if (key.equals("calories")) {
-                                mListener.onCaloriesGoalChanged(ChallengeGoalDialog.this, newValue);
-                            } else if (key.equals("steps")) {
-                                mListener.onStepsGoalChanged(ChallengeGoalDialog.this, newValue);
+                                    mDailyValueField.getText().toString());
+                            if (key.equals("steps")) {
+                                mSharedPrefs.edit().putInt("daily_steps", newValue).apply();
+                            } else if (key.equals("duration")) {
+                                mSharedPrefs.edit().putInt("daily_duration", newValue).apply();
+                            }
+                        }
+                        if (!mWeeklyValueField.getText().toString().isEmpty()) {
+                            int newValue = Integer.parseInt(
+                                    mWeeklyValueField.getText().toString());
+                            if (key.equals("steps")) {
+                                mSharedPrefs.edit().putInt("weekly_steps", newValue).apply();
+                            } else if (key.equals("duration")) {
+                                mSharedPrefs.edit().putInt("weekly_duration", newValue).apply();
+                            }
+                        }
+                        if (!mMonthlyValueField.getText().toString().isEmpty()) {
+                            int newValue = Integer.parseInt(
+                                    mMonthlyValueField.getText().toString());
+                            if (key.equals("steps")) {
+                                mSharedPrefs.edit().putInt("monthly_steps", newValue).apply();
+                            } else if (key.equals("duration")) {
+                                mSharedPrefs.edit().putInt("monthly_duration", newValue).apply();
                             }
                         }
                         ChallengeGoalDialog.this.getDialog().cancel();
