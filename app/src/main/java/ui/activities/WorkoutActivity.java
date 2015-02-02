@@ -181,11 +181,9 @@ public class WorkoutActivity extends Activity {
         if (mCurrentPosition < 9) {
             mCurrentPosition++;
             updateExercise();
-            mVideoView.start();
         } else {
             mCurrentPosition = 0;
             updateExercise();
-            mVideoView.start();
         }
     }
 
@@ -193,11 +191,9 @@ public class WorkoutActivity extends Activity {
         if (mCurrentPosition != 0) {
             mCurrentPosition--;
             updateExercise();
-            mVideoView.start();
         } else {
             mCurrentPosition = 9;
             updateExercise();
-            mVideoView.start();
         }
     }
 
