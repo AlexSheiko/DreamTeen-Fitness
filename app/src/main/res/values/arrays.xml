@@ -108,6 +108,18 @@
         <item>Static Lunge Right</item>
         <item>Static Lunge Left</item>
     </string-array>
+    <string-array name="leg_desc">
+        <item>@string/leg_exercise_1</item>
+        <item>@string/leg_exercise_2</item>
+        <item>@string/leg_exercise_3</item>
+        <item>@string/leg_exercise_4</item>
+        <item>@string/leg_exercise_5</item>
+        <item>@string/leg_exercise_6</item>
+        <item>@string/leg_exercise_7</item>
+        <item>@string/leg_exercise_8</item>
+        <item>@string/leg_exercise_9</item>
+        <item>@string/leg_exercise_10</item>
+    </string-array>
     <string-array name="arm">
         <item>Overhead Press</item>
         <item>Bicep Curls</item>
@@ -146,32 +158,72 @@
         • With the hand behind your head, perform crunches toward the left knee.</string>
     <string name="ab_exercise_4">
         • Press your lower back to the ground and contract your core muscles.\n\n
-        • With your hands gently holding your head, lift your knees to about a 45-degree angle.\n\n
+        • Lift your knees to a 45-degree angle.\n\n
         • Slowly go through a bicycle pedal motion.</string>
     <string name="ab_exercise_5">
         • Place your hands behind the head.\n\n
-        • Bring the knees in towards the chest until they're bent to 90 degrees, with feet together or crossed.\n\n
-        • Contract the abs to curl the hips off the floor, reaching the legs up towards the ceiling.</string>
+        • Bring the knees in towards the chest until they're bent to 90 degrees.\n\n
+        • Contract the abs to curl the hips off the floor.</string>
     <string name="ab_exercise_6">
-        • Lie on your back with your arms over your head with hands clasped and arms close to your ears.\n\n
+        • Lie on your back with your arms over your head.\n\n
         • Keep your knees bent with feet flat on the floor.\n\n
         • Contract your abs and lift your shoulder blades off the floor.</string>
     <string name="ab_exercise_7">
         • Lie on your back with your knees bent and feet flat on the floor.\n\n
-        • Cross your right leg over your left leg so your right ankle is resting on your left knee.\n\n
-        • Contract your abdominal muscles as though you are doing a crunch.\n\n
-        • Slowly twist your torso and touch your left elbow to your right knee.</string>
+        • Cross your right leg over your left leg.\n\n
+        • Contract your abdominal muscles, twist your torso and touch your left elbow to your right knee.</string>
     <string name="ab_exercise_8">
         • Place your palms on your thighs.\n\n
         • Contract your abdominal muscles and curl up until your fingertips reach your knees.\n\n
         • Slowly lower to the start position.</string>
     <string name="ab_exercise_9">
         • Extend the legs straight up with knees crossed.\n\n
-        • Contract the abs to lift the shoulder blades off the floor, as though reaching your chest towards your feet.\n\n
+        • Contract the abs to lift the shoulder blades off the floor.\n\n
         • Keep the legs in a fixed position.</string>
     <string name="ab_exercise_10">
-        • Lie face down on mat resting on the forearms, palms flat on the floor.\n\n
+        • Lie face down on mat resting on the forearms.\n\n
         • Push off the floor, raising up onto toes and resting on the elbows.\n\n
         • Hold your back flat for 30 seconds.</string>
+    <string name="leg_exercise_1">
+        • Lie down on the right side of your body.\n\n
+        • Stretch you right arm long and relax your head down.\n\n
+        • Pull your abdominals, exhale and raise your right leg up and down.</string>
+    <string name="leg_exercise_2">
+        • Lie on left side, supported on elbow, legs long and slightly in front of body.\n\n
+        • Raise right leg to hip height.\n\n
+        • Pulse, inhale, lengthen leg to back.</string>
+    <string name="leg_exercise_3">
+        • Lie down in a straight line.\n\n
+        • Bring your right leg over top of your left long leg and place your foot on to your mat.\n\n
+        • Pull your abdominals in, exhale and raise your left leg up and down.</string>
+    <string name="leg_exercise_4">
+        • Lie down on the left side of your body.\n\n
+        • Stretch you left arm long and relax your head down.\n\n
+        • Pull your abdominals, exhale and raise your left leg up and down.</string>
+    <string name="leg_exercise_5">
+        • Lie on left side, supported on elbow, legs long and slightly in front of body.\n\n
+        • Raise right leg to hip height.\n\n
+        • Pulse, inhale, lengthen leg to back.</string>
+    <string name="leg_exercise_6">
+        • Lie down in a straight line.\n\n
+        • Bring your left leg over top of your right long leg and place your foot on to your mat.\n\n
+        • Pull your abdominals in (belly button to spine) exhale and raise your right leg up and down.</string>
+    <string name="leg_exercise_7">
+        • Lie flat on your stomach, resting your head on your forearms.\n\n
+        • Bend at knees to pull dumbbell toward butt.\n\n
+        • Stay in a straight line, do not allow the dumbbell to drift to one side of the body.</string>
+    <string name="leg_exercise_8">
+        • Sitting in a chair with your abs contracted, extend your leg with your foot up, knee straight.\n\n
+        • Slightly raise your thigh off the chair, lower and repeat.\n\n
+        • Repeat with the other leg.</string>
+    <string name="leg_exercise_9">
+        • Step your right foot forward, raise left.\n\n
+        • Bend both knees to lower body down as far as possible.\n\n
+        • Exhale and extend both knees up to return to starting position.</string>
+    <string name="leg_exercise_10">
+        • Step your left foot forward, raise right.\n\n
+        • Bend both knees to lower body down as far as possible.\n\n
+        • Exhale and extend both knees up to return to starting position.</string>
+
 
 </resources>
