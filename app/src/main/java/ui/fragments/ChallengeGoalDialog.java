@@ -17,6 +17,10 @@ import bellamica.tech.dreamteenfitness.R;
 
 public class ChallengeGoalDialog extends DialogFragment {
 
+    private EditText mDailyValueField;
+    private EditText mWeeklyValueField;
+    private EditText mMonthlyValueField;
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final Builder builder = new Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT);
@@ -27,9 +31,38 @@ public class ChallengeGoalDialog extends DialogFragment {
         final SharedPreferences mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         Bundle bundle = getArguments();
         final String key = bundle.getString("key");
-        final EditText mDailyValueField = (EditText) view.findViewById(R.id.dailyField);
-        final EditText mWeeklyValueField = (EditText) view.findViewById(R.id.weeklyField);
-        final EditText mMonthlyValueField = (EditText) view.findViewById(R.id.monthlyField);
+        mDailyValueField = (EditText) view.findViewById(R.id.dailyField);
+        mWeeklyValueField = (EditText) view.findViewById(R.id.weeklyField);
+        mMonthlyValueField = (EditText) view.findViewById(R.id.monthlyField);
+
+        String dailySteps = mSharedPrefs.getInt("daily_steps", -1) + "";
+        String weeklySteps = mSharedPrefs.getInt("weekly_steps", -1) + "";
+        String monthlySteps = mSharedPrefs.getInt("monthly_steps", -1) + "";
+        String dailyDuration = mSharedPrefs.getInt("daily_duration", -1) + "";
+        String weeklyDuration = mSharedPrefs.getInt("weekly_duration", -1) + "";
+        String monthlyDuration = mSharedPrefs.getInt("monthly_duration", -1) + "";
+
+        if (key.equals("steps")) {
+            if (!dailySteps.equals("-1")) {
+                mDailyValueField.setText(dailySteps);
+            }
+            if (!weeklySteps.equals("-1")) {
+                mDailyValueField.setText(weeklySteps);
+            }
+            if (!monthlySteps.equals("-1")) {
+                mDailyValueField.setText(monthlySteps);
+            }
+        } else if (key.equals("duration")) {
+            if (!dailyDuration.equals("-1")) {
+                mDailyValueField.setText(dailyDuration);
+            }
+            if (!weeklyDuration.equals("-1")) {
+                mDailyValueField.setText(weeklyDuration);
+            }
+            if (!monthlyDuration.equals("-1")) {
+                mDailyValueField.setText(monthlyDuration);
+            }
+        }
 
         String title = null;
         if (key.equals("steps")) {
