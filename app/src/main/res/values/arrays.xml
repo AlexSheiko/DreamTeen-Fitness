@@ -156,6 +156,9 @@
         <item>Flutter Kicks</item>
         <item>Froggy Glute Lifts</item>
     </string-array>
+    <string-array name="butt_desc">
+        <item>@string/butt_exercise_1</item>
+    </string-array>
     <string name="ab_exercise_1">
         • Lie on your back with your knees bent and feet flat on the floor.\n\n
         • Curl up and forward so that your head, neck, and shoulder blades lift off the floor.\n\n
@@ -272,6 +275,37 @@
     <string name="arm_exercise_10">
         • Lie on your right side with your knees straight.\n\n
         • Raise your hips until your body forms a straight line from your ankles to your shoulders</string>
-
+    <string name="butt_exercise_1">
+        • Stand with your feet slightly wider than hip-width apart, back straight, shoulders down.\n\n
+        • Lower your body down, until your thighs are parallel to the ground.</string>
+    <string name="butt_exercise_2">
+        • Step forward with one leg and lower your body to 90 degrees at both knees.\n\n
+        • Push up and back to the starting position.</string>
+    <string name="butt_exercise_3">
+        • Take a large step to the side and lunge toward the floor.\n\n
+        • Push off through your right foot to return to the start to complete one.</string>
+    <string name="butt_exercise_4">
+        • Squat down and grasp bar with shoulder width.\n\n
+        • Lift bar by extending hips and knees to full extension.\n\n
+        • Pull shoulders back at top of lift if rounded.</string>
+    <string name="butt_exercise_5">
+        • Bend over and place your palms on the floor three feet in front of your toes.\n\n
+        • Extend your left leg, then push off your right foot.</string>
+    <string name="butt_exercise_6">
+        • Bend over and place your palms on the floor three feet in front of your toes.\n\n
+        • Extend your right leg, then push off your left foot.</string>
+    <string name="butt_exercise_7">
+        • Lie flat on the floor.\n\n
+        • Lift your hips off the floor while keeping your back straight.</string>
+    <string name="butt_exercise_8">
+        • Sit on the padded seat.\n\n
+        • Hold the head steady, grip the bars firmly at each side.</string>
+    <string name="butt_exercise_9">
+        • Contract your abs and keep them tight throughout the exercise.\n\n
+        • Raise on leg up a few inches and bring it back to the starting position.</string>
+    <string name="butt_exercise_10">
+        • Lie down on the bench with your hips on the edge and your legs tucked underneath.\n\n
+        • Fully extend both legs straight out.\n\n
+        • Pull your knees back into the tucked position.</string>
 
 </resources>
