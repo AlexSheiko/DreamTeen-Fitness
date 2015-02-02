@@ -21,7 +21,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -118,8 +117,8 @@ public class MainActivity extends Activity
                             @Override
                             public void onConnected(Bundle bundle) {
                                 // Now you can make calls to the Fitness APIs.
-                                readExpandedCalories();
-                                findFitnessDataSources();
+                                readCaloriesAndSteps();
+                                findsTEPSSources();
                             }
 
                             @Override
@@ -159,7 +158,7 @@ public class MainActivity extends Activity
                 .build();
     }
 
-    private void findFitnessDataSources() {
+    private void findsTEPSSources() {
         // [START find_data_sources]
         Fitness.SensorsApi.findDataSources(mClient, new DataSourcesRequest.Builder()
                 // At least one datatype must be specified.
@@ -199,10 +198,7 @@ public class MainActivity extends Activity
             public void onDataPoint(DataPoint dataPoint) {
                 for (Field field : dataPoint.getDataType().getFields()) {
                     Value val = dataPoint.getValue(field);
-                    Log.i(TAG, "Detected DataPoint field: " + field.getName());
-                    Log.i(TAG, "Detected DataPoint value: " + val);
-                    Toast.makeText(MainActivity.this,
-                            "Value: " + val, Toast.LENGTH_SHORT).show();
+                    insertSteps(val.asInt());
                 }
             }
         };
@@ -228,7 +224,35 @@ public class MainActivity extends Activity
         // [END register_data_listener]
     }
 
-    private void readExpandedCalories() {
+    private void insertSteps(int steps) {
+        // Set a start and end time for our data, using a start time of 1 hour before this moment.
+        Calendar cal = Calendar.getInstance();
+        Date now = new Date();
+        cal.setTime(now);
+        long endTime = cal.getTimeInMillis();
+        cal.add(Calendar.SECOND, -1);
+        long startTime = cal.getTimeInMillis();
+
+        // Create a data source
+        DataSource dataSource = new DataSource.Builder()
+                .setAppPackageName(this)
+                .setDataType(DataType.TYPE_STEP_COUNT_DELTA)
+                .setName(TAG + " - step count")
+                .setType(DataSource.TYPE_RAW)
+                .build();
+
+        DataSet dataSet = DataSet.create(dataSource);
+        DataPoint dataPoint = dataSet.createDataPoint()
+                .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS);
+        dataPoint.getValue(Field.FIELD_STEPS).setInt(steps);
+        dataSet.add(dataPoint);
+
+        // Invoke the History API to insert the data
+        Fitness.HistoryApi.insertData(mClient, dataSet);
+        readCaloriesAndSteps();
+    }
+
+    private void readCaloriesAndSteps() {
         // Setting a start and end date using a range of 1 week before this moment.
         Calendar cal = Calendar.getInstance();
         Date now = new Date();
