@@ -57,11 +57,6 @@ public class RunActivity extends Activity
     private static final int WORKOUT_PAUSE = 2;
     private static final int WORKOUT_FINISH = 3;
 
-    private boolean is25notified = false;
-    private boolean is50notified = false;
-    private boolean is75notified = false;
-    private boolean is100notified = false;
-
     // Track whether an authorization activity is stacking over the current activity
     private static final String AUTH_PENDING = "auth_state_pending";
     private boolean authInProgress = false;

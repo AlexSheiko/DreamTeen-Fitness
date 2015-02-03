@@ -171,15 +171,11 @@ public class MainActivity extends Activity
                 .setResultCallback(new ResultCallback<DataSourcesResult>() {
                     @Override
                     public void onResult(DataSourcesResult dataSourcesResult) {
-                        Log.i(TAG, "Result: " + dataSourcesResult.getStatus().toString());
                         for (DataSource dataSource : dataSourcesResult.getDataSources()) {
-                            Log.i(TAG, "Data source found: " + dataSource.toString());
-                            Log.i(TAG, "Data Source type: " + dataSource.getDataType().getName());
 
                             //Let's register a listener to receive Activity data!
                             if (dataSource.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)
                                     && mListener == null) {
-                                Log.i(TAG, "Data source for STEP_COUNT found!  Registering.");
                                 registerFitnessDataListener(dataSource,
                                         DataType.TYPE_STEP_COUNT_DELTA);
                             }

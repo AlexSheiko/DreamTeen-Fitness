@@ -2,12 +2,14 @@ package ui.activities;
 
 import android.app.Activity;
 import android.app.DialogFragment;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -100,13 +102,12 @@ public class ChallengesActivity extends Activity
 
     public void addChallengeGoal(View view) {
         Bundle bundle = new Bundle();
-        switch (view.getId()) {
-            case R.id.stepsContainer:
-                bundle.putString("key", "steps");
-                break;
-            case R.id.durationContainer:
-                bundle.putString("key", "duration");
-                break;
+
+        int id = view.getId();
+        if (id == R.id.stepsContainer || id == R.id.setStepsButton) {
+            bundle.putString("key", "steps");
+        } else if (id == R.id.durationContainer || id == R.id.setDurationButton) {
+            bundle.putString("key", "duration");
         }
         DialogFragment newFragment = new ChallengeGoalDialog();
         newFragment.setArguments(bundle);
@@ -489,11 +490,31 @@ public class ChallengesActivity extends Activity
                 mProgressBarWeeklyDuration.setVisibility(View.VISIBLE);
                 mProgressBarWeeklyDuration.setMax(weeklyDuration * 60);
                 mProgressBarWeeklyDuration.setProgress((int) mWeeklyDuration);
-                if (mWeeklyDuration >= weeklyDuration * 60) {
+                if (mWeeklyDuration >= weeklyDuration * 60 * 0.5
+                        && mWeeklyDuration < weeklyDuration * 60 * 0.75
+                        && !mSharedPrefs.getBoolean("is50notified", false)) {
+                    showNotification("Weekly run", 50);
+                    mSharedPrefs.edit()
+                            .putBoolean("is50notified", true).apply();
+
+                } else if (mWeeklyDuration >= weeklyDuration * 60 * 0.75
+                        && mWeeklyDuration < weeklyDuration * 60
+                        && !mSharedPrefs.getBoolean("is75notified", false)) {
+                    showNotification("Weekly run", 75);
+                    mSharedPrefs.edit()
+                            .putBoolean("is75notified", true).apply();
+
+                } else if (mWeeklyDuration >= weeklyDuration * 60) {
                     Rect bounds = mProgressBarWeeklyDuration.getProgressDrawable().getBounds();
                     mProgressBarWeeklyDuration.setProgressDrawable(
                             getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));
                     mProgressBarWeeklyDuration.getProgressDrawable().setBounds(bounds);
+                    if (!mSharedPrefs.getBoolean("is100notified", false)) {
+                        showNotification("Weekly run", 100);
+                    mSharedPrefs.edit()
+                            .putBoolean("is100notified", true).apply();
+                    }
+
                 } else {
                     Rect bounds = mProgressBarWeeklyDuration.getProgressDrawable().getBounds();
                     mProgressBarWeeklyDuration.setProgressDrawable(
@@ -527,6 +548,28 @@ public class ChallengesActivity extends Activity
             mDurationNotSetLabel.setVisibility(View.GONE);
             mSetDurationButton.setVisibility(View.GONE);
         }
+    }
+
+    private void showNotification(String type, int progress) {
+        String title;
+        if (progress == 100) {
+            title = type + " goal reached!";
+        } else {
+            title = type + " goal is " + progress + "% reached";
+        }
+
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(ChallengesActivity.this)
+                        .setSmallIcon(R.drawable.ic_launcher)
+                        .setContentTitle(title);
+
+        // Sets an ID for the notification
+        int mNotificationId = 123;
+        // Gets an instance of the NotificationManager service
+        NotificationManager mNotifyMgr =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        // Builds the notification and issues it.
+        mNotifyMgr.notify(mNotificationId, mBuilder.build());
     }
 
     @Override
