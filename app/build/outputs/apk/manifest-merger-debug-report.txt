@@ -201,6 +201,8 @@ activity#ui.activities.ChallengesActivity
 ADDED from AndroidManifest.xml:120:9
 	android:label
 		ADDED from AndroidManifest.xml:122:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:123:13
 	android:name
 		ADDED from AndroidManifest.xml:121:13
 uses-sdk
