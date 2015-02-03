@@ -416,7 +416,8 @@ public class MainActivity extends Activity
 
         Integer[] mImageIds = new Integer[]{
                 R.drawable.ic_nav_dashboard, R.drawable.ic_nav_friends,
-                R.drawable.ic_nav_challenges, R.drawable.ic_nav_settings
+                R.drawable.ic_nav_challenges, R.drawable.ic_nav_goals,
+                R.drawable.ic_nav_settings
         };
         // set a custom shadow that overlays the main content when the drawer opens
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
@@ -462,8 +463,10 @@ public class MainActivity extends Activity
             } else if (position == 2) {
                 startActivity(new Intent(MainActivity.this, ChallengesActivity.class));
             } else if (position == 3) {
-                startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+                startActivity(new Intent(MainActivity.this, GoalsActivity.class));
             } else if (position == 4) {
+                startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+            } else if (position == 5) {
                 if (mClient.isConnected()) {
                     // 1. Invoke the Config API with the Google API client object
                     Fitness.ConfigApi.disableFit(mClient);

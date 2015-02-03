@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/target_container"
+        android:background="@drawable/container"
         android:orientation="horizontal"
         android:paddingLeft="12dp"
         android:paddingRight="12dp">
@@ -50,4 +50,4 @@
 
     </LinearLayout>
 
-</LinearLayout>
+</LinearLayout><!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/layout/fragment_goals.xml -->
