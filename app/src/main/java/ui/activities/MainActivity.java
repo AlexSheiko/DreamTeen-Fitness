@@ -616,7 +616,6 @@ public class MainActivity extends Activity
                             dumpDailyDuration(session);
                         }
                         showNotificationIfNeeded();
-                        Log.i(TAG, "Seconds today: " + mDailyDuration);
                     }
                 });
     }
@@ -635,8 +634,28 @@ public class MainActivity extends Activity
 
     private void showNotificationIfNeeded() {
         int dailySteps = mSharedPrefs.getInt("daily_steps", -1);
+        if (dailySteps == -1) {
+            int weeklySteps = mSharedPrefs.getInt("weekly_steps", -1);
+            if (weeklySteps == -1) return;
+            dailySteps = weeklySteps / 7;
+        }
+        if (dailySteps == -1) {
+            int monthlySteps = mSharedPrefs.getInt("monthly_steps", -1);
+            if (monthlySteps == -1) return;
+            dailySteps = monthlySteps / 30;
+        }
         int dailyDuration = mSharedPrefs.getInt("daily_duration", -1);
-
+        if (dailyDuration == -1) {
+            int weeklyDuration = mSharedPrefs.getInt("weekly_duration", -1);
+            if (weeklyDuration == -1) return;
+            dailyDuration = weeklyDuration / 7;
+        }
+        if (dailyDuration == -1) {
+            int monthlyDuration = mSharedPrefs.getInt("monthly_duration", -1);
+            if (monthlyDuration == -1) return;
+            dailyDuration = monthlyDuration / 30;
+        }
+        
         boolean isSteps50notified = mSharedPrefs.getBoolean("isSteps50notified", false);
         boolean isSteps75notified = mSharedPrefs.getBoolean("isSteps75notified", false);
         boolean isSteps100notified = mSharedPrefs.getBoolean("isSteps100notified", false);
