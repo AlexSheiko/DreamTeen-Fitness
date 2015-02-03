@@ -655,7 +655,7 @@ public class MainActivity extends Activity
             if (monthlyDuration == -1) return;
             dailyDuration = monthlyDuration / 30;
         }
-        
+
         boolean isSteps50notified = mSharedPrefs.getBoolean("isSteps50notified", false);
         boolean isSteps75notified = mSharedPrefs.getBoolean("isSteps75notified", false);
         boolean isSteps100notified = mSharedPrefs.getBoolean("isSteps100notified", false);

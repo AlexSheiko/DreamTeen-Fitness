@@ -146,12 +146,11 @@ public class MapPane extends Fragment
 
                 break;
             case R.id.finishButton:
-                mCallback.onWorkoutStateChanged(WORKOUT_FINISH);
-
                 mSharedPrefs.edit()
                         .putFloat("Distance", mTotalDistance)
                         .putString("Duration", convertSecondsToHMmSs(elapsedSeconds))
-                        .commit();
+                        .apply();
+                mCallback.onWorkoutStateChanged(WORKOUT_FINISH);
                 break;
         }
     }
