@@ -74,6 +74,9 @@ public class ChallengeGoalDialog extends DialogFragment {
             if (!monthlySteps.equals("-1")) {
                 mMonthlyValueField.setText(monthlySteps);
             }
+            mSharedPrefs.edit().putBoolean("isSteps50notified", false).apply();
+            mSharedPrefs.edit().putBoolean("isSteps75notified", false).apply();
+            mSharedPrefs.edit().putBoolean("isSteps100notified", false).apply();
         } else if (key.equals("duration")) {
             if (!dailyDuration.equals("-1")) {
                 mDailyValueField.setText(dailyDuration);
@@ -84,6 +87,9 @@ public class ChallengeGoalDialog extends DialogFragment {
             if (!monthlyDuration.equals("-1")) {
                 mMonthlyValueField.setText(monthlyDuration);
             }
+            mSharedPrefs.edit().putBoolean("isRun50notified", false).apply();
+            mSharedPrefs.edit().putBoolean("isRun75notified", false).apply();
+            mSharedPrefs.edit().putBoolean("isRun100notified", false).apply();
         }
 
         String title = null;

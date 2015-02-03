@@ -658,7 +658,7 @@ public class MainActivity extends Activity
                 mSharedPrefs.edit()
                         .putBoolean("isSteps75notified", true).apply();
             } else if (mDailyStepsTaken >= dailySteps
-                    && isSteps100notified) {
+                    && !isSteps100notified) {
                 showNotification("Steps", 100);
                 mSharedPrefs.edit()
                         .putBoolean("isSteps100notified", true).apply();
@@ -678,7 +678,7 @@ public class MainActivity extends Activity
                 mSharedPrefs.edit()
                         .putBoolean("isRun75notified", true).apply();
             } else if (mDailyDuration >= dailyDuration * 60
-                    && isRun100notified) {
+                    && !isRun100notified) {
                 showNotification("Run", 100);
                 mSharedPrefs.edit()
                         .putBoolean("isRun100notified", true).apply();
@@ -691,7 +691,7 @@ public class MainActivity extends Activity
         if (progress == 100) {
             title = type + " goal is reached!";
         } else {
-            title = type + " goal is " + progress + "% reached";
+            title = type + " goal is " + progress + "% reached!";
         }
 
         NotificationCompat.Builder mBuilder =
