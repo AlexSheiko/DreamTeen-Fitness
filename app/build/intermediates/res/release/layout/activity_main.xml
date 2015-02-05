@@ -21,7 +21,7 @@
             <!--Cards container-->
             <LinearLayout
                 style="@style/CardsContainer"
-                android:background="@drawable/target_container">
+                android:background="@drawable/container">
 
                 <!--Card images-->
                 <LinearLayout
@@ -76,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/target_container"
+                android:background="@drawable/container"
                 android:orientation="horizontal"
                 android:paddingLeft="12dp"
                 android:paddingRight="12dp"
@@ -143,7 +143,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/target_container"
+                android:background="@drawable/container"
                 android:orientation="horizontal"
                 android:paddingLeft="12dp"
                 android:paddingRight="12dp"

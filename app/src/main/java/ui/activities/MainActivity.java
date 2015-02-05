@@ -23,6 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -69,12 +70,7 @@ public class MainActivity extends Activity
     public static final String SESSION_NAME = "Afternoon run";
 
     private int mDailyStepsTaken;
-    private int mWeeklyStepsTaken;
-    private int mMonthlyStepsTaken;
-
     private long mDailyDuration;
-    private long mWeeklyDuration;
-    private long mMonthlyDuration;
 
     private static final int REQUEST_OAUTH = 1;
     private static final String AUTH_PENDING = "auth_state_pending";
@@ -135,7 +131,7 @@ public class MainActivity extends Activity
                             public void onConnected(Bundle bundle) {
                                 // Now you can make calls to the Fitness APIs.
                                 readCaloriesAndSteps();
-                                findsTEPSSources();
+                                findStepSources();
                                 readStepCount();
                                 readMinutes();
                             }
@@ -177,7 +173,7 @@ public class MainActivity extends Activity
                 .build();
     }
 
-    private void findsTEPSSources() {
+    private void findStepSources() {
         // [START find_data_sources]
         Fitness.SensorsApi.findDataSources(mClient, new DataSourcesRequest.Builder()
                 // At least one datatype must be specified.
@@ -189,7 +185,6 @@ public class MainActivity extends Activity
                     @Override
                     public void onResult(DataSourcesResult dataSourcesResult) {
                         for (DataSource dataSource : dataSourcesResult.getDataSources()) {
-
                             //Let's register a listener to receive Activity data!
                             if (dataSource.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)
                                     && mListener == null) {
@@ -478,20 +473,12 @@ public class MainActivity extends Activity
             } else if (position == 1) {
                 startActivity(new Intent(MainActivity.this, FriendsActivity.class));
             } else if (position == 2) {
-                startActivity(new Intent(MainActivity.this, ChallengesActivity.class));
+                Toast.makeText(MainActivity.this, "Coming soon", Toast.LENGTH_SHORT).show();
+                // startActivity(new Intent(MainActivity.this, ChallengesActivity.class));
             } else if (position == 3) {
                 startActivity(new Intent(MainActivity.this, GoalsActivity.class));
             } else if (position == 4) {
                 startActivity(new Intent(MainActivity.this, SettingsActivity.class));
-            } else if (position == 5) {
-                if (mClient.isConnected()) {
-                    // 1. Invoke the Config API with the Google API client object
-                    Fitness.ConfigApi.disableFit(mClient);
-                    // 2. Disconnect GoogleApiClient
-                    mClient.disconnect();
-                }
-                // 3. Go to splash screen to re-login
-                startActivity(new Intent(MainActivity.this, SplashActivity.class));
             }
         }
     }

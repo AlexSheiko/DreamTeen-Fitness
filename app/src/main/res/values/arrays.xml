@@ -6,7 +6,6 @@
         <item>@string/action_challenges</item>
         <item>@string/action_goals</item>
         <item>@string/action_settings</item>
-        <item>@string/action_logout</item>
     </string-array>
     <string-array name="action_categories">
         <item>Aerobic workout</item>

@@ -26,4 +26,9 @@
         android:title="@string/pref_calories"
         android:defaultValue="true"/>
 
+    <CheckBoxPreference
+        android:key="pref_track_steps"
+        android:title="@string/pref_steps"
+        android:defaultValue="true"/>
+
 </PreferenceScreen><!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/xml/preferences.xml -->
