@@ -241,7 +241,7 @@ public class RunActivity extends Activity
 
         // Create a data set
         int stepCount = (int) (totalDistance * 2000);
-        Games.Leaderboards.submitScore(mClient, LEADERBOARD_MILES_ID, (long) totalDistance);
+        Games.Leaderboards.submitScore(mClient, LEADERBOARD_MILES_ID, (long) (totalDistance * 100));
         Games.Leaderboards.submitScore(mClient, LEADERBOARD_STEPS_ID, stepCount);
 
         dataSet = DataSet.create(dataSource);
