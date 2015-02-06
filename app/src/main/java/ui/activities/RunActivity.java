@@ -35,6 +35,7 @@ import com.google.android.gms.fitness.request.DataSourcesRequest;
 import com.google.android.gms.fitness.request.OnDataPointListener;
 import com.google.android.gms.fitness.request.SensorRequest;
 import com.google.android.gms.fitness.result.DataSourcesResult;
+import com.google.android.gms.games.Games;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -52,6 +53,9 @@ public class RunActivity extends Activity
     public static final String TAG = "DreamTeen Fitness";
     private static final int REQUEST_OAUTH = 1;
     public static final String SESSION_NAME = "Afternoon run";
+
+    private static String LEADERBOARD_STEPS_ID;
+    private static String LEADERBOARD_MILES_ID;
 
     private static final int WORKOUT_START = 1;
     private static final int WORKOUT_PAUSE = 2;
@@ -78,6 +82,9 @@ public class RunActivity extends Activity
             authInProgress = savedInstanceState.getBoolean(AUTH_PENDING);
         }
         buildFitnessClient();
+
+        LEADERBOARD_STEPS_ID = getResources().getString(R.string.leaderboard_steps_taken);
+        LEADERBOARD_MILES_ID = getResources().getString(R.string.leaderboard_miles_runned);
 
         MapPane mapFragment = new MapPane();
         FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -144,6 +151,7 @@ public class RunActivity extends Activity
         // Create the Google API Client
         mClient = new Builder(this)
                 .addApi(Fitness.API)
+                .addApi(Games.API)
                 .addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
                 .addScope(new Scope(Scopes.FITNESS_LOCATION_READ))
                 .addConnectionCallbacks(
@@ -233,6 +241,8 @@ public class RunActivity extends Activity
 
         // Create a data set
         int stepCount = (int) (totalDistance * 2000);
+        Games.Leaderboards.submitScore(mClient, LEADERBOARD_MILES_ID, (long) totalDistance);
+        Games.Leaderboards.submitScore(mClient, LEADERBOARD_STEPS_ID, stepCount);
 
         dataSet = DataSet.create(dataSource);
         dataPoint = dataSet.createDataPoint()
@@ -241,7 +251,6 @@ public class RunActivity extends Activity
         dataSet.add(dataPoint);
 
         // Invoke the History API to insert the data
-
         Fitness.HistoryApi.insertData(mClient, dataSet);
     }
 

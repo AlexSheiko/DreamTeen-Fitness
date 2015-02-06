@@ -73,5 +73,8 @@
     <string name="title_activity_workout">Training</string>
     <string name="title_activity_challenges">Challenges</string>
     <string name="title_activity_goals">Goals</string>
+    <string name="app_id">326277129375</string>
+    <string name="leaderboard_steps_taken">CgkIn8mHvb8JEAIQAA</string>
+    <string name="leaderboard_miles_runned">CgkIn8mHvb8JEAIQAQ</string>
 
 </resources>

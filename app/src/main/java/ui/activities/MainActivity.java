@@ -29,6 +29,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.api.Status;
@@ -49,6 +50,8 @@ import com.google.android.gms.fitness.request.SessionReadRequest.Builder;
 import com.google.android.gms.fitness.result.DataReadResult;
 import com.google.android.gms.fitness.result.DataSourcesResult;
 import com.google.android.gms.fitness.result.SessionReadResult;
+import com.google.android.gms.games.Games;
+import com.google.android.gms.plus.Plus;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -73,9 +76,11 @@ public class MainActivity extends Activity
     private long mDailyDuration;
 
     private static final int REQUEST_OAUTH = 1;
+    private static final int REQUEST_LEADERBOARD = 2;
     private static final String AUTH_PENDING = "auth_state_pending";
     private boolean authInProgress = false;
     private GoogleApiClient mClient;
+    private OnDataPointListener mStepsListener;
 
     private SharedPreferences mSharedPrefs;
     private int mCaloriesExpanded = 0;
@@ -98,7 +103,6 @@ public class MainActivity extends Activity
     TextView mStepsLabel;
     @InjectView(R.id.stepsTargetLabel)
     TextView mStepsTargetLabel;
-    private OnDataPointListener mListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,16 +126,18 @@ public class MainActivity extends Activity
     private void buildFitnessClient() {
         // Create the Google API Client
         mClient = new GoogleApiClient.Builder(this)
+                .addApi(Plus.API).addScope(Plus.SCOPE_PLUS_LOGIN)
+                .addApi(Games.API).addScope(Games.SCOPE_GAMES)
                 .addApi(Fitness.API)
                 .addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
                 .addScope(new Scope(Scopes.FITNESS_LOCATION_READ))
                 .addConnectionCallbacks(
-                        new GoogleApiClient.ConnectionCallbacks() {
+                        new ConnectionCallbacks() {
                             @Override
                             public void onConnected(Bundle bundle) {
                                 // Now you can make calls to the Fitness APIs.
                                 readCaloriesAndSteps();
-                                findStepSources();
+                                startListeningSteps();
                                 readStepCount();
                                 readMinutes();
                             }
@@ -170,15 +176,13 @@ public class MainActivity extends Activity
                             }
                         }
                 )
+                .useDefaultAccount()
                 .build();
     }
 
-    private void findStepSources() {
-        // [START find_data_sources]
+    private void startListeningSteps() {
         Fitness.SensorsApi.findDataSources(mClient, new DataSourcesRequest.Builder()
-                // At least one datatype must be specified.
                 .setDataTypes(DataType.TYPE_STEP_COUNT_DELTA)
-                        // Can specify whether data type is raw or derived.
                 .setDataSourceTypes(DataSource.TYPE_RAW)
                 .build())
                 .setResultCallback(new ResultCallback<DataSourcesResult>() {
@@ -187,28 +191,28 @@ public class MainActivity extends Activity
                         for (DataSource dataSource : dataSourcesResult.getDataSources()) {
                             //Let's register a listener to receive Activity data!
                             if (dataSource.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)
-                                    && mListener == null) {
-                                registerFitnessDataListener(dataSource,
+                                    && mStepsListener == null) {
+                                registerStepsListener(dataSource,
                                         DataType.TYPE_STEP_COUNT_DELTA);
                             }
                         }
                     }
                 });
-        // [END find_data_sources]
     }
 
     /**
      * Register a listener with the Sensors API for the provided {@link DataSource} and
      * {@link DataType} combo.
      */
-    private void registerFitnessDataListener(DataSource dataSource, DataType dataType) {
+    private void registerStepsListener(DataSource dataSource, DataType dataType) {
         // [START register_data_listener]
-        mListener = new OnDataPointListener() {
+        mStepsListener = new OnDataPointListener() {
             @Override
             public void onDataPoint(DataPoint dataPoint) {
                 for (Field field : dataPoint.getDataType().getFields()) {
                     Value val = dataPoint.getValue(field);
                     insertSteps(val.asInt());
+                    Toast.makeText(MainActivity.this, "Steps: " + val.asInt(), Toast.LENGTH_SHORT).show();
                 }
             }
         };
@@ -220,7 +224,7 @@ public class MainActivity extends Activity
                         .setDataType(dataType) // Can't be omitted.
                         .setSamplingRate(1, TimeUnit.SECONDS)
                         .build(),
-                mListener)
+                mStepsListener)
                 .setResultCallback(new ResultCallback<Status>() {
                     @Override
                     public void onResult(Status status) {
@@ -392,7 +396,7 @@ public class MainActivity extends Activity
             authInProgress = false;
             if (resultCode == RESULT_OK) {
                 // Make sure the app is not already connected or attempting to connect
-                if (!mClient.isConnecting() && !mClient.isConnected()) {
+                if (!mClient.isConnected() && !mClient.isConnecting()) {
                     mClient.connect();
                 }
             }
@@ -473,14 +477,23 @@ public class MainActivity extends Activity
             } else if (position == 1) {
                 startActivity(new Intent(MainActivity.this, FriendsActivity.class));
             } else if (position == 2) {
-                Toast.makeText(MainActivity.this, "Coming soon", Toast.LENGTH_SHORT).show();
-                // startActivity(new Intent(MainActivity.this, ChallengesActivity.class));
+                if (isSignedIn()) {
+                    startActivityForResult(
+                            Games.Leaderboards.getAllLeaderboardsIntent(mClient), REQUEST_LEADERBOARD);
+                } else {
+                    Toast.makeText(MainActivity.this, "Leaderboards not available",
+                            Toast.LENGTH_SHORT).show();
+                }
             } else if (position == 3) {
                 startActivity(new Intent(MainActivity.this, GoalsActivity.class));
             } else if (position == 4) {
                 startActivity(new Intent(MainActivity.this, SettingsActivity.class));
             }
         }
+    }
+
+    private boolean isSignedIn() {
+        return (mClient != null && mClient.isConnected());
     }
 
     @Override
