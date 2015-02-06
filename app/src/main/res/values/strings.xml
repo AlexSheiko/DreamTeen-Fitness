@@ -76,5 +76,7 @@
     <string name="app_id">326277129375</string>
     <string name="leaderboard_steps_taken">CgkIn8mHvb8JEAIQAA</string>
     <string name="leaderboard_miles_runned">CgkIn8mHvb8JEAIQAQ</string>
+    <string name="action_chat">Chat with friends</string>
+    <string name="action_music">Music</string>
 
 </resources>

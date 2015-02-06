@@ -7,8 +7,11 @@ import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Rect;
+import android.os.Build.VERSION;
+import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -16,8 +19,10 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -51,8 +56,11 @@ import com.google.android.gms.fitness.result.DataReadResult;
 import com.google.android.gms.fitness.result.DataSourcesResult;
 import com.google.android.gms.fitness.result.SessionReadResult;
 import com.google.android.gms.games.Games;
+import com.google.android.gms.games.multiplayer.Multiplayer;
+import com.google.android.gms.games.multiplayer.realtime.RoomConfig;
 import com.google.android.gms.plus.Plus;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -77,7 +85,9 @@ public class MainActivity extends Activity
 
     private static final int REQUEST_OAUTH = 1;
     private static final int REQUEST_LEADERBOARD = 2;
+    private static final int REQUEST_SELECT_PLAYERS = 3;
     private static final String AUTH_PENDING = "auth_state_pending";
+
     private boolean authInProgress = false;
     private GoogleApiClient mClient;
     private OnDataPointListener mStepsListener;
@@ -190,6 +200,43 @@ public class MainActivity extends Activity
                     mClient.connect();
                 }
             }
+        } else if (requestCode == REQUEST_SELECT_PLAYERS) {
+            if (resultCode != Activity.RESULT_OK) {
+                // user canceled
+                return;
+            }
+
+            // get the invitee list
+            Bundle extras = data.getExtras();
+            final ArrayList<String> invitees =
+                    data.getStringArrayListExtra(Games.EXTRA_PLAYER_IDS);
+
+            // get auto-match criteria
+            Bundle autoMatchCriteria = null;
+            int minAutoMatchPlayers =
+                    data.getIntExtra(Multiplayer.EXTRA_MIN_AUTOMATCH_PLAYERS, 0);
+            int maxAutoMatchPlayers =
+                    data.getIntExtra(Multiplayer.EXTRA_MAX_AUTOMATCH_PLAYERS, 0);
+
+            if (minAutoMatchPlayers > 0) {
+                autoMatchCriteria = RoomConfig.createAutoMatchCriteria(
+                        minAutoMatchPlayers, maxAutoMatchPlayers, 0);
+            } else {
+                autoMatchCriteria = null;
+            }
+
+            // create the room and specify a variant if appropriate
+//            TODO
+//            RoomConfig.Builder roomConfigBuilder = makeBasicRoomConfigBuilder();
+//            roomConfigBuilder.addPlayersToInvite(invitees);
+//            if (autoMatchCriteria != null) {
+//                roomConfigBuilder.setAutoMatchCriteria(autoMatchCriteria);
+//            }
+//            RoomConfig roomConfig = roomConfigBuilder.build();
+//            Games.RealTimeMultiplayer.create(mClient, roomConfig);
+
+            // prevent screen from sleeping during handshake
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
@@ -504,9 +551,22 @@ public class MainActivity extends Activity
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Add action bar items
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // The action bar home/up action should open or close the drawer.
         // ActionBarDrawerToggle will take care of this.
+        if (item.getItemId() == R.id.action_chat) {
+            // launch the player selection screen
+            Intent intent = Games.RealTimeMultiplayer.getSelectOpponentsIntent(mClient, 1, 8);
+            startActivityForResult(intent, REQUEST_SELECT_PLAYERS);
+            return super.onOptionsItemSelected(item);
+        }
         return mDrawerToggle.onOptionsItemSelected(item);
     }
 
@@ -725,5 +785,15 @@ public class MainActivity extends Activity
                 (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         // Builds the notification and issues it.
         mNotifyMgr.notify(mNotificationId, mBuilder.build());
+    }
+
+    private boolean isKitkatWithStepSensor() {
+
+        int currentApiVersion = VERSION.SDK_INT;
+
+        PackageManager packageManager = getPackageManager();
+        return currentApiVersion >= VERSION_CODES.KITKAT
+                && packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_STEP_COUNTER)
+                && packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_STEP_DETECTOR);
     }
 }

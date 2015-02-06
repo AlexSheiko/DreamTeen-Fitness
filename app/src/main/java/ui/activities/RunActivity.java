@@ -52,6 +52,7 @@ public class RunActivity extends Activity
 
     public static final String TAG = "DreamTeen Fitness";
     private static final int REQUEST_OAUTH = 1;
+    private static final int REQUEST_SELECT_PLAYERS = 2;
     public static final String SESSION_NAME = "Afternoon run";
 
     private static String LEADERBOARD_STEPS_ID;
@@ -383,6 +384,11 @@ public class RunActivity extends Activity
                 String category = Intent.CATEGORY_APP_MUSIC;
                 Intent intent = Intent.makeMainSelectorActivity(action, category);
                 startActivity(intent);
+                break;
+            case (R.id.action_chat):
+                intent = Games.RealTimeMultiplayer.getSelectOpponentsIntent(mClient, 1, 8);
+                startActivityForResult(intent, REQUEST_SELECT_PLAYERS);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
