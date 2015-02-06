@@ -10,6 +10,9 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Rect;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
@@ -37,7 +40,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Scope;
-import com.google.android.gms.common.api.Status;
 import com.google.android.gms.fitness.Fitness;
 import com.google.android.gms.fitness.data.DataPoint;
 import com.google.android.gms.fitness.data.DataSet;
@@ -45,15 +47,11 @@ import com.google.android.gms.fitness.data.DataSource;
 import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
 import com.google.android.gms.fitness.data.Session;
-import com.google.android.gms.fitness.data.Value;
 import com.google.android.gms.fitness.request.DataReadRequest;
-import com.google.android.gms.fitness.request.DataSourcesRequest;
 import com.google.android.gms.fitness.request.OnDataPointListener;
-import com.google.android.gms.fitness.request.SensorRequest;
 import com.google.android.gms.fitness.request.SessionReadRequest;
 import com.google.android.gms.fitness.request.SessionReadRequest.Builder;
 import com.google.android.gms.fitness.result.DataReadResult;
-import com.google.android.gms.fitness.result.DataSourcesResult;
 import com.google.android.gms.fitness.result.SessionReadResult;
 import com.google.android.gms.games.Games;
 import com.google.android.gms.games.multiplayer.Multiplayer;
@@ -147,8 +145,7 @@ public class MainActivity extends Activity
                             @Override
                             public void onConnected(Bundle bundle) {
                                 // Now you can make calls to the Fitness APIs.
-                                readCaloriesAndSteps();
-                                startListeningSteps();
+                                updateCaloriesAndSteps();
                                 readStepCount();
                                 readMinutes();
                             }
@@ -241,63 +238,16 @@ public class MainActivity extends Activity
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    private void startListeningSteps() {
-        Fitness.SensorsApi.findDataSources(mClient, new DataSourcesRequest.Builder()
-                .setDataTypes(DataType.TYPE_STEP_COUNT_DELTA)
-                .setDataSourceTypes(DataSource.TYPE_RAW)
-                .build())
-                .setResultCallback(new ResultCallback<DataSourcesResult>() {
-                    @Override
-                    public void onResult(DataSourcesResult dataSourcesResult) {
-                        for (DataSource dataSource : dataSourcesResult.getDataSources()) {
-                            //Let's register a listener to receive Activity data!
-                            if (dataSource.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)
-                                    && mStepsListener == null) {
-                                registerStepsListener(dataSource,
-                                        DataType.TYPE_STEP_COUNT_DELTA);
-                            }
-                        }
-                    }
-                });
-    }
+    private final SensorEventListener mListener = new SensorEventListener() {
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+            insertSteps(event.values.length);
+        }
 
-    /**
-     * Register a listener with the Sensors API for the provided {@link DataSource} and
-     * {@link DataType} combo.
-     */
-    private void registerStepsListener(DataSource dataSource, DataType dataType) {
-        // [START register_data_listener]
-        mStepsListener = new OnDataPointListener() {
-            @Override
-            public void onDataPoint(DataPoint dataPoint) {
-                for (Field field : dataPoint.getDataType().getFields()) {
-                    Value val = dataPoint.getValue(field);
-                    insertSteps(val.asInt());
-                    Toast.makeText(MainActivity.this, "Steps: " + val.asInt(), Toast.LENGTH_SHORT).show();
-                }
-            }
-        };
-
-        Fitness.SensorsApi.add(
-                mClient,
-                new SensorRequest.Builder()
-                        .setDataSource(dataSource) // Optional but recommended for custom data sets.
-                        .setDataType(dataType) // Can't be omitted.
-                        .setSamplingRate(1, TimeUnit.SECONDS)
-                        .build(),
-                mStepsListener)
-                .setResultCallback(new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(Status status) {
-                        if (status.isSuccess()) {
-                            Log.i(TAG, "Listener registered!");
-                        } else {
-                            Log.i(TAG, "Listener not registered.");
-                        }
-                    }
-                });
-        // [END register_data_listener]
-    }
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int i) {
+        }
+    };
 
     private void insertSteps(int steps) {
         // Set a start and end time for our data, using a start time of 1 hour before this moment.
@@ -324,10 +274,11 @@ public class MainActivity extends Activity
 
         // Invoke the History API to insert the data
         Fitness.HistoryApi.insertData(mClient, dataSet);
-        readCaloriesAndSteps();
+
+        updateCaloriesAndSteps();
     }
 
-    private void readCaloriesAndSteps() {
+    private void updateCaloriesAndSteps() {
         // Setting a start and end date using a range of 1 week before this moment.
         Calendar cal = Calendar.getInstance();
         Date now = new Date();
