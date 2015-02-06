@@ -333,6 +333,7 @@
     <string name="action_share">Share</string>
     <string name="aerobic">Aerobic</string>
     <string name="aerobic_activity_title">Choose exercise</string>
+    <string name="app_id">326277129375</string>
     <string name="app_name">DreamTeen Fitness</string>
     <string name="app_name_splash">DreamTeen\nFitness</string>
     <string name="app_slogan">Make Fitness Better</string>
@@ -501,6 +502,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="invite_button_label_fb">Find on Facebook</string>
     <string name="kg_test_value" translatable="false">8</string>
+    <string name="leaderboard_miles_runned">CgkIn8mHvb8JEAIQAQ</string>
+    <string name="leaderboard_steps_taken">CgkIn8mHvb8JEAIQAA</string>
     <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/arrays.xml -->
     <eat-comment/>
     <string name="leg_exercise_1">

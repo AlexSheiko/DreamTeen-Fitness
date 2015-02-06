@@ -87,8 +87,7 @@ public class MainActivity extends Activity
     private int mStepsTaken = 0;
     private static final int CALORIES_DEFAULT = 2150;
 
-    @InjectView(R.id.caloriesLabel)
-    TextView mCaloriesLabel;
+    @InjectView(R.id.caloriesLabel) TextView mCaloriesLabel;
     @InjectView(R.id.progressBar)
     ProgressBar mProgressBar;
     @InjectView(R.id.caloriesContainer)
@@ -126,9 +125,11 @@ public class MainActivity extends Activity
     private void buildFitnessClient() {
         // Create the Google API Client
         mClient = new GoogleApiClient.Builder(this)
-                .addApi(Plus.API).addScope(Plus.SCOPE_PLUS_LOGIN)
-                .addApi(Games.API).addScope(Games.SCOPE_GAMES)
+                .addApi(Plus.API)
+                .addApi(Games.API)
                 .addApi(Fitness.API)
+                .addScope(Plus.SCOPE_PLUS_LOGIN)
+                .addScope(Games.SCOPE_GAMES)
                 .addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
                 .addScope(new Scope(Scopes.FITNESS_LOCATION_READ))
                 .addConnectionCallbacks(
@@ -176,8 +177,21 @@ public class MainActivity extends Activity
                             }
                         }
                 )
-                .useDefaultAccount()
                 .build();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_OAUTH) {
+            authInProgress = false;
+            if (resultCode == RESULT_OK) {
+                // Make sure the app is not already connected or attempting to connect
+                if (!mClient.isConnected() && !mClient.isConnecting()) {
+                    mClient.connect();
+                }
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     private void startListeningSteps() {
@@ -388,20 +402,6 @@ public class MainActivity extends Activity
         if (mClient.isConnected()) {
             mClient.disconnect();
         }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_OAUTH) {
-            authInProgress = false;
-            if (resultCode == RESULT_OK) {
-                // Make sure the app is not already connected or attempting to connect
-                if (!mClient.isConnected() && !mClient.isConnecting()) {
-                    mClient.connect();
-                }
-            }
-        }
-        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
