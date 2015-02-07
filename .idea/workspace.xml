@@ -104,31 +104,41 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.76632303" vertical-offset="4008" max-vertical-offset="13906">
-              <caret line="262" column="77" selection-start-line="262" selection-start-column="77" selection-end-line="262" selection-end-column="77" />
+            <state vertical-scroll-proportion="0.5830325" vertical-offset="1394" max-vertical-offset="15385">
+              <caret line="101" column="27" selection-start-line="101" selection-start-column="27" selection-end-line="101" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5298#5356#0" expanded="true" />
-                <element signature="e#6777#8534#0" expanded="true" />
-                <element signature="e#8507#8508#0" expanded="true" />
-                <element signature="e#11388#12108#0" expanded="true" />
-                <element signature="e#12089#12090#0" expanded="true" />
-                <element signature="e#12403#12732#0" expanded="true" />
-                <element signature="e#12721#12722#0" expanded="true" />
-                <element signature="e#14289#14561#0" expanded="true" />
-                <element signature="e#14550#14551#0" expanded="true" />
-                <element signature="e#15465#16134#0" expanded="true" />
-                <element signature="e#16115#16116#0" expanded="true" />
-                <element signature="e#16909#16910#0" expanded="true" />
-                <element signature="e#16962#16963#0" expanded="true" />
-                <element signature="e#18249#18310#0" expanded="true" />
-                <element signature="e#21351#21371#0" expanded="true" />
-                <element signature="e#21440#21461#0" expanded="true" />
-                <element signature="e#26336#26858#0" expanded="true" />
-                <element signature="e#26839#26840#0" expanded="true" />
-                <element signature="e#28099#28656#0" expanded="true" />
-                <element signature="e#28637#28638#0" expanded="true" />
+                <element signature="e#5568#5626#0" expanded="true" />
+                <element signature="e#7047#8804#0" expanded="true" />
+                <element signature="e#8777#8778#0" expanded="true" />
+                <element signature="e#13309#14029#0" expanded="true" />
+                <element signature="e#14010#14011#0" expanded="true" />
+                <element signature="e#14324#14653#0" expanded="true" />
+                <element signature="e#14642#14643#0" expanded="true" />
+                <element signature="e#16210#16482#0" expanded="true" />
+                <element signature="e#16471#16472#0" expanded="true" />
+                <element signature="e#17386#18055#0" expanded="true" />
+                <element signature="e#18036#18037#0" expanded="true" />
+                <element signature="e#18830#18831#0" expanded="true" />
+                <element signature="e#18883#18884#0" expanded="true" />
+                <element signature="e#20170#20231#0" expanded="true" />
+                <element signature="e#23272#23292#0" expanded="true" />
+                <element signature="e#23361#23382#0" expanded="true" />
+                <element signature="e#29193#29715#0" expanded="true" />
+                <element signature="e#29696#29697#0" expanded="true" />
+                <element signature="e#30956#31513#0" expanded="true" />
+                <element signature="e#31494#31495#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Integer.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://D:/android-sdk/platforms/android-21/android.jar!/java/lang/Integer.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
+              <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -2332,8 +2342,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2346,7 +2356,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16229509" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.59016395" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5442623" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2425,13 +2435,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/app/libs/simple.facebook-2.2.jar!/com/sromku/simple/fb/SimpleFacebook.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34742647" vertical-offset="202" max-vertical-offset="3468">
-          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/app/libs/simple.facebook-2.2.jar!/com/sromku/simple/fb/SessionManager.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1496">
@@ -2810,32 +2813,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://D:/android-sdk/platforms/android-21/android.jar!/java/lang/Integer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
+          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76632303" vertical-offset="4008" max-vertical-offset="13906">
-          <caret line="262" column="77" selection-start-line="262" selection-start-column="77" selection-end-line="262" selection-end-column="77" />
+        <state vertical-scroll-proportion="0.5830325" vertical-offset="1394" max-vertical-offset="15385">
+          <caret line="101" column="27" selection-start-line="101" selection-start-column="27" selection-end-line="101" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5298#5356#0" expanded="true" />
-            <element signature="e#6777#8534#0" expanded="true" />
-            <element signature="e#8507#8508#0" expanded="true" />
-            <element signature="e#11388#12108#0" expanded="true" />
-            <element signature="e#12089#12090#0" expanded="true" />
-            <element signature="e#12403#12732#0" expanded="true" />
-            <element signature="e#12721#12722#0" expanded="true" />
-            <element signature="e#14289#14561#0" expanded="true" />
-            <element signature="e#14550#14551#0" expanded="true" />
-            <element signature="e#15465#16134#0" expanded="true" />
-            <element signature="e#16115#16116#0" expanded="true" />
-            <element signature="e#16909#16910#0" expanded="true" />
-            <element signature="e#16962#16963#0" expanded="true" />
-            <element signature="e#18249#18310#0" expanded="true" />
-            <element signature="e#21351#21371#0" expanded="true" />
-            <element signature="e#21440#21461#0" expanded="true" />
-            <element signature="e#26336#26858#0" expanded="true" />
-            <element signature="e#26839#26840#0" expanded="true" />
-            <element signature="e#28099#28656#0" expanded="true" />
-            <element signature="e#28637#28638#0" expanded="true" />
+            <element signature="e#5568#5626#0" expanded="true" />
+            <element signature="e#7047#8804#0" expanded="true" />
+            <element signature="e#8777#8778#0" expanded="true" />
+            <element signature="e#13309#14029#0" expanded="true" />
+            <element signature="e#14010#14011#0" expanded="true" />
+            <element signature="e#14324#14653#0" expanded="true" />
+            <element signature="e#14642#14643#0" expanded="true" />
+            <element signature="e#16210#16482#0" expanded="true" />
+            <element signature="e#16471#16472#0" expanded="true" />
+            <element signature="e#17386#18055#0" expanded="true" />
+            <element signature="e#18036#18037#0" expanded="true" />
+            <element signature="e#18830#18831#0" expanded="true" />
+            <element signature="e#18883#18884#0" expanded="true" />
+            <element signature="e#20170#20231#0" expanded="true" />
+            <element signature="e#23272#23292#0" expanded="true" />
+            <element signature="e#23361#23382#0" expanded="true" />
+            <element signature="e#29193#29715#0" expanded="true" />
+            <element signature="e#29696#29697#0" expanded="true" />
+            <element signature="e#30956#31513#0" expanded="true" />
+            <element signature="e#31494#31495#0" expanded="true" />
           </folding>
         </state>
       </provider>

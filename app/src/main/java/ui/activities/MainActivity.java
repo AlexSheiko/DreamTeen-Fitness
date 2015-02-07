@@ -23,6 +23,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.WindowManager.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -56,17 +57,20 @@ import com.google.android.gms.fitness.result.DataReadResult;
 import com.google.android.gms.fitness.result.DataSourcesResult;
 import com.google.android.gms.fitness.result.SessionReadResult;
 import com.google.android.gms.games.Games;
+import com.google.android.gms.games.GamesActivityResultCodes;
 import com.google.android.gms.games.GamesStatusCodes;
 import com.google.android.gms.games.multiplayer.realtime.RealTimeMessage;
 import com.google.android.gms.games.multiplayer.realtime.RealTimeMessageReceivedListener;
 import com.google.android.gms.games.multiplayer.realtime.Room;
 import com.google.android.gms.games.multiplayer.realtime.RoomConfig;
+import com.google.android.gms.games.multiplayer.realtime.RoomStatusUpdateListener;
 import com.google.android.gms.games.multiplayer.realtime.RoomUpdateListener;
 import com.google.android.gms.plus.Plus;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import bellamica.tech.dreamteenfitness.R;
@@ -79,7 +83,7 @@ import ui.utils.adapters.NavigationAdapter;
 
 
 public class MainActivity extends Activity
-        implements CaloriesDialogListener, RoomUpdateListener, RealTimeMessageReceivedListener {
+        implements CaloriesDialogListener, RoomUpdateListener, RealTimeMessageReceivedListener, RoomStatusUpdateListener {
 
     public static final String TAG = "BasicHistoryApi";
     public static final String SESSION_NAME = "Afternoon run";
@@ -95,6 +99,7 @@ public class MainActivity extends Activity
 
     private boolean authInProgress = false;
     private GoogleApiClient mClient;
+    private String mRoomId;
     private OnDataPointListener mStepsListener;
 
     private SharedPreferences mSharedPrefs;
@@ -219,7 +224,28 @@ public class MainActivity extends Activity
             Games.RealTimeMultiplayer.create(mClient, roomConfig);
 
             // prevent screen from sleeping during handshake
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            getWindow().addFlags(LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
+
+        if (requestCode == RC_WAITING_ROOM) {
+            if (resultCode == Activity.RESULT_OK) {
+                // (start game)
+            }
+            else if (resultCode == Activity.RESULT_CANCELED) {
+                // Waiting room was dismissed with the back button. The meaning of this
+                // action is up to the game. You may choose to leave the room and cancel the
+                // match, or do something else like minimize the waiting room and
+                // continue to connect in the background.
+
+                // in this example, we take the simple approach and just leave the room:
+                Games.RealTimeMultiplayer.leave(mClient, null, mRoomId);
+                getWindow().clearFlags(LayoutParams.FLAG_KEEP_SCREEN_ON);
+            }
+            else if (resultCode == GamesActivityResultCodes.RESULT_LEFT_ROOM) {
+                // player wants to leave the room.
+                Games.RealTimeMultiplayer.leave(mClient, null, mRoomId);
+                getWindow().clearFlags(LayoutParams.FLAG_KEEP_SCREEN_ON);
+            }
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
@@ -227,8 +253,12 @@ public class MainActivity extends Activity
     // create a RoomConfigBuilder that's appropriate for your implementation
     private RoomConfig.Builder makeBasicRoomConfigBuilder() {
         return RoomConfig.builder(this)
-                .setMessageReceivedListener(this);
+                .setMessageReceivedListener(this)
+                .setRoomStatusUpdateListener(this);
     }
+
+    // arbitrary request code for the waiting room UI.
+    final static int RC_WAITING_ROOM = 10002;
 
     @Override
     public void onRoomCreated(int statusCode, Room room) {
@@ -236,6 +266,12 @@ public class MainActivity extends Activity
             // let screen go to sleep
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
+
+        mRoomId = room.getRoomId();
+
+        // get waiting room intent
+        Intent i = Games.RealTimeMultiplayer.getWaitingRoomIntent(mClient, room, 1);
+        startActivityForResult(i, RC_WAITING_ROOM);
     }
 
     @Override
@@ -244,10 +280,12 @@ public class MainActivity extends Activity
             // let screen go to sleep
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
+        Toast.makeText(this, "onJoinedRoom", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onLeftRoom(int i, String s) {
+        Toast.makeText(this, "onLeftRoom", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -256,6 +294,7 @@ public class MainActivity extends Activity
             // let screen go to sleep
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
+        Toast.makeText(this, "onRoomConnected", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -531,6 +570,54 @@ public class MainActivity extends Activity
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+    }
+
+    @Override
+    public void onRoomConnecting(Room room) {
+    }
+
+    @Override
+    public void onRoomAutoMatching(Room room) {
+    }
+
+    @Override
+    public void onPeerInvitedToRoom(Room room, List<String> strings) {
+    }
+
+    @Override
+    public void onPeerDeclined(Room room, List<String> strings) {
+    }
+
+    @Override
+    public void onPeerJoined(Room room, List<String> strings) {
+    }
+
+    @Override
+    public void onPeerLeft(Room room, List<String> strings) {
+    }
+
+    @Override
+    public void onConnectedToRoom(Room room) {
+    }
+
+    @Override
+    public void onDisconnectedFromRoom(Room room) {
+    }
+
+    @Override
+    public void onPeersConnected(Room room, List<String> strings) {
+    }
+
+    @Override
+    public void onPeersDisconnected(Room room, List<String> strings) {
+    }
+
+    @Override
+    public void onP2PConnected(String s) {
+    }
+
+    @Override
+    public void onP2PDisconnected(String s) {
     }
 
     // The click listener for the navigation drawer
