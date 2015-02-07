@@ -56,8 +56,12 @@ import com.google.android.gms.fitness.result.DataReadResult;
 import com.google.android.gms.fitness.result.DataSourcesResult;
 import com.google.android.gms.fitness.result.SessionReadResult;
 import com.google.android.gms.games.Games;
-import com.google.android.gms.games.multiplayer.Multiplayer;
+import com.google.android.gms.games.GamesStatusCodes;
+import com.google.android.gms.games.multiplayer.realtime.RealTimeMessage;
+import com.google.android.gms.games.multiplayer.realtime.RealTimeMessageReceivedListener;
+import com.google.android.gms.games.multiplayer.realtime.Room;
 import com.google.android.gms.games.multiplayer.realtime.RoomConfig;
+import com.google.android.gms.games.multiplayer.realtime.RoomUpdateListener;
 import com.google.android.gms.plus.Plus;
 
 import java.util.ArrayList;
@@ -75,7 +79,7 @@ import ui.utils.adapters.NavigationAdapter;
 
 
 public class MainActivity extends Activity
-        implements CaloriesDialogListener {
+        implements CaloriesDialogListener, RoomUpdateListener, RealTimeMessageReceivedListener {
 
     public static final String TAG = "BasicHistoryApi";
     public static final String SESSION_NAME = "Afternoon run";
@@ -194,53 +198,69 @@ public class MainActivity extends Activity
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode != RESULT_OK) return;
+
         if (requestCode == REQUEST_OAUTH) {
             authInProgress = false;
-            if (resultCode == RESULT_OK) {
-                // Make sure the app is not already connected or attempting to connect
-                if (!mClient.isConnected() && !mClient.isConnecting()) {
-                    mClient.connect();
-                }
+            // Make sure the app is not already connected or attempting to connect
+            if (!mClient.isConnected() && !mClient.isConnecting()) {
+                mClient.connect();
             }
         } else if (requestCode == REQUEST_SELECT_PLAYERS) {
-            if (resultCode != Activity.RESULT_OK) {
-                // user canceled
-                return;
-            }
-
             // get the invitee list
-            Bundle extras = data.getExtras();
             final ArrayList<String> invitees =
                     data.getStringArrayListExtra(Games.EXTRA_PLAYER_IDS);
 
-            // get auto-match criteria
-            Bundle autoMatchCriteria = null;
-            int minAutoMatchPlayers =
-                    data.getIntExtra(Multiplayer.EXTRA_MIN_AUTOMATCH_PLAYERS, 0);
-            int maxAutoMatchPlayers =
-                    data.getIntExtra(Multiplayer.EXTRA_MAX_AUTOMATCH_PLAYERS, 0);
-
-            if (minAutoMatchPlayers > 0) {
-                autoMatchCriteria = RoomConfig.createAutoMatchCriteria(
-                        minAutoMatchPlayers, maxAutoMatchPlayers, 0);
-            } else {
-                autoMatchCriteria = null;
-            }
-
             // create the room and specify a variant if appropriate
-            //            TODO
-            //            RoomConfig.Builder roomConfigBuilder = makeBasicRoomConfigBuilder();
-            //            roomConfigBuilder.addPlayersToInvite(invitees);
-            //            if (autoMatchCriteria != null) {
-            //                roomConfigBuilder.setAutoMatchCriteria(autoMatchCriteria);
-            //            }
-            //            RoomConfig roomConfig = roomConfigBuilder.build();
-            //            Games.RealTimeMultiplayer.create(mClient, roomConfig);
+            RoomConfig.Builder roomConfigBuilder = makeBasicRoomConfigBuilder();
+            roomConfigBuilder.addPlayersToInvite(invitees);
+
+            RoomConfig roomConfig = roomConfigBuilder.build();
+            Games.RealTimeMultiplayer.create(mClient, roomConfig);
 
             // prevent screen from sleeping during handshake
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    // create a RoomConfigBuilder that's appropriate for your implementation
+    private RoomConfig.Builder makeBasicRoomConfigBuilder() {
+        return RoomConfig.builder(this)
+                .setMessageReceivedListener(this);
+    }
+
+    @Override
+    public void onRoomCreated(int statusCode, Room room) {
+        if (statusCode != GamesStatusCodes.STATUS_OK) {
+            // let screen go to sleep
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
+    }
+
+    @Override
+    public void onJoinedRoom(int statusCode, Room room) {
+        if (statusCode != GamesStatusCodes.STATUS_OK) {
+            // let screen go to sleep
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
+    }
+
+    @Override
+    public void onLeftRoom(int i, String s) {
+    }
+
+    @Override
+    public void onRoomConnected(int statusCode, Room room) {
+        if (statusCode != GamesStatusCodes.STATUS_OK) {
+            // let screen go to sleep
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
+    }
+
+    @Override
+    public void onRealTimeMessageReceived(RealTimeMessage realTimeMessage) {
+        Toast.makeText(this, "Message received!", Toast.LENGTH_SHORT).show();
     }
 
     private void startListeningSteps() {
