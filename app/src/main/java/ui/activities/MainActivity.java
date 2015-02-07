@@ -13,7 +13,6 @@ import android.graphics.Rect;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.NotificationCompat;
@@ -84,6 +83,7 @@ public class MainActivity extends Activity
     private int mDailyStepsTaken;
     private long mDailyDuration;
 
+    private static String LEADERBOARD_STEPS_ID;
     private static final int REQUEST_OAUTH = 1;
     private static final int REQUEST_LEADERBOARD = 2;
     private static final int REQUEST_SELECT_PLAYERS = 3;
@@ -126,9 +126,10 @@ public class MainActivity extends Activity
         if (savedInstanceState != null) {
             authInProgress = savedInstanceState.getBoolean(AUTH_PENDING);
         }
+        LEADERBOARD_STEPS_ID = getResources().getString(R.string.leaderboard_steps_taken);
+
         buildFitnessClient();
         addSideNavigation();
-        startTimer();
     }
 
     /**
@@ -138,11 +139,9 @@ public class MainActivity extends Activity
     private void buildFitnessClient() {
         // Create the Google API Client
         mClient = new GoogleApiClient.Builder(this)
-                .addApi(Plus.API)
-                .addApi(Games.API)
+                .addApi(Plus.API).addScope(Plus.SCOPE_PLUS_LOGIN)
+                .addApi(Games.API).addScope(Games.SCOPE_GAMES)
                 .addApi(Fitness.API)
-                .addScope(Plus.SCOPE_PLUS_LOGIN)
-                .addScope(Games.SCOPE_GAMES)
                 .addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
                 .addScope(new Scope(Scopes.FITNESS_LOCATION_READ))
                 .addConnectionCallbacks(
@@ -262,18 +261,6 @@ public class MainActivity extends Activity
                         }
                     }
                 });
-    }
-
-    private void startTimer() {
-        new CountDownTimer(300000, 5000) {
-
-            public void onTick(long millisUntilFinished) {
-                insertSteps(2);
-            }
-
-            public void onFinish() {
-            }
-        }.start();
     }
 
     /**
@@ -426,6 +413,7 @@ public class MainActivity extends Activity
                 Integer.parseInt(getResources().getString(R.string.steps_target_default_value)));
 
         mStepsLabel.setText(mStepsTaken + "");
+        Games.Leaderboards.submitScore(mClient, LEADERBOARD_STEPS_ID, mStepsTaken);
 
         int stepsLeft = stepsTarget - mStepsTaken;
         if (stepsLeft < 0) stepsLeft = 0;
