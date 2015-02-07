@@ -10,12 +10,10 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Rect;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.NotificationCompat;
@@ -40,6 +38,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Scope;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.fitness.Fitness;
 import com.google.android.gms.fitness.data.DataPoint;
 import com.google.android.gms.fitness.data.DataSet;
@@ -47,11 +46,15 @@ import com.google.android.gms.fitness.data.DataSource;
 import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
 import com.google.android.gms.fitness.data.Session;
+import com.google.android.gms.fitness.data.Value;
 import com.google.android.gms.fitness.request.DataReadRequest;
+import com.google.android.gms.fitness.request.DataSourcesRequest;
 import com.google.android.gms.fitness.request.OnDataPointListener;
+import com.google.android.gms.fitness.request.SensorRequest;
 import com.google.android.gms.fitness.request.SessionReadRequest;
 import com.google.android.gms.fitness.request.SessionReadRequest.Builder;
 import com.google.android.gms.fitness.result.DataReadResult;
+import com.google.android.gms.fitness.result.DataSourcesResult;
 import com.google.android.gms.fitness.result.SessionReadResult;
 import com.google.android.gms.games.Games;
 import com.google.android.gms.games.multiplayer.Multiplayer;
@@ -95,7 +98,8 @@ public class MainActivity extends Activity
     private int mStepsTaken = 0;
     private static final int CALORIES_DEFAULT = 2150;
 
-    @InjectView(R.id.caloriesLabel) TextView mCaloriesLabel;
+    @InjectView(R.id.caloriesLabel)
+    TextView mCaloriesLabel;
     @InjectView(R.id.progressBar)
     ProgressBar mProgressBar;
     @InjectView(R.id.caloriesContainer)
@@ -124,6 +128,7 @@ public class MainActivity extends Activity
         }
         buildFitnessClient();
         addSideNavigation();
+        startTimer();
     }
 
     /**
@@ -146,6 +151,7 @@ public class MainActivity extends Activity
                             public void onConnected(Bundle bundle) {
                                 // Now you can make calls to the Fitness APIs.
                                 updateCaloriesAndSteps();
+                                startListeningSteps();
                                 readStepCount();
                                 readMinutes();
                             }
@@ -223,14 +229,14 @@ public class MainActivity extends Activity
             }
 
             // create the room and specify a variant if appropriate
-//            TODO
-//            RoomConfig.Builder roomConfigBuilder = makeBasicRoomConfigBuilder();
-//            roomConfigBuilder.addPlayersToInvite(invitees);
-//            if (autoMatchCriteria != null) {
-//                roomConfigBuilder.setAutoMatchCriteria(autoMatchCriteria);
-//            }
-//            RoomConfig roomConfig = roomConfigBuilder.build();
-//            Games.RealTimeMultiplayer.create(mClient, roomConfig);
+            //            TODO
+            //            RoomConfig.Builder roomConfigBuilder = makeBasicRoomConfigBuilder();
+            //            roomConfigBuilder.addPlayersToInvite(invitees);
+            //            if (autoMatchCriteria != null) {
+            //                roomConfigBuilder.setAutoMatchCriteria(autoMatchCriteria);
+            //            }
+            //            RoomConfig roomConfig = roomConfigBuilder.build();
+            //            Games.RealTimeMultiplayer.create(mClient, roomConfig);
 
             // prevent screen from sleeping during handshake
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -238,18 +244,66 @@ public class MainActivity extends Activity
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    private final SensorEventListener mListener = new SensorEventListener() {
-        @Override
-        public void onSensorChanged(SensorEvent event) {
-            insertSteps(event.values.length);
-        }
+    private void startListeningSteps() {
+        Fitness.SensorsApi.findDataSources(mClient, new DataSourcesRequest.Builder()
+                .setDataTypes(DataType.TYPE_STEP_COUNT_DELTA)
+                .setDataSourceTypes(DataSource.TYPE_DERIVED)
+                .build())
+                .setResultCallback(new ResultCallback<DataSourcesResult>() {
+                    @Override
+                    public void onResult(DataSourcesResult dataSourcesResult) {
+                        for (DataSource dataSource : dataSourcesResult.getDataSources()) {
+                            //Let's register a listener to receive Activity data!
+                            if (dataSource.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)
+                                    && mStepsListener == null) {
+                                registerStepsListener(dataSource,
+                                        DataType.TYPE_STEP_COUNT_DELTA);
+                            }
+                        }
+                    }
+                });
+    }
 
-        @Override
-        public void onAccuracyChanged(Sensor sensor, int i) {
-        }
-    };
+    private void startTimer() {
+        new CountDownTimer(300000, 5000) {
 
-    private void insertSteps(int steps) {
+            public void onTick(long millisUntilFinished) {
+                insertSteps(2);
+            }
+
+            public void onFinish() {
+            }
+        }.start();
+    }
+
+    /**
+     * Register a listener with the Sensors API for the provided {@link DataSource} and
+     * {@link DataType} combo.
+     */
+    private void registerStepsListener(DataSource dataSource, DataType dataType) {
+        // [START register_data_listener]
+        mStepsListener = new OnDataPointListener() {
+            @Override
+            public void onDataPoint(DataPoint dataPoint) {
+                for (Field field : dataPoint.getDataType().getFields()) {
+                    Value val = dataPoint.getValue(field);
+                    insertSteps(val.asInt());
+                }
+            }
+        };
+
+        Fitness.SensorsApi.add(
+                mClient,
+                new SensorRequest.Builder()
+                        .setDataSource(dataSource) // Optional but recommended for custom data sets.
+                        .setDataType(dataType) // Can't be omitted.
+                        .setSamplingRate(1, TimeUnit.SECONDS)
+                        .build(),
+                mStepsListener);
+        // [END register_data_listener]
+    }
+
+    private void insertSteps(final int steps) {
         // Set a start and end time for our data, using a start time of 1 hour before this moment.
         Calendar cal = Calendar.getInstance();
         Date now = new Date();
@@ -263,7 +317,7 @@ public class MainActivity extends Activity
                 .setAppPackageName(this)
                 .setDataType(DataType.TYPE_STEP_COUNT_DELTA)
                 .setName(TAG + " - step count")
-                .setType(DataSource.TYPE_RAW)
+                .setType(DataSource.TYPE_DERIVED)
                 .build();
 
         DataSet dataSet = DataSet.create(dataSource);
@@ -273,9 +327,15 @@ public class MainActivity extends Activity
         dataSet.add(dataPoint);
 
         // Invoke the History API to insert the data
-        Fitness.HistoryApi.insertData(mClient, dataSet);
-
-        updateCaloriesAndSteps();
+        Fitness.HistoryApi.insertData(mClient, dataSet).setResultCallback(new ResultCallback<Status>() {
+            @Override
+            public void onResult(Status status) {
+                if (status.isSuccess()) {
+                    increaseStepCount(steps);
+                    updateUiCounters();
+                }
+            }
+        });
     }
 
     private void updateCaloriesAndSteps() {
@@ -307,6 +367,7 @@ public class MainActivity extends Activity
                                 dumpSteps(dataSet);
                             }
                         }
+                        updateUiCounters();
                     }
                 });
     }
@@ -318,7 +379,6 @@ public class MainActivity extends Activity
                         Math.round(dp.getValue(field).asFloat()));
             }
         }
-        updateUiCounters();
     }
 
     private void dumpSteps(DataSet dataSet) {
@@ -328,7 +388,6 @@ public class MainActivity extends Activity
                         dp.getValue(field).asInt());
             }
         }
-        updateUiCounters();
     }
 
     private void increaseCaloriesExpanded(int increment) {
