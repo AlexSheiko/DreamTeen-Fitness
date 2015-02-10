@@ -1,5 +1,6 @@
 package ui.activities;
 
+import android.accounts.AccountManager;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.DialogFragment;
@@ -7,11 +8,8 @@ import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Rect;
-import android.os.Build.VERSION;
-import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -19,11 +17,8 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
-import android.view.WindowManager.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -57,20 +52,10 @@ import com.google.android.gms.fitness.result.DataReadResult;
 import com.google.android.gms.fitness.result.DataSourcesResult;
 import com.google.android.gms.fitness.result.SessionReadResult;
 import com.google.android.gms.games.Games;
-import com.google.android.gms.games.GamesActivityResultCodes;
-import com.google.android.gms.games.GamesStatusCodes;
-import com.google.android.gms.games.multiplayer.realtime.RealTimeMessage;
-import com.google.android.gms.games.multiplayer.realtime.RealTimeMessageReceivedListener;
-import com.google.android.gms.games.multiplayer.realtime.Room;
-import com.google.android.gms.games.multiplayer.realtime.RoomConfig;
-import com.google.android.gms.games.multiplayer.realtime.RoomStatusUpdateListener;
-import com.google.android.gms.games.multiplayer.realtime.RoomUpdateListener;
 import com.google.android.gms.plus.Plus;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import bellamica.tech.dreamteenfitness.R;
@@ -83,7 +68,7 @@ import ui.utils.adapters.NavigationAdapter;
 
 
 public class MainActivity extends Activity
-        implements CaloriesDialogListener, RoomUpdateListener, RealTimeMessageReceivedListener, RoomStatusUpdateListener {
+        implements CaloriesDialogListener {
 
     public static final String TAG = "BasicHistoryApi";
     public static final String SESSION_NAME = "Afternoon run";
@@ -94,12 +79,10 @@ public class MainActivity extends Activity
     private static String LEADERBOARD_STEPS_ID;
     private static final int REQUEST_OAUTH = 1;
     private static final int REQUEST_LEADERBOARD = 2;
-    private static final int REQUEST_SELECT_PLAYERS = 3;
     private static final String AUTH_PENDING = "auth_state_pending";
 
     private boolean authInProgress = false;
     private GoogleApiClient mClient;
-    private String mRoomId;
     private OnDataPointListener mStepsListener;
 
     private SharedPreferences mSharedPrefs;
@@ -203,103 +186,19 @@ public class MainActivity extends Activity
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode != RESULT_OK) return;
-
-        if (requestCode == REQUEST_OAUTH) {
-            authInProgress = false;
-            // Make sure the app is not already connected or attempting to connect
-            if (!mClient.isConnected() && !mClient.isConnecting()) {
-                mClient.connect();
+        if (resultCode == RESULT_OK) {
+            if (requestCode == REQUEST_OAUTH) {
+                authInProgress = false;
+                // Make sure the app is not already connected or attempting to connect
+                if (!mClient.isConnected() && !mClient.isConnecting()) {
+                    mClient.connect();
+                }
             }
-        } else if (requestCode == REQUEST_SELECT_PLAYERS) {
-            // get the invitee list
-            final ArrayList<String> invitees =
-                    data.getStringArrayListExtra(Games.EXTRA_PLAYER_IDS);
-
-            // create the room and specify a variant if appropriate
-            RoomConfig.Builder roomConfigBuilder = makeBasicRoomConfigBuilder();
-            roomConfigBuilder.addPlayersToInvite(invitees);
-
-            RoomConfig roomConfig = roomConfigBuilder.build();
-            Games.RealTimeMultiplayer.create(mClient, roomConfig);
-
-            // prevent screen from sleeping during handshake
-            getWindow().addFlags(LayoutParams.FLAG_KEEP_SCREEN_ON);
-        }
-
-        if (requestCode == RC_WAITING_ROOM) {
-            if (resultCode == Activity.RESULT_OK) {
-                // (start game)
-            }
-            else if (resultCode == Activity.RESULT_CANCELED) {
-                // Waiting room was dismissed with the back button. The meaning of this
-                // action is up to the game. You may choose to leave the room and cancel the
-                // match, or do something else like minimize the waiting room and
-                // continue to connect in the background.
-
-                // in this example, we take the simple approach and just leave the room:
-                Games.RealTimeMultiplayer.leave(mClient, null, mRoomId);
-                getWindow().clearFlags(LayoutParams.FLAG_KEEP_SCREEN_ON);
-            }
-            else if (resultCode == GamesActivityResultCodes.RESULT_LEFT_ROOM) {
-                // player wants to leave the room.
-                Games.RealTimeMultiplayer.leave(mClient, null, mRoomId);
-                getWindow().clearFlags(LayoutParams.FLAG_KEEP_SCREEN_ON);
-            }
+        } else if (resultCode == RESULT_FIRST_USER) {
+            AccountManager acm = AccountManager.get(getApplicationContext());
+            acm.addAccount("com.google", null, null, null, MainActivity.this, null, null);
         }
         super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    // create a RoomConfigBuilder that's appropriate for your implementation
-    private RoomConfig.Builder makeBasicRoomConfigBuilder() {
-        return RoomConfig.builder(this)
-                .setMessageReceivedListener(this)
-                .setRoomStatusUpdateListener(this);
-    }
-
-    // arbitrary request code for the waiting room UI.
-    final static int RC_WAITING_ROOM = 10002;
-
-    @Override
-    public void onRoomCreated(int statusCode, Room room) {
-        if (statusCode != GamesStatusCodes.STATUS_OK) {
-            // let screen go to sleep
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        }
-
-        mRoomId = room.getRoomId();
-
-        // get waiting room intent
-        Intent i = Games.RealTimeMultiplayer.getWaitingRoomIntent(mClient, room, 1);
-        startActivityForResult(i, RC_WAITING_ROOM);
-    }
-
-    @Override
-    public void onJoinedRoom(int statusCode, Room room) {
-        if (statusCode != GamesStatusCodes.STATUS_OK) {
-            // let screen go to sleep
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        }
-        Toast.makeText(this, "onJoinedRoom", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onLeftRoom(int i, String s) {
-        Toast.makeText(this, "onLeftRoom", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onRoomConnected(int statusCode, Room room) {
-        if (statusCode != GamesStatusCodes.STATUS_OK) {
-            // let screen go to sleep
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        }
-        Toast.makeText(this, "onRoomConnected", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onRealTimeMessageReceived(RealTimeMessage realTimeMessage) {
-        Toast.makeText(this, "Message received!", Toast.LENGTH_SHORT).show();
     }
 
     private void startListeningSteps() {
@@ -536,7 +435,7 @@ public class MainActivity extends Activity
 
         Integer[] mImageIds = new Integer[]{
                 R.drawable.ic_nav_dashboard, R.drawable.ic_nav_friends,
-                R.drawable.ic_nav_challenges, R.drawable.ic_nav_goals,
+                R.drawable.ic_nav_leaderboard, R.drawable.ic_nav_goals,
                 R.drawable.ic_nav_settings
         };
         // set a custom shadow that overlays the main content when the drawer opens
@@ -570,54 +469,6 @@ public class MainActivity extends Activity
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
-    }
-
-    @Override
-    public void onRoomConnecting(Room room) {
-    }
-
-    @Override
-    public void onRoomAutoMatching(Room room) {
-    }
-
-    @Override
-    public void onPeerInvitedToRoom(Room room, List<String> strings) {
-    }
-
-    @Override
-    public void onPeerDeclined(Room room, List<String> strings) {
-    }
-
-    @Override
-    public void onPeerJoined(Room room, List<String> strings) {
-    }
-
-    @Override
-    public void onPeerLeft(Room room, List<String> strings) {
-    }
-
-    @Override
-    public void onConnectedToRoom(Room room) {
-    }
-
-    @Override
-    public void onDisconnectedFromRoom(Room room) {
-    }
-
-    @Override
-    public void onPeersConnected(Room room, List<String> strings) {
-    }
-
-    @Override
-    public void onPeersDisconnected(Room room, List<String> strings) {
-    }
-
-    @Override
-    public void onP2PConnected(String s) {
-    }
-
-    @Override
-    public void onP2PDisconnected(String s) {
     }
 
     // The click listener for the navigation drawer
@@ -656,22 +507,9 @@ public class MainActivity extends Activity
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Add action bar items
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // The action bar home/up action should open or close the drawer.
         // ActionBarDrawerToggle will take care of this.
-        if (item.getItemId() == R.id.action_chat) {
-            // launch the player selection screen
-            Intent intent = Games.RealTimeMultiplayer.getSelectOpponentsIntent(mClient, 1, 8);
-            startActivityForResult(intent, REQUEST_SELECT_PLAYERS);
-            return super.onOptionsItemSelected(item);
-        }
         return mDrawerToggle.onOptionsItemSelected(item);
     }
 
@@ -890,15 +728,5 @@ public class MainActivity extends Activity
                 (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         // Builds the notification and issues it.
         mNotifyMgr.notify(mNotificationId, mBuilder.build());
-    }
-
-    private boolean isKitkatWithStepSensor() {
-
-        int currentApiVersion = VERSION.SDK_INT;
-
-        PackageManager packageManager = getPackageManager();
-        return currentApiVersion >= VERSION_CODES.KITKAT
-                && packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_STEP_COUNTER)
-                && packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_STEP_DETECTOR);
     }
 }

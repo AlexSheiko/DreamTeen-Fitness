@@ -3,7 +3,7 @@
     <string-array name="action_titles">
         <item>@string/action_dashboard</item>
         <item>@string/action_invite_friends</item>
-        <item>@string/action_challenges</item>
+        <item>@string/action_leaderboard</item>
         <item>@string/action_goals</item>
         <item>@string/action_settings</item>
     </string-array>

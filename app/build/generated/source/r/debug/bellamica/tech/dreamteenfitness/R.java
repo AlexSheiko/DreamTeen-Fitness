@@ -741,10 +741,10 @@ containing a value of this type.
         public static final int ic_logo_big=0x7f020063;
         public static final int ic_logo_small=0x7f020064;
         public static final int ic_music=0x7f020065;
-        public static final int ic_nav_challenges=0x7f020066;
-        public static final int ic_nav_dashboard=0x7f020067;
-        public static final int ic_nav_friends=0x7f020068;
-        public static final int ic_nav_goals=0x7f020069;
+        public static final int ic_nav_dashboard=0x7f020066;
+        public static final int ic_nav_friends=0x7f020067;
+        public static final int ic_nav_goals=0x7f020068;
+        public static final int ic_nav_leaderboard=0x7f020069;
         public static final int ic_nav_settings=0x7f02006a;
         public static final int ic_pause=0x7f02006b;
         public static final int ic_plusone_medium_off_client=0x7f02006c;
@@ -778,9 +778,8 @@ containing a value of this type.
     public static final class id {
         public static final int TripLabelHeader=0x7f0d003e;
         public static final int ab=0x7f0d0022;
-        public static final int action_chat=0x7f0d0080;
-        public static final int action_music=0x7f0d0081;
-        public static final int action_share=0x7f0d0082;
+        public static final int action_music=0x7f0d0080;
+        public static final int action_share=0x7f0d0081;
         public static final int adjust_height=0x7f0d0000;
         public static final int adjust_width=0x7f0d0001;
         public static final int arm=0x7f0d0024;
@@ -948,9 +947,8 @@ containing a value of this type.
         public static final int spinner_item=0x7f030021;
     }
     public static final class menu {
-        public static final int menu_main=0x7f0c0000;
-        public static final int menu_run=0x7f0c0001;
-        public static final int menu_summary=0x7f0c0002;
+        public static final int menu_run=0x7f0c0000;
+        public static final int menu_summary=0x7f0c0001;
     }
     public static final class raw {
         public static final int gtm_analytics=0x7f050000;
@@ -967,11 +965,11 @@ containing a value of this type.
         public static final int ab_exercise_8=0x7f0a0008;
         public static final int ab_exercise_9=0x7f0a0009;
         public static final int accept=0x7f0a000a;
-        public static final int action_challenges=0x7f0a000b;
-        public static final int action_chat=0x7f0a000c;
-        public static final int action_dashboard=0x7f0a000d;
-        public static final int action_goals=0x7f0a000e;
-        public static final int action_invite_friends=0x7f0a000f;
+        public static final int action_chat=0x7f0a000b;
+        public static final int action_dashboard=0x7f0a000c;
+        public static final int action_goals=0x7f0a000d;
+        public static final int action_invite_friends=0x7f0a000e;
+        public static final int action_leaderboard=0x7f0a000f;
         public static final int action_music=0x7f0a0010;
         public static final int action_settings=0x7f0a0011;
         public static final int action_share=0x7f0a0012;
