@@ -48,7 +48,7 @@ public class SetGoalsDialog extends DialogFragment {
         final Builder builder = new Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT);
         // Get the layout inflater
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_challenge_goal, null);
+        View view = inflater.inflate(R.layout.dialog_set_goal, null);
 
         final SharedPreferences mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         Bundle bundle = getArguments();

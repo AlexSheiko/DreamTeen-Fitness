@@ -6,7 +6,6 @@
 
     <EditText
         android:id="@+id/field"
-        android:hint="Daily"
         style="@style/fieldChallengeGoal"/>
 
     <requestFocus/>

@@ -65,24 +65,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e838e63-aa6c-41fc-a81b-f5c1e2df2628" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/raw/cheer.wav" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\res\drawable\progress_bar_daily_duration.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\res\drawable\progress_bar_monthly_duration.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\res\drawable\progress_bar_monthly_steps.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\res\drawable\progress_bar_weekly_steps.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/model_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/model_data.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/utils/helpers/Constants.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/utils/helpers/Constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/GoalsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/GoalsActivity.java" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\res\layout\dialog_challenge_goal.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/bellamica/tech/dreamteenfitness/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/bellamica/tech/dreamteenfitness/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/facebook/android/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/facebook/android/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/release/bellamica/tech/dreamteenfitness/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/release/bellamica/tech/dreamteenfitness/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/release/com/facebook/android/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/release/com/facebook/android/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/release/com/google/android/gms/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/release/com/google/android/gms/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/fragments/SetGoalsDialog.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/fragments/SetGoalsDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_goals.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_goals.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/dialog_challenge_goal.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_challenge_goal.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DreamFit.iws" />
@@ -109,8 +97,8 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49468085" vertical-offset="5721" max-vertical-offset="11645">
-              <caret line="409" column="5" selection-start-line="409" selection-start-column="5" selection-end-line="409" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.33505154" vertical-offset="5415" max-vertical-offset="11696">
+              <caret line="397" column="8" selection-start-line="397" selection-start-column="8" selection-end-line="397" selection-end-column="8" />
               <folding>
                 <element signature="e#5749#6995#0" expanded="true" />
                 <element signature="e#6968#6969#0" expanded="true" />
@@ -122,14 +110,13 @@
                 <element signature="e#11404#11405#0" expanded="true" />
                 <element signature="e#12319#12988#0" expanded="true" />
                 <element signature="e#12969#12970#0" expanded="true" />
-                <element signature="e#15143#15204#0" expanded="true" />
-                <element signature="e#15669#15744#0" expanded="true" />
-                <element signature="e#19878#19898#0" expanded="true" />
-                <element signature="e#19967#19988#0" expanded="true" />
-                <element signature="e#24351#24873#0" expanded="true" />
-                <element signature="e#24854#24855#0" expanded="true" />
-                <element signature="e#26114#26671#0" expanded="true" />
-                <element signature="e#26652#26653#0" expanded="true" />
+                <element signature="e#15576#15651#0" expanded="true" />
+                <element signature="e#19848#19868#0" expanded="true" />
+                <element signature="e#19937#19958#0" expanded="true" />
+                <element signature="e#24321#24843#0" expanded="true" />
+                <element signature="e#24824#24825#0" expanded="true" />
+                <element signature="e#26084#26641#0" expanded="true" />
+                <element signature="e#26622#26623#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1878,7 +1865,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/model/Main2Activity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/bellamica/tech/dreamteenfitness/Main2Activity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/Application.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_summary.xml" />
@@ -1923,10 +1909,11 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_aerobic.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/utils/helpers/Constants.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/GoalsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_goals.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_challenge_goal.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_set_goal.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/fragments/SetGoalsDialog.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java" />
       </list>
@@ -2412,11 +2399,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32786885" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4704918" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2426,7 +2414,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16229509" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.6459016" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6459016" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2441,7 +2429,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -2519,14 +2506,13 @@
             <element signature="e#11404#11405#0" expanded="true" />
             <element signature="e#12319#12988#0" expanded="true" />
             <element signature="e#12969#12970#0" expanded="true" />
-            <element signature="e#15143#15204#0" expanded="true" />
-            <element signature="e#15669#15744#0" expanded="true" />
-            <element signature="e#19878#19898#0" expanded="true" />
-            <element signature="e#19967#19988#0" expanded="true" />
-            <element signature="e#24351#24873#0" expanded="true" />
-            <element signature="e#24854#24855#0" expanded="true" />
-            <element signature="e#26114#26671#0" expanded="true" />
-            <element signature="e#26652#26653#0" expanded="true" />
+            <element signature="e#15576#15651#0" expanded="true" />
+            <element signature="e#19848#19868#0" expanded="true" />
+            <element signature="e#19937#19958#0" expanded="true" />
+            <element signature="e#24321#24843#0" expanded="true" />
+            <element signature="e#24824#24825#0" expanded="true" />
+            <element signature="e#26084#26641#0" expanded="true" />
+            <element signature="e#26622#26623#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2782,17 +2768,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_run_goal.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="547">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/fragments/AerobicGoalDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.46689895" vertical-offset="378" max-vertical-offset="952">
@@ -2850,40 +2825,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3045045" vertical-offset="2347" max-vertical-offset="4301">
-          <caret line="148" column="43" selection-start-line="148" selection-start-column="43" selection-end-line="148" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/fragments/MainGoalsDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.464286" vertical-offset="806" max-vertical-offset="1360">
-          <caret line="78" column="63" selection-start-line="78" selection-start-column="42" selection-end-line="78" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/model/Exercise.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="200" max-vertical-offset="884">
           <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_goals.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.4306307" vertical-offset="493" max-vertical-offset="2975">
-          <caret line="141" column="39" selection-start-line="141" selection-start-column="39" selection-end-line="141" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/GoalsActivity.java">
@@ -2894,10 +2840,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_challenge_goal.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_set_goal.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3063063" vertical-offset="0" max-vertical-offset="555">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.24504505" vertical-offset="0" max-vertical-offset="555">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_run_goal.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="547">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_goals.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-73.03704" vertical-offset="425" max-vertical-offset="2975">
+          <caret line="141" column="39" selection-start-line="141" selection-start-column="39" selection-end-line="141" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/fragments/MainGoalsDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.214286" vertical-offset="530" max-vertical-offset="1360">
+          <caret line="62" column="12" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="111" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.888889" vertical-offset="3333" max-vertical-offset="4046">
+          <caret line="207" column="54" selection-start-line="207" selection-start-column="54" selection-end-line="207" selection-end-column="54" />
           <folding />
         </state>
       </provider>
@@ -2907,16 +2894,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/fragments/SetGoalsDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1700">
-          <caret line="105" column="24" selection-start-line="105" selection-start-column="24" selection-end-line="105" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1044" max-vertical-offset="1700">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49468085" vertical-offset="5721" max-vertical-offset="11645">
-          <caret line="409" column="5" selection-start-line="409" selection-start-column="5" selection-end-line="409" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.33505154" vertical-offset="5415" max-vertical-offset="11696">
+          <caret line="397" column="8" selection-start-line="397" selection-start-column="8" selection-end-line="397" selection-end-column="8" />
           <folding>
             <element signature="e#5749#6995#0" expanded="true" />
             <element signature="e#6968#6969#0" expanded="true" />
@@ -2928,14 +2915,13 @@
             <element signature="e#11404#11405#0" expanded="true" />
             <element signature="e#12319#12988#0" expanded="true" />
             <element signature="e#12969#12970#0" expanded="true" />
-            <element signature="e#15143#15204#0" expanded="true" />
-            <element signature="e#15669#15744#0" expanded="true" />
-            <element signature="e#19878#19898#0" expanded="true" />
-            <element signature="e#19967#19988#0" expanded="true" />
-            <element signature="e#24351#24873#0" expanded="true" />
-            <element signature="e#24854#24855#0" expanded="true" />
-            <element signature="e#26114#26671#0" expanded="true" />
-            <element signature="e#26652#26653#0" expanded="true" />
+            <element signature="e#15576#15651#0" expanded="true" />
+            <element signature="e#19848#19868#0" expanded="true" />
+            <element signature="e#19937#19958#0" expanded="true" />
+            <element signature="e#24321#24843#0" expanded="true" />
+            <element signature="e#24824#24825#0" expanded="true" />
+            <element signature="e#26084#26641#0" expanded="true" />
+            <element signature="e#26622#26623#0" expanded="true" />
           </folding>
         </state>
       </provider>

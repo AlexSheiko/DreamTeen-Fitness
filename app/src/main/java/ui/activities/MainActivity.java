@@ -361,8 +361,7 @@ public class MainActivity extends Activity
             mProgressBar.getProgressDrawable().setBounds(bounds);
         }
 
-        int stepsTarget = mSharedPrefs.getInt("daily_steps",
-                Integer.parseInt(getResources().getString(R.string.steps_target_default_value)));
+        int stepsTarget = mSharedPrefs.getInt("daily_steps", -1);
 
         boolean isSteps50notified = mSharedPrefs.getBoolean("isSteps50notified", false);
         if (mStepsTaken >= stepsTarget * 0.5
@@ -390,7 +389,11 @@ public class MainActivity extends Activity
                         .putBoolean("isSteps100notified", true).apply();
             }
         }
-        mStepsTargetLabel.setText(stepsLeft + "");
+        if (stepsTarget != -1) {
+            mStepsTargetLabel.setText(stepsLeft + " steps to goal");
+        }
+
+
 
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DAY_OF_MONTH, 1);

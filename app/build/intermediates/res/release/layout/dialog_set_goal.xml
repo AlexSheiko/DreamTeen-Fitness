@@ -6,9 +6,8 @@
 
     <EditText
         android:id="@+id/field"
-        android:hint="Daily"
         style="@style/fieldChallengeGoal"/>
 
     <requestFocus/>
 
-</LinearLayout><!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/layout/dialog_challenge_goal.xml -->
+</LinearLayout><!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/layout/dialog_set_goal.xml -->

@@ -433,8 +433,8 @@ int layout com_facebook_search_bar_layout 0x7f030014
 int layout com_facebook_tooltip_bubble 0x7f030015
 int layout com_facebook_usersettingsfragment 0x7f030016
 int layout dialog_aerobic_goal 0x7f030017
-int layout dialog_challenge_goal 0x7f030018
-int layout dialog_run_goal 0x7f030019
+int layout dialog_run_goal 0x7f030018
+int layout dialog_set_goal 0x7f030019
 int layout fragment_goals 0x7f03001a
 int layout fragment_map 0x7f03001b
 int layout grid_item_category 0x7f03001c
