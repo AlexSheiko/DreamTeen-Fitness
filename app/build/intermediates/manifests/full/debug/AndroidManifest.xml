@@ -127,14 +127,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ui.activities.MainActivity" />
         </activity>
-        <activity
-            android:name="ui.activities.ChallengesActivity"
-            android:label="@string/title_activity_challenges"
-            android:parentActivityName="ui.activities.MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ui.activities.MainActivity" />
-        </activity>
     </application>
 
 </manifest>

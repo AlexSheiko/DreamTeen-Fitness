@@ -355,12 +355,29 @@ public class MainActivity extends Activity
                 mSharedPrefs.getInt("calories_norm", CALORIES_DEFAULT));
         mProgressBar.setProgress(mCaloriesExpandedTotal);
 
-        if (mCaloriesExpandedTotal >= mSharedPrefs.getInt("calories_norm", CALORIES_DEFAULT)) {
+        int caloriesNorm = mSharedPrefs.getInt("calories_norm", CALORIES_DEFAULT);
+        if (mCaloriesExpandedTotal >= caloriesNorm) {
             Rect bounds = mProgressBar.getProgressDrawable().getBounds();
             mProgressBar.setProgressDrawable(
                     getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));
             mProgressBar.getProgressDrawable().setBounds(bounds);
+
+            boolean isSteps100notified = mSharedPrefs.getBoolean("isSteps100notified", false);
+            if (!isSteps100notified) {
+                showNotification("Steps", 100);
+                mSharedPrefs.edit()
+                        .putBoolean("isSteps100notified", true).apply();
+            }
         } else {
+            boolean isSteps50notified = mSharedPrefs.getBoolean("isSteps50notified", false);
+            if (mCaloriesExpandedTotal >= caloriesNorm * 0.5
+                    && mCaloriesExpandedTotal < caloriesNorm
+                    && !isSteps50notified) {
+                showNotification("Steps", 50);
+                mSharedPrefs.edit()
+                        .putBoolean("isSteps50notified", true).apply();
+            }
+
             Rect bounds = mProgressBar.getProgressDrawable().getBounds();
             mProgressBar.setProgressDrawable(
                     getResources().getDrawable(R.drawable.progress_bar_calories));

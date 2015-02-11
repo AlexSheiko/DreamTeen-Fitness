@@ -207,14 +207,6 @@ ADDED from AndroidManifest.xml:116:9
 		ADDED from AndroidManifest.xml:119:13
 	android:name
 		ADDED from AndroidManifest.xml:117:13
-activity#ui.activities.ChallengesActivity
-ADDED from AndroidManifest.xml:124:9
-	android:label
-		ADDED from AndroidManifest.xml:126:13
-	android:parentActivityName
-		ADDED from AndroidManifest.xml:127:13
-	android:name
-		ADDED from AndroidManifest.xml:125:13
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.android.support:support-v4:21.0.3:15:5
