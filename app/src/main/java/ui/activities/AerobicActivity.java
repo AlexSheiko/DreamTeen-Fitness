@@ -27,7 +27,7 @@ public class AerobicActivity extends Activity {
             case R.id.arm:
                 intent.putExtra("category", "arm");
                 break;
-            case R.id.butt:
+            case R.id.glutes:
                 intent.putExtra("category", "butt");
                 break;
         }

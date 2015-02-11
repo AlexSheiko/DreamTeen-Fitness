@@ -730,7 +730,7 @@ containing a value of this type.
         public static final int ic_arrow_next=0x7f020058;
         public static final int ic_category_ab=0x7f020059;
         public static final int ic_category_arm=0x7f02005a;
-        public static final int ic_category_butt=0x7f02005b;
+        public static final int ic_category_glutes =0x7f02005b;
         public static final int ic_category_leg=0x7f02005c;
         public static final int ic_dots=0x7f02005d;
         public static final int ic_drawer=0x7f02005e;
@@ -788,7 +788,7 @@ containing a value of this type.
         public static final int book_now=0x7f0d0010;
         public static final int bottom=0x7f0d001a;
         public static final int box_count=0x7f0d0017;
-        public static final int butt=0x7f0d0025;
+        public static final int glutes =0x7f0d0025;
         public static final int button=0x7f0d0018;
         public static final int button_container=0x7f0d0076;
         public static final int buyButton=0x7f0d000c;

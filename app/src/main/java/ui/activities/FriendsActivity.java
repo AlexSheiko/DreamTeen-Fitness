@@ -63,8 +63,7 @@ public class FriendsActivity extends Activity
     private void onSessionStateChange(Session session) {
         if (session.isOpened()) {
             Bundle params = new Bundle();
-            params.putString("message", "I just smashed " + "3" +
-                    " friends! Can you beat it?");
+            params.putString("message", "DreamTeen Fitness is pretty cool. Check it out on Google Play. See if you can beat my score! http://goo.gl/YdMFVk");
             showDialogWithoutNotificationBar("apprequests", params);
         }
     }

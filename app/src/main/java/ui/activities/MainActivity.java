@@ -248,6 +248,10 @@ public class MainActivity extends Activity
         // [END register_data_listener]
     }
 
+    private void stopListeningSteps() {
+        Fitness.SensorsApi.remove(mClient, mStepsListener);
+    }
+
     private void insertSteps(final int steps) {
         // Set a start and end time for our data, using a start time of 1 hour before this moment.
         Calendar cal = Calendar.getInstance();
@@ -418,6 +422,12 @@ public class MainActivity extends Activity
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        stopListeningSteps();
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
         if (mClient.isConnected()) {
@@ -434,6 +444,9 @@ public class MainActivity extends Activity
     @Override
     protected void onResume() {
         super.onResume();
+        if (mClient != null && mClient.isConnected()) {
+            startListeningSteps();
+        }
         if (!mSharedPrefs.getBoolean("pref_track_calories", true))
             mCaloriesContainer.setVisibility(View.GONE);
         if (!mSharedPrefs.getBoolean("pref_track_steps", true))

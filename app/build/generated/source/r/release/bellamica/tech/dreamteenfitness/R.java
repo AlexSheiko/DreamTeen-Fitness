@@ -11,19 +11,16 @@ public final class R {
     public static final class array {
         public static final int ab=0x7f060000;
         public static final int ab_desc=0x7f060001;
-        public static final int action_categories=0x7f060002;
-        public static final int action_titles=0x7f060003;
-        public static final int arm=0x7f060004;
-        public static final int arm_desc=0x7f060005;
-        public static final int butt=0x7f060006;
-        public static final int butt_desc=0x7f060007;
-        public static final int days_values=0x7f060008;
-        public static final int goal_type_values=0x7f060009;
-        public static final int leg=0x7f06000a;
-        public static final int leg_desc=0x7f06000b;
-        public static final int month_values=0x7f06000c;
-        public static final int pref_units=0x7f06000d;
-        public static final int pref_units_values=0x7f06000e;
+        public static final int action_titles=0x7f060002;
+        public static final int arm=0x7f060003;
+        public static final int arm_desc=0x7f060004;
+        public static final int butt=0x7f060005;
+        public static final int butt_desc=0x7f060006;
+        public static final int goal_type_values=0x7f060007;
+        public static final int leg=0x7f060008;
+        public static final int leg_desc=0x7f060009;
+        public static final int pref_units=0x7f06000a;
+        public static final int pref_units_values=0x7f06000b;
     }
     public static final class attr {
         /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
@@ -730,7 +727,7 @@ containing a value of this type.
         public static final int ic_arrow_next=0x7f020058;
         public static final int ic_category_ab=0x7f020059;
         public static final int ic_category_arm=0x7f02005a;
-        public static final int ic_category_butt=0x7f02005b;
+        public static final int ic_category_glutes=0x7f02005b;
         public static final int ic_category_leg=0x7f02005c;
         public static final int ic_dots=0x7f02005d;
         public static final int ic_drawer=0x7f02005e;
@@ -788,7 +785,6 @@ containing a value of this type.
         public static final int book_now=0x7f0d0010;
         public static final int bottom=0x7f0d001a;
         public static final int box_count=0x7f0d0017;
-        public static final int butt=0x7f0d0025;
         public static final int button=0x7f0d0018;
         public static final int button_container=0x7f0d0076;
         public static final int buyButton=0x7f0d000c;
@@ -843,6 +839,7 @@ containing a value of this type.
         public static final int finishButton=0x7f0d004f;
         public static final int finish_button_label=0x7f0d0079;
         public static final int fragment_container=0x7f0d003c;
+        public static final int glutes=0x7f0d0025;
         public static final int goalTypeSpinner=0x7f0d006a;
         public static final int grayscale=0x7f0d0015;
         public static final int holo_dark=0x7f0d0007;
