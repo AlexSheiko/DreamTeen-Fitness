@@ -39,8 +39,8 @@ import java.util.concurrent.TimeUnit;
 import bellamica.tech.dreamteenfitness.R;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import ui.fragments.ChallengeGoalDialog;
-import ui.fragments.ChallengeGoalDialog.OnChallengeValueChanged;
+import ui.fragments.SetGoalsDialog;
+import ui.fragments.SetGoalsDialog.OnChallengeValueChanged;
 
 public class GoalsActivity extends Activity
         implements OnChallengeValueChanged {
@@ -107,7 +107,7 @@ public class GoalsActivity extends Activity
         } else if (id == R.id.durationContainer || id == R.id.setDurationButton) {
             bundle.putString("key", "duration");
         }
-        DialogFragment newFragment = new ChallengeGoalDialog();
+        DialogFragment newFragment = new SetGoalsDialog();
         newFragment.setArguments(bundle);
         newFragment.show(getFragmentManager(), "dialog_challenge_goal");
     }

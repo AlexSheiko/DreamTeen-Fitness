@@ -62,8 +62,8 @@ import bellamica.tech.dreamteenfitness.R;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import ui.fragments.AerobicGoalDialog;
-import ui.fragments.RunGoalDialog;
-import ui.fragments.RunGoalDialog.CaloriesDialogListener;
+import ui.fragments.MainGoalsDialog;
+import ui.fragments.MainGoalsDialog.CaloriesDialogListener;
 import ui.utils.adapters.NavigationAdapter;
 
 
@@ -361,37 +361,38 @@ public class MainActivity extends Activity
             mProgressBar.setProgressDrawable(
                     getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));
             mProgressBar.getProgressDrawable().setBounds(bounds);
-
-            boolean isSteps100notified = mSharedPrefs.getBoolean("isSteps100notified", false);
-            if (!isSteps100notified) {
-                showNotification("Steps", 100);
-                mSharedPrefs.edit()
-                        .putBoolean("isSteps100notified", true).apply();
-            }
         } else {
-            boolean isSteps50notified = mSharedPrefs.getBoolean("isSteps50notified", false);
-            if (mCaloriesExpandedTotal >= caloriesNorm * 0.5
-                    && mCaloriesExpandedTotal < caloriesNorm
-                    && !isSteps50notified) {
-                showNotification("Steps", 50);
-                mSharedPrefs.edit()
-                        .putBoolean("isSteps50notified", true).apply();
-            }
-
             Rect bounds = mProgressBar.getProgressDrawable().getBounds();
             mProgressBar.setProgressDrawable(
                     getResources().getDrawable(R.drawable.progress_bar_calories));
             mProgressBar.getProgressDrawable().setBounds(bounds);
         }
 
-        int stepsTarget = mSharedPrefs.getInt("steps_target",
+        int stepsTarget = mSharedPrefs.getInt("daily_steps",
                 Integer.parseInt(getResources().getString(R.string.steps_target_default_value)));
+
+        boolean isSteps50notified = mSharedPrefs.getBoolean("isSteps50notified", false);
+        if (mStepsTaken >= stepsTarget * 0.5
+                && mStepsTaken < stepsTarget
+                && !isSteps50notified) {
+            showNotification("Steps", 50);
+            mSharedPrefs.edit()
+                    .putBoolean("isSteps50notified", true).apply();
+        }
 
         mStepsLabel.setText(mStepsTaken + "");
         Games.Leaderboards.submitScore(mClient, LEADERBOARD_STEPS_ID, mStepsTaken);
 
+        boolean isSteps100notified = mSharedPrefs.getBoolean("isSteps100notified", false);
         int stepsLeft = stepsTarget - mStepsTaken;
-        if (stepsLeft < 0) stepsLeft = 0;
+        if (stepsLeft <= 0) {
+            stepsLeft = 0;
+            if (!isSteps100notified) {
+                showNotification("Steps", 100);
+                mSharedPrefs.edit()
+                        .putBoolean("isSteps100notified", true).apply();
+            }
+        }
         mStepsTargetLabel.setText(stepsLeft + "");
     }
 
@@ -405,7 +406,7 @@ public class MainActivity extends Activity
     @Override
     public void onStepsGoalChanged(DialogFragment dialog, int newValue) {
         mSharedPrefs.edit()
-                .putInt("steps_target", newValue).apply();
+                .putInt("daily_steps", newValue).apply();
         updateUiCounters();
     }
 
@@ -560,7 +561,7 @@ public class MainActivity extends Activity
                 bundle.putString("key", "steps");
                 break;
         }
-        DialogFragment newFragment = new RunGoalDialog();
+        DialogFragment newFragment = new MainGoalsDialog();
         newFragment.setArguments(bundle);
         newFragment.show(getFragmentManager(), "dialog_run_goal");
     }
