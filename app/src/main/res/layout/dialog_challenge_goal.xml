@@ -5,20 +5,10 @@
               android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/dailyField"
+        android:id="@+id/field"
         android:hint="Daily"
         style="@style/fieldChallengeGoal"/>
 
     <requestFocus/>
-
-    <EditText
-        android:id="@+id/weeklyField"
-        android:hint="Weekly"
-        style="@style/fieldChallengeGoal"/>
-
-    <EditText
-        android:id="@+id/monthlyField"
-        android:hint="Monthly"
-        style="@style/fieldChallengeGoal"/>
 
 </LinearLayout>

@@ -73,16 +73,8 @@ public class GoalsActivity extends Activity
     Button mSetDurationButton;
     @InjectView(R.id.progressBarDailySteps)
     ProgressBar mProgressBarDailySteps;
-    @InjectView(R.id.progressBarWeeklySteps)
-    ProgressBar mProgressBarWeeklySteps;
-    @InjectView(R.id.progressBarMonthlySteps)
-    ProgressBar mProgressBarMonthlySteps;
-    @InjectView(R.id.progressBarDailyDuration)
-    ProgressBar mProgressBarDailyDuration;
     @InjectView(R.id.progressBarWeeklyDuration)
     ProgressBar mProgressBarWeeklyDuration;
-    @InjectView(R.id.progressBarMonthlyDuration)
-    ProgressBar mProgressBarMonthlyDuration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,8 +115,8 @@ public class GoalsActivity extends Activity
                             @Override
                             public void onConnected(Bundle bundle) {
                                 // Now you can make calls to the Fitness APIs.
-                                readStepCount();
-                                readMinutes();
+                                readSteps();
+                                readDuration();
                             }
 
                             @Override
@@ -164,7 +156,7 @@ public class GoalsActivity extends Activity
                 .build();
     }
 
-    private void readStepCount() {
+    private void readSteps() {
         // Setting a start and end date using a range of 1 week before this moment.
         Calendar cal = Calendar.getInstance();
         Date now = new Date();
@@ -191,54 +183,6 @@ public class GoalsActivity extends Activity
                         }
                     }
                 });
-
-        cal.setTime(now);
-        endTime = cal.getTimeInMillis();
-        // Get time from the start (00:00) of a day
-        cal.add(Calendar.WEEK_OF_YEAR, -Calendar.WEEK_OF_YEAR);
-        startTime = cal.getTimeInMillis();
-
-        readCaloriesRequest = new DataReadRequest.Builder()
-                .read(DataType.TYPE_STEP_COUNT_DELTA)
-                .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
-                .build();
-
-        // Invoke the History API to fetch the data with the query
-        Fitness.HistoryApi.readData(mClient, readCaloriesRequest).setResultCallback(
-                new ResultCallback<DataReadResult>() {
-                    @Override
-                    public void onResult(DataReadResult dataReadResult) {
-                        for (DataSet dataSet : dataReadResult.getDataSets()) {
-                            if (dataSet.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)) {
-                                dumpWeeklySteps(dataSet);
-                            }
-                        }
-                    }
-                });
-
-        cal.setTime(now);
-        endTime = cal.getTimeInMillis();
-        // Get time from the start (00:00) of a day
-        cal.add(Calendar.MONTH, -Calendar.MONTH);
-        startTime = cal.getTimeInMillis();
-
-        readCaloriesRequest = new DataReadRequest.Builder()
-                .read(DataType.TYPE_STEP_COUNT_DELTA)
-                .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
-                .build();
-
-        // Invoke the History API to fetch the data with the query
-        Fitness.HistoryApi.readData(mClient, readCaloriesRequest).setResultCallback(
-                new ResultCallback<DataReadResult>() {
-                    @Override
-                    public void onResult(DataReadResult dataReadResult) {
-                        for (DataSet dataSet : dataReadResult.getDataSets()) {
-                            if (dataSet.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)) {
-                                dumpMonthlySteps(dataSet);
-                            }
-                        }
-                    }
-                });
     }
 
     private void dumpDailySteps(DataSet dataSet) {
@@ -251,46 +195,18 @@ public class GoalsActivity extends Activity
         updateProgressBar();
     }
 
-    private void dumpWeeklySteps(DataSet dataSet) {
-        for (DataPoint dp : dataSet.getDataPoints()) {
-            for (Field field : dp.getDataType().getFields()) {
-                increaseWeeklyStepCount(
-                        dp.getValue(field).asInt());
-            }
-        }
-        updateProgressBar();
-    }
-
-    private void dumpMonthlySteps(DataSet dataSet) {
-        for (DataPoint dp : dataSet.getDataPoints()) {
-            for (Field field : dp.getDataType().getFields()) {
-                increaseMonthlyStepCount(
-                        dp.getValue(field).asInt());
-            }
-        }
-        updateProgressBar();
-    }
-
     private void increaseDailyStepCount(int increment) {
         mDailyStepsTaken = mDailyStepsTaken + increment;
     }
 
-    private void increaseWeeklyStepCount(int increment) {
-        mWeeklyStepsTaken = mWeeklyStepsTaken + increment;
-    }
-
-    private void increaseMonthlyStepCount(int increment) {
-        mMonthlyStepsTaken = mMonthlyStepsTaken + increment;
-    }
-
-    private SessionReadRequest readMinutes() {
+    private SessionReadRequest readDuration() {
         // [START build_read_session_request]
         // Set a start and end time for our query, using a start time of 1 week before this moment.
         Calendar cal = Calendar.getInstance();
         Date now = new Date();
         cal.setTime(now);
         long endTime = cal.getTimeInMillis();
-        cal.add(Calendar.DAY_OF_YEAR, -Calendar.DAY_OF_YEAR);
+        cal.add(Calendar.WEEK_OF_YEAR, -Calendar.WEEK_OF_YEAR);
         long startTime = cal.getTimeInMillis();
 
         // Build a session read request
@@ -307,72 +223,11 @@ public class GoalsActivity extends Activity
                         // Get a list of the sessions that match the criteria to check the result.
                         for (Session session : sessionReadResult.getSessions()) {
                             // Process the session
-                            dumpDailyDuration(session);
-                        }
-                    }
-                });
-
-        cal = Calendar.getInstance();
-        now = new Date();
-        cal.setTime(now);
-        endTime = cal.getTimeInMillis();
-        cal.add(Calendar.WEEK_OF_YEAR, -Calendar.WEEK_OF_YEAR);
-        startTime = cal.getTimeInMillis();
-
-        // Build a session read request
-        readRequest = new Builder()
-                .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS)
-                .setSessionName(SESSION_NAME)
-                .build();
-        // [END build_read_session_request]
-
-        Fitness.SessionsApi.readSession(mClient, readRequest)
-                .setResultCallback(new ResultCallback<SessionReadResult>() {
-                    @Override
-                    public void onResult(SessionReadResult sessionReadResult) {
-                        // Get a list of the sessions that match the criteria to check the result.
-                        for (Session session : sessionReadResult.getSessions()) {
-                            // Process the session
                             dumpWeeklyDuration(session);
                         }
                     }
                 });
-
-        cal = Calendar.getInstance();
-        now = new Date();
-        cal.setTime(now);
-        endTime = cal.getTimeInMillis();
-        cal.add(Calendar.MONTH, -Calendar.MONTH);
-        startTime = cal.getTimeInMillis();
-
-        // Build a session read request
-        readRequest = new Builder()
-                .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS)
-                .setSessionName(SESSION_NAME)
-                .build();
-        // [END build_read_session_request]
-
-        Fitness.SessionsApi.readSession(mClient, readRequest)
-                .setResultCallback(new ResultCallback<SessionReadResult>() {
-                    @Override
-                    public void onResult(SessionReadResult sessionReadResult) {
-                        // Get a list of the sessions that match the criteria to check the result.
-                        for (Session session : sessionReadResult.getSessions()) {
-                            // Process the session
-                            dumpMonthlyDuration(session);
-                        }
-                    }
-                });
         return readRequest;
-    }
-
-    private void dumpDailyDuration(Session session) {
-        long startTime = session.getStartTime(TimeUnit.MILLISECONDS);
-        long endTime = session.getEndTime(TimeUnit.MILLISECONDS);
-        long diffInMs = endTime - startTime;
-        long increment = TimeUnit.MILLISECONDS.toSeconds(diffInMs);
-        increaseDailyDuration(increment);
-        updateProgressBar();
     }
 
     private void dumpWeeklyDuration(Session session) {
@@ -384,37 +239,16 @@ public class GoalsActivity extends Activity
         updateProgressBar();
     }
 
-    private void dumpMonthlyDuration(Session session) {
-        long startTime = session.getStartTime(TimeUnit.MILLISECONDS);
-        long endTime = session.getEndTime(TimeUnit.MILLISECONDS);
-        long diffInMs = endTime - startTime;
-        long increment = TimeUnit.MILLISECONDS.toSeconds(diffInMs);
-        increaseMonthlyDuration(increment);
-        updateProgressBar();
-    }
-
-    private void increaseDailyDuration(long increment) {
-        mDailyDuration = mDailyDuration + increment;
-    }
-
     private void increaseWeeklyDuration(long increment) {
         mWeeklyDuration = mWeeklyDuration + increment;
     }
 
-    private void increaseMonthlyDuration(long increment) {
-        mMonthlyDuration = mMonthlyDuration + increment;
-    }
-
     private void updateProgressBar() {
         int dailySteps = mSharedPrefs.getInt("daily_steps", -1);
-        int weeklySteps = mSharedPrefs.getInt("weekly_steps", -1);
-        int monthlySteps = mSharedPrefs.getInt("monthly_steps", -1);
-        int dailyDuration = mSharedPrefs.getInt("daily_duration", -1);
         int weeklyDuration = mSharedPrefs.getInt("weekly_duration", -1);
-        int monthlyDuration = mSharedPrefs.getInt("monthly_duration", -1);
 
         boolean isStepsGoalSet = false;
-        if (dailySteps != -1 || weeklySteps != -1 || monthlySteps != -1) {
+        if (dailySteps != -1) {
             isStepsGoalSet = true;
             if (dailySteps != -1) {
                 mProgressBarDailySteps.setVisibility(View.VISIBLE);
@@ -432,89 +266,24 @@ public class GoalsActivity extends Activity
                     mProgressBarDailySteps.getProgressDrawable().setBounds(bounds);
                 }
             }
-            if (weeklySteps != -1) {
-                mProgressBarWeeklySteps.setVisibility(View.VISIBLE);
-                mProgressBarWeeklySteps.setMax(weeklySteps);
-                mProgressBarWeeklySteps.setProgress(mWeeklyStepsTaken);
-                if (mWeeklyStepsTaken >= weeklySteps) {
-                    Rect bounds = mProgressBarWeeklySteps.getProgressDrawable().getBounds();
-                    mProgressBarWeeklySteps.setProgressDrawable(
-                            getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));
-                    mProgressBarWeeklySteps.getProgressDrawable().setBounds(bounds);
-                } else {
-                    Rect bounds = mProgressBarWeeklySteps.getProgressDrawable().getBounds();
-                    mProgressBarWeeklySteps.setProgressDrawable(
-                            getResources().getDrawable(R.drawable.progress_bar_weekly_steps));
-                    mProgressBarWeeklySteps.getProgressDrawable().setBounds(bounds);
-                }
-            }
-            if (monthlySteps != -1) {
-                mProgressBarMonthlySteps.setVisibility(View.VISIBLE);
-                mProgressBarMonthlySteps.setMax(monthlySteps);
-                mProgressBarMonthlySteps.setProgress(mMonthlyStepsTaken);
-                if (mMonthlyStepsTaken >= monthlySteps) {
-                    Rect bounds = mProgressBarMonthlySteps.getProgressDrawable().getBounds();
-                    mProgressBarMonthlySteps.setProgressDrawable(
-                            getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));
-                    mProgressBarMonthlySteps.getProgressDrawable().setBounds(bounds);
-                } else {
-                    Rect bounds = mProgressBarMonthlySteps.getProgressDrawable().getBounds();
-                    mProgressBarMonthlySteps.setProgressDrawable(
-                            getResources().getDrawable(R.drawable.progress_bar_monthly_steps));
-                    mProgressBarMonthlySteps.getProgressDrawable().setBounds(bounds);
-                }
-            }
         }
         boolean isDurationGoalSet = false;
-        if (dailyDuration != -1 || weeklyDuration != -1 || monthlyDuration != -1) {
+        if (weeklyDuration != -1) {
             isDurationGoalSet = true;
-            if (dailyDuration != -1) {
-                mProgressBarDailyDuration.setVisibility(View.VISIBLE);
-                mProgressBarDailyDuration.setMax(dailyDuration * 60); // Minutes in seconds
-                mProgressBarDailyDuration.setProgress((int) mDailyDuration);
-                if (mDailyDuration >= dailyDuration * 60) {
-                    Rect bounds = mProgressBarDailyDuration.getProgressDrawable().getBounds();
-                    mProgressBarDailyDuration.setProgressDrawable(
-                            getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));
-                    mProgressBarDailyDuration.getProgressDrawable().setBounds(bounds);
-                } else {
-                    Rect bounds = mProgressBarDailyDuration.getProgressDrawable().getBounds();
-                    mProgressBarDailyDuration.setProgressDrawable(
-                            getResources().getDrawable(R.drawable.progress_bar_daily_duration));
-                    mProgressBarDailyDuration.getProgressDrawable().setBounds(bounds);
-                }
-            }
-            if (weeklyDuration != -1) {
-                mProgressBarWeeklyDuration.setVisibility(View.VISIBLE);
-                mProgressBarWeeklyDuration.setMax(weeklyDuration * 60);
-                mProgressBarWeeklyDuration.setProgress((int) mWeeklyDuration);
-                if (mWeeklyDuration >= weeklyDuration * 60) {
-                    Rect bounds = mProgressBarWeeklyDuration.getProgressDrawable().getBounds();
-                    mProgressBarWeeklyDuration.setProgressDrawable(
-                            getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));
-                    mProgressBarWeeklyDuration.getProgressDrawable().setBounds(bounds);
-                } else {
-                    Rect bounds = mProgressBarWeeklyDuration.getProgressDrawable().getBounds();
-                    mProgressBarWeeklyDuration.setProgressDrawable(
-                            getResources().getDrawable(R.drawable.progress_bar_weekly_duration));
-                    mProgressBarWeeklyDuration.getProgressDrawable().setBounds(bounds);
-                }
-            }
-            if (monthlyDuration != -1) {
-                mProgressBarMonthlyDuration.setVisibility(View.VISIBLE);
-                mProgressBarMonthlyDuration.setMax(monthlyDuration * 60);
-                mProgressBarMonthlyDuration.setProgress((int) mMonthlyDuration);
-                if (mMonthlyDuration >= monthlyDuration * 60) {
-                    Rect bounds = mProgressBarMonthlyDuration.getProgressDrawable().getBounds();
-                    mProgressBarMonthlyDuration.setProgressDrawable(
-                            getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));
-                    mProgressBarMonthlyDuration.getProgressDrawable().setBounds(bounds);
-                } else {
-                    Rect bounds = mProgressBarMonthlyDuration.getProgressDrawable().getBounds();
-                    mProgressBarMonthlyDuration.setProgressDrawable(
-                            getResources().getDrawable(R.drawable.progress_bar_monthly_duration));
-                    mProgressBarMonthlyDuration.getProgressDrawable().setBounds(bounds);
-                }
+
+            mProgressBarWeeklyDuration.setVisibility(View.VISIBLE);
+            mProgressBarWeeklyDuration.setMax(weeklyDuration * 60);
+            mProgressBarWeeklyDuration.setProgress((int) mWeeklyDuration);
+            if (mWeeklyDuration >= weeklyDuration * 60) {
+                Rect bounds = mProgressBarWeeklyDuration.getProgressDrawable().getBounds();
+                mProgressBarWeeklyDuration.setProgressDrawable(
+                        getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));
+                mProgressBarWeeklyDuration.getProgressDrawable().setBounds(bounds);
+            } else {
+                Rect bounds = mProgressBarWeeklyDuration.getProgressDrawable().getBounds();
+                mProgressBarWeeklyDuration.setProgressDrawable(
+                        getResources().getDrawable(R.drawable.progress_bar_weekly_duration));
+                mProgressBarWeeklyDuration.getProgressDrawable().setBounds(bounds);
             }
         }
 

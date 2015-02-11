@@ -49,31 +49,6 @@
                 android:progressDrawable="@drawable/progress_bar_daily_steps"
                 android:visibility="gone"/>
 
-            <ProgressBar
-                android:id="@+id/progressBarWeeklySteps"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:paddingLeft="0dp"
-                android:paddingRight="0dp"
-                android:progress="30"
-                android:progressDrawable="@drawable/progress_bar_weekly_steps"
-                android:visibility="gone"/>
-
-            <ProgressBar
-                android:id="@+id/progressBarMonthlySteps"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:paddingLeft="0dp"
-                android:paddingRight="0dp"
-                android:progress="10"
-                android:progressDrawable="@drawable/progress_bar_monthly_steps"
-                android:visibility="gone"/>
-
             <TextView
                 android:id="@+id/stepsNotSetLabel"
                 android:layout_width="wrap_content"
@@ -146,18 +121,6 @@
                 android:textColor="#4a4a4a"/>
 
             <ProgressBar
-                android:id="@+id/progressBarDailyDuration"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:paddingLeft="0dp"
-                android:paddingRight="0dp"
-                android:progress="60"
-                android:progressDrawable="@drawable/progress_bar_daily_duration"
-                android:visibility="gone"/>
-
-            <ProgressBar
                 android:id="@+id/progressBarWeeklyDuration"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
@@ -167,19 +130,6 @@
                 android:paddingRight="0dp"
                 android:progress="30"
                 android:progressDrawable="@drawable/progress_bar_weekly_duration"
-                android:visibility="gone"/>
-
-            <ProgressBar
-                android:id="@+id/progressBarMonthlyDuration"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:paddingLeft="0dp"
-                android:paddingRight="0dp"
-                android:progress="10"
-                android:progressDrawable="@drawable/progress_bar_monthly_duration"
                 android:visibility="gone"/>
 
             <TextView

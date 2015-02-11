@@ -14,13 +14,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
+import java.util.Date;
+
 import bellamica.tech.dreamteenfitness.R;
 
 public class SetGoalsDialog extends DialogFragment {
 
-    private EditText mDailyValueField;
-    private EditText mWeeklyValueField;
-    private EditText mMonthlyValueField;
+    private EditText mValueField;
 
     public interface OnChallengeValueChanged {
         public void onChallengeValueChanged();
@@ -53,39 +53,21 @@ public class SetGoalsDialog extends DialogFragment {
         final SharedPreferences mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         Bundle bundle = getArguments();
         final String key = bundle.getString("key");
-        mDailyValueField = (EditText) view.findViewById(R.id.dailyField);
-        mWeeklyValueField = (EditText) view.findViewById(R.id.weeklyField);
-        mMonthlyValueField = (EditText) view.findViewById(R.id.monthlyField);
+        mValueField = (EditText) view.findViewById(R.id.field);
 
         String dailySteps = mSharedPrefs.getInt("daily_steps", -1) + "";
-        String weeklySteps = mSharedPrefs.getInt("weekly_steps", -1) + "";
-        String monthlySteps = mSharedPrefs.getInt("monthly_steps", -1) + "";
-        String dailyDuration = mSharedPrefs.getInt("daily_duration", -1) + "";
         String weeklyDuration = mSharedPrefs.getInt("weekly_duration", -1) + "";
-        String monthlyDuration = mSharedPrefs.getInt("monthly_duration", -1) + "";
 
         if (key.equals("steps")) {
             if (!dailySteps.equals("-1")) {
-                mDailyValueField.setText(dailySteps);
-            }
-            if (!weeklySteps.equals("-1")) {
-                mWeeklyValueField.setText(weeklySteps);
-            }
-            if (!monthlySteps.equals("-1")) {
-                mMonthlyValueField.setText(monthlySteps);
+                mValueField.setText(dailySteps);
             }
             mSharedPrefs.edit().putBoolean("isSteps50notified", false).apply();
             mSharedPrefs.edit().putBoolean("isSteps75notified", false).apply();
             mSharedPrefs.edit().putBoolean("isSteps100notified", false).apply();
         } else if (key.equals("duration")) {
-            if (!dailyDuration.equals("-1")) {
-                mDailyValueField.setText(dailyDuration);
-            }
             if (!weeklyDuration.equals("-1")) {
-                mWeeklyValueField.setText(weeklyDuration);
-            }
-            if (!monthlyDuration.equals("-1")) {
-                mMonthlyValueField.setText(monthlyDuration);
+                mValueField.setText(weeklyDuration);
             }
             mSharedPrefs.edit().putBoolean("isRun50notified", false).apply();
             mSharedPrefs.edit().putBoolean("isRun75notified", false).apply();
@@ -105,33 +87,19 @@ public class SetGoalsDialog extends DialogFragment {
                         // Add action buttons
                 .setPositiveButton("Set", new OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        if (!mDailyValueField.getText().toString().isEmpty()) {
+                        if (!mValueField.getText().toString().isEmpty()) {
                             int newValue = Integer.parseInt(
-                                    mDailyValueField.getText().toString());
+                                    mValueField.getText().toString());
                             if (key.equals("steps")) {
-                                mSharedPrefs.edit().putInt("daily_steps", newValue).apply();
+                                mSharedPrefs.edit()
+                                        .putInt("daily_steps", newValue)
+                                        .putString("daily_steps_time", new Date().toString())
+                                        .apply();
                             } else if (key.equals("duration")) {
-                                mSharedPrefs.edit().putInt("daily_duration", newValue).apply();
-                            }
-                            mListener.onChallengeValueChanged();
-                        }
-                        if (!mWeeklyValueField.getText().toString().isEmpty()) {
-                            int newValue = Integer.parseInt(
-                                    mWeeklyValueField.getText().toString());
-                            if (key.equals("steps")) {
-                                mSharedPrefs.edit().putInt("weekly_steps", newValue).apply();
-                            } else if (key.equals("duration")) {
-                                mSharedPrefs.edit().putInt("weekly_duration", newValue).apply();
-                            }
-                            mListener.onChallengeValueChanged();
-                        }
-                        if (!mMonthlyValueField.getText().toString().isEmpty()) {
-                            int newValue = Integer.parseInt(
-                                    mMonthlyValueField.getText().toString());
-                            if (key.equals("steps")) {
-                                mSharedPrefs.edit().putInt("monthly_steps", newValue).apply();
-                            } else if (key.equals("duration")) {
-                                mSharedPrefs.edit().putInt("monthly_duration", newValue).apply();
+                                mSharedPrefs.edit()
+                                        .putInt("weekly_duration", newValue)
+                                        .putString("weekly_duration_time", new Date().toString())
+                                        .apply();
                             }
                             mListener.onChallengeValueChanged();
                         }

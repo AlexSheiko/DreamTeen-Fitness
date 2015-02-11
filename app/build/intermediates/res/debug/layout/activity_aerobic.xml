@@ -58,15 +58,15 @@
         style="@style/DividerListItem"/>
 
     <LinearLayout
-        android:id="@+id/butt"
+        android:id="@+id/glutes"
         style="@style/ListItem">
 
         <ImageView
-            android:src="@drawable/ic_category_butt"
+            android:src="@drawable/ic_category_glutes"
             style="@style/ImageListView"/>
 
         <TextView
-            android:text="Butt workout"
+            android:text="Glutes workout"
             style="@style/TextListView"
             android:textSize="18sp"/>
     </LinearLayout>

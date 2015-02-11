@@ -10,13 +10,13 @@ import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Rect;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -28,11 +28,9 @@ import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.fitness.Fitness;
 import com.google.android.gms.fitness.data.DataPoint;
@@ -65,25 +63,22 @@ import ui.fragments.AerobicGoalDialog;
 import ui.fragments.MainGoalsDialog;
 import ui.fragments.MainGoalsDialog.CaloriesDialogListener;
 import ui.utils.adapters.NavigationAdapter;
+import ui.utils.helpers.Constants;
 
 
 public class MainActivity extends Activity
         implements CaloriesDialogListener {
 
-    public static final String TAG = "BasicHistoryApi";
-    public static final String SESSION_NAME = "Afternoon run";
-
-    private int mDailyStepsTaken;
+    private int mDailySteps;
     private long mDailyDuration;
 
-    private static String LEADERBOARD_STEPS_ID;
-    private static final int REQUEST_OAUTH = 1;
-    private static final int REQUEST_LEADERBOARD = 2;
+    private GoogleApiClient mClient;
+    private boolean authInProgress = false;
     private static final String AUTH_PENDING = "auth_state_pending";
 
-    private boolean authInProgress = false;
-    private GoogleApiClient mClient;
     private OnDataPointListener mStepsListener;
+    private static final int REQUEST_OAUTH = 1;
+    private static final int REQUEST_LEADERBOARD = 2;
 
     private SharedPreferences mSharedPrefs;
     private int mCaloriesExpanded = 0;
@@ -113,34 +108,34 @@ public class MainActivity extends Activity
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
 
-        mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-
         if (savedInstanceState != null) {
             authInProgress = savedInstanceState.getBoolean(AUTH_PENDING);
         }
-        LEADERBOARD_STEPS_ID = getResources().getString(R.string.leaderboard_steps_taken);
-
         buildFitnessClient();
         addSideNavigation();
+
+        mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
     }
 
     /**
      * Build a GoogleApiClient that will authenticate the user and allow the application
-     * to connect to Fitness APIs.
+     * to connect to Fitness APIs
      */
     private void buildFitnessClient() {
         // Create the Google API Client
         mClient = new GoogleApiClient.Builder(this)
-                .addApi(Plus.API).addScope(Plus.SCOPE_PLUS_LOGIN)
-                .addApi(Games.API).addScope(Games.SCOPE_GAMES)
                 .addApi(Fitness.API)
-                .addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
-                .addScope(new Scope(Scopes.FITNESS_LOCATION_READ))
+                .addApi(Games.API)
+                .addApi(Plus.API)
+                .addScope(Fitness.SCOPE_ACTIVITY_READ_WRITE)
+                .addScope(Fitness.SCOPE_LOCATION_READ)
+                .addScope(Games.SCOPE_GAMES)
+                .addScope(Plus.SCOPE_PLUS_LOGIN)
                 .addConnectionCallbacks(
                         new ConnectionCallbacks() {
                             @Override
                             public void onConnected(Bundle bundle) {
-                                // Now you can make calls to the Fitness APIs.
+                                // Now make calls to the APIs
                                 updateCaloriesAndSteps();
                                 startListeningSteps();
                                 readStepCount();
@@ -157,7 +152,6 @@ public class MainActivity extends Activity
                             // Called whenever the API client fails to connect.
                             @Override
                             public void onConnectionFailed(ConnectionResult result) {
-                                Log.i(TAG, "Connection failed. Cause: " + result.toString());
                                 if (!result.hasResolution()) {
                                     // Show the localized error dialog
                                     GooglePlayServicesUtil.getErrorDialog(result.getErrorCode(),
@@ -165,17 +159,12 @@ public class MainActivity extends Activity
                                     return;
                                 }
                                 // The failure has a resolution. Resolve it.
-                                // Called typically when the app is not yet authorized, and an
-                                // authorization dialog is displayed to the user.
                                 if (!authInProgress) {
                                     try {
-                                        Log.i(TAG, "Attempting to resolve failed connection");
                                         authInProgress = true;
                                         result.startResolutionForResult(MainActivity.this,
                                                 REQUEST_OAUTH);
-                                    } catch (IntentSender.SendIntentException e) {
-                                        Log.e(TAG,
-                                                "Exception while starting resolution activity", e);
+                                    } catch (IntentSender.SendIntentException ignored) {
                                     }
                                 }
                             }
@@ -265,7 +254,7 @@ public class MainActivity extends Activity
         DataSource dataSource = new DataSource.Builder()
                 .setAppPackageName(this)
                 .setDataType(DataType.TYPE_STEP_COUNT_DELTA)
-                .setName(TAG + " - step count")
+                .setName(Constants.SESSION_NAME + " - step count")
                 .setType(DataSource.TYPE_DERIVED)
                 .build();
 
@@ -385,7 +374,11 @@ public class MainActivity extends Activity
         }
 
         mStepsLabel.setText(mStepsTaken + "");
-        Games.Leaderboards.submitScore(mClient, LEADERBOARD_STEPS_ID, mStepsTaken);
+
+        String LEADERBOARD_STEPS_ID = getResources().getString(
+                R.string.leaderboard_steps_taken);
+        Games.Leaderboards.submitScore(
+                mClient, LEADERBOARD_STEPS_ID, mStepsTaken);
 
         boolean isSteps100notified = mSharedPrefs.getBoolean("isSteps100notified", false);
         int stepsLeft = stepsTarget - mStepsTaken;
@@ -398,6 +391,22 @@ public class MainActivity extends Activity
             }
         }
         mStepsTargetLabel.setText(stepsLeft + "");
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_MONTH, 1);
+        long stepsEndTime = calendar.getTimeInMillis();
+
+        String dailyStepsStr = mSharedPrefs.getString("daily_steps_time", "");
+        long dailyStepsTime = 0;
+        try {
+            dailyStepsTime = Date.parse(dailyStepsStr);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+        if (dailyStepsTime > stepsEndTime) {
+            mSharedPrefs.edit().putString("daily_steps_time", "").apply();
+            updateUiCounters();
+        }
     }
 
     @Override
@@ -620,7 +629,7 @@ public class MainActivity extends Activity
     }
 
     private void increaseDailySteps(int increment) {
-        mDailyStepsTaken = mDailyStepsTaken + increment;
+        mDailySteps = mDailySteps + increment;
     }
 
     private void readMinutes() {
@@ -636,7 +645,7 @@ public class MainActivity extends Activity
         // Build a session read request
         SessionReadRequest readRequest = new Builder()
                 .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS)
-                .setSessionName(SESSION_NAME)
+                .setSessionName(Constants.SESSION_NAME)
                 .build();
         // [END build_read_session_request]
 
@@ -668,27 +677,7 @@ public class MainActivity extends Activity
 
     private void showNotificationIfNeeded() {
         int dailySteps = mSharedPrefs.getInt("daily_steps", -1);
-        if (dailySteps == -1) {
-            int weeklySteps = mSharedPrefs.getInt("weekly_steps", -1);
-            if (weeklySteps == -1) return;
-            dailySteps = weeklySteps / 7;
-        }
-        if (dailySteps == -1) {
-            int monthlySteps = mSharedPrefs.getInt("monthly_steps", -1);
-            if (monthlySteps == -1) return;
-            dailySteps = monthlySteps / 30;
-        }
         int dailyDuration = mSharedPrefs.getInt("daily_duration", -1);
-        if (dailyDuration == -1) {
-            int weeklyDuration = mSharedPrefs.getInt("weekly_duration", -1);
-            if (weeklyDuration == -1) return;
-            dailyDuration = weeklyDuration / 7;
-        }
-        if (dailyDuration == -1) {
-            int monthlyDuration = mSharedPrefs.getInt("monthly_duration", -1);
-            if (monthlyDuration == -1) return;
-            dailyDuration = monthlyDuration / 30;
-        }
 
         boolean isSteps50notified = mSharedPrefs.getBoolean("isSteps50notified", false);
         boolean isSteps75notified = mSharedPrefs.getBoolean("isSteps75notified", false);
@@ -698,19 +687,19 @@ public class MainActivity extends Activity
         boolean isRun100notified = mSharedPrefs.getBoolean("isRun100notified", false);
 
         if (dailySteps != -1) {
-            if (mDailyStepsTaken >= dailySteps * 0.5
-                    && mDailyStepsTaken < dailySteps * 0.75
+            if (mDailySteps >= dailySteps * 0.5
+                    && mDailySteps < dailySteps * 0.75
                     && !isSteps50notified) {
                 showNotification("Steps", 50);
                 mSharedPrefs.edit()
                         .putBoolean("isSteps50notified", true).apply();
-            } else if (mDailyStepsTaken >= dailySteps * 0.75
-                    && mDailyStepsTaken < dailySteps
+            } else if (mDailySteps >= dailySteps * 0.75
+                    && mDailySteps < dailySteps
                     && !isSteps75notified) {
                 showNotification("Steps", 75);
                 mSharedPrefs.edit()
                         .putBoolean("isSteps75notified", true).apply();
-            } else if (mDailyStepsTaken >= dailySteps
+            } else if (mDailySteps >= dailySteps
                     && !isSteps100notified) {
                 showNotification("Steps", 100);
                 mSharedPrefs.edit()
@@ -750,7 +739,8 @@ public class MainActivity extends Activity
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.ic_logo_small)
-                        .setContentTitle(title);
+                        .setContentTitle(title)
+                        .setSound(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.cheer));
 
         // Sets an ID for the notification
         int mNotificationId = 123;
