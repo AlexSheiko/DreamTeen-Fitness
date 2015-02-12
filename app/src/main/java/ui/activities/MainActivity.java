@@ -381,7 +381,7 @@ public class MainActivity extends Activity
 
         boolean isSteps100notified = mSharedPrefs.getBoolean("isSteps100notified", false);
         int stepsLeft = stepsTarget - mStepsTaken;
-        if (stepsLeft <= 0) {
+        if (stepsTarget != -1 && stepsLeft <= 0) {
             stepsLeft = 0;
             if (!isSteps100notified) {
                 showNotification("Steps", 100);
@@ -393,22 +393,15 @@ public class MainActivity extends Activity
             mStepsTargetLabel.setText(stepsLeft + " steps to goal");
         }
 
+        int currentDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+        int stepsExpireDay = mSharedPrefs.getInt("daily_steps_time", -1);
 
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DAY_OF_MONTH, 1);
-        long stepsEndTime = calendar.getTimeInMillis();
-
-        String dailyStepsStr = mSharedPrefs.getString("daily_steps_time", "");
-        long dailyStepsTime = 0;
-        try {
-            dailyStepsTime = Date.parse(dailyStepsStr);
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        }
-        if (dailyStepsTime > stepsEndTime) {
-            mSharedPrefs.edit().putString("daily_steps_time", "").apply();
-            updateUiCounters();
+        if (stepsExpireDay != -1 && currentDay >= stepsExpireDay) {
+            mSharedPrefs.edit()
+                    .putInt("daily_steps", -1)
+                    .putInt("daily_steps_time", -1)
+                    .apply();
+            mStepsTargetLabel.setText("Goal not set");
         }
     }
 

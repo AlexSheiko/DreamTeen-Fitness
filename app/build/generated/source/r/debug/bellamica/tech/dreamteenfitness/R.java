@@ -922,8 +922,8 @@ containing a value of this type.
         public static final int com_facebook_tooltip_bubble=0x7f030015;
         public static final int com_facebook_usersettingsfragment=0x7f030016;
         public static final int dialog_aerobic_goal=0x7f030017;
-        public static final int dialog_set_goal =0x7f030018;
-        public static final int dialog_run_goal=0x7f030019;
+        public static final int dialog_run_goal=0x7f030018;
+        public static final int dialog_set_goal=0x7f030019;
         public static final int fragment_goals=0x7f03001a;
         public static final int fragment_map=0x7f03001b;
         public static final int grid_item_category=0x7f03001c;
@@ -937,7 +937,8 @@ containing a value of this type.
         public static final int menu_summary=0x7f0c0001;
     }
     public static final class raw {
-        public static final int gtm_analytics=0x7f050000;
+        public static final int cheer=0x7f050000;
+        public static final int gtm_analytics=0x7f050001;
     }
     public static final class string {
         public static final int ab_exercise_1=0x7f0a0000;

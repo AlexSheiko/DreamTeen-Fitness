@@ -14,7 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
-import java.util.Date;
+import java.util.Calendar;
 
 import bellamica.tech.dreamteenfitness.R;
 
@@ -55,7 +55,7 @@ public class SetGoalsDialog extends DialogFragment {
         final String key = bundle.getString("key");
         mValueField = (EditText) view.findViewById(R.id.field);
 
-        String dailySteps = mSharedPrefs.getInt("daily_steps", -1) + "";
+        final String dailySteps = mSharedPrefs.getInt("daily_steps", -1) + "";
         String weeklyDuration = mSharedPrefs.getInt("weekly_duration", -1) + "";
 
         if (key.equals("steps")) {
@@ -90,15 +90,16 @@ public class SetGoalsDialog extends DialogFragment {
                         if (!mValueField.getText().toString().isEmpty()) {
                             int newValue = Integer.parseInt(
                                     mValueField.getText().toString());
+                            int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + 1;
                             if (key.equals("steps")) {
                                 mSharedPrefs.edit()
                                         .putInt("daily_steps", newValue)
-                                        .putString("daily_steps_time", new Date().toString())
+                                        .putInt("daily_steps_time", day)
                                         .apply();
                             } else if (key.equals("duration")) {
                                 mSharedPrefs.edit()
                                         .putInt("weekly_duration", newValue)
-                                        .putString("weekly_duration_time", new Date().toString())
+                                        .putInt("weekly_duration_time", day)
                                         .apply();
                             }
                             mListener.onChallengeValueChanged();
