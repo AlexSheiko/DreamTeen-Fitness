@@ -284,7 +284,9 @@ public class GoalsActivity extends Activity
                 mProgressBarWeeklyDuration.setProgressDrawable(
                         getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));
                 mProgressBarWeeklyDuration.getProgressDrawable().setBounds(bounds);
-                mSharedPrefs.edit().putBoolean("needs_to_notify_run", true).apply();
+                if (mSharedPrefs.getInt("needs_to_notify_run", 0) != 2) {
+                    mSharedPrefs.edit().putInt("needs_to_notify_run", 1).apply();
+                }
             } else {
                 Rect bounds = mProgressBarWeeklyDuration.getProgressDrawable().getBounds();
                 mProgressBarWeeklyDuration.setProgressDrawable(

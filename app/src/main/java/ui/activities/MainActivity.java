@@ -409,10 +409,10 @@ public class MainActivity extends Activity
         //[END Steps counter]
 
         //[START Duration counter]
-        boolean notifyRun = mSharedPrefs.getBoolean("needs_to_notify_run", false);
-        if (notifyRun) {
+        int notifyRun = mSharedPrefs.getInt("needs_to_notify_run", 0);
+        if (notifyRun == 1) {
             showNotification("Run", 100);
-            mSharedPrefs.edit().putBoolean("needs_to_notify_run", false);
+            mSharedPrefs.edit().putInt("needs_to_notify_run", 2).apply();
         }
     }
 
