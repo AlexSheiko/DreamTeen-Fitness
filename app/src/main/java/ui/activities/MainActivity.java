@@ -337,6 +337,7 @@ public class MainActivity extends Activity
     }
 
     private void updateUiCounters() {
+        //[START calories counter]
         // Average expansion by day
         int mCaloriesBurnedByDefault = Calendar.getInstance()
                 .get(Calendar.HOUR_OF_DAY) * 1465 / 24;
@@ -360,7 +361,9 @@ public class MainActivity extends Activity
                     getResources().getDrawable(R.drawable.progress_bar_calories));
             mProgressBar.getProgressDrawable().setBounds(bounds);
         }
+        //[END Calories counter]
 
+        //[START Steps counter]
         int stepsTarget = mSharedPrefs.getInt("daily_steps", -1);
 
         boolean isSteps50notified = mSharedPrefs.getBoolean("isSteps50notified", false);
@@ -393,15 +396,23 @@ public class MainActivity extends Activity
             mStepsTargetLabel.setText(stepsLeft + " steps to goal");
         }
 
-        int currentDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-        int stepsExpireDay = mSharedPrefs.getInt("daily_steps_time", -1);
+        int currentDay = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
 
+        int stepsExpireDay = mSharedPrefs.getInt("daily_steps_time", -1);
         if (stepsExpireDay != -1 && currentDay >= stepsExpireDay) {
             mSharedPrefs.edit()
                     .putInt("daily_steps", -1)
                     .putInt("daily_steps_time", -1)
                     .apply();
             mStepsTargetLabel.setText("Goal not set");
+        }
+        //[END Steps counter]
+
+        //[START Duration counter]
+        boolean notifyRun = mSharedPrefs.getBoolean("needs_to_notify_run", false);
+        if (notifyRun) {
+            showNotification("Run", 100);
+            mSharedPrefs.edit().putBoolean("needs_to_notify_run", false);
         }
     }
 

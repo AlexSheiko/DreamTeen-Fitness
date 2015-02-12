@@ -90,16 +90,16 @@ public class SetGoalsDialog extends DialogFragment {
                         if (!mValueField.getText().toString().isEmpty()) {
                             int newValue = Integer.parseInt(
                                     mValueField.getText().toString());
-                            int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + 1;
+                            int day = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
                             if (key.equals("steps")) {
                                 mSharedPrefs.edit()
                                         .putInt("daily_steps", newValue)
-                                        .putInt("daily_steps_time", day)
+                                        .putInt("daily_steps_time", day + 1)
                                         .apply();
                             } else if (key.equals("duration")) {
                                 mSharedPrefs.edit()
                                         .putInt("weekly_duration", newValue)
-                                        .putInt("weekly_duration_time", day)
+                                        .putInt("weekly_duration_time", day + 30)
                                         .apply();
                             }
                             mListener.onChallengeValueChanged();

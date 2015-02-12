@@ -225,18 +225,19 @@ public class GoalsActivity extends Activity
                             // Process the session
                             dumpWeeklyDuration(session);
                         }
+                        updateProgressBar();
                     }
                 });
         return readRequest;
     }
 
     private void dumpWeeklyDuration(Session session) {
-        long startTime = session.getStartTime(TimeUnit.MILLISECONDS);
-        long endTime = session.getEndTime(TimeUnit.MILLISECONDS);
-        long diffInMs = endTime - startTime;
-        long increment = TimeUnit.MILLISECONDS.toSeconds(diffInMs);
-        increaseWeeklyDuration(increment);
-        updateProgressBar();
+        long startTime = session.getStartTime(TimeUnit.SECONDS);
+        long endTime = session.getEndTime(TimeUnit.SECONDS);
+        long increment = endTime - startTime;
+        if (increment > 0) {
+            increaseWeeklyDuration(increment);
+        }
     }
 
     private void increaseWeeklyDuration(long increment) {
@@ -245,12 +246,9 @@ public class GoalsActivity extends Activity
 
     private void updateProgressBar() {
         int dailySteps = mSharedPrefs.getInt("daily_steps", -1);
-        int weeklyDuration = mSharedPrefs.getInt("weekly_duration", -1);
-
         boolean isStepsGoalSet = false;
         if (dailySteps != -1) {
             isStepsGoalSet = true;
-            if (dailySteps != -1) {
                 mProgressBarDailySteps.setVisibility(View.VISIBLE);
                 mProgressBarDailySteps.setMax(dailySteps);
                 mProgressBarDailySteps.setProgress(mDailyStepsTaken);
@@ -265,12 +263,19 @@ public class GoalsActivity extends Activity
                             getResources().getDrawable(R.drawable.progress_bar_daily_steps));
                     mProgressBarDailySteps.getProgressDrawable().setBounds(bounds);
                 }
-            }
+        } else {
+            mStepsNotSetLabel.setVisibility(View.VISIBLE);
+            mSetStepsButton.setVisibility(View.VISIBLE);
         }
+        if (isStepsGoalSet) {
+            mStepsNotSetLabel.setVisibility(View.GONE);
+            mSetStepsButton.setVisibility(View.GONE);
+        }
+
+        int weeklyDuration = mSharedPrefs.getInt("weekly_duration", -1);
         boolean isDurationGoalSet = false;
         if (weeklyDuration != -1) {
             isDurationGoalSet = true;
-
             mProgressBarWeeklyDuration.setVisibility(View.VISIBLE);
             mProgressBarWeeklyDuration.setMax(weeklyDuration * 60);
             mProgressBarWeeklyDuration.setProgress((int) mWeeklyDuration);
@@ -279,17 +284,16 @@ public class GoalsActivity extends Activity
                 mProgressBarWeeklyDuration.setProgressDrawable(
                         getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));
                 mProgressBarWeeklyDuration.getProgressDrawable().setBounds(bounds);
+                mSharedPrefs.edit().putBoolean("needs_to_notify_run", true).apply();
             } else {
                 Rect bounds = mProgressBarWeeklyDuration.getProgressDrawable().getBounds();
                 mProgressBarWeeklyDuration.setProgressDrawable(
                         getResources().getDrawable(R.drawable.progress_bar_weekly_duration));
                 mProgressBarWeeklyDuration.getProgressDrawable().setBounds(bounds);
             }
-        }
-
-        if (isStepsGoalSet) {
-            mStepsNotSetLabel.setVisibility(View.GONE);
-            mSetStepsButton.setVisibility(View.GONE);
+        } else {
+            mDurationNotSetLabel.setVisibility(View.VISIBLE);
+            mSetDurationButton.setVisibility(View.VISIBLE);
         }
         if (isDurationGoalSet) {
             mDurationNotSetLabel.setVisibility(View.GONE);
