@@ -31,7 +31,6 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
 import com.google.android.gms.fitness.Fitness;
 import com.google.android.gms.fitness.data.DataPoint;
 import com.google.android.gms.fitness.data.DataSet;
@@ -39,7 +38,6 @@ import com.google.android.gms.fitness.data.DataSource;
 import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
 import com.google.android.gms.fitness.data.Session;
-import com.google.android.gms.fitness.data.Value;
 import com.google.android.gms.fitness.request.DataReadRequest;
 import com.google.android.gms.fitness.request.DataSourcesRequest;
 import com.google.android.gms.fitness.request.OnDataPointListener;
@@ -126,10 +124,9 @@ public class MainActivity extends Activity {
                             @Override
                             public void onConnected(Bundle bundle) {
                                 // Now make calls to the APIs
-                                readCaloriesAndSteps();
-                                startListeningSteps();
-                                readStepCount();
-                                readRunDuration();
+                                readDailyStepsAndCalories();
+                                readWeeklyDuration();
+                                registerStepsListener();
                             }
 
                             @Override
@@ -160,7 +157,7 @@ public class MainActivity extends Activity {
                 .build();
     }
 
-    private void startListeningSteps() {
+    private void registerStepsListener() {
         Fitness.SensorsApi.findDataSources(mClient, new DataSourcesRequest.Builder()
                 .setDataTypes(DataType.TYPE_STEP_COUNT_DELTA)
                 .setDataSourceTypes(DataSource.TYPE_DERIVED)
@@ -170,29 +167,35 @@ public class MainActivity extends Activity {
                     public void onResult(DataSourcesResult dataSourcesResult) {
                         for (DataSource dataSource : dataSourcesResult.getDataSources()) {
                             //Let's register a listener to receive Activity data!
-                            if (dataSource.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)
-                                    && mStepsListener == null) {
-                                registerStepsListener(dataSource,
-                                        DataType.TYPE_STEP_COUNT_DELTA);
+                            try {
+                                if (dataSource.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)) {
+                                    startListeningSteps(dataSource,
+                                            DataType.TYPE_STEP_COUNT_DELTA);
+                                }
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
                         }
                     }
                 });
+
+        // Subscribe to steps data
+        Fitness.RecordingApi.subscribe(mClient, DataType.TYPE_STEP_COUNT_DELTA);
     }
 
     /**
      * Register a listener with the Sensors API for the provided {@link DataSource} and
      * {@link DataType} combo.
      */
-    private void registerStepsListener(DataSource dataSource, DataType dataType) {
+    private void startListeningSteps(DataSource dataSource, DataType dataType) {
         // [START register_data_listener]
+        // Register steps listener
         mStepsListener = new OnDataPointListener() {
             @Override
             public void onDataPoint(DataPoint dataPoint) {
                 for (Field field : dataPoint.getDataType().getFields()) {
-                    Value val = dataPoint.getValue(field);
-                    insertSteps(val.asInt());
-                    increaseSteps(val.asInt());
+                    int increment = dataPoint.getValue(field).asInt();
+                    mStepsTaken += increment;
                     mStepsTakenLabel.setText(mStepsTaken + "");
                 }
             }
@@ -209,45 +212,15 @@ public class MainActivity extends Activity {
         // [END register_data_listener]
     }
 
-    private void stopListeningSteps() {
+    private void unregisterStepsListener() {
+        // Unregister steps listener
         Fitness.SensorsApi.remove(mClient, mStepsListener);
+
+        // Unsubscribe from steps data
+        Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_STEP_COUNT_DELTA);
     }
 
-    private void insertSteps(final int steps) {
-        // Set a start and end time for our data, using a start time of 1 hour before this moment.
-        Calendar cal = Calendar.getInstance();
-        Date now = new Date();
-        cal.setTime(now);
-        long endTime = cal.getTimeInMillis();
-        cal.add(Calendar.SECOND, -1);
-        long startTime = cal.getTimeInMillis();
-
-        // Create a data source
-        DataSource dataSource = new DataSource.Builder()
-                .setAppPackageName(this)
-                .setDataType(DataType.TYPE_STEP_COUNT_DELTA)
-                .setName(Constants.SESSION_NAME + " - step count")
-                .setType(DataSource.TYPE_DERIVED)
-                .build();
-
-        DataSet dataSet = DataSet.create(dataSource);
-        DataPoint dataPoint = dataSet.createDataPoint()
-                .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS);
-        dataPoint.getValue(Field.FIELD_STEPS).setInt(steps);
-        dataSet.add(dataPoint);
-
-        // Invoke the History API to insert the data
-        Fitness.HistoryApi.insertData(mClient, dataSet).setResultCallback(new ResultCallback<Status>() {
-            @Override
-            public void onResult(Status status) {
-                if (status.isSuccess()) {
-                    increaseSteps(steps);
-                }
-            }
-        });
-    }
-
-    private void readCaloriesAndSteps() {
+    private void readDailyStepsAndCalories() {
         // Setting a start and end date using a range of 1 week before this moment.
         Calendar cal = Calendar.getInstance();
         Date now = new Date();
@@ -502,7 +475,8 @@ public class MainActivity extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-        stopListeningSteps();
+
+        unregisterStepsListener();
     }
 
     @Override
@@ -516,8 +490,11 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        registerStepsListener();
+
         if (mClient != null && mClient.isConnected()) {
-            startListeningSteps();
+            registerStepsListener();
         }
         if (!mSharedPrefs.getBoolean("pref_track_calories", true))
             mCaloriesContainer.setVisibility(View.GONE);
@@ -637,49 +614,7 @@ public class MainActivity extends Activity {
         }
     }
 
-    private void readStepCount() {
-        // Setting a start and end date using a range of 1 week before this moment.
-        Calendar cal = Calendar.getInstance();
-        Date now = new Date();
-        cal.setTime(now);
-        long endTime = cal.getTimeInMillis();
-        // Get time from the start (00:00) of a day
-        cal.add(Calendar.HOUR_OF_DAY, -Calendar.HOUR_OF_DAY);
-        long startTime = cal.getTimeInMillis();
-
-        DataReadRequest readCaloriesRequest = new DataReadRequest.Builder()
-                .read(DataType.TYPE_STEP_COUNT_DELTA)
-                .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
-                .build();
-
-        // Invoke the History API to fetch the data with the query
-        Fitness.HistoryApi.readData(mClient, readCaloriesRequest).setResultCallback(
-                new ResultCallback<DataReadResult>() {
-                    @Override
-                    public void onResult(DataReadResult dataReadResult) {
-                        for (DataSet dataSet : dataReadResult.getDataSets()) {
-                            if (dataSet.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)) {
-                                dumpDailySteps(dataSet);
-                            }
-                        }
-                    }
-                });
-    }
-
-    private void dumpDailySteps(DataSet dataSet) {
-        for (DataPoint dp : dataSet.getDataPoints()) {
-            for (Field field : dp.getDataType().getFields()) {
-                increaseDailySteps(
-                        dp.getValue(field).asInt());
-            }
-        }
-    }
-
-    private void increaseDailySteps(int increment) {
-        mDailySteps = mDailySteps + increment;
-    }
-
-    private void readRunDuration() {
+    private void readWeeklyDuration() {
         // [START build_read_session_request]
         // Set a start and end time for our query, using a start time of 1 week before this moment.
         Calendar cal = Calendar.getInstance();
