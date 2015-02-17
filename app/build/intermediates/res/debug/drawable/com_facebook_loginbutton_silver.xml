@@ -21,4 +21,4 @@
           android:drawable="@drawable/com_facebook_button_grey_focused" />
     <item android:drawable="@drawable/com_facebook_button_grey_normal" />
 </selector>
-<!-- From: file:/D:/DreamTeen-Fitness/facebook/res/drawable/com_facebook_loginbutton_silver.xml --><!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.facebook.android/facebook/3.21.1/res/drawable/com_facebook_loginbutton_silver.xml -->
+<!-- From: file:/Users/gokhanc/src/sdkrm/out/android-sdk/facebook/res/drawable/com_facebook_loginbutton_silver.xml --><!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.21.1/res/drawable/com_facebook_loginbutton_silver.xml -->

@@ -18,4 +18,4 @@
     <item android:drawable="@drawable/com_facebook_picker_list_pressed"  />
     <item android:drawable="@drawable/com_facebook_picker_list_longpressed"  />
 </transition>
-<!-- From: file:/D:/DreamTeen-Fitness/facebook/res/drawable/com_facebook_picker_list_selector_background_transition.xml --><!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.facebook.android/facebook/3.21.1/res/drawable/com_facebook_picker_list_selector_background_transition.xml -->
+<!-- From: file:/Users/gokhanc/src/sdkrm/out/android-sdk/facebook/res/drawable/com_facebook_picker_list_selector_background_transition.xml --><!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.21.1/res/drawable/com_facebook_picker_list_selector_background_transition.xml -->

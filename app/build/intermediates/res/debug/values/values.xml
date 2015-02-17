@@ -125,7 +125,7 @@
     <color name="black">#000000</color>
     <color name="card_background">@color/white</color>
     <color name="card_text">#7a7575</color>
-    <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.facebook.android/facebook/3.21.1/res/values/values.xml -->
+    <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.21.1/res/values/values.xml -->
     <eat-comment/>
     <color name="com_facebook_blue">#3B5998</color>
     <color name="com_facebook_likeboxcountview_border_color">#6a7180</color>
@@ -191,7 +191,7 @@
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.facebook.android/facebook/3.21.1/res/values/values.xml -->
+    <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.21.1/res/values/values.xml -->
     <eat-comment/>
     <dimen name="com_facebook_likeboxcountview_border_radius">3dp</dimen>
     <dimen name="com_facebook_likeboxcountview_border_width">1dp</dimen>
@@ -280,6 +280,7 @@
     <string name="action_music">Music</string>
     <string name="action_settings">Settings</string>
     <string name="action_share">Share</string>
+    <string name="add_button_label">Add</string>
     <string name="aerobic">Aerobic</string>
     <string name="aerobic_activity_title">Choose exercise</string>
     <string name="app_id">326277129375</string>
@@ -360,7 +361,7 @@
     <eat-comment/>
     <string name="calories_burned">calories burned</string>
     <string name="calories_default_value">0</string>
-    <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.facebook.android/facebook/3.21.1/res/values/values.xml -->
+    <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.21.1/res/values/values.xml -->
     <eat-comment/>
     <string name="com_facebook_choose_friends">Choose Friends</string>
     <string name="com_facebook_dialogloginactivity_ok_button">OK</string>
@@ -516,6 +517,7 @@
     <string name="resume_run">Resume</string>
     <string name="resume_run_button_label">Resume</string>
     <string name="run_activity_title">Run</string>
+    <string name="run_duration_label">Run duration</string>
     <string name="run_was_label">Run was</string>
     <string name="running_label">Running</string>
     <string name="save_button_label">Save</string>
@@ -525,6 +527,7 @@
     <string name="start_time_key" translatable="false">start_time</string>
     <string name="steps_default_value">0</string>
     <string name="steps_icon_description">Steps counter icon</string>
+    <string name="steps_label">Step count</string>
     <string name="steps_norm_hint">to goal</string>
     <string name="steps_target_default_value">2450</string>
     <string name="steps_today_label">steps today</string>
@@ -588,6 +591,60 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">2dp</item>
         <item name="android:background">#dfdfdf</item>
+    </style>
+    <style name="GoalContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:background">@drawable/container</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:onClick">addChallengeGoal</item>
+        <item name="android:baselineAligned">false</item>
+    </style>
+    <style name="GoalContainerHeader">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:textColor">#4a4a4a</item>
+    </style>
+    <style name="GoalContainerLayout">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+    <style name="GoalNotSetLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:text">@string/goal_not_set_hint</item>
+    </style>
+    <style name="GoalProgressBar" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">7dp</item>
+        <item name="android:progress">30</item>
+        <item name="android:visibility">gone</item>
+    </style>
+    <style name="GoalsActivityContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingRight">16dp</item>
     </style>
     <style name="ImageListView">
         <item name="android:layout_width">40dp</item>
@@ -731,7 +788,7 @@
         <item name="maskedWalletDetailsLogoTextColor">@color/wallet_bright_foreground_holo_dark</item>
         <item name="maskedWalletDetailsLogoImageType">classic</item>
     </style>
-    <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.facebook.android/facebook/3.21.1/res/values/values.xml -->
+    <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.21.1/res/values/values.xml -->
     <eat-comment/>
     <style name="com_facebook_loginview_default_style" parent="@android:style/Widget.Button">
         <item name="android:layout_width">wrap_content</item>
@@ -767,15 +824,15 @@
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:maxLength">6</item>
     </style>
-    <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.facebook.android/facebook/3.21.1/res/values/values.xml -->
+    <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.21.1/res/values/values.xml -->
     <eat-comment/>
     <style name="tooltip_bubble_text">
-	    <item name="android:textColor">@android:color/white</item>
-	    <item name="android:gravity">left</item>
-	    <item name="android:textSize">12sp</item>
-	    <item name="android:shadowDy">-1</item>
-	    <item name="android:shadowRadius">0.25</item>
-	    <item name="android:shadowColor">#40000000</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:shadowDy">-1</item>
+        <item name="android:shadowRadius">0.25</item>
+        <item name="android:shadowColor">#40000000</item>
     </style>
     <!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/values/styles.xml -->
     <eat-comment/>

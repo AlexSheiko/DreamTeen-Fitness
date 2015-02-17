@@ -15,10 +15,10 @@ public class GoalsActivity$$ViewInjector {
     target.mSetStepsButton = (android.widget.Button) view;
     view = finder.findRequiredView(source, 2131558448, "field 'mSetDurationButton'");
     target.mSetDurationButton = (android.widget.Button) view;
-    view = finder.findRequiredView(source, 2131558442, "field 'mProgressBarDailySteps'");
-    target.mProgressBarDailySteps = (android.widget.ProgressBar) view;
-    view = finder.findRequiredView(source, 2131558446, "field 'mProgressBarWeeklyDuration'");
-    target.mProgressBarWeeklyDuration = (android.widget.ProgressBar) view;
+    view = finder.findRequiredView(source, 2131558442, "field 'mPbSteps'");
+    target.mPbSteps = (android.widget.ProgressBar) view;
+    view = finder.findRequiredView(source, 2131558446, "field 'mPbDuration'");
+    target.mPbDuration = (android.widget.ProgressBar) view;
   }
 
   public static void reset(ui.activities.GoalsActivity target) {
@@ -26,7 +26,7 @@ public class GoalsActivity$$ViewInjector {
     target.mDurationNotSetLabel = null;
     target.mSetStepsButton = null;
     target.mSetDurationButton = null;
-    target.mProgressBarDailySteps = null;
-    target.mProgressBarWeeklyDuration = null;
+    target.mPbSteps = null;
+    target.mPbDuration = null;
   }
 }

@@ -54,8 +54,6 @@ public class GoalsActivity extends Activity
     private static final int REQUEST_OAUTH = 1;
     private GoogleApiClient mClient;
 
-    private SharedPreferences mSharedPrefs;
-
     @InjectView(R.id.stepsNotSetLabel)
     TextView mStepsNotSetLabel;
     @InjectView(R.id.durationNotSetLabel)
@@ -65,9 +63,9 @@ public class GoalsActivity extends Activity
     @InjectView(R.id.setDurationButton)
     Button mSetDurationButton;
     @InjectView(R.id.progressBarDailySteps)
-    ProgressBar mProgressBarDailySteps;
+    ProgressBar mPbSteps;
     @InjectView(R.id.progressBarWeeklyDuration)
-    ProgressBar mProgressBarWeeklyDuration;
+    ProgressBar mPbDuration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,9 +75,7 @@ public class GoalsActivity extends Activity
 
         buildFitnessClient();
 
-        updateProgressBar();
-
-        mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        updateUi();
     }
 
     public void addChallengeGoal(View view) {
@@ -180,7 +176,7 @@ public class GoalsActivity extends Activity
                         dp.getValue(field).asInt());
             }
         }
-        updateProgressBar();
+        updateUi();
     }
 
     private void increaseDailyStepCount(int increment) {
@@ -213,7 +209,7 @@ public class GoalsActivity extends Activity
                             // Process the session
                             dumpWeeklyDuration(session);
                         }
-                        updateProgressBar();
+                        updateUi();
                     }
                 });
         return readRequest;
@@ -232,58 +228,62 @@ public class GoalsActivity extends Activity
         mDuration += increment;
     }
 
-    private void updateProgressBar() {
-        int dailySteps = mSharedPrefs.getInt("daily_steps", -1);
+    private void updateUi() {
+        SharedPreferences sharedPrefs =
+                PreferenceManager.getDefaultSharedPreferences(this);
+        int dailySteps = sharedPrefs.getInt("daily_steps", -1);
         boolean isStepsGoalSet = false;
         if (dailySteps != -1) {
             isStepsGoalSet = true;
-                mProgressBarDailySteps.setVisibility(View.VISIBLE);
-                mProgressBarDailySteps.setMax(dailySteps);
-                mProgressBarDailySteps.setProgress(mDailyStepsTaken);
+                mPbSteps.setVisibility(View.VISIBLE);
+                mPbSteps.setMax(dailySteps);
+                mPbSteps.setProgress(mDailyStepsTaken);
                 if (mDailyStepsTaken >= dailySteps) {
-                    Rect bounds = mProgressBarDailySteps.getProgressDrawable().getBounds();
-                    mProgressBarDailySteps.setProgressDrawable(
+                    Rect bounds = mPbSteps.getProgressDrawable().getBounds();
+                    mPbSteps.setProgressDrawable(
                             getResources().getDrawable(R.drawable.pb_calories_reached));
-                    mProgressBarDailySteps.getProgressDrawable().setBounds(bounds);
+                    mPbSteps.getProgressDrawable().setBounds(bounds);
                 } else {
-                    Rect bounds = mProgressBarDailySteps.getProgressDrawable().getBounds();
-                    mProgressBarDailySteps.setProgressDrawable(
-                            getResources().getDrawable(R.drawable.progress_bar_daily_steps));
-                    mProgressBarDailySteps.getProgressDrawable().setBounds(bounds);
+                    Rect bounds = mPbSteps.getProgressDrawable().getBounds();
+                    mPbSteps.setProgressDrawable(
+                            getResources().getDrawable(R.drawable.pb_steps));
+                    mPbSteps.getProgressDrawable().setBounds(bounds);
                 }
         } else {
             mStepsNotSetLabel.setVisibility(View.VISIBLE);
             mSetStepsButton.setVisibility(View.VISIBLE);
+            mPbSteps.setVisibility(View.GONE);
         }
         if (isStepsGoalSet) {
             mStepsNotSetLabel.setVisibility(View.GONE);
             mSetStepsButton.setVisibility(View.GONE);
         }
 
-        int weeklyDuration = mSharedPrefs.getInt("weekly_duration", -1);
+        int weeklyDuration = sharedPrefs.getInt("weekly_duration", -1);
         boolean isDurationGoalSet = false;
         if (weeklyDuration != -1) {
             isDurationGoalSet = true;
-            mProgressBarWeeklyDuration.setVisibility(View.VISIBLE);
-            mProgressBarWeeklyDuration.setMax(weeklyDuration * 60);
-            mProgressBarWeeklyDuration.setProgress((int) mDuration);
+            mPbDuration.setVisibility(View.VISIBLE);
+            mPbDuration.setMax(weeklyDuration * 60);
+            mPbDuration.setProgress((int) mDuration);
             if (mDuration >= weeklyDuration * 60) {
-                Rect bounds = mProgressBarWeeklyDuration.getProgressDrawable().getBounds();
-                mProgressBarWeeklyDuration.setProgressDrawable(
+                Rect bounds = mPbDuration.getProgressDrawable().getBounds();
+                mPbDuration.setProgressDrawable(
                         getResources().getDrawable(R.drawable.pb_calories_reached));
-                mProgressBarWeeklyDuration.getProgressDrawable().setBounds(bounds);
-                if (mSharedPrefs.getInt("needs_to_notify_run", 0) != 2) {
-                    mSharedPrefs.edit().putInt("needs_to_notify_run", 1).apply();
+                mPbDuration.getProgressDrawable().setBounds(bounds);
+                if (sharedPrefs.getInt("needs_to_notify_run", 0) != 2) {
+                    sharedPrefs.edit().putInt("needs_to_notify_run", 1).apply();
                 }
             } else {
-                Rect bounds = mProgressBarWeeklyDuration.getProgressDrawable().getBounds();
-                mProgressBarWeeklyDuration.setProgressDrawable(
-                        getResources().getDrawable(R.drawable.progress_bar_weekly_duration));
-                mProgressBarWeeklyDuration.getProgressDrawable().setBounds(bounds);
+                Rect bounds = mPbDuration.getProgressDrawable().getBounds();
+                mPbDuration.setProgressDrawable(
+                        getResources().getDrawable(R.drawable.pb_duration));
+                mPbDuration.getProgressDrawable().setBounds(bounds);
             }
         } else {
             mDurationNotSetLabel.setVisibility(View.VISIBLE);
             mSetDurationButton.setVisibility(View.VISIBLE);
+            mPbDuration.setVisibility(View.GONE);
         }
         if (isDurationGoalSet) {
             mDurationNotSetLabel.setVisibility(View.GONE);
@@ -293,7 +293,7 @@ public class GoalsActivity extends Activity
 
     @Override
     public void onValueChanged() {
-        updateProgressBar();
+        updateUi();
     }
 
     @Override

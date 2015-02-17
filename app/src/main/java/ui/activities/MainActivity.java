@@ -67,7 +67,6 @@ import ui.utils.helpers.Constants;
 public class MainActivity extends Activity {
 
     private static final int REQUEST_OAUTH = 1;
-    private static final int REQUEST_LEADERBOARD = 2;
 
     private GoogleApiClient mClient;
     private OnDataPointListener mStepsListener;
@@ -542,11 +541,12 @@ public class MainActivity extends Activity {
                 startActivity(new Intent(MainActivity.this, FriendsActivity.class));
             } else if (position == 2) {
                 if (mClient != null && mClient.isConnected()) {
-                    startActivityForResult(
-                            Games.Leaderboards.getAllLeaderboardsIntent(mClient), REQUEST_LEADERBOARD);
+                    final int REQUEST_LEADERBOARD = 2;
+                    startActivityForResult(Games.Leaderboards
+                            .getAllLeaderboardsIntent(mClient), REQUEST_LEADERBOARD);
                 } else {
-                    Toast.makeText(MainActivity.this, "Leaderboards not available",
-                            Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,
+                            "Leaderboards not available", Toast.LENGTH_SHORT).show();
                 }
             } else if (position == 3) {
                 startActivity(new Intent(MainActivity.this, GoalsActivity.class));

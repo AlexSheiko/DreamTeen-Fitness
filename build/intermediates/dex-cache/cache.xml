@@ -2,6 +2,13 @@
 <items version="2" >
 
     <item
+        jar="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\3.21.1\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="0285ad8da812e92dda76ed5d0dcba05724c7911d">
+        <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\classes-d9932ba7a3a66e977f24b37d6745a54e244f0089.jar" />
+    </item>
+    <item
         jar="D:\Android\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.1.2\91c20388c9a45f62b5ed8fe0502bb76ff6251fc7\bolts-android-1.1.2.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -23,13 +30,6 @@
         <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\classes-3b3066a9b90fbcf50803f55664cbd363ff413d3c.jar" />
     </item>
     <item
-        jar="D:\DreamTeen-Fitness\app\libs\simple.facebook-2.2.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="3e80d7a67d99151098e1a0686713852b3ad62173">
-        <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\simple.facebook-2.2-d778d99b971d8d3a5f98ea214db5cd1464e05c1a.jar" />
-    </item>
-    <item
         jar="D:\android-sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -42,20 +42,6 @@
         revision="21.1.2"
         sha1="3a10b25b6820e19102e118711afe6a66c0bae123">
         <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\butterknife-6.0.0-b13eeaab2d9e5b3db09537865002d135c0c09018.jar" />
-    </item>
-    <item
-        jar="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.facebook.android\facebook\3.21.1\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="eb8531a5ec1f2f8a9453d94f3904ba5cd6e88f36">
-        <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\classes-f97dba31ba020fd26e6e903fdd23176dbfa3ad06.jar" />
-    </item>
-    <item
-        jar="D:\DreamTeen-Fitness\app\libs\mpandroidchartlibrary-1-7-4.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="c685e45ac6491e51640ce3571606ac22dfd4a6a3">
-        <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\mpandroidchartlibrary-1-7-4-373adc29ca11d4ea7c657a9d9ec5824e71eeaff6.jar" />
     </item>
     <item
         jar="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"

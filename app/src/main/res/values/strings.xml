@@ -81,5 +81,8 @@
     <string name="steps_icon_description">Steps counter icon</string>
     <string name="goal_not_set_hint">Goal not set</string>
     <string name="steps_today_label">steps today</string>
+    <string name="steps_label">Step count</string>
+    <string name="add_button_label">Add</string>
+    <string name="run_duration_label">Run duration</string>
 
 </resources>

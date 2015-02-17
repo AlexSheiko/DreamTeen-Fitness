@@ -41,7 +41,8 @@ public class GoalSetDialog extends DialogFragment {
         try {
             // Instantiate the NoticeDialogListener so we can send events to the host
             mListener = (OnGoalChanged) activity;
-        } catch (ClassCastException ignored) {}
+        } catch (ClassCastException ignored) {
+        }
     }
 
     @Override
@@ -51,7 +52,8 @@ public class GoalSetDialog extends DialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_set_goal, null);
 
-        final SharedPreferences mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        final SharedPreferences mSharedPrefs =
+                PreferenceManager.getDefaultSharedPreferences(getActivity());
         Bundle bundle = getArguments();
         final String key = bundle.getString("key");
         mValueField = (EditText) view.findViewById(R.id.field);
@@ -90,32 +92,48 @@ public class GoalSetDialog extends DialogFragment {
                         // Add action buttons
                 .setPositiveButton("Set", new OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        if (!mValueField.getText().toString().isEmpty()) {
-                            int newValue = Integer.parseInt(
-                                    mValueField.getText().toString());
-                            int day = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
-                            switch (key) {
-                                case "steps":
+
+                        switch (key) {
+                            case "steps":
+                                if (!mValueField.getText().toString().isEmpty()) {
+                                    int newValue = Integer.parseInt(
+                                            mValueField.getText().toString());
+                                    int day = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
                                     mSharedPrefs.edit()
                                             .putInt("daily_steps", newValue)
                                             .putInt("daily_steps_time", day + 1)
                                             .apply();
-                                    break;
-                                case "duration":
+                                } else {
+                                    mSharedPrefs.edit()
+                                            .putInt("daily_steps", -1)
+                                            .putInt("daily_steps_time", -1)
+                                            .apply();
+                                }
+                                break;
+                            case "duration":
+                                if (!mValueField.getText().toString().isEmpty()) {
+                                    int newValue = Integer.parseInt(
+                                            mValueField.getText().toString());
+                                    int day = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
                                     mSharedPrefs.edit()
                                             .putInt("weekly_duration", newValue)
                                             .putInt("weekly_duration_time", day + 30)
                                             .apply();
-                                    break;
-                                case "aerobic":
-                                    PreferenceManager.getDefaultSharedPreferences(getActivity()).edit()
-                                            .putBoolean("isGoalSet", true).apply();
-                                    startActivity(new Intent(getActivity(), AerobicActivity.class));
-                                    break;
-                            }
-                            if (mListener != null) {
-                                mListener.onValueChanged();
-                            }
+                                } else {
+                                    mSharedPrefs.edit()
+                                            .putInt("weekly_duration", -1)
+                                            .putInt("weekly_duration_time", -1)
+                                            .apply();
+                                }
+                                break;
+                            case "aerobic":
+                                PreferenceManager.getDefaultSharedPreferences(getActivity()).edit()
+                                        .putBoolean("isGoalSet", true).apply();
+                                startActivity(new Intent(getActivity(), AerobicActivity.class));
+                                break;
+                        }
+                        if (mListener != null) {
+                            mListener.onValueChanged();
                         }
                         GoalSetDialog.this.getDialog().cancel();
                     }

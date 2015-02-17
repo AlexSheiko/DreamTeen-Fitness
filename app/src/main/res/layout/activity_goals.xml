@@ -1,73 +1,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical"
               tools:context="sheyko.aleksey.mapthetrip.ui.activities.GoalsActivity"
-              android:paddingLeft="16dp"
-              android:paddingTop="16dp"
-              android:paddingRight="16dp">
+              style="@style/GoalsActivityContainer">
 
     <LinearLayout
         android:id="@+id/stepsContainer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/container"
-        android:orientation="horizontal"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
-        android:paddingBottom="5dp"
-        android:clickable="true"
-        android:onClick="addChallengeGoal">
+        style="@style/GoalContainer">
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="8dp"
-            android:paddingTop="12dp"
-            android:paddingBottom="12dp">
+            style="@style/GoalContainerLayout">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:text="Step count"
-                android:layout_marginBottom="5dp"
-                android:textColor="#4a4a4a"/>
+                android:text="@string/steps_label"
+                style="@style/GoalContainerHeader"/>
 
             <ProgressBar
                 android:id="@+id/progressBarDailySteps"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:progress="60"
-                android:progressDrawable="@drawable/progress_bar_daily_steps"
-                android:visibility="gone"/>
+                android:progressDrawable="@drawable/pb_steps"
+                style="@style/GoalProgressBar"/>
 
             <TextView
                 android:id="@+id/stepsNotSetLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="Goal not set"
-                android:fontFamily="sans-serif-light"
-                android:textSize="18sp"
-                android:layout_marginTop="8dp"
-                />
+                style="@style/GoalNotSetLabel"/>
 
         </LinearLayout>
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="12dp">
 
             <Button
                 android:id="@+id/setStepsButton"
@@ -78,69 +34,35 @@
                 android:background="@drawable/set_goal_button_purple"
                 android:fontFamily="sans-serif-bold"
                 android:paddingRight="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
                 android:onClick="addChallengeGoal"
-                android:text="Add"
+                android:text="@string/add_button_label"
                 />
-
-        </FrameLayout>
 
     </LinearLayout>
 
     <!-- Set goal container-->
     <LinearLayout
         android:id="@+id/durationContainer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/container"
-        android:orientation="horizontal"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
-        android:paddingBottom="5dp"
-        android:clickable="true"
-        android:onClick="addChallengeGoal">
+        style="@style/GoalContainer">
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            >
+            style="@style/GoalContainerLayout">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:text="Run duration"
-                android:layout_marginBottom="7dp"
-                android:textColor="#4a4a4a"/>
+                android:text="@string/run_duration_label"
+                style="@style/GoalContainerHeader"/>
 
             <ProgressBar
                 android:id="@+id/progressBarWeeklyDuration"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:paddingLeft="0dp"
-                android:paddingRight="0dp"
-                android:progress="30"
-                android:progressDrawable="@drawable/progress_bar_weekly_duration"
-                android:visibility="gone"/>
+                style="@style/GoalProgressBar"
+                android:progressDrawable="@drawable/pb_duration"/>
 
             <TextView
                 android:id="@+id/durationNotSetLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:text="Goal not set"
-                android:fontFamily="sans-serif-light"
-                android:textSize="18sp"
-                android:layout_marginTop="8dp"/>
+                style="@style/GoalNotSetLabel"/>
 
         </LinearLayout>
 
@@ -161,7 +83,7 @@
                 android:fontFamily="sans-serif-bold"
                 android:paddingRight="12dp"
                 android:onClick="addChallengeGoal"
-                android:text="Add"/>
+                android:text="@string/add_button_label"/>
 
         </FrameLayout>
 
