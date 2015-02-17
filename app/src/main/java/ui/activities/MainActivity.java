@@ -87,7 +87,7 @@ public class MainActivity extends Activity
     @InjectView(R.id.caloriesLabel)
     TextView mCaloriesLabel;
     @InjectView(R.id.progressBar)
-    ProgressBar mProgressBarCal;
+    ProgressBar mPbCalories;
     @InjectView(R.id.caloriesContainer)
     LinearLayout mCaloriesContainer;
     @InjectView(R.id.stepsContainer)
@@ -97,9 +97,9 @@ public class MainActivity extends Activity
     @InjectView(R.id.drawerList)
     ListView mDrawerList;
     @InjectView(R.id.stepsLabel)
-    TextView mStepsLabel;
+    TextView mStepsTakenLabel;
     @InjectView(R.id.stepsTargetLabel)
-    TextView mStepsTargetLabel;
+    TextView mStepProgressLabel;
     @InjectView(R.id.caloriesNotSetLabel)
     TextView mCalNotSetLabel;
 
@@ -217,8 +217,8 @@ public class MainActivity extends Activity
                 for (Field field : dataPoint.getDataType().getFields()) {
                     Value val = dataPoint.getValue(field);
                     insertSteps(val.asInt());
-                    increaseStepCount(val.asInt());
-                    mStepsLabel.setText(mStepsTaken + "");
+                    increaseSteps(val.asInt());
+                    mStepsTakenLabel.setText(mStepsTaken + "");
                 }
             }
         };
@@ -266,7 +266,7 @@ public class MainActivity extends Activity
             @Override
             public void onResult(Status status) {
                 if (status.isSuccess()) {
-                    increaseStepCount(steps);
+                    increaseSteps(steps);
                 }
             }
         });
@@ -292,16 +292,18 @@ public class MainActivity extends Activity
         Fitness.HistoryApi.readData(mClient, readCaloriesRequest).setResultCallback(
                 new ResultCallback<DataReadResult>() {
                     @Override
-                    public void onResult(DataReadResult dataReadResult) {
-                        for (DataSet dataSet : dataReadResult.getDataSets()) {
+                    public void onResult(DataReadResult result) {
+                        for (DataSet dataSet : result.getDataSets()) {
 
-                            if (dataSet.getDataType().equals(DataType.TYPE_CALORIES_EXPENDED)) {
+                            if (dataSet.getDataType()
+                                    .equals(DataType.TYPE_CALORIES_EXPENDED)) {
                                 dumpCalories(dataSet);
-                            } else if (dataSet.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)) {
+                            } else if (dataSet.getDataType()
+                                    .equals(DataType.TYPE_STEP_COUNT_DELTA)) {
                                 dumpSteps(dataSet);
                             }
                         }
-                        updateUiCounters();
+                        updateUi();
                     }
                 });
     }
@@ -309,8 +311,8 @@ public class MainActivity extends Activity
     private void dumpCalories(DataSet dataSet) {
         for (DataPoint dp : dataSet.getDataPoints()) {
             for (Field field : dp.getDataType().getFields()) {
-                increaseCaloriesExpanded(
-                        Math.round(dp.getValue(field).asFloat()));
+                int increment = Math.round(dp.getValue(field).asFloat());
+                increaseCalories(increment);
             }
         }
     }
@@ -318,77 +320,64 @@ public class MainActivity extends Activity
     private void dumpSteps(DataSet dataSet) {
         for (DataPoint dp : dataSet.getDataPoints()) {
             for (Field field : dp.getDataType().getFields()) {
-                increaseStepCount(
-                        dp.getValue(field).asInt());
+                int increment = dp.getValue(field).asInt();
+                increaseSteps(increment);
             }
         }
+        // Submit steps to leaderboard
+        final String LEADERBOARD_STEPS_ID =
+                getResources().getString(R.string.leaderboard_steps_taken);
+        Games.Leaderboards.submitScore(
+                mClient, LEADERBOARD_STEPS_ID, mStepsTaken);
     }
 
-    private void increaseCaloriesExpanded(int increment) {
-        mCaloriesExpanded = mCaloriesExpanded + increment;
+    private void increaseCalories(int increment) {
+        mCaloriesExpanded += increment;
     }
 
-    private void increaseStepCount(int increment) {
-        mStepsTaken = mStepsTaken + increment;
+    private void increaseSteps(int increment) {
+        mStepsTaken += increment;
     }
 
-    private void updateUiCounters() {
-        // Average expansion daily
+    private void updateUi() {
+        //[START Calories section]
         int caloriesByDefault = Calendar.getInstance()
-                .get(Calendar.HOUR_OF_DAY) * 1465 / 24;
+                .get(Calendar.HOUR_OF_DAY) * 1465 / 24; // Average expansion daily
         int caloriesBurned =
                 caloriesByDefault + mCaloriesExpanded;
         mCaloriesLabel.setText(caloriesBurned + "");
 
+        // Set progress bar visibility
         int caloriesGoal = mSharedPrefs.getInt("calories_norm", -1);
         if (caloriesGoal != -1) {
-            mProgressBarCal.setVisibility(View.VISIBLE);
-            mProgressBarCal.setMax(caloriesGoal);
-            mProgressBarCal.setProgress(caloriesBurned);
+            mPbCalories.setVisibility(View.VISIBLE);
+            mPbCalories.setMax(caloriesGoal);
+            mPbCalories.setProgress(caloriesBurned);
             mCalNotSetLabel.setVisibility(View.GONE);
         } else {
-            mProgressBarCal.setVisibility(View.GONE);
+            mPbCalories.setVisibility(View.GONE);
             mCalNotSetLabel.setVisibility(View.VISIBLE);
         }
 
         // Set progress bar color
         if (caloriesBurned >= caloriesGoal) {
-            setPbReached(mProgressBarCal, true);
+            setPbReached(mPbCalories, true);
         } else {
-            setPbReached(mProgressBarCal, false);
+            setPbReached(mPbCalories, false);
         }
+        //[END Calories section]
 
-        //[START Steps counter]
-        int stepsTarget = mSharedPrefs.getInt("daily_steps", -1);
+        //[START Steps section]
+        mStepsTakenLabel.setText(mStepsTaken + "");
 
-        boolean isSteps50notified = mSharedPrefs.getBoolean("isSteps50notified", false);
-        if (mStepsTaken >= stepsTarget * 0.5
-                && mStepsTaken < stepsTarget
-                && !isSteps50notified) {
-            showNotification("Steps", 50);
-            mSharedPrefs.edit()
-                    .putBoolean("isSteps50notified", true).apply();
-        }
-
-        mStepsLabel.setText(mStepsTaken + "");
-
-        String LEADERBOARD_STEPS_ID = getResources().getString(
-                R.string.leaderboard_steps_taken);
-        Games.Leaderboards.submitScore(
-                mClient, LEADERBOARD_STEPS_ID, mStepsTaken);
-
-        boolean isSteps100notified = mSharedPrefs.getBoolean("isSteps100notified", false);
-        int stepsLeft = stepsTarget - mStepsTaken;
-        if (stepsTarget != -1 && stepsLeft <= 0) {
-            stepsLeft = 0;
-            if (!isSteps100notified) {
-                showNotification("Steps", 100);
-                mSharedPrefs.edit()
-                        .putBoolean("isSteps100notified", true).apply();
+        int stepsGoal = mSharedPrefs.getInt("daily_steps", -1);
+        if (stepsGoal != -1) {
+            int stepsLeft = stepsGoal - mStepsTaken;
+            if (stepsLeft < 0) {
+                stepsLeft = 0;
             }
-        }
-        if (stepsTarget != -1) {
-            mStepsTargetLabel.setText(stepsLeft + " steps to goal");
+            mStepProgressLabel.setText(stepsLeft + " steps to goal");
+            notifySteps(mStepsTaken, stepsGoal);
         }
 
         int currentDay = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
@@ -399,7 +388,7 @@ public class MainActivity extends Activity
                     .putInt("daily_steps", -1)
                     .putInt("daily_steps_time", -1)
                     .apply();
-            mStepsTargetLabel.setText("Goal not set");
+            mStepProgressLabel.setText("Goal not set");
         }
         //[END Steps counter]
 
@@ -412,30 +401,74 @@ public class MainActivity extends Activity
         //[END Duration counter]
     }
 
-    private void setPbReached(ProgressBar progressBar, boolean isReached) {
-        Rect bounds = progressBar.getProgressDrawable().getBounds();
+    private void setPbReached(ProgressBar pb, boolean isReached) {
+        Rect bounds = pb.getProgressDrawable().getBounds();
         if (isReached) {
-            progressBar.setProgressDrawable(
-                    getResources().getDrawable(R.drawable.pb_calories_reached));
+            pb.setProgressDrawable(getResources()
+                    .getDrawable(R.drawable.pb_calories_reached));
         } else {
-            progressBar.setProgressDrawable(
-                    getResources().getDrawable(R.drawable.pb_calories));
+            pb.setProgressDrawable(getResources()
+                    .getDrawable(R.drawable.pb_calories));
         }
-        progressBar.getProgressDrawable().setBounds(bounds);
+        pb.getProgressDrawable().setBounds(bounds);
+    }
+
+    private void notifySteps(int steps, int goal) {
+        boolean isSteps50notified =
+                mSharedPrefs.getBoolean("isSteps50notified", false);
+        if (steps >= goal * 0.5
+                && mStepsTaken < goal
+                && !isSteps50notified) {
+            showNotification("Steps", 50);
+            mSharedPrefs.edit()
+                    .putBoolean("isSteps50notified", true).apply();
+        }
+
+        boolean isSteps100notified =
+                mSharedPrefs.getBoolean("isSteps100notified", false);
+        if (mStepsTaken >= goal
+                && !isSteps100notified) {
+            showNotification("Steps", 100);
+            mSharedPrefs.edit()
+                    .putBoolean("isSteps100notified", true).apply();
+        }
+    }
+
+    private void showNotification(String type, int progress) {
+        String title;
+        if (progress == 100) {
+            title = type + " goal is reached!";
+        } else {
+            title = type + " goal is " + progress + "% reached!";
+        }
+
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.ic_logo_small)
+                        .setContentTitle(title)
+                        .setSound(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.cheer));
+
+        // Sets an ID for the notification
+        int mNotificationId = 123;
+        // Gets an instance of the NotificationManager service
+        NotificationManager mNotifyMgr =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        // Builds the notification and issues it.
+        mNotifyMgr.notify(mNotificationId, mBuilder.build());
     }
 
     @Override
     public void onCaloriesGoalChanged(DialogFragment dialog, int newValue) {
         mSharedPrefs.edit()
                 .putInt("calories_norm", newValue).apply();
-        updateUiCounters();
+        updateUi();
     }
 
     @Override
     public void onStepsGoalChanged(DialogFragment dialog, int newValue) {
         mSharedPrefs.edit()
                 .putInt("daily_steps", newValue).apply();
-        updateUiCounters();
+        updateUi();
     }
 
     @Override
@@ -735,28 +768,5 @@ public class MainActivity extends Activity
                         .putBoolean("isRun100notified", true).apply();
             }
         }
-    }
-
-    private void showNotification(String type, int progress) {
-        String title;
-        if (progress == 100) {
-            title = type + " goal is reached!";
-        } else {
-            title = type + " goal is " + progress + "% reached!";
-        }
-
-        NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.ic_logo_small)
-                        .setContentTitle(title)
-                        .setSound(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.cheer));
-
-        // Sets an ID for the notification
-        int mNotificationId = 123;
-        // Gets an instance of the NotificationManager service
-        NotificationManager mNotifyMgr =
-                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        // Builds the notification and issues it.
-        mNotifyMgr.notify(mNotificationId, mBuilder.build());
     }
 }
