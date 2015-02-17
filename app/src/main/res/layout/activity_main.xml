@@ -35,16 +35,16 @@
                         android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:src="@drawable/aerobic"
-                        android:onClick="navigateToAerobic"
-                        class="ui.utils.SquareImageView"/>
+                        android:focusable="true"
+                        android:onClick="navigateToAerobic"/>
 
                     <ui.utils.SquareImageView
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:src="@drawable/running"
-                        android:onClick="navigateToRunning"
-                        class="ui.utils.SquareImageView"/>
+                        android:focusable="true"
+                        android:onClick="navigateToRunning"/>
 
                 </LinearLayout>
 
@@ -160,6 +160,7 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:layout_gravity="center"
+                        android:contentDescription="@string/steps_icon_description"
                         android:src="@drawable/ic_steps"/>
 
                 </FrameLayout>
@@ -193,7 +194,7 @@
                             android:layout_marginTop="12dp"
                             android:fontFamily="sans-serif-light"
                             android:gravity="bottom"
-                            android:text="steps today"
+                            android:text="@string/steps_today_label"
                             android:textColor="@color/black"
                             android:textSize="24sp"
                             android:singleLine="true"/>
@@ -205,7 +206,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-light"
-                            android:text="Goal not set"
+                            android:text="@string/goal_not_set_hint"
                             android:layout_marginTop="8dp"
                             android:layout_marginRight="5dp"
                             android:textColor="#22282c"

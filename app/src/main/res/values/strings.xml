@@ -78,5 +78,8 @@
     <string name="leaderboard_miles_runned">CgkIn8mHvb8JEAIQAQ</string>
     <string name="action_chat">Chat with friends</string>
     <string name="action_music">Music</string>
+    <string name="steps_icon_description">Steps counter icon</string>
+    <string name="goal_not_set_hint">Goal not set</string>
+    <string name="steps_today_label">steps today</string>
 
 </resources>

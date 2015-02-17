@@ -13,32 +13,30 @@ import bellamica.tech.dreamteenfitness.R;
 
 public class NavigationAdapter extends ArrayAdapter<String> {
 
-    private final Activity context;
-    private final String[] itemname;
-    private final Integer[] imgid;
+    private final Activity mContext;
+    private final String[] mItemName;
+    private final Integer[] mImgId;
 
     public NavigationAdapter(Activity context, String[] itemname, Integer[] imgid) {
         super(context, R.layout.nav_item, itemname);
 
-        this.context = context;
-        this.itemname = itemname;
-        this.imgid = imgid;
+        mContext = context;
+        mItemName = itemname;
+        mImgId = imgid;
     }
 
     public View getView(int position, View view, ViewGroup parent) {
-        LayoutInflater inflater = context.getLayoutInflater();
+        LayoutInflater inflater = mContext.getLayoutInflater();
         View rowView;
         if (position <= 3) {
             rowView = inflater.inflate(R.layout.nav_item, null, true);
             ImageView imageView = (ImageView) rowView.findViewById(R.id.image1);
-            imageView.setImageResource(imgid[position]);
+            imageView.setImageResource(mImgId[position]);
         } else {
             rowView = inflater.inflate(R.layout.nav_item_small, null, true);
         }
         TextView txtTitle = (TextView) rowView.findViewById(R.id.text1);
-        txtTitle.setText(itemname[position]);
+        txtTitle.setText(mItemName[position]);
         return rowView;
     }
-
-    ;
 }

@@ -222,6 +222,8 @@ public class MainActivity extends Activity
                 for (Field field : dataPoint.getDataType().getFields()) {
                     Value val = dataPoint.getValue(field);
                     insertSteps(val.asInt());
+                    increaseStepCount(val.asInt());
+                    mStepsLabel.setText(mStepsTaken + "");
                 }
             }
         };
@@ -270,7 +272,6 @@ public class MainActivity extends Activity
             public void onResult(Status status) {
                 if (status.isSuccess()) {
                     increaseStepCount(steps);
-                    updateUiCounters();
                 }
             }
         });
@@ -414,6 +415,7 @@ public class MainActivity extends Activity
             showNotification("Run", 100);
             mSharedPrefs.edit().putInt("needs_to_notify_run", 2).apply();
         }
+        //[END Duration counter]
     }
 
     @Override
