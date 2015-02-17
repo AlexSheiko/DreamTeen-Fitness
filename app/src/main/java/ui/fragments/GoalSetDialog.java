@@ -142,10 +142,21 @@ public class GoalSetDialog extends DialogFragment {
                                             .putInt("weekly_duration", newValue)
                                             .putInt("weekly_duration_time", day + 30)
                                             .apply();
+
+                                    int durationGoal = sharedPrefs.getInt("weekly_duration", -1);
+                                    long durationCurrent = sharedPrefs.getLong("mDuration", -1);
+
+                                    if (durationCurrent >= durationGoal * 60) {
+                                        sharedPrefs.edit().putInt("notify_run_100", 1).apply();
+                                    } else if (durationCurrent >= durationGoal * 60 * 0.5) {
+                                        sharedPrefs.edit().putInt("notify_run_50", 1).apply();
+                                    }
                                 } else {
                                     sharedPrefs.edit()
                                             .putInt("weekly_duration", -1)
                                             .putInt("weekly_duration_time", -1)
+                                            .putInt("notify_run_50", 2)
+                                            .putInt("notify_run_100", 2)
                                             .apply();
                                 }
                                 break;

@@ -169,6 +169,10 @@ public class GoalsActivity extends Activity
                             }
                         }
                         updateCounters();
+
+                        int caloriesByDefault = Calendar.getInstance()
+                                .get(Calendar.HOUR_OF_DAY) * 1465 / 24; // Average expansion daily
+                        mCalories += caloriesByDefault;
                     }
                 });
     }
@@ -267,6 +271,7 @@ public class GoalsActivity extends Activity
         }
 
         int duration = sharedPrefs.getInt("weekly_duration", -1);
+        sharedPrefs.edit().putLong("mDuration", mDuration).apply();
         if (duration != -1) {
             mPbDuration.setVisibility(View.VISIBLE);
             mPbDuration.setMax(duration * 60);
@@ -287,7 +292,7 @@ public class GoalsActivity extends Activity
         int calories = sharedPrefs.getInt("calories_norm", -1);
         if (calories != -1) {
             mPbCalories.setVisibility(View.VISIBLE);
-            mPbCalories.setMax(duration);
+            mPbCalories.setMax(calories);
             mPbCalories.setProgress(mCalories);
             if (mCalories >= calories) {
                 setPbColor(mPbCalories, R.drawable.pb_reached);

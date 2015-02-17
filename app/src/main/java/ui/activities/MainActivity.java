@@ -315,7 +315,7 @@ public class MainActivity extends Activity {
     }
 
     private void updateUi() {
-        //[START Calories section]
+        //[START Calories]
         int caloriesByDefault = Calendar.getInstance()
                 .get(Calendar.HOUR_OF_DAY) * 1465 / 24; // Average expansion daily
         int caloriesBurned =
@@ -323,26 +323,27 @@ public class MainActivity extends Activity {
         mCaloriesLabel.setText(caloriesBurned + "");
 
         // Set progress bar visibility
-        int caloriesGoal = mSharedPrefs.getInt("calories_normcalories_norm", -1);
+        int caloriesGoal = mSharedPrefs.getInt("calories_norm", -1);
         if (caloriesGoal != -1) {
             mPbCalories.setVisibility(View.VISIBLE);
             mPbCalories.setMax(caloriesGoal);
             mPbCalories.setProgress(caloriesBurned);
             mCalNotSetLabel.setVisibility(View.GONE);
+
+            // Set progress bar color
+            if (caloriesBurned >= caloriesGoal) {
+                setPbColor(mPbCalories, R.drawable.pb_reached);
+            } else {
+                setPbColor(mPbCalories, R.drawable.pb_calories);
+            }
+            notifyCalories(caloriesBurned, caloriesGoal);
         } else {
             mPbCalories.setVisibility(View.GONE);
             mCalNotSetLabel.setVisibility(View.VISIBLE);
         }
+        //[END Calories]
 
-        // Set progress bar color
-        if (caloriesBurned >= caloriesGoal) {
-            setPbColor(mPbCalories, R.drawable.pb_reached);
-        } else {
-            setPbColor(mPbCalories, R.drawable.pb_calories);
-        }
-        //[END Calories section]
-
-        //[START Steps section]
+        //[START Steps]
         mStepsTakenLabel.setText(mStepsTaken + "");
 
         int stepsGoal = mSharedPrefs.getInt("daily_steps", -1);
@@ -352,9 +353,10 @@ public class MainActivity extends Activity {
                 stepsLeft = 0;
             }
             mStepProgressLabel.setText(stepsLeft + " steps to goal");
-            notifySteps(mStepsTaken, stepsGoal);
+            notifySteps(stepsGoal);
         }
 
+        // Reset step goal if needed
         int currentDay = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
 
         int stepsExpireDay = mSharedPrefs.getInt("daily_steps_time", -1);
@@ -365,15 +367,22 @@ public class MainActivity extends Activity {
                     .apply();
             mStepProgressLabel.setText("Goal not set");
         }
-        //[END Steps counter]
+        //[END Steps]
 
-        //[START Duration counter]
-        int notifyRun = mSharedPrefs.getInt("needs_to_notify_run", 0);
-        if (notifyRun == 1) {
+        //[START Duration]
+        int notifyRun100 = mSharedPrefs.getInt("notify_run_100", 0);
+        int notifyRun50 = mSharedPrefs.getInt("notify_run_50", 0);
+        if (notifyRun100 == 1) {
             showNotification("Run", 100);
-            mSharedPrefs.edit().putInt("needs_to_notify_run", 2).apply();
+            mSharedPrefs.edit()
+                    .putInt("notify_run_100", 2).apply();
+        } else if (notifyRun50 == 1) {
+            showNotification("Run", 50);
+            mSharedPrefs.edit()
+                    .putInt("notify_run_50", 2).apply();
         }
-        //[END Duration counter]
+
+        //[END Duration]
     }
 
     private void setPbColor(ProgressBar pb, int drawableId) {
@@ -383,24 +392,45 @@ public class MainActivity extends Activity {
         pb.getProgressDrawable().setBounds(bounds);
     }
 
-    private void notifySteps(int steps, int goal) {
+    private void notifySteps(int goal) {
+
+        boolean isSteps100notified =
+                mSharedPrefs.getBoolean("isSteps100notified", false);
         boolean isSteps50notified =
                 mSharedPrefs.getBoolean("isSteps50notified", false);
-        if (steps >= goal * 0.5
+
+        if (mStepsTaken >= goal
+                && !isSteps100notified) {
+            showNotification("Steps", 100);
+            mSharedPrefs.edit()
+                    .putBoolean("isSteps100notified", true).apply();
+        } else if (mStepsTaken >= goal * 0.5
                 && mStepsTaken < goal
                 && !isSteps50notified) {
             showNotification("Steps", 50);
             mSharedPrefs.edit()
                     .putBoolean("isSteps50notified", true).apply();
         }
+    }
 
-        boolean isSteps100notified =
-                mSharedPrefs.getBoolean("isSteps100notified", false);
-        if (mStepsTaken >= goal
-                && !isSteps100notified) {
-            showNotification("Steps", 100);
+    private void notifyCalories(int calories, int goal) {
+        boolean isCal50notified =
+                mSharedPrefs.getBoolean("isCal50notified", false);
+        if (calories >= goal * 0.5
+                && calories < goal
+                && !isCal50notified) {
+            showNotification("Calories", 50);
             mSharedPrefs.edit()
-                    .putBoolean("isSteps100notified", true).apply();
+                    .putBoolean("isCal50notified", true).apply();
+        }
+
+        boolean isCal100notified =
+                mSharedPrefs.getBoolean("isCal100notified", false);
+        if (calories >= goal
+                && !isCal100notified) {
+            showNotification("Calories", 100);
+            mSharedPrefs.edit()
+                    .putBoolean("isCal100notified", true).apply();
         }
     }
 
