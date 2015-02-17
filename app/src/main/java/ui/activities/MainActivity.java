@@ -380,7 +380,7 @@ public class MainActivity extends Activity {
         Rect bounds = pb.getProgressDrawable().getBounds();
         if (isReached) {
             pb.setProgressDrawable(getResources()
-                    .getDrawable(R.drawable.pb_calories_reached));
+                    .getDrawable(R.drawable.pb_reached));
         } else {
             pb.setProgressDrawable(getResources()
                     .getDrawable(R.drawable.pb_calories));

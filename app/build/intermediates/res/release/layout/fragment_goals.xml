@@ -35,12 +35,12 @@
             android:layout_marginBottom="12dp">
 
             <Button
-                android:id="@+id/setStepsButton"
+                android:id="@+id/stepsButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|right"
                 android:paddingLeft="12dp"
-                android:background="@drawable/set_goal_button"
+                android:background="@drawable/button_duration"
                 android:fontFamily="sans-serif-bold"
                 android:paddingRight="12dp"
                 android:onClick="addFitnessGoal"

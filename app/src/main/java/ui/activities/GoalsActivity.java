@@ -8,7 +8,6 @@ import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -16,10 +15,8 @@ import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.fitness.Fitness;
 import com.google.android.gms.fitness.data.DataPoint;
 import com.google.android.gms.fitness.data.DataSet;
@@ -40,12 +37,9 @@ import bellamica.tech.dreamteenfitness.R;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import ui.fragments.GoalSetDialog;
-import ui.fragments.GoalSetDialog.OnGoalChanged;
 
-public class GoalsActivity extends Activity
-        implements OnGoalChanged {
+public class GoalsActivity extends Activity {
 
-    public static final String TAG = GoalsActivity.class.getSimpleName();
     public static final String SESSION_NAME = "Afternoon run";
 
     private int mDailyStepsTaken;
@@ -58,14 +52,20 @@ public class GoalsActivity extends Activity
     TextView mStepsNotSetLabel;
     @InjectView(R.id.durationNotSetLabel)
     TextView mDurationNotSetLabel;
-    @InjectView(R.id.setStepsButton)
-    Button mSetStepsButton;
-    @InjectView(R.id.setDurationButton)
-    Button mSetDurationButton;
-    @InjectView(R.id.progressBarDailySteps)
+    @InjectView(R.id.caloriesNotSetLabel)
+    TextView mCaloriesNotSetLabel;
+    @InjectView(R.id.stepsButton)
+    Button mStepsButton;
+    @InjectView(R.id.durationButton)
+    Button mDurationButton;
+    @InjectView(R.id.caloriesButton)
+    Button mCaloriesButton;
+    @InjectView(R.id.pbSteps)
     ProgressBar mPbSteps;
-    @InjectView(R.id.progressBarWeeklyDuration)
+    @InjectView(R.id.pbDuration)
     ProgressBar mPbDuration;
+    @InjectView(R.id.pbCalories)
+    ProgressBar mPbCalories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,20 +74,24 @@ public class GoalsActivity extends Activity
         ButterKnife.inject(this);
 
         buildFitnessClient();
-
-        updateUi();
     }
 
-    public void addChallengeGoal(View view) {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateCounters();
+    }
+
+    public void addGoal(View view) {
         Bundle bundle = new Bundle();
         int id = view.getId();
 
-        if (id == R.id.stepsContainer
-                || id == R.id.setStepsButton) {
+        if (id == R.id.stepsContainer || id == R.id.stepsButton) {
             bundle.putString("key", "steps");
-        } else if (id == R.id.durationContainer
-                || id == R.id.setDurationButton) {
+        } else if (id == R.id.durationContainer || id == R.id.durationButton) {
             bundle.putString("key", "duration");
+        } else if (id == R.id.caloriesContainer || id == R.id.caloriesButton) {
+            bundle.putString("key", "calories");
         }
         DialogFragment dialog = new GoalSetDialog();
         dialog.setArguments(bundle);
@@ -98,8 +102,8 @@ public class GoalsActivity extends Activity
         // Create the Google API Client
         mClient = new GoogleApiClient.Builder(this)
                 .addApi(Fitness.API)
-                .addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
-                .addScope(new Scope(Scopes.FITNESS_LOCATION_READ))
+                .addScope(Fitness.SCOPE_ACTIVITY_READ_WRITE)
+                .addScope(Fitness.SCOPE_LOCATION_READ)
                 .addConnectionCallbacks(
                         new GoogleApiClient.ConnectionCallbacks() {
                             @Override
@@ -119,7 +123,6 @@ public class GoalsActivity extends Activity
                             // Called whenever the API client fails to connect.
                             @Override
                             public void onConnectionFailed(ConnectionResult result) {
-                                Log.i(TAG, "Connection failed. Cause: " + result.toString());
                                 if (!result.hasResolution()) {
                                     // Show the localized error dialog
                                     GooglePlayServicesUtil.getErrorDialog(result.getErrorCode(),
@@ -127,8 +130,6 @@ public class GoalsActivity extends Activity
                                     return;
                                 }
                                 // The failure has a resolution. Resolve it.
-                                // Called typically when the app is not yet authorized, and an
-                                // authorization dialog is displayed to the user.
                                 try {
                                     result.startResolutionForResult(GoalsActivity.this,
                                             REQUEST_OAUTH);
@@ -176,7 +177,7 @@ public class GoalsActivity extends Activity
                         dp.getValue(field).asInt());
             }
         }
-        updateUi();
+        updateCounters();
     }
 
     private void increaseDailyStepCount(int increment) {
@@ -209,7 +210,7 @@ public class GoalsActivity extends Activity
                             // Process the session
                             dumpWeeklyDuration(session);
                         }
-                        updateUi();
+                        updateCounters();
                     }
                 });
         return readRequest;
@@ -228,48 +229,43 @@ public class GoalsActivity extends Activity
         mDuration += increment;
     }
 
-    private void updateUi() {
+    private void updateCounters() {
         SharedPreferences sharedPrefs =
                 PreferenceManager.getDefaultSharedPreferences(this);
+
         int dailySteps = sharedPrefs.getInt("daily_steps", -1);
-        boolean isStepsGoalSet = false;
         if (dailySteps != -1) {
-            isStepsGoalSet = true;
-                mPbSteps.setVisibility(View.VISIBLE);
-                mPbSteps.setMax(dailySteps);
-                mPbSteps.setProgress(mDailyStepsTaken);
-                if (mDailyStepsTaken >= dailySteps) {
-                    Rect bounds = mPbSteps.getProgressDrawable().getBounds();
-                    mPbSteps.setProgressDrawable(
-                            getResources().getDrawable(R.drawable.pb_calories_reached));
-                    mPbSteps.getProgressDrawable().setBounds(bounds);
-                } else {
-                    Rect bounds = mPbSteps.getProgressDrawable().getBounds();
-                    mPbSteps.setProgressDrawable(
-                            getResources().getDrawable(R.drawable.pb_steps));
-                    mPbSteps.getProgressDrawable().setBounds(bounds);
-                }
+            mPbSteps.setVisibility(View.VISIBLE);
+            mPbSteps.setMax(dailySteps);
+            mPbSteps.setProgress(mDailyStepsTaken);
+            if (mDailyStepsTaken >= dailySteps) {
+                Rect bounds = mPbSteps.getProgressDrawable().getBounds();
+                mPbSteps.setProgressDrawable(
+                        getResources().getDrawable(R.drawable.pb_reached));
+                mPbSteps.getProgressDrawable().setBounds(bounds);
+            } else {
+                Rect bounds = mPbSteps.getProgressDrawable().getBounds();
+                mPbSteps.setProgressDrawable(
+                        getResources().getDrawable(R.drawable.pb_steps));
+                mPbSteps.getProgressDrawable().setBounds(bounds);
+            }
+            mStepsNotSetLabel.setVisibility(View.GONE);
+            mStepsButton.setVisibility(View.GONE);
         } else {
             mStepsNotSetLabel.setVisibility(View.VISIBLE);
-            mSetStepsButton.setVisibility(View.VISIBLE);
+            mStepsButton.setVisibility(View.VISIBLE);
             mPbSteps.setVisibility(View.GONE);
-        }
-        if (isStepsGoalSet) {
-            mStepsNotSetLabel.setVisibility(View.GONE);
-            mSetStepsButton.setVisibility(View.GONE);
         }
 
         int weeklyDuration = sharedPrefs.getInt("weekly_duration", -1);
-        boolean isDurationGoalSet = false;
         if (weeklyDuration != -1) {
-            isDurationGoalSet = true;
             mPbDuration.setVisibility(View.VISIBLE);
             mPbDuration.setMax(weeklyDuration * 60);
             mPbDuration.setProgress((int) mDuration);
             if (mDuration >= weeklyDuration * 60) {
                 Rect bounds = mPbDuration.getProgressDrawable().getBounds();
                 mPbDuration.setProgressDrawable(
-                        getResources().getDrawable(R.drawable.pb_calories_reached));
+                        getResources().getDrawable(R.drawable.pb_reached));
                 mPbDuration.getProgressDrawable().setBounds(bounds);
                 if (sharedPrefs.getInt("needs_to_notify_run", 0) != 2) {
                     sharedPrefs.edit().putInt("needs_to_notify_run", 1).apply();
@@ -280,20 +276,13 @@ public class GoalsActivity extends Activity
                         getResources().getDrawable(R.drawable.pb_duration));
                 mPbDuration.getProgressDrawable().setBounds(bounds);
             }
+            mDurationNotSetLabel.setVisibility(View.GONE);
+            mDurationButton.setVisibility(View.GONE);
         } else {
             mDurationNotSetLabel.setVisibility(View.VISIBLE);
-            mSetDurationButton.setVisibility(View.VISIBLE);
+            mDurationButton.setVisibility(View.VISIBLE);
             mPbDuration.setVisibility(View.GONE);
         }
-        if (isDurationGoalSet) {
-            mDurationNotSetLabel.setVisibility(View.GONE);
-            mSetDurationButton.setVisibility(View.GONE);
-        }
-    }
-
-    @Override
-    public void onValueChanged() {
-        updateUi();
     }
 
     @Override
@@ -313,12 +302,11 @@ public class GoalsActivity extends Activity
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_OAUTH) {
-            if (resultCode == RESULT_OK) {
-                // Make sure the app is not already connected or attempting to connect
-                if (!mClient.isConnecting() && !mClient.isConnected()) {
-                    mClient.connect();
-                }
+        if (requestCode == REQUEST_OAUTH
+                && resultCode == RESULT_OK) {
+            // Make sure the app is not already connected or attempting to connect
+            if (!mClient.isConnecting() && !mClient.isConnected()) {
+                mClient.connect();
             }
         }
         super.onActivityResult(requestCode, resultCode, data);

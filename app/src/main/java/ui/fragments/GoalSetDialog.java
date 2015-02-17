@@ -1,11 +1,9 @@
 package ui.fragments;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
@@ -19,75 +17,92 @@ import android.widget.EditText;
 import java.util.Calendar;
 
 import bellamica.tech.dreamteenfitness.R;
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 import ui.activities.AerobicActivity;
 
 public class GoalSetDialog extends DialogFragment {
 
-    private Context mContext;
+    private View mView;
 
-    private EditText mValueField;
-
-    public interface OnGoalChanged {
-        public void onValueChanged();
-    }
-
-    // Use this instance of the interface to deliver action events
-    OnGoalChanged mListener;
+    @InjectView(R.id.field)
+    EditText mField;
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        // Verify that the host activity implements the callback interface
-        try {
-            // Instantiate the NoticeDialogListener so we can send events to the host
-            mListener = (OnGoalChanged) activity;
-        } catch (ClassCastException ignored) {
-        }
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        ButterKnife.inject(this, view);
+        mView = view;
+
+        // Get the layout inflater
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+        inflater.inflate(R.layout.dialog_set_goal, null);
     }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final Builder builder = new Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT);
-        // Get the layout inflater
-        LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_set_goal, null);
 
-        final SharedPreferences mSharedPrefs =
+        final SharedPreferences sharedPrefs =
                 PreferenceManager.getDefaultSharedPreferences(getActivity());
+
         Bundle bundle = getArguments();
-        final String key = bundle.getString("key");
-        mValueField = (EditText) view.findViewById(R.id.field);
+        final String key =
+                bundle.getString("key");
 
-        final String dailySteps = mSharedPrefs.getInt("daily_steps", -1) + "";
-        String weeklyDuration = mSharedPrefs.getInt("weekly_duration", -1) + "";
-
-        if (key.equals("steps")) {
-            if (!dailySteps.equals("-1")) {
-                mValueField.setText(dailySteps);
-            }
-            mSharedPrefs.edit().putBoolean("isSteps50notified", false).apply();
-            mSharedPrefs.edit().putBoolean("isSteps75notified", false).apply();
-            mSharedPrefs.edit().putBoolean("isSteps100notified", false).apply();
-        } else if (key.equals("duration")) {
-            if (!weeklyDuration.equals("-1")) {
-                mValueField.setText(weeklyDuration);
-            }
-            mSharedPrefs.edit().putBoolean("isRun50notified", false).apply();
-            mSharedPrefs.edit().putBoolean("isRun75notified", false).apply();
-            mSharedPrefs.edit().putBoolean("isRun100notified", false).apply();
+        switch (key) {
+            case "steps":
+                String dailySteps =
+                        sharedPrefs.getInt("daily_steps", -1) + "";
+                if (!dailySteps.equals("-1")) {
+                    mField.setText(dailySteps);
+                }
+                sharedPrefs.edit()
+                        .putBoolean("isSteps50notified", false)
+                        .putBoolean("isSteps100notified", false).apply();
+                break;
+            case "duration":
+                String duration =
+                        sharedPrefs.getInt("weekly_duration", -1) + "";
+                if (!duration.equals("-1")) {
+                    mField.setText(duration);
+                }
+                sharedPrefs.edit()
+                        .putBoolean("isRun50notified", false)
+                        .putBoolean("isRun100notified", false).apply();
+                break;
+            case "calories":
+                String calories =
+                        sharedPrefs.getInt("calories_norm", -1) + "";
+                if (!calories.equals("-1")) {
+                    mField.setText(calories);
+                }
+                sharedPrefs.edit()
+                        .putBoolean("isCal50notified", false)
+                        .putBoolean("isCal100notified", false).apply();
+                break;
         }
 
         String title = null;
-        if (key.equals("steps")) {
-            title = "Daily step count goal";
-        } else if (key.equals("duration")) {
-            title = "Weekly run duration, min";
-        } else if (key.equals("aerobic")) {
-            title = "Daily aerobic duration, min";
+        switch (key) {
+            case "steps":
+                title = "Daily step count goal";
+                break;
+            case "duration":
+                title = "Weekly run duration, min";
+                break;
+            case "calories":
+                title = "Daily calories goal";
+                break;
+            case "aerobic":
+                title = "Daily aerobic duration, min";
+                break;
         }
+
+        Builder builder = new Builder(
+                getActivity(), AlertDialog.THEME_HOLO_LIGHT);
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
-        builder.setView(view)
+        builder.setView(mView)
                 .setTitle(title)
                         // Add action buttons
                 .setPositiveButton("Set", new OnClickListener() {
@@ -95,34 +110,50 @@ public class GoalSetDialog extends DialogFragment {
 
                         switch (key) {
                             case "steps":
-                                if (!mValueField.getText().toString().isEmpty()) {
+                                if (!mField.getText().toString().isEmpty()) {
                                     int newValue = Integer.parseInt(
-                                            mValueField.getText().toString());
+                                            mField.getText().toString());
                                     int day = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
-                                    mSharedPrefs.edit()
+                                    sharedPrefs.edit()
                                             .putInt("daily_steps", newValue)
                                             .putInt("daily_steps_time", day + 1)
                                             .apply();
                                 } else {
-                                    mSharedPrefs.edit()
+                                    sharedPrefs.edit()
                                             .putInt("daily_steps", -1)
                                             .putInt("daily_steps_time", -1)
                                             .apply();
                                 }
                                 break;
                             case "duration":
-                                if (!mValueField.getText().toString().isEmpty()) {
+                                if (!mField.getText().toString().isEmpty()) {
                                     int newValue = Integer.parseInt(
-                                            mValueField.getText().toString());
+                                            mField.getText().toString());
                                     int day = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
-                                    mSharedPrefs.edit()
+                                    sharedPrefs.edit()
                                             .putInt("weekly_duration", newValue)
                                             .putInt("weekly_duration_time", day + 30)
                                             .apply();
                                 } else {
-                                    mSharedPrefs.edit()
+                                    sharedPrefs.edit()
                                             .putInt("weekly_duration", -1)
                                             .putInt("weekly_duration_time", -1)
+                                            .apply();
+                                }
+                                break;
+                            case "calories":
+                                if (!mField.getText().toString().isEmpty()) {
+                                    int newValue = Integer.parseInt(
+                                            mField.getText().toString());
+                                    int day = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
+                                    sharedPrefs.edit()
+                                            .putInt("calories_norm", newValue)
+                                            .putInt("calories_norm_time", day + 1)
+                                            .apply();
+                                } else {
+                                    sharedPrefs.edit()
+                                            .putInt("calories_norm", -1)
+                                            .putInt("calories_norm_time", -1)
                                             .apply();
                                 }
                                 break;
@@ -131,9 +162,6 @@ public class GoalSetDialog extends DialogFragment {
                                         .putBoolean("isGoalSet", true).apply();
                                 startActivity(new Intent(getActivity(), AerobicActivity.class));
                                 break;
-                        }
-                        if (mListener != null) {
-                            mListener.onValueChanged();
                         }
                         GoalSetDialog.this.getDialog().cancel();
                     }

@@ -203,7 +203,7 @@
         <item name="android:paddingRight">12dp</item>
         <item name="android:paddingBottom">5dp</item>
         <item name="android:clickable">true</item>
-        <item name="android:onClick">addChallengeGoal</item>
+        <item name="android:onClick">addGoal</item>
         <item name="android:baselineAligned">false</item>
     </style>
 
@@ -241,6 +241,19 @@
         <item name="android:textSize">18sp</item>
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:text">@string/goal_not_set_hint</item>
+    </style>
+
+    <style name="GoalButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical|right</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:text">@string/add_button_label</item>
+        <item name="android:onClick">addGoal</item>
     </style>
 
 </resources>

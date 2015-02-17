@@ -3,6 +3,7 @@
               tools:context="sheyko.aleksey.mapthetrip.ui.activities.GoalsActivity"
               style="@style/GoalsActivityContainer">
 
+    <!-- Duration -->
     <LinearLayout
         android:id="@+id/stepsContainer"
         style="@style/GoalContainer">
@@ -15,7 +16,7 @@
                 style="@style/GoalContainerHeader"/>
 
             <ProgressBar
-                android:id="@+id/progressBarDailySteps"
+                android:id="@+id/pbSteps"
                 android:progressDrawable="@drawable/pb_steps"
                 style="@style/GoalProgressBar"/>
 
@@ -25,25 +26,14 @@
 
         </LinearLayout>
 
-            <Button
-                android:id="@+id/setStepsButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|right"
-                android:paddingLeft="12dp"
-                android:background="@drawable/set_goal_button_purple"
-                android:fontFamily="sans-serif-bold"
-                android:paddingRight="12dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="12dp"
-                android:onClick="addChallengeGoal"
-                android:text="@string/add_button_label"
-                />
+        <Button
+            android:id="@+id/setStepsButton"
+            android:background="@drawable/button_steps"
+            style="@style/GoalButton"/>
 
     </LinearLayout>
 
-    <!-- Set goal container-->
+    <!-- Steps -->
     <LinearLayout
         android:id="@+id/durationContainer"
         style="@style/GoalContainer">
@@ -56,7 +46,7 @@
                 style="@style/GoalContainerHeader"/>
 
             <ProgressBar
-                android:id="@+id/progressBarWeeklyDuration"
+                android:id="@+id/pbDuration"
                 style="@style/GoalProgressBar"
                 android:progressDrawable="@drawable/pb_duration"/>
 
@@ -66,26 +56,40 @@
 
         </LinearLayout>
 
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="12dp">
+        <Button
+            android:id="@+id/setDurationButton"
+            android:background="@drawable/button_duration"
+            style="@style/GoalButton"/>
 
-            <Button
-                android:id="@+id/setDurationButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|right"
-                android:paddingLeft="12dp"
-                android:background="@drawable/set_goal_button"
-                android:fontFamily="sans-serif-bold"
-                android:paddingRight="12dp"
-                android:onClick="addChallengeGoal"
-                android:text="@string/add_button_label"/>
+    </LinearLayout>
 
-        </FrameLayout>
+    <!-- Calories -->
+    <LinearLayout
+        android:id="@+id/caloriesContainer"
+        style="@style/GoalContainer">
+
+        <LinearLayout
+            style="@style/GoalContainerLayout">
+
+            <TextView
+                android:text="@string/run_duration_label"
+                style="@style/GoalContainerHeader"/>
+
+            <ProgressBar
+                android:id="@+id/pbCalories"
+                style="@style/GoalProgressBar"
+                android:progressDrawable="@drawable/pb_duration"/>
+
+            <TextView
+                android:id="@+id/caloriesNotSetLabel"
+                style="@style/GoalNotSetLabel"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/setCaloriesButton"
+            android:background="@drawable/button_calories"
+            style="@style/GoalButton"/>
 
     </LinearLayout>
 

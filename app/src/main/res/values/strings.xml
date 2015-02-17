@@ -84,5 +84,6 @@
     <string name="steps_label">Step count</string>
     <string name="add_button_label">Add</string>
     <string name="run_duration_label">Run duration</string>
+    <string name="calories_label">Calories burned</string>
 
 </resources>
