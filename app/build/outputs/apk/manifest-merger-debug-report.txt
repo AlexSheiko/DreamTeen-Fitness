@@ -201,6 +201,8 @@ ADDED from AndroidManifest.xml:106:9
 		ADDED from AndroidManifest.xml:107:13
 activity#ui.activities.GoalsActivity
 ADDED from AndroidManifest.xml:116:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:120:13
 	android:label
 		ADDED from AndroidManifest.xml:118:13
 	android:parentActivityName

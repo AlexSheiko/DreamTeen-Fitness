@@ -69,26 +69,25 @@ import ui.utils.helpers.Constants;
 public class MainActivity extends Activity
         implements CaloriesDialogListener {
 
+    private static final int REQUEST_OAUTH = 1;
+    private static final int REQUEST_LEADERBOARD = 2;
+    private static final int CALORIES_DEFAULT = 2150;
+
     private int mDailySteps;
     private long mDailyDuration;
 
     private GoogleApiClient mClient;
-    private boolean authInProgress = false;
-    private static final String AUTH_PENDING = "auth_state_pending";
 
     private OnDataPointListener mStepsListener;
-    private static final int REQUEST_OAUTH = 1;
-    private static final int REQUEST_LEADERBOARD = 2;
 
     private SharedPreferences mSharedPrefs;
     private int mCaloriesExpanded = 0;
     private int mStepsTaken = 0;
-    private static final int CALORIES_DEFAULT = 2150;
 
     @InjectView(R.id.caloriesLabel)
     TextView mCaloriesLabel;
     @InjectView(R.id.progressBar)
-    ProgressBar mProgressBar;
+    ProgressBar mProgressBarCal;
     @InjectView(R.id.caloriesContainer)
     LinearLayout mCaloriesContainer;
     @InjectView(R.id.stepsContainer)
@@ -101,6 +100,8 @@ public class MainActivity extends Activity
     TextView mStepsLabel;
     @InjectView(R.id.stepsTargetLabel)
     TextView mStepsTargetLabel;
+    @InjectView(R.id.caloriesNotSetLabel)
+    TextView mCalNotSetLabel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,10 +109,8 @@ public class MainActivity extends Activity
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
 
-        if (savedInstanceState != null) {
-            authInProgress = savedInstanceState.getBoolean(AUTH_PENDING);
-        }
         buildFitnessClient();
+
         addSideNavigation();
 
         mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -159,13 +158,10 @@ public class MainActivity extends Activity
                                     return;
                                 }
                                 // The failure has a resolution. Resolve it.
-                                if (!authInProgress) {
-                                    try {
-                                        authInProgress = true;
-                                        result.startResolutionForResult(MainActivity.this,
-                                                REQUEST_OAUTH);
-                                    } catch (IntentSender.SendIntentException ignored) {
-                                    }
+                                try {
+                                    result.startResolutionForResult(MainActivity.this,
+                                            REQUEST_OAUTH);
+                                } catch (IntentSender.SendIntentException ignored) {
                                 }
                             }
                         }
@@ -177,7 +173,6 @@ public class MainActivity extends Activity
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
             if (requestCode == REQUEST_OAUTH) {
-                authInProgress = false;
                 // Make sure the app is not already connected or attempting to connect
                 if (!mClient.isConnected() && !mClient.isConnecting()) {
                     mClient.connect();
@@ -338,31 +333,30 @@ public class MainActivity extends Activity
     }
 
     private void updateUiCounters() {
-        //[START calories counter]
-        // Average expansion by day
-        int mCaloriesBurnedByDefault = Calendar.getInstance()
+        // Average expansion daily
+        int caloriesByDefault = Calendar.getInstance()
                 .get(Calendar.HOUR_OF_DAY) * 1465 / 24;
-        int mCaloriesExpandedTotal =
-                mCaloriesBurnedByDefault + mCaloriesExpanded;
+        int caloriesBurned =
+                caloriesByDefault + mCaloriesExpanded;
+        mCaloriesLabel.setText(caloriesBurned + "");
 
-        mCaloriesLabel.setText(mCaloriesExpandedTotal + "");
-        mProgressBar.setMax(
-                mSharedPrefs.getInt("calories_norm", CALORIES_DEFAULT));
-        mProgressBar.setProgress(mCaloriesExpandedTotal);
-
-        int caloriesNorm = mSharedPrefs.getInt("calories_norm", CALORIES_DEFAULT);
-        if (mCaloriesExpandedTotal >= caloriesNorm) {
-            Rect bounds = mProgressBar.getProgressDrawable().getBounds();
-            mProgressBar.setProgressDrawable(
-                    getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));
-            mProgressBar.getProgressDrawable().setBounds(bounds);
+        int caloriesGoal = mSharedPrefs.getInt("calories_norm", -1);
+        if (caloriesGoal != -1) {
+            mProgressBarCal.setVisibility(View.VISIBLE);
+            mProgressBarCal.setMax(caloriesGoal);
+            mProgressBarCal.setProgress(caloriesBurned);
+            mCalNotSetLabel.setVisibility(View.GONE);
         } else {
-            Rect bounds = mProgressBar.getProgressDrawable().getBounds();
-            mProgressBar.setProgressDrawable(
-                    getResources().getDrawable(R.drawable.progress_bar_calories));
-            mProgressBar.getProgressDrawable().setBounds(bounds);
+            mProgressBarCal.setVisibility(View.GONE);
+            mCalNotSetLabel.setVisibility(View.VISIBLE);
         }
-        //[END Calories counter]
+
+        // Set progress bar color
+        if (caloriesBurned >= caloriesGoal) {
+            setPbReached(mProgressBarCal, true);
+        } else {
+            setPbReached(mProgressBarCal, false);
+        }
 
         //[START Steps counter]
         int stepsTarget = mSharedPrefs.getInt("daily_steps", -1);
@@ -418,6 +412,18 @@ public class MainActivity extends Activity
         //[END Duration counter]
     }
 
+    private void setPbReached(ProgressBar progressBar, boolean isReached) {
+        Rect bounds = progressBar.getProgressDrawable().getBounds();
+        if (isReached) {
+            progressBar.setProgressDrawable(
+                    getResources().getDrawable(R.drawable.pb_calories_reached));
+        } else {
+            progressBar.setProgressDrawable(
+                    getResources().getDrawable(R.drawable.pb_calories));
+        }
+        progressBar.getProgressDrawable().setBounds(bounds);
+    }
+
     @Override
     public void onCaloriesGoalChanged(DialogFragment dialog, int newValue) {
         mSharedPrefs.edit()
@@ -451,12 +457,6 @@ public class MainActivity extends Activity
         if (mClient.isConnected()) {
             mClient.disconnect();
         }
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putBoolean(AUTH_PENDING, authInProgress);
     }
 
     @Override

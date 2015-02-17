@@ -255,7 +255,7 @@ public class GoalsActivity extends Activity
                 if (mDailyStepsTaken >= dailySteps) {
                     Rect bounds = mProgressBarDailySteps.getProgressDrawable().getBounds();
                     mProgressBarDailySteps.setProgressDrawable(
-                            getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));
+                            getResources().getDrawable(R.drawable.pb_calories_reached));
                     mProgressBarDailySteps.getProgressDrawable().setBounds(bounds);
                 } else {
                     Rect bounds = mProgressBarDailySteps.getProgressDrawable().getBounds();
@@ -282,7 +282,7 @@ public class GoalsActivity extends Activity
             if (mWeeklyDuration >= weeklyDuration * 60) {
                 Rect bounds = mProgressBarWeeklyDuration.getProgressDrawable().getBounds();
                 mProgressBarWeeklyDuration.setProgressDrawable(
-                        getResources().getDrawable(R.drawable.progress_bar_calories_goal_reached));
+                        getResources().getDrawable(R.drawable.pb_calories_reached));
                 mProgressBarWeeklyDuration.getProgressDrawable().setBounds(bounds);
                 if (mSharedPrefs.getInt("needs_to_notify_run", 0) != 2) {
                     mSharedPrefs.edit().putInt("needs_to_notify_run", 1).apply();

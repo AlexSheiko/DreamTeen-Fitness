@@ -5,9 +5,9 @@
         <clip>
             <shape>
                 <corners android:radius="6dp"/>
-                <solid android:color="#fbcb42"/>
+                <solid android:color="#19d873"/>
             </shape>
         </clip>
     </item>
 
-</layer-list><!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/drawable/progress_bar_calories.xml -->
+</layer-list><!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/drawable/pb_calories_reached.xml -->

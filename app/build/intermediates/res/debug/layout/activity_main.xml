@@ -120,6 +120,18 @@
 
                     </LinearLayout>
 
+                    <TextView
+                        android:id="@+id/caloriesNotSetLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text="@string/goal_not_set_hint"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="5dp"
+                        android:textColor="#22282c"
+                        android:textSize="16sp"
+                        android:visibility="gone"/>
+
                     <ProgressBar
                         android:id="@+id/progressBar"
                         style="?android:attr/progressBarStyleHorizontal"
@@ -129,7 +141,7 @@
                         android:paddingLeft="0dp"
                         android:paddingRight="0dp"
                         android:progress="0"
-                        android:progressDrawable="@drawable/progress_bar_calories"
+                        android:progressDrawable="@drawable/pb_calories"
                         />
 
                 </LinearLayout>
@@ -201,16 +213,16 @@
 
                     </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/stepsTargetLabel"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-light"
-                            android:text="@string/goal_not_set_hint"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginRight="5dp"
-                            android:textColor="#22282c"
-                            android:textSize="16sp"/>
+                    <TextView
+                        android:id="@+id/stepsTargetLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text="@string/goal_not_set_hint"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="5dp"
+                        android:textColor="#22282c"
+                        android:textSize="16sp"/>
 
                 </LinearLayout>
 
