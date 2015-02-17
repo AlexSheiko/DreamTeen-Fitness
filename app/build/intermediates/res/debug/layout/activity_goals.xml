@@ -6,6 +6,7 @@
     <!-- Duration -->
     <LinearLayout
         android:id="@+id/stepsContainer"
+        android:onClick="addGoal"
         style="@style/GoalContainer">
 
         <LinearLayout
@@ -27,7 +28,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/setStepsButton"
+            android:id="@+id/stepsButton"
             android:background="@drawable/button_steps"
             style="@style/GoalButton"/>
 
@@ -36,6 +37,7 @@
     <!-- Steps -->
     <LinearLayout
         android:id="@+id/durationContainer"
+        android:onClick="addGoal"
         style="@style/GoalContainer">
 
         <LinearLayout
@@ -57,7 +59,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/setDurationButton"
+            android:id="@+id/durationButton"
             android:background="@drawable/button_duration"
             style="@style/GoalButton"/>
 
@@ -66,19 +68,20 @@
     <!-- Calories -->
     <LinearLayout
         android:id="@+id/caloriesContainer"
+        android:onClick="addGoal"
         style="@style/GoalContainer">
 
         <LinearLayout
             style="@style/GoalContainerLayout">
 
             <TextView
-                android:text="@string/run_duration_label"
+                android:text="@string/calories_label"
                 style="@style/GoalContainerHeader"/>
 
             <ProgressBar
                 android:id="@+id/pbCalories"
                 style="@style/GoalProgressBar"
-                android:progressDrawable="@drawable/pb_duration"/>
+                android:progressDrawable="@drawable/pb_calories"/>
 
             <TextView
                 android:id="@+id/caloriesNotSetLabel"
@@ -87,7 +90,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/setCaloriesButton"
+            android:id="@+id/caloriesButton"
             android:background="@drawable/button_calories"
             style="@style/GoalButton"/>
 

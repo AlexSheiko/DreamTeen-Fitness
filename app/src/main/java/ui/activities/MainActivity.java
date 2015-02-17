@@ -71,7 +71,7 @@ public class MainActivity extends Activity {
     private GoogleApiClient mClient;
     private OnDataPointListener mStepsListener;
 
-    private int mCaloriesExpanded = 0;
+    private int mCaloriesExpended = 0;
     private int mStepsTaken = 0;
 
     private int mDailySteps;
@@ -307,7 +307,7 @@ public class MainActivity extends Activity {
     }
 
     private void increaseCalories(int increment) {
-        mCaloriesExpanded += increment;
+        mCaloriesExpended += increment;
     }
 
     private void increaseSteps(int increment) {
@@ -319,11 +319,11 @@ public class MainActivity extends Activity {
         int caloriesByDefault = Calendar.getInstance()
                 .get(Calendar.HOUR_OF_DAY) * 1465 / 24; // Average expansion daily
         int caloriesBurned =
-                caloriesByDefault + mCaloriesExpanded;
+                caloriesByDefault + mCaloriesExpended;
         mCaloriesLabel.setText(caloriesBurned + "");
 
         // Set progress bar visibility
-        int caloriesGoal = mSharedPrefs.getInt("calories_norm", -1);
+        int caloriesGoal = mSharedPrefs.getInt("calories_normcalories_norm", -1);
         if (caloriesGoal != -1) {
             mPbCalories.setVisibility(View.VISIBLE);
             mPbCalories.setMax(caloriesGoal);
@@ -336,9 +336,9 @@ public class MainActivity extends Activity {
 
         // Set progress bar color
         if (caloriesBurned >= caloriesGoal) {
-            setPbReached(mPbCalories, true);
+            setPbColor(mPbCalories, R.drawable.pb_reached);
         } else {
-            setPbReached(mPbCalories, false);
+            setPbColor(mPbCalories, R.drawable.pb_calories);
         }
         //[END Calories section]
 
@@ -376,15 +376,10 @@ public class MainActivity extends Activity {
         //[END Duration counter]
     }
 
-    private void setPbReached(ProgressBar pb, boolean isReached) {
+    private void setPbColor(ProgressBar pb, int drawableId) {
         Rect bounds = pb.getProgressDrawable().getBounds();
-        if (isReached) {
-            pb.setProgressDrawable(getResources()
-                    .getDrawable(R.drawable.pb_reached));
-        } else {
-            pb.setProgressDrawable(getResources()
-                    .getDrawable(R.drawable.pb_calories));
-        }
+        pb.setProgressDrawable(getResources()
+                .getDrawable(drawableId));
         pb.getProgressDrawable().setBounds(bounds);
     }
 

@@ -361,6 +361,7 @@
     <eat-comment/>
     <string name="calories_burned">calories burned</string>
     <string name="calories_default_value">0</string>
+    <string name="calories_label">Calories burned</string>
     <!-- From: file:/D:/DreamTeen-Fitness/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/3.21.1/res/values/values.xml -->
     <eat-comment/>
     <string name="com_facebook_choose_friends">Choose Friends</string>
@@ -602,7 +603,7 @@
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:layout_marginBottom">12dp</item>
         <item name="android:text">@string/add_button_label</item>
-        <item name="android:onClick">addChallengeGoal</item>
+        <item name="android:onClick">addGoal</item>
     </style>
     <style name="GoalContainer">
         <item name="android:layout_width">match_parent</item>
@@ -615,7 +616,7 @@
         <item name="android:paddingRight">12dp</item>
         <item name="android:paddingBottom">5dp</item>
         <item name="android:clickable">true</item>
-        <item name="android:onClick">addChallengeGoal</item>
+        <item name="android:onClick">addGoal</item>
         <item name="android:baselineAligned">false</item>
     </style>
     <style name="GoalContainerHeader">

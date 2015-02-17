@@ -37,8 +37,10 @@ import bellamica.tech.dreamteenfitness.R;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import ui.fragments.GoalSetDialog;
+import ui.fragments.GoalSetDialog.OnGoalChanged;
 
-public class GoalsActivity extends Activity {
+public class GoalsActivity extends Activity
+        implements OnGoalChanged {
 
     public static final String SESSION_NAME = "Afternoon run";
 
@@ -75,12 +77,6 @@ public class GoalsActivity extends Activity {
         ButterKnife.inject(this);
 
         buildFitnessClient();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        updateCounters();
     }
 
     public void addGoal(View view) {
@@ -189,7 +185,7 @@ public class GoalsActivity extends Activity {
     private void dumpCalories(DataSet dataSet) {
         for (DataPoint dp : dataSet.getDataPoints()) {
             for (Field field : dp.getDataType().getFields()) {
-                int increment = dp.getValue(field).asInt();
+                int increment = Math.round(dp.getValue(field).asFloat());
                 increaseCalories(increment);
             }
         }
@@ -339,5 +335,10 @@ public class GoalsActivity extends Activity {
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onGoalChanged() {
+        updateCounters();
     }
 }

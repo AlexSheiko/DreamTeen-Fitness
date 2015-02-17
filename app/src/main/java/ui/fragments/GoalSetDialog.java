@@ -1,5 +1,6 @@
 package ui.fragments;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
@@ -17,30 +18,37 @@ import android.widget.EditText;
 import java.util.Calendar;
 
 import bellamica.tech.dreamteenfitness.R;
-import butterknife.ButterKnife;
-import butterknife.InjectView;
 import ui.activities.AerobicActivity;
 
 public class GoalSetDialog extends DialogFragment {
 
-    private View mView;
+    public interface OnGoalChanged {
+        public void onGoalChanged();
+    }
 
-    @InjectView(R.id.field)
-    EditText mField;
+    // Use this instance of the interface to deliver action events
+    OnGoalChanged mCallback;
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        ButterKnife.inject(this, view);
-        mView = view;
-
-        // Get the layout inflater
-        LayoutInflater inflater = getActivity().getLayoutInflater();
-        inflater.inflate(R.layout.dialog_set_goal, null);
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        // Verify that the host activity implements the callback interface
+        try {
+            // Instantiate the NoticeDialogListener so we can send events to the host
+            mCallback = (OnGoalChanged) activity;
+        } catch (ClassCastException e) {
+            // The activity doesn't implement the interface, throw exception
+            throw new ClassCastException(activity.toString()
+                    + " must implement OnGoalChanged");
+        }
     }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+        View view = inflater.inflate(R.layout.dialog_set_goal, null);
+        final EditText field = (EditText) view.findViewById(R.id.field);
 
         final SharedPreferences sharedPrefs =
                 PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -54,7 +62,7 @@ public class GoalSetDialog extends DialogFragment {
                 String dailySteps =
                         sharedPrefs.getInt("daily_steps", -1) + "";
                 if (!dailySteps.equals("-1")) {
-                    mField.setText(dailySteps);
+                    field.setText(dailySteps);
                 }
                 sharedPrefs.edit()
                         .putBoolean("isSteps50notified", false)
@@ -64,7 +72,7 @@ public class GoalSetDialog extends DialogFragment {
                 String duration =
                         sharedPrefs.getInt("weekly_duration", -1) + "";
                 if (!duration.equals("-1")) {
-                    mField.setText(duration);
+                    field.setText(duration);
                 }
                 sharedPrefs.edit()
                         .putBoolean("isRun50notified", false)
@@ -74,7 +82,7 @@ public class GoalSetDialog extends DialogFragment {
                 String calories =
                         sharedPrefs.getInt("calories_norm", -1) + "";
                 if (!calories.equals("-1")) {
-                    mField.setText(calories);
+                    field.setText(calories);
                 }
                 sharedPrefs.edit()
                         .putBoolean("isCal50notified", false)
@@ -102,7 +110,7 @@ public class GoalSetDialog extends DialogFragment {
                 getActivity(), AlertDialog.THEME_HOLO_LIGHT);
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
-        builder.setView(mView)
+        builder.setView(view)
                 .setTitle(title)
                         // Add action buttons
                 .setPositiveButton("Set", new OnClickListener() {
@@ -110,9 +118,9 @@ public class GoalSetDialog extends DialogFragment {
 
                         switch (key) {
                             case "steps":
-                                if (!mField.getText().toString().isEmpty()) {
+                                if (!field.getText().toString().isEmpty()) {
                                     int newValue = Integer.parseInt(
-                                            mField.getText().toString());
+                                            field.getText().toString());
                                     int day = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
                                     sharedPrefs.edit()
                                             .putInt("daily_steps", newValue)
@@ -126,9 +134,9 @@ public class GoalSetDialog extends DialogFragment {
                                 }
                                 break;
                             case "duration":
-                                if (!mField.getText().toString().isEmpty()) {
+                                if (!field.getText().toString().isEmpty()) {
                                     int newValue = Integer.parseInt(
-                                            mField.getText().toString());
+                                            field.getText().toString());
                                     int day = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
                                     sharedPrefs.edit()
                                             .putInt("weekly_duration", newValue)
@@ -142,9 +150,9 @@ public class GoalSetDialog extends DialogFragment {
                                 }
                                 break;
                             case "calories":
-                                if (!mField.getText().toString().isEmpty()) {
+                                if (!field.getText().toString().isEmpty()) {
                                     int newValue = Integer.parseInt(
-                                            mField.getText().toString());
+                                            field.getText().toString());
                                     int day = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
                                     sharedPrefs.edit()
                                             .putInt("calories_norm", newValue)
@@ -163,6 +171,7 @@ public class GoalSetDialog extends DialogFragment {
                                 startActivity(new Intent(getActivity(), AerobicActivity.class));
                                 break;
                         }
+                        mCallback.onGoalChanged();
                         GoalSetDialog.this.getDialog().cancel();
                     }
                 });
