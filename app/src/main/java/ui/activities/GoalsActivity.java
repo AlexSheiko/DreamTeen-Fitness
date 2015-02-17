@@ -49,7 +49,7 @@ public class GoalsActivity extends Activity
     public static final String SESSION_NAME = "Afternoon run";
 
     private int mDailyStepsTaken;
-    private long mWeeklyDuration;
+    private long mDuration;
 
     private static final int REQUEST_OAUTH = 1;
     private GoogleApiClient mClient;
@@ -84,11 +84,13 @@ public class GoalsActivity extends Activity
 
     public void addChallengeGoal(View view) {
         Bundle bundle = new Bundle();
-
         int id = view.getId();
-        if (id == R.id.stepsContainer || id == R.id.setStepsButton) {
+
+        if (id == R.id.stepsContainer
+                || id == R.id.setStepsButton) {
             bundle.putString("key", "steps");
-        } else if (id == R.id.durationContainer || id == R.id.setDurationButton) {
+        } else if (id == R.id.durationContainer
+                || id == R.id.setDurationButton) {
             bundle.putString("key", "duration");
         }
         DialogFragment dialog = new GoalSetDialog();
@@ -222,12 +224,12 @@ public class GoalsActivity extends Activity
         long endTime = session.getEndTime(TimeUnit.SECONDS);
         long increment = endTime - startTime;
         if (increment > 0) {
-            increaseWeeklyDuration(increment);
+            increaseDuration(increment);
         }
     }
 
-    private void increaseWeeklyDuration(long increment) {
-        mWeeklyDuration = mWeeklyDuration + increment;
+    private void increaseDuration(long increment) {
+        mDuration += increment;
     }
 
     private void updateProgressBar() {
@@ -264,8 +266,8 @@ public class GoalsActivity extends Activity
             isDurationGoalSet = true;
             mProgressBarWeeklyDuration.setVisibility(View.VISIBLE);
             mProgressBarWeeklyDuration.setMax(weeklyDuration * 60);
-            mProgressBarWeeklyDuration.setProgress((int) mWeeklyDuration);
-            if (mWeeklyDuration >= weeklyDuration * 60) {
+            mProgressBarWeeklyDuration.setProgress((int) mDuration);
+            if (mDuration >= weeklyDuration * 60) {
                 Rect bounds = mProgressBarWeeklyDuration.getProgressDrawable().getBounds();
                 mProgressBarWeeklyDuration.setProgressDrawable(
                         getResources().getDrawable(R.drawable.pb_calories_reached));
