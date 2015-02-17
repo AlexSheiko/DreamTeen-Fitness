@@ -42,8 +42,9 @@ public class GoalsActivity extends Activity {
 
     public static final String SESSION_NAME = "Afternoon run";
 
-    private int mDailyStepsTaken;
+    private int mSteps;
     private long mDuration;
+    private int mCalories;
 
     private static final int REQUEST_OAUTH = 1;
     private GoogleApiClient mClient;
@@ -109,8 +110,8 @@ public class GoalsActivity extends Activity {
                             @Override
                             public void onConnected(Bundle bundle) {
                                 // Now you can make calls to the Fitness APIs.
-                                readSteps();
-                                readDuration();
+                                readDailyStepsAndCalories();
+                                readWeeklyDuration();
                             }
 
                             @Override
@@ -141,7 +142,7 @@ public class GoalsActivity extends Activity {
                 .build();
     }
 
-    private void readSteps() {
+    private void readDailyStepsAndCalories() {
         // Setting a start and end date using a range of 1 week before this moment.
         Calendar cal = Calendar.getInstance();
         Date now = new Date();
@@ -153,6 +154,7 @@ public class GoalsActivity extends Activity {
 
         DataReadRequest readCaloriesRequest = new DataReadRequest.Builder()
                 .read(DataType.TYPE_STEP_COUNT_DELTA)
+                .read(DataType.TYPE_CALORIES_EXPENDED)
                 .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
                 .build();
 
@@ -162,29 +164,46 @@ public class GoalsActivity extends Activity {
                     @Override
                     public void onResult(DataReadResult dataReadResult) {
                         for (DataSet dataSet : dataReadResult.getDataSets()) {
-                            if (dataSet.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)) {
-                                dumpDailySteps(dataSet);
+                            if (dataSet.getDataType()
+                                    .equals(DataType.TYPE_STEP_COUNT_DELTA)) {
+                                dumpSteps(dataSet);
+                            } else if (dataSet.getDataType()
+                                    .equals(DataType.TYPE_CALORIES_EXPENDED)) {
+                                dumpCalories(dataSet);
                             }
                         }
+                        updateCounters();
                     }
                 });
     }
 
-    private void dumpDailySteps(DataSet dataSet) {
+    private void dumpSteps(DataSet dataSet) {
         for (DataPoint dp : dataSet.getDataPoints()) {
             for (Field field : dp.getDataType().getFields()) {
-                increaseDailyStepCount(
-                        dp.getValue(field).asInt());
+                int increment = dp.getValue(field).asInt();
+                increaseSteps(increment);
             }
         }
-        updateCounters();
     }
 
-    private void increaseDailyStepCount(int increment) {
-        mDailyStepsTaken = mDailyStepsTaken + increment;
+    private void dumpCalories(DataSet dataSet) {
+        for (DataPoint dp : dataSet.getDataPoints()) {
+            for (Field field : dp.getDataType().getFields()) {
+                int increment = dp.getValue(field).asInt();
+                increaseCalories(increment);
+            }
+        }
     }
 
-    private SessionReadRequest readDuration() {
+    private void increaseSteps(int increment) {
+        mSteps += increment;
+    }
+
+    private void increaseCalories(int increment) {
+        mCalories += increment;
+    }
+
+    private SessionReadRequest readWeeklyDuration() {
         // [START build_read_session_request]
         // Set a start and end time for our query, using a start time of 1 week before this moment.
         Calendar cal = Calendar.getInstance();
@@ -208,7 +227,7 @@ public class GoalsActivity extends Activity {
                         // Get a list of the sessions that match the criteria to check the result.
                         for (Session session : sessionReadResult.getSessions()) {
                             // Process the session
-                            dumpWeeklyDuration(session);
+                            dumpDuration(session);
                         }
                         updateCounters();
                     }
@@ -216,7 +235,7 @@ public class GoalsActivity extends Activity {
         return readRequest;
     }
 
-    private void dumpWeeklyDuration(Session session) {
+    private void dumpDuration(Session session) {
         long startTime = session.getStartTime(TimeUnit.SECONDS);
         long endTime = session.getEndTime(TimeUnit.SECONDS);
         long increment = endTime - startTime;
@@ -233,21 +252,15 @@ public class GoalsActivity extends Activity {
         SharedPreferences sharedPrefs =
                 PreferenceManager.getDefaultSharedPreferences(this);
 
-        int dailySteps = sharedPrefs.getInt("daily_steps", -1);
-        if (dailySteps != -1) {
+        int steps = sharedPrefs.getInt("daily_steps", -1);
+        if (steps != -1) {
             mPbSteps.setVisibility(View.VISIBLE);
-            mPbSteps.setMax(dailySteps);
-            mPbSteps.setProgress(mDailyStepsTaken);
-            if (mDailyStepsTaken >= dailySteps) {
-                Rect bounds = mPbSteps.getProgressDrawable().getBounds();
-                mPbSteps.setProgressDrawable(
-                        getResources().getDrawable(R.drawable.pb_reached));
-                mPbSteps.getProgressDrawable().setBounds(bounds);
+            mPbSteps.setMax(steps);
+            mPbSteps.setProgress(mSteps);
+            if (mSteps >= steps) {
+                setPbColor(mPbSteps, R.drawable.pb_reached);
             } else {
-                Rect bounds = mPbSteps.getProgressDrawable().getBounds();
-                mPbSteps.setProgressDrawable(
-                        getResources().getDrawable(R.drawable.pb_steps));
-                mPbSteps.getProgressDrawable().setBounds(bounds);
+                setPbColor(mPbSteps, R.drawable.pb_steps);
             }
             mStepsNotSetLabel.setVisibility(View.GONE);
             mStepsButton.setVisibility(View.GONE);
@@ -257,24 +270,15 @@ public class GoalsActivity extends Activity {
             mPbSteps.setVisibility(View.GONE);
         }
 
-        int weeklyDuration = sharedPrefs.getInt("weekly_duration", -1);
-        if (weeklyDuration != -1) {
+        int duration = sharedPrefs.getInt("weekly_duration", -1);
+        if (duration != -1) {
             mPbDuration.setVisibility(View.VISIBLE);
-            mPbDuration.setMax(weeklyDuration * 60);
+            mPbDuration.setMax(duration * 60);
             mPbDuration.setProgress((int) mDuration);
-            if (mDuration >= weeklyDuration * 60) {
-                Rect bounds = mPbDuration.getProgressDrawable().getBounds();
-                mPbDuration.setProgressDrawable(
-                        getResources().getDrawable(R.drawable.pb_reached));
-                mPbDuration.getProgressDrawable().setBounds(bounds);
-                if (sharedPrefs.getInt("needs_to_notify_run", 0) != 2) {
-                    sharedPrefs.edit().putInt("needs_to_notify_run", 1).apply();
-                }
+            if (mDuration >= duration * 60) {
+                setPbColor(mPbDuration, R.drawable.pb_reached);
             } else {
-                Rect bounds = mPbDuration.getProgressDrawable().getBounds();
-                mPbDuration.setProgressDrawable(
-                        getResources().getDrawable(R.drawable.pb_duration));
-                mPbDuration.getProgressDrawable().setBounds(bounds);
+                setPbColor(mPbDuration, R.drawable.pb_duration);
             }
             mDurationNotSetLabel.setVisibility(View.GONE);
             mDurationButton.setVisibility(View.GONE);
@@ -283,6 +287,31 @@ public class GoalsActivity extends Activity {
             mDurationButton.setVisibility(View.VISIBLE);
             mPbDuration.setVisibility(View.GONE);
         }
+
+        int calories = sharedPrefs.getInt("calories_norm", -1);
+        if (calories != -1) {
+            mPbCalories.setVisibility(View.VISIBLE);
+            mPbCalories.setMax(duration);
+            mPbCalories.setProgress(mCalories);
+            if (mCalories >= calories) {
+                setPbColor(mPbCalories, R.drawable.pb_reached);
+            } else {
+                setPbColor(mPbCalories, R.drawable.pb_calories);
+            }
+            mCaloriesNotSetLabel.setVisibility(View.GONE);
+            mCaloriesButton.setVisibility(View.GONE);
+        } else {
+            mCaloriesNotSetLabel.setVisibility(View.VISIBLE);
+            mCaloriesButton.setVisibility(View.VISIBLE);
+            mPbCalories.setVisibility(View.GONE);
+        }
+    }
+
+    private void setPbColor(ProgressBar pb, int drawableId) {
+        Rect bounds = pb.getProgressDrawable().getBounds();
+        pb.setProgressDrawable(
+                getResources().getDrawable(drawableId));
+        pb.getProgressDrawable().setBounds(bounds);
     }
 
     @Override
