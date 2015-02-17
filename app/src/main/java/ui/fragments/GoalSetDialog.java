@@ -140,7 +140,7 @@ public class GoalSetDialog extends DialogFragment {
                                     int day = Calendar.getInstance().get(Calendar.DAY_OF_YEAR);
                                     sharedPrefs.edit()
                                             .putInt("weekly_duration", newValue)
-                                            .putInt("weekly_duration_time", day + 30)
+                                            .putInt("weekly_duration_time", day + 8)
                                             .apply();
 
                                     int durationGoal = sharedPrefs.getInt("weekly_duration", -1);

@@ -366,6 +366,7 @@ public class MainActivity extends Activity {
                     .putInt("daily_steps_time", -1)
                     .apply();
             mStepProgressLabel.setText("Goal not set");
+            updateUi();
         }
         //[END Steps]
 
@@ -382,7 +383,25 @@ public class MainActivity extends Activity {
                     .putInt("notify_run_50", 2).apply();
         }
 
+        int durationExpireDay = mSharedPrefs.getInt("weekly_duration_time", -1);
+        if (durationExpireDay != -1 && currentDay >= durationExpireDay) {
+            mSharedPrefs.edit()
+                    .putInt("weekly_duration", -1)
+                    .putInt("weekly_duration_time", -1)
+                    .apply();
+        }
         //[END Duration]
+
+        //[START Calories]
+        int caloriesExpireDay = mSharedPrefs.getInt("calories_norm_time", -1);
+        if (caloriesExpireDay != -1 && currentDay >= caloriesExpireDay) {
+            mSharedPrefs.edit()
+                    .putInt("calories_norm", -1)
+                    .putInt("calories_norm_time", -1)
+                    .apply();
+            updateUi();
+        }
+        //[END Calories]
     }
 
     private void setPbColor(ProgressBar pb, int drawableId) {
