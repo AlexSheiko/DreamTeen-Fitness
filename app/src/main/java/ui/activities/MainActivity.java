@@ -71,18 +71,17 @@ public class MainActivity extends Activity
 
     private static final int REQUEST_OAUTH = 1;
     private static final int REQUEST_LEADERBOARD = 2;
-    private static final int CALORIES_DEFAULT = 2150;
+
+    private GoogleApiClient mClient;
+    private OnDataPointListener mStepsListener;
+
+    private int mCaloriesExpanded = 0;
+    private int mStepsTaken = 0;
 
     private int mDailySteps;
     private long mDailyDuration;
 
-    private GoogleApiClient mClient;
-
-    private OnDataPointListener mStepsListener;
-
     private SharedPreferences mSharedPrefs;
-    private int mCaloriesExpanded = 0;
-    private int mStepsTaken = 0;
 
     @InjectView(R.id.caloriesLabel)
     TextView mCaloriesLabel;
@@ -123,22 +122,18 @@ public class MainActivity extends Activity
     private void buildFitnessClient() {
         // Create the Google API Client
         mClient = new GoogleApiClient.Builder(this)
-                .addApi(Fitness.API)
-                .addApi(Games.API)
-                .addApi(Plus.API)
-                .addScope(Fitness.SCOPE_ACTIVITY_READ_WRITE)
-                .addScope(Fitness.SCOPE_LOCATION_READ)
-                .addScope(Games.SCOPE_GAMES)
-                .addScope(Plus.SCOPE_PLUS_LOGIN)
+                .addApi(Fitness.API).addScope(Fitness.SCOPE_ACTIVITY_READ_WRITE).addScope(Fitness.SCOPE_LOCATION_READ)
+                .addApi(Plus.API).addScope(Plus.SCOPE_PLUS_LOGIN)
+                .addApi(Games.API).addScope(Games.SCOPE_GAMES)
                 .addConnectionCallbacks(
                         new ConnectionCallbacks() {
                             @Override
                             public void onConnected(Bundle bundle) {
                                 // Now make calls to the APIs
-                                updateCaloriesAndSteps();
+                                readCaloriesAndSteps();
                                 startListeningSteps();
                                 readStepCount();
-                                readMinutes();
+                                readRunDuration();
                             }
 
                             @Override
@@ -171,16 +166,16 @@ public class MainActivity extends Activity
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            if (requestCode == REQUEST_OAUTH) {
+        if (requestCode == REQUEST_OAUTH) {
+            if (resultCode == RESULT_OK) {
                 // Make sure the app is not already connected or attempting to connect
                 if (!mClient.isConnected() && !mClient.isConnecting()) {
                     mClient.connect();
                 }
+            } else if (resultCode == RESULT_FIRST_USER) {
+                AccountManager acm = AccountManager.get(getApplicationContext());
+                acm.addAccount("com.google", null, null, null, MainActivity.this, null, null);
             }
-        } else if (resultCode == RESULT_FIRST_USER) {
-            AccountManager acm = AccountManager.get(getApplicationContext());
-            acm.addAccount("com.google", null, null, null, MainActivity.this, null, null);
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
@@ -272,7 +267,7 @@ public class MainActivity extends Activity
         });
     }
 
-    private void updateCaloriesAndSteps() {
+    private void readCaloriesAndSteps() {
         // Setting a start and end date using a range of 1 week before this moment.
         Calendar cal = Calendar.getInstance();
         Date now = new Date();
@@ -674,7 +669,7 @@ public class MainActivity extends Activity
         mDailySteps = mDailySteps + increment;
     }
 
-    private void readMinutes() {
+    private void readRunDuration() {
         // [START build_read_session_request]
         // Set a start and end time for our query, using a start time of 1 week before this moment.
         Calendar cal = Calendar.getInstance();

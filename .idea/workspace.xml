@@ -65,8 +65,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e838e63-aa6c-41fc-a81b-f5c1e2df2628" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/GoalsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/GoalsActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/fragments/SetGoalsDialog.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/fragments/SetGoalsDialog.java" />
     </list>
     <ignored path="DreamFit.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -92,76 +93,31 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.2894737" vertical-offset="4960" max-vertical-offset="11713">
-              <caret line="413" column="5" selection-start-line="413" selection-start-column="5" selection-end-line="413" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.69298244" vertical-offset="846" max-vertical-offset="11628">
+              <caret line="136" column="29" selection-start-line="136" selection-start-column="29" selection-end-line="136" selection-end-column="29" />
               <folding>
-                <element signature="e#12015#12734#0" expanded="true" />
-                <element signature="e#12715#12716#0" expanded="true" />
-                <element signature="e#13450#13508#0" expanded="true" />
-                <element signature="e#13667#13668#0" expanded="true" />
-                <element signature="e#13713#13714#0" expanded="true" />
-                <element signature="e#13762#13763#0" expanded="true" />
-                <element signature="e#13802#13803#0" expanded="true" />
-                <element signature="e#21028#21048#0" expanded="true" />
-                <element signature="e#21117#21138#0" expanded="true" />
-                <element signature="e#26373#26374#0" expanded="true" />
-                <element signature="e#26426#26427#0" expanded="true" />
+                <element signature="e#11905#12624#0" expanded="true" />
+                <element signature="e#12605#12606#0" expanded="true" />
+                <element signature="e#13340#13398#0" expanded="true" />
+                <element signature="e#13557#13558#0" expanded="true" />
+                <element signature="e#13603#13604#0" expanded="true" />
+                <element signature="e#13652#13653#0" expanded="true" />
+                <element signature="e#13692#13693#0" expanded="true" />
+                <element signature="e#20918#20938#0" expanded="true" />
+                <element signature="e#21007#21028#0" expanded="true" />
+                <element signature="e#26263#26264#0" expanded="true" />
+                <element signature="e#26316#26317#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainGoalsDialog.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/fragments/MainGoalsDialog.java">
+      <file leaf-file-name="GoalsActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/GoalsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="472" max-vertical-offset="1360">
-              <caret line="63" column="54" selection-start-line="63" selection-start-column="54" selection-end-line="63" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4947">
+              <caret line="54" column="36" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SetGoalsDialog.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/fragments/SetGoalsDialog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1717">
-              <caret line="96" column="33" selection-start-line="96" selection-start-column="33" selection-end-line="96" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_main.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.5925927" vertical-offset="3521" max-vertical-offset="4267">
-              <caret line="216" column="51" selection-start-line="216" selection-start-column="51" selection-end-line="216" selection-end-column="51" />
-              <folding>
-                <element signature="e#2344#2361#0" expanded="true" />
-                <element signature="e#2589#2617#0" expanded="true" />
-                <element signature="e#4307#4339#0" expanded="true" />
-                <element signature="e#4839#4864#0" expanded="true" />
-                <element signature="e#5330#5357#0" expanded="true" />
-                <element signature="e#7349#7381#0" expanded="true" />
-                <element signature="e#8438#8467#0" expanded="true" />
-                <element signature="e#8967#8994#0" expanded="true" />
-                <element signature="e#9511#9538#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1683" max-vertical-offset="2261">
-              <caret line="119" column="48" selection-start-line="119" selection-start-column="48" selection-end-line="119" selection-end-column="48" />
-              <folding>
-                <element signature="e#5228#5258#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -1952,13 +1908,13 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_challenge_goal.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_set_goal.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/fragments/SetGoalsDialog.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/GoalsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/aerobic_selector.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/utils/SquareImageView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/utils/adapters/NavigationAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values-mw600dp/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/GoalsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java" />
       </list>
     </option>
@@ -2983,13 +2939,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/GoalsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3766" max-vertical-offset="5100">
-          <caret line="286" column="17" selection-start-line="286" selection-start-column="17" selection-end-line="286" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/utils/SquareImageView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
@@ -3077,22 +3026,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/GoalsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4947">
+          <caret line="54" column="36" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2894737" vertical-offset="4960" max-vertical-offset="11713">
-          <caret line="413" column="5" selection-start-line="413" selection-start-column="5" selection-end-line="413" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.69298244" vertical-offset="846" max-vertical-offset="11628">
+          <caret line="136" column="29" selection-start-line="136" selection-start-column="29" selection-end-line="136" selection-end-column="29" />
           <folding>
-            <element signature="e#12015#12734#0" expanded="true" />
-            <element signature="e#12715#12716#0" expanded="true" />
-            <element signature="e#13450#13508#0" expanded="true" />
-            <element signature="e#13667#13668#0" expanded="true" />
-            <element signature="e#13713#13714#0" expanded="true" />
-            <element signature="e#13762#13763#0" expanded="true" />
-            <element signature="e#13802#13803#0" expanded="true" />
-            <element signature="e#21028#21048#0" expanded="true" />
-            <element signature="e#21117#21138#0" expanded="true" />
-            <element signature="e#26373#26374#0" expanded="true" />
-            <element signature="e#26426#26427#0" expanded="true" />
+            <element signature="e#11905#12624#0" expanded="true" />
+            <element signature="e#12605#12606#0" expanded="true" />
+            <element signature="e#13340#13398#0" expanded="true" />
+            <element signature="e#13557#13558#0" expanded="true" />
+            <element signature="e#13603#13604#0" expanded="true" />
+            <element signature="e#13652#13653#0" expanded="true" />
+            <element signature="e#13692#13693#0" expanded="true" />
+            <element signature="e#20918#20938#0" expanded="true" />
+            <element signature="e#21007#21028#0" expanded="true" />
+            <element signature="e#26263#26264#0" expanded="true" />
+            <element signature="e#26316#26317#0" expanded="true" />
           </folding>
         </state>
       </provider>

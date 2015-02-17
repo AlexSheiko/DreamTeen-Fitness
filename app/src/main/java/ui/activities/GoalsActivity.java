@@ -40,25 +40,18 @@ import bellamica.tech.dreamteenfitness.R;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import ui.fragments.SetGoalsDialog;
-import ui.fragments.SetGoalsDialog.OnChallengeValueChanged;
+import ui.fragments.SetGoalsDialog.OnGoalChanged;
 
 public class GoalsActivity extends Activity
-        implements OnChallengeValueChanged {
+        implements OnGoalChanged {
 
     public static final String TAG = GoalsActivity.class.getSimpleName();
     public static final String SESSION_NAME = "Afternoon run";
 
     private int mDailyStepsTaken;
-    private int mWeeklyStepsTaken;
-    private int mMonthlyStepsTaken;
-
-    private long mDailyDuration;
     private long mWeeklyDuration;
-    private long mMonthlyDuration;
 
     private static final int REQUEST_OAUTH = 1;
-    private static final String AUTH_PENDING = "auth_state_pending";
-    private boolean authInProgress = false;
     private GoogleApiClient mClient;
 
     private SharedPreferences mSharedPrefs;
@@ -304,6 +297,11 @@ public class GoalsActivity extends Activity
     }
 
     @Override
+    public void onValueChanged() {
+        updateProgressBar();
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
         // Connect to the Fitness API
@@ -336,10 +334,5 @@ public class GoalsActivity extends Activity
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean(AUTH_PENDING, authInProgress);
-    }
-
-    @Override
-    public void onChallengeValueChanged() {
-        updateProgressBar();
     }
 }

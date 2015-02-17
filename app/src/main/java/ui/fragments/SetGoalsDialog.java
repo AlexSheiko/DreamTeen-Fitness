@@ -22,12 +22,12 @@ public class SetGoalsDialog extends DialogFragment {
 
     private EditText mValueField;
 
-    public interface OnChallengeValueChanged {
-        public void onChallengeValueChanged();
+    public interface OnGoalChanged {
+        public void onValueChanged();
     }
 
     // Use this instance of the interface to deliver action events
-    OnChallengeValueChanged mListener;
+    OnGoalChanged mListener;
 
     @Override
     public void onAttach(Activity activity) {
@@ -35,7 +35,7 @@ public class SetGoalsDialog extends DialogFragment {
         // Verify that the host activity implements the callback interface
         try {
             // Instantiate the NoticeDialogListener so we can send events to the host
-            mListener = (OnChallengeValueChanged) activity;
+            mListener = (OnGoalChanged) activity;
         } catch (ClassCastException e) {
             // The activity doesn't implement the interface, throw exception
             throw new ClassCastException(activity.toString()
@@ -102,7 +102,7 @@ public class SetGoalsDialog extends DialogFragment {
                                         .putInt("weekly_duration_time", day + 30)
                                         .apply();
                             }
-                            mListener.onChallengeValueChanged();
+                            mListener.onValueChanged();
                         }
                         SetGoalsDialog.this.getDialog().cancel();
                     }
