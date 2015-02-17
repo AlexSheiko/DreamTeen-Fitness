@@ -59,15 +59,12 @@ import java.util.concurrent.TimeUnit;
 import bellamica.tech.dreamteenfitness.R;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import ui.fragments.AerobicGoalDialog;
-import ui.fragments.MainGoalsDialog;
-import ui.fragments.MainGoalsDialog.CaloriesDialogListener;
+import ui.fragments.GoalSetDialog;
 import ui.utils.adapters.NavigationAdapter;
 import ui.utils.helpers.Constants;
 
 
-public class MainActivity extends Activity
-        implements CaloriesDialogListener {
+public class MainActivity extends Activity {
 
     private static final int REQUEST_OAUTH = 1;
     private static final int REQUEST_LEADERBOARD = 2;
@@ -162,22 +159,6 @@ public class MainActivity extends Activity
                         }
                 )
                 .build();
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_OAUTH) {
-            if (resultCode == RESULT_OK) {
-                // Make sure the app is not already connected or attempting to connect
-                if (!mClient.isConnected() && !mClient.isConnecting()) {
-                    mClient.connect();
-                }
-            } else if (resultCode == RESULT_FIRST_USER) {
-                AccountManager acm = AccountManager.get(getApplicationContext());
-                acm.addAccount("com.google", null, null, null, MainActivity.this, null, null);
-            }
-        }
-        super.onActivityResult(requestCode, resultCode, data);
     }
 
     private void startListeningSteps() {
@@ -453,17 +434,19 @@ public class MainActivity extends Activity
     }
 
     @Override
-    public void onCaloriesGoalChanged(DialogFragment dialog, int newValue) {
-        mSharedPrefs.edit()
-                .putInt("calories_norm", newValue).apply();
-        updateUi();
-    }
-
-    @Override
-    public void onStepsGoalChanged(DialogFragment dialog, int newValue) {
-        mSharedPrefs.edit()
-                .putInt("daily_steps", newValue).apply();
-        updateUi();
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_OAUTH) {
+            if (resultCode == RESULT_OK) {
+                // Make sure the app is not already connected or attempting to connect
+                if (!mClient.isConnected() && !mClient.isConnecting()) {
+                    mClient.connect();
+                }
+            } else if (resultCode == RESULT_FIRST_USER) {
+                AccountManager acm = AccountManager.get(getApplicationContext());
+                acm.addAccount("com.google", null, null, null, MainActivity.this, null, null);
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
@@ -508,7 +491,8 @@ public class MainActivity extends Activity
     private void addSideNavigation() {
         mActionBar = getActionBar();
         mTitle = mDrawerTitle = getTitle();
-        String[] mActionTitles = getResources().getStringArray(R.array.action_titles);
+        String[] mActionTitles =
+                getResources().getStringArray(R.array.action_titles);
 
         Integer[] mImageIds = new Integer[]{
                 R.drawable.ic_nav_dashboard, R.drawable.ic_nav_friends,
@@ -557,7 +541,7 @@ public class MainActivity extends Activity
             } else if (position == 1) {
                 startActivity(new Intent(MainActivity.this, FriendsActivity.class));
             } else if (position == 2) {
-                if (isSignedIn()) {
+                if (mClient != null && mClient.isConnected()) {
                     startActivityForResult(
                             Games.Leaderboards.getAllLeaderboardsIntent(mClient), REQUEST_LEADERBOARD);
                 } else {
@@ -570,10 +554,6 @@ public class MainActivity extends Activity
                 startActivity(new Intent(MainActivity.this, SettingsActivity.class));
             }
         }
-    }
-
-    private boolean isSignedIn() {
-        return (mClient != null && mClient.isConnected());
     }
 
     @Override
@@ -605,26 +585,13 @@ public class MainActivity extends Activity
         if (mSharedPrefs.getBoolean("isGoalSet", false)) {
             startActivity(new Intent(this, AerobicActivity.class));
         } else {
-            DialogFragment newFragment = new AerobicGoalDialog();
-            newFragment.show(getFragmentManager(), "dialog_aerobic_goal");
+            Bundle bundle = new Bundle();
+            bundle.putString("key", "aerobic");
+            DialogFragment dialog = new GoalSetDialog();
+            dialog.setArguments(bundle);
+            dialog.show(getFragmentManager(), "dialog_aerobic_goal");
         }
     }
-
-    public void setFitnessGoal(View view) {
-        Bundle bundle = new Bundle();
-        switch (view.getId()) {
-            case R.id.caloriesContainer:
-                bundle.putString("key", "calories");
-                break;
-            case R.id.stepsContainer:
-                bundle.putString("key", "steps");
-                break;
-        }
-        DialogFragment newFragment = new MainGoalsDialog();
-        newFragment.setArguments(bundle);
-        newFragment.show(getFragmentManager(), "dialog_run_goal");
-    }
-
 
     private void readStepCount() {
         // Setting a start and end date using a range of 1 week before this moment.
@@ -651,7 +618,6 @@ public class MainActivity extends Activity
                                 dumpDailySteps(dataSet);
                             }
                         }
-                        showNotificationIfNeeded();
                     }
                 });
     }
@@ -695,7 +661,6 @@ public class MainActivity extends Activity
                             // Process the session
                             dumpDailyDuration(session);
                         }
-                        showNotificationIfNeeded();
                     }
                 });
     }
@@ -710,58 +675,5 @@ public class MainActivity extends Activity
 
     private void increaseDailyDuration(long increment) {
         mDailyDuration = mDailyDuration + increment;
-    }
-
-    private void showNotificationIfNeeded() {
-        int dailySteps = mSharedPrefs.getInt("daily_steps", -1);
-        int dailyDuration = mSharedPrefs.getInt("daily_duration", -1);
-
-        boolean isSteps50notified = mSharedPrefs.getBoolean("isSteps50notified", false);
-        boolean isSteps75notified = mSharedPrefs.getBoolean("isSteps75notified", false);
-        boolean isSteps100notified = mSharedPrefs.getBoolean("isSteps100notified", false);
-        boolean isRun50notified = mSharedPrefs.getBoolean("isRun50notified", false);
-        boolean isRun75notified = mSharedPrefs.getBoolean("isRun75notified", false);
-        boolean isRun100notified = mSharedPrefs.getBoolean("isRun100notified", false);
-
-        if (dailySteps != -1) {
-            if (mDailySteps >= dailySteps * 0.5
-                    && mDailySteps < dailySteps * 0.75
-                    && !isSteps50notified) {
-                showNotification("Steps", 50);
-                mSharedPrefs.edit()
-                        .putBoolean("isSteps50notified", true).apply();
-            } else if (mDailySteps >= dailySteps * 0.75
-                    && mDailySteps < dailySteps
-                    && !isSteps75notified) {
-                showNotification("Steps", 75);
-                mSharedPrefs.edit()
-                        .putBoolean("isSteps75notified", true).apply();
-            } else if (mDailySteps >= dailySteps
-                    && !isSteps100notified) {
-                showNotification("Steps", 100);
-                mSharedPrefs.edit()
-                        .putBoolean("isSteps100notified", true).apply();
-            }
-        }
-        if (dailyDuration != -1) {
-            if (mDailyDuration >= dailyDuration * 60 * 0.5
-                    && mDailyDuration < dailyDuration * 60 * 0.75
-                    && !isRun50notified) {
-                showNotification("Run", 50);
-                mSharedPrefs.edit()
-                        .putBoolean("isRun50notified", true).apply();
-            } else if (mDailyDuration >= dailyDuration * 60 * 0.75
-                    && mDailyDuration < dailyDuration * 60
-                    && !isRun75notified) {
-                showNotification("Run", 75);
-                mSharedPrefs.edit()
-                        .putBoolean("isRun75notified", true).apply();
-            } else if (mDailyDuration >= dailyDuration * 60
-                    && !isRun100notified) {
-                showNotification("Run", 100);
-                mSharedPrefs.edit()
-                        .putBoolean("isRun100notified", true).apply();
-            }
-        }
     }
 }

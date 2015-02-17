@@ -39,8 +39,8 @@ import java.util.concurrent.TimeUnit;
 import bellamica.tech.dreamteenfitness.R;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import ui.fragments.SetGoalsDialog;
-import ui.fragments.SetGoalsDialog.OnGoalChanged;
+import ui.fragments.GoalSetDialog;
+import ui.fragments.GoalSetDialog.OnGoalChanged;
 
 public class GoalsActivity extends Activity
         implements OnGoalChanged {
@@ -74,13 +74,12 @@ public class GoalsActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_goals);
         ButterKnife.inject(this);
-        mSharedPrefs =
-                PreferenceManager.getDefaultSharedPreferences(this);
-        if (savedInstanceState != null) {
-            authInProgress = savedInstanceState.getBoolean(AUTH_PENDING);
-        }
-        updateProgressBar();
+
         buildFitnessClient();
+
+        updateProgressBar();
+
+        mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
     }
 
     public void addChallengeGoal(View view) {
@@ -92,9 +91,9 @@ public class GoalsActivity extends Activity
         } else if (id == R.id.durationContainer || id == R.id.setDurationButton) {
             bundle.putString("key", "duration");
         }
-        DialogFragment newFragment = new SetGoalsDialog();
-        newFragment.setArguments(bundle);
-        newFragment.show(getFragmentManager(), "dialog_challenge_goal");
+        DialogFragment dialog = new GoalSetDialog();
+        dialog.setArguments(bundle);
+        dialog.show(getFragmentManager(), "dialog_challenge_goal");
     }
 
     private void buildFitnessClient() {
@@ -132,16 +131,10 @@ public class GoalsActivity extends Activity
                                 // The failure has a resolution. Resolve it.
                                 // Called typically when the app is not yet authorized, and an
                                 // authorization dialog is displayed to the user.
-                                if (!authInProgress) {
-                                    try {
-                                        Log.i(TAG, "Attempting to resolve failed connection");
-                                        authInProgress = true;
-                                        result.startResolutionForResult(GoalsActivity.this,
-                                                REQUEST_OAUTH);
-                                    } catch (IntentSender.SendIntentException e) {
-                                        Log.e(TAG,
-                                                "Exception while starting resolution activity", e);
-                                    }
+                                try {
+                                    result.startResolutionForResult(GoalsActivity.this,
+                                            REQUEST_OAUTH);
+                                } catch (IntentSender.SendIntentException ignored) {
                                 }
                             }
                         }
@@ -319,7 +312,6 @@ public class GoalsActivity extends Activity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_OAUTH) {
-            authInProgress = false;
             if (resultCode == RESULT_OK) {
                 // Make sure the app is not already connected or attempting to connect
                 if (!mClient.isConnecting() && !mClient.isConnected()) {
@@ -328,11 +320,5 @@ public class GoalsActivity extends Activity
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putBoolean(AUTH_PENDING, authInProgress);
     }
 }
