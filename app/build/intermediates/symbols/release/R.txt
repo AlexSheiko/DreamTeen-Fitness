@@ -359,7 +359,7 @@ int id grayscale 0x7f0d0015
 int id holo_dark 0x7f0d0007
 int id holo_light 0x7f0d0008
 int id hybrid 0x7f0d0003
-int id image1 0x7f0d0077
+int id image1 0x7f0d0079
 int id inline 0x7f0d001b
 int id large 0x7f0d0020
 int id left 0x7f0d001e
@@ -370,7 +370,7 @@ int id map 0x7f0d0070
 int id match_parent 0x7f0d000e
 int id monochrome 0x7f0d0016
 int id nameField 0x7f0d0040
-int id nameLabel 0x7f0d0079
+int id nameLabel 0x7f0d0077
 int id none 0x7f0d0002
 int id normal 0x7f0d0004
 int id pauseButton 0x7f0d004b
@@ -387,7 +387,7 @@ int id right 0x7f0d001f
 int id sandbox 0x7f0d000a
 int id satellite 0x7f0d0005
 int id saveButton 0x7f0d0042
-int id scoreLabel 0x7f0d007a
+int id scoreLabel 0x7f0d0078
 int id scrollView 0x7f0d0049
 int id selectionDetails 0x7f0d000d
 int id share_button 0x7f0d0027
@@ -404,7 +404,7 @@ int id stepsTargetLabel 0x7f0d0039
 int id strict_sandbox 0x7f0d000b
 int id terrain 0x7f0d0006
 int id text 0x7f0d0076
-int id text1 0x7f0d0078
+int id text1 0x7f0d007a
 int id title 0x7f0d0046
 int id top 0x7f0d001c
 int id tripNotesField 0x7f0d0041
@@ -438,9 +438,9 @@ int layout dialog_set_goal 0x7f030017
 int layout fragment_goals 0x7f030018
 int layout fragment_map 0x7f030019
 int layout grid_item_category 0x7f03001a
-int layout nav_item 0x7f03001b
-int layout nav_item_small 0x7f03001c
-int layout scores_list_item 0x7f03001d
+int layout list_item_scores 0x7f03001b
+int layout nav_item 0x7f03001c
+int layout nav_item_small 0x7f03001d
 int layout spinner_item 0x7f03001e
 int menu menu_run 0x7f0c0000
 int menu menu_summary 0x7f0c0001

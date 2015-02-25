@@ -100,12 +100,12 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         ButterKnife.inject(this);
 
         if (savedInstanceState != null) {
             authInProgress = savedInstanceState.getBoolean(AUTH_PENDING);
         }
-
         buildFitnessClient();
 
         addSideNavigation();
@@ -298,27 +298,24 @@ public class MainActivity extends Activity {
 
     private void updateUi() {
         //[START Calories]
-        int caloriesByDefault = Calendar.getInstance()
-                .get(Calendar.HOUR_OF_DAY) * 1465 / 24; // Average expansion daily
-        int caloriesBurned =
-                caloriesByDefault + mCaloriesExpended;
-        mCaloriesLabel.setText(caloriesBurned + "");
+        mCaloriesLabel.setText(mCaloriesExpended + "");
 
         // Set progress bar visibility
         int caloriesGoal = mSharedPrefs.getInt("calories_norm", -1);
         if (caloriesGoal != -1) {
             mPbCalories.setVisibility(View.VISIBLE);
             mPbCalories.setMax(caloriesGoal);
-            mPbCalories.setProgress(caloriesBurned);
-            mCalNotSetLabel.setVisibility(View.GONE);
+            mPbCalories.setProgress(mCaloriesExpended);
 
             // Set progress bar color
-            if (caloriesBurned >= caloriesGoal) {
+            if (mCaloriesExpended >= caloriesGoal) {
                 setPbColor(mPbCalories, R.drawable.pb_reached);
             } else {
                 setPbColor(mPbCalories, R.drawable.pb_calories);
             }
-            notifyCalories(caloriesBurned, caloriesGoal);
+            notifyCalories(mCaloriesExpended, caloriesGoal);
+
+            mCalNotSetLabel.setVisibility(View.GONE);
         } else {
             mPbCalories.setVisibility(View.GONE);
             mCalNotSetLabel.setVisibility(View.VISIBLE);

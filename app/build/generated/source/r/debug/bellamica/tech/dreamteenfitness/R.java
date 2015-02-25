@@ -844,7 +844,7 @@ containing a value of this type.
         public static final int holo_dark=0x7f0d0007;
         public static final int holo_light=0x7f0d0008;
         public static final int hybrid=0x7f0d0003;
-        public static final int image1=0x7f0d0077;
+        public static final int image1=0x7f0d0079;
         public static final int inline=0x7f0d001b;
         public static final int large=0x7f0d0020;
         public static final int left=0x7f0d001e;
@@ -855,7 +855,7 @@ containing a value of this type.
         public static final int match_parent=0x7f0d000e;
         public static final int monochrome=0x7f0d0016;
         public static final int nameField=0x7f0d0040;
-        public static final int nameLabel=0x7f0d0079;
+        public static final int nameLabel=0x7f0d0077;
         public static final int none=0x7f0d0002;
         public static final int normal=0x7f0d0004;
         public static final int pauseButton=0x7f0d004b;
@@ -872,7 +872,7 @@ containing a value of this type.
         public static final int sandbox=0x7f0d000a;
         public static final int satellite=0x7f0d0005;
         public static final int saveButton=0x7f0d0042;
-        public static final int scoreLabel=0x7f0d007a;
+        public static final int scoreLabel=0x7f0d0078;
         public static final int scrollView=0x7f0d0049;
         public static final int selectionDetails=0x7f0d000d;
         public static final int share_button=0x7f0d0027;
@@ -889,7 +889,7 @@ containing a value of this type.
         public static final int strict_sandbox=0x7f0d000b;
         public static final int terrain=0x7f0d0006;
         public static final int text=0x7f0d0076;
-        public static final int text1=0x7f0d0078;
+        public static final int text1=0x7f0d007a;
         public static final int title=0x7f0d0046;
         public static final int top=0x7f0d001c;
         public static final int tripNotesField=0x7f0d0041;
@@ -927,9 +927,9 @@ containing a value of this type.
         public static final int fragment_goals=0x7f030018;
         public static final int fragment_map=0x7f030019;
         public static final int grid_item_category=0x7f03001a;
-        public static final int nav_item=0x7f03001b;
-        public static final int nav_item_small=0x7f03001c;
-        public static final int list_item_scores =0x7f03001d;
+        public static final int list_item_scores=0x7f03001b;
+        public static final int nav_item=0x7f03001c;
+        public static final int nav_item_small=0x7f03001d;
         public static final int spinner_item=0x7f03001e;
     }
     public static final class menu {

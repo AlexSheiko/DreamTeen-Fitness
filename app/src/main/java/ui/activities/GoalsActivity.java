@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -46,7 +47,7 @@ public class GoalsActivity extends Activity
 
     private int mSteps;
     private long mDuration;
-    private int mCalories;
+    private int mCaloriesExpended;
 
     private static final int REQUEST_OAUTH = 1;
     private GoogleApiClient mClient;
@@ -169,10 +170,6 @@ public class GoalsActivity extends Activity
                             }
                         }
                         updateCounters();
-
-                        int caloriesByDefault = Calendar.getInstance()
-                                .get(Calendar.HOUR_OF_DAY) * 1465 / 24; // Average expansion daily
-                        mCalories += caloriesByDefault;
                     }
                 });
     }
@@ -200,7 +197,7 @@ public class GoalsActivity extends Activity
     }
 
     private void increaseCalories(int increment) {
-        mCalories += increment;
+        mCaloriesExpended += increment;
     }
 
     private SessionReadRequest readWeeklyDuration() {
@@ -289,12 +286,16 @@ public class GoalsActivity extends Activity
             mPbDuration.setVisibility(View.GONE);
         }
 
-        int calories = sharedPrefs.getInt("calories_norm", -1);
-        if (calories != -1) {
+        int caloriesGoal = sharedPrefs.getInt("calories_norm", -1);
+        if (caloriesGoal != -1) {
             mPbCalories.setVisibility(View.VISIBLE);
-            mPbCalories.setMax(calories);
-            mPbCalories.setProgress(mCalories);
-            if (mCalories >= calories) {
+            mPbCalories.setMax(caloriesGoal);
+            mPbCalories.setProgress(mCaloriesExpended);
+
+            Log.i("TAG", "Max: " + caloriesGoal);
+            Log.i("TAG", "Progress: " + mCaloriesExpended);
+
+            if (mCaloriesExpended >= caloriesGoal) {
                 setPbColor(mPbCalories, R.drawable.pb_reached);
             } else {
                 setPbColor(mPbCalories, R.drawable.pb_calories);
