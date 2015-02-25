@@ -9,9 +9,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract.CommonDataKinds.Email;
-import android.provider.ContactsContract.CommonDataKinds.Photo;
-import android.provider.ContactsContract.Contacts;
-import android.provider.ContactsContract.RawContacts;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -21,99 +18,68 @@ import android.widget.Toast;
 
 import com.facebook.FacebookException;
 import com.facebook.Session;
-import com.facebook.SessionState;
-import com.facebook.UiLifecycleHelper;
 import com.facebook.widget.WebDialog;
+import com.facebook.widget.WebDialog.Builder;
+import com.facebook.widget.WebDialog.OnCompleteListener;
 import com.google.android.gms.plus.PlusShare;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 
 import bellamica.tech.dreamteenfitness.R;
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 
-public class FriendsActivity extends Activity
-        implements OnClickListener {
+public class FriendsActivity extends Activity implements OnClickListener {
 
-    private ArrayList<String> mEmails;
-    private String[] mRecipients;
+    @InjectView(R.id.facebook_button)
+    Button mFacebookButton;
+    @InjectView(R.id.google_button)
+    Button mGoogleButton;
+    @InjectView(R.id.email_button)
+    Button mEmailButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        uiHelper = new UiLifecycleHelper(this, callback);
-        uiHelper.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friends);
+        ButterKnife.inject(this);
 
-        Button shareButton = (Button) findViewById(R.id.share_button);
-        shareButton.setOnClickListener(this);
+        mFacebookButton.setOnClickListener(this);
+        mGoogleButton.setOnClickListener(this);
+        mEmailButton.setOnClickListener(this);
     }
 
-    private UiLifecycleHelper uiHelper;
-    private Session.StatusCallback callback =
-            new Session.StatusCallback() {
-                @Override
-                public void call(Session session,
-                                 SessionState state, Exception exception) {
-                    onSessionStateChange(session);
-                }
-            };
-
-    private void onSessionStateChange(Session session) {
-        if (session.isOpened()) {
-            Bundle params = new Bundle();
-            params.putString("message", "DreamTeen Fitness is pretty cool. Check it out on Google Play. See if you can beat my score! http://goo.gl/YdMFVk");
-            showDialogWithoutNotificationBar("apprequests", params);
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.facebook_button:
+                // TODO Invite Facebook
+                break;
+            case R.id.google_button:
+                inviteGoogle();
+                break;
+            case R.id.email_button:
+                inviteEmail();
+                break;
         }
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        uiHelper.onActivityResult(requestCode, resultCode, data);
-    }
+    private void inviteFacebook() {
+        Bundle params = new Bundle();
+        params.putString("message", "DreamTeen Fitness is pretty cool. Check it out on Google Play. See if you can beat my score! http://goo.gl/YdMFVk");
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        uiHelper.onResume();
-
-        Session.getActiveSession();
-    }
-
-    @Override
-    public void onPause() {
-        uiHelper.onPause();
-        super.onPause();
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        uiHelper.onSaveInstanceState(outState);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        uiHelper.onDestroy();
-    }
-
-    private WebDialog dialog = null;
-
-    private void showDialogWithoutNotificationBar(String action, Bundle params) {
-        dialog = new WebDialog.Builder(this, Session.getActiveSession(), action, params).
-                setOnCompleteListener(new WebDialog.OnCompleteListener() {
+        WebDialog dialog = new Builder(this, Session.getActiveSession(), "apprequests", params).
+                setOnCompleteListener(new OnCompleteListener() {
                     @Override
                     public void onComplete(Bundle values, FacebookException error) {
-                        if (error != null) {
-                            /* Toast.makeText(FriendsActivity.this, getResources()
-                                    .getString(R.string.network_error), Toast.LENGTH_SHORT).show(); */
+                        if (error == null) {
+                            Toast.makeText(FriendsActivity.this,
+                                    getString(R.string.request_sent_toast), Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(FriendsActivity.this, getString(R.string.request_sent_toast), Toast.LENGTH_SHORT).show();
+                            error.printStackTrace();
                         }
-                        dialog = null;
                         Session.getActiveSession().closeAndClearTokenInformation();
                     }
                 }).build();
@@ -125,45 +91,43 @@ public class FriendsActivity extends Activity
         dialog.show();
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.share_button:
-                PlusShare.Builder builder = new PlusShare.Builder(this);
+    private void inviteGoogle() {
+        PlusShare.Builder builder = new PlusShare.Builder(this);
 
-                // Set call-to-action metadata.
-                builder.addCallToAction(
-                        "INSTALL_APP", /** call-to-action button label */
-                        Uri.parse("https://play.google.com/store/apps/details?id=bellamica.tech.dreamteenfitness"),
-                        /** call-to-action url (for desktop use) */
-                        "https://play.google.com/store/apps/details?id=bellamica.tech.dreamteenfitness"
-                        /** call to action deep-link ID (for mobile use), 512 characters or fewer */);
+        // Set call-to-action metadata.
+        builder.addCallToAction(
+                "INSTALL_APP", /** call-to-action button label */
+                Uri.parse("https://play.google.com/store/apps/details?id=bellamica.tech.dreamteenfitness"),
+                /** call-to-action url (for desktop use) */
+                "https://play.google.com/store/apps/details?id=bellamica.tech.dreamteenfitness"
+                /** call to action deep-link ID (for mobile use), 512 characters or fewer */);
 
-                // Set the content url (for desktop use).
-                builder.setContentUrl(Uri.parse("https://play.google.com/store/apps/details?id=bellamica.tech.dreamteenfitness"));
+        // Set the content url (for desktop use).
+        builder.setContentUrl(Uri.parse("https://play.google.com/store/apps/details?id=bellamica.tech.dreamteenfitness"));
 
-                // Set the target deep-link ID (for mobile use).
-                builder.setContentDeepLinkId("https://play.google.com/store/apps/details?id=bellamica.tech.dreamteenfitness",
-                        null, null, null);
+        // Set the target deep-link ID (for mobile use).
+        builder.setContentDeepLinkId("https://play.google.com/store/apps/details?id=bellamica.tech.dreamteenfitness",
+                null, null, null);
 
-                // Set the share text.
-                builder.setText("Install DreamTeen Fitness and challenge me!");
+        // Set the share text.
+        builder.setText("Install DreamTeen Fitness and challenge me!");
 
-                startActivityForResult(builder.getIntent(), 0);
-                break;
-        }
+        startActivityForResult(builder.getIntent(), 0);
     }
 
-    public void chooseRecipients(View view) {
+    private ArrayList<String> mEmailList;
+    private String[] mRecipientNames;
+
+    private void inviteEmail() {
         //following code will be in your activity.java file
 
-        mEmails = getNameEmailDetails();
+        mEmailList = getFriendsEmails();
 
-        CharSequence[] items = mEmails.toArray(
-                new CharSequence[mEmails.size()]);
+        CharSequence[] items = mEmailList.toArray(
+                new CharSequence[mEmailList.size()]);
 
-        // arraylist to keep the selected items
-        final ArrayList seletedItems = new ArrayList();
+        // ArrayList to keep the selected items
+        final ArrayList selectedItems = new ArrayList();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Choose recipient or Go to Email");
@@ -175,10 +139,10 @@ public class FriendsActivity extends Activity
                                         boolean isChecked) {
                         if (isChecked) {
                             // If the user checked the item, add it to the selected items
-                            seletedItems.add(indexSelected);
-                        } else if (seletedItems.contains(indexSelected)) {
+                            selectedItems.add(indexSelected);
+                        } else if (selectedItems.contains(indexSelected)) {
                             // Else, if the item is already in the array, remove it
-                            seletedItems.remove(Integer.valueOf(indexSelected));
+                            selectedItems.remove(Integer.valueOf(indexSelected));
                         }
                     }
                 })
@@ -186,10 +150,10 @@ public class FriendsActivity extends Activity
                 .setPositiveButton("Go To Email", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-                        mRecipients = new String[seletedItems.size()];
+                        mRecipientNames = new String[selectedItems.size()];
 
-                        for (int i = 0; i < seletedItems.size(); i++) {
-                            mRecipients[i] = mEmails.get(Integer.parseInt(seletedItems.get(i) + ""));
+                        for (int i = 0; i < selectedItems.size(); i++) {
+                            mRecipientNames[i] = mEmailList.get(Integer.parseInt(selectedItems.get(i) + ""));
                         }
                         sendEmail();
                     }
@@ -199,48 +163,39 @@ public class FriendsActivity extends Activity
         alertDialog.show();
     }
 
-    public void sendEmail(){
+    public void sendEmail() {
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
         emailIntent.setType("message/rfc822");  //set the email recipient
-        emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, mRecipients);
+        emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, mRecipientNames);
         emailIntent.putExtra(android.content.Intent.EXTRA_TEXT,
                 "Install DreamTeen Fitness and challenge me! \nhttp://goo.gl/6Kqzvs");
         emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Invitation");
         //let the user choose what email client to use
-        startActivity(Intent.createChooser(emailIntent, "Send mail using...")); }
+        startActivity(Intent.createChooser(emailIntent, "Send mail using..."));
+    }
 
-    public ArrayList<String> getNameEmailDetails() {
-        ArrayList<String> emlRecs = new ArrayList<String>();
-        HashSet<String> emlRecsHS = new HashSet<String>();
-        ContentResolver cr = this.getContentResolver();
-        String[] PROJECTION = new String[]{RawContacts._ID,
-                Contacts.DISPLAY_NAME,
-                Contacts.PHOTO_ID,
-                Email.DATA,
-                Photo.CONTACT_ID};
-        String order = "CASE WHEN "
-                + Contacts.DISPLAY_NAME
-                + " NOT LIKE '%@%' THEN 1 ELSE 2 END, "
-                + Contacts.DISPLAY_NAME
-                + ", "
-                + Email.DATA
-                + " COLLATE NOCASE";
+    public ArrayList<String> getFriendsEmails() {
+        ArrayList<String> emlRecs = new ArrayList<>();
+        HashSet<String> emlRecsHS = new HashSet<>();
+        ContentResolver resolver = this.getContentResolver();
+        String[] projection = new String[] {Email.DATA};
         String filter = Email.DATA + " NOT LIKE ''";
-        Cursor cur = cr.query(Email.CONTENT_URI, PROJECTION, filter, null, order);
-        if (cur.moveToFirst()) {
+        Cursor cursor = resolver.query(
+                Email.CONTENT_URI,
+                projection,
+                filter,
+                null,
+                null);
+        if (cursor.moveToFirst()) {
             do {
-                // names comes in hand sometimes
-                String name = cur.getString(1);
-                String emlAddr = cur.getString(3);
-
+                String emailAddress = cursor.getString(3);
                 // keep unique only
-                if (emlRecsHS.add(emlAddr.toLowerCase())) {
-                    emlRecs.add(emlAddr);
+                if (emlRecsHS.add(emailAddress.toLowerCase())) {
+                    emlRecs.add(emailAddress);
                 }
-            } while (cur.moveToNext());
+            } while (cursor.moveToNext());
         }
-
-        cur.close();
+        cursor.close();
         return emlRecs;
     }
 }

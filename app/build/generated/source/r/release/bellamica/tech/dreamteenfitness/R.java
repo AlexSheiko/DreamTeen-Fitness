@@ -835,11 +835,13 @@ containing a value of this type.
         public static final int durationNotSetLabel=0x7f0d002f;
         public static final int duration_label=0x7f0d006b;
         public static final int emailButton=0x7f0d0028;
+        public static final int facebook_button=0x7f0d0026;
         public static final int field=0x7f0d0069;
         public static final int finishButton=0x7f0d004e;
         public static final int finish_button_label=0x7f0d0074;
         public static final int fragment_container=0x7f0d003b;
         public static final int glutes=0x7f0d0025;
+        public static final int google_button=0x7f0d0027;
         public static final int grayscale=0x7f0d0015;
         public static final int holo_dark=0x7f0d0007;
         public static final int holo_light=0x7f0d0008;
@@ -849,7 +851,6 @@ containing a value of this type.
         public static final int large=0x7f0d0020;
         public static final int left=0x7f0d001e;
         public static final int leg=0x7f0d0023;
-        public static final int login_button=0x7f0d0026;
         public static final int login_title=0x7f0d003c;
         public static final int map=0x7f0d0070;
         public static final int match_parent=0x7f0d000e;
@@ -875,7 +876,6 @@ containing a value of this type.
         public static final int scoreLabel=0x7f0d0078;
         public static final int scrollView=0x7f0d0049;
         public static final int selectionDetails=0x7f0d000d;
-        public static final int share_button=0x7f0d0027;
         public static final int slide_button_container=0x7f0d0073;
         public static final int small=0x7f0d0021;
         public static final int standard=0x7f0d0019;

@@ -349,12 +349,14 @@ int id durationContainer 0x7f0d002d
 int id durationCounter 0x7f0d004c
 int id durationNotSetLabel 0x7f0d002f
 int id duration_label 0x7f0d006b
-int id emailButton 0x7f0d0028
+int id email_button 0x7f0d0028
+int id facebook_button 0x7f0d0026
 int id field 0x7f0d0069
 int id finishButton 0x7f0d004e
 int id finish_button_label 0x7f0d0074
 int id fragment_container 0x7f0d003b
 int id glutes 0x7f0d0025
+int id google_button 0x7f0d0027
 int id grayscale 0x7f0d0015
 int id holo_dark 0x7f0d0007
 int id holo_light 0x7f0d0008
@@ -364,7 +366,6 @@ int id inline 0x7f0d001b
 int id large 0x7f0d0020
 int id left 0x7f0d001e
 int id leg 0x7f0d0023
-int id login_button 0x7f0d0026
 int id login_title 0x7f0d003c
 int id map 0x7f0d0070
 int id match_parent 0x7f0d000e
@@ -390,7 +391,6 @@ int id saveButton 0x7f0d0042
 int id scoreLabel 0x7f0d0078
 int id scrollView 0x7f0d0049
 int id selectionDetails 0x7f0d000d
-int id share_button 0x7f0d0027
 int id slide_button_container 0x7f0d0073
 int id small 0x7f0d0021
 int id standard 0x7f0d0019
