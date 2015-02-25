@@ -8,7 +8,6 @@ import android.os.Handler;
 import bellamica.tech.dreamteenfitness.R;
 
 public class SplashActivity extends Activity {
-
     private static final int SPLASH_DISPLAY_LENGTH = 1000;
 
     public void onCreate(Bundle savedInstanceState) {

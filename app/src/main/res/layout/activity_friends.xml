@@ -16,10 +16,10 @@
         android:gravity="center_horizontal"
         android:text="@string/friends_title"
         android:textColor="#34495e"
-        android:textSize="22sp"/>
+        android:textSize="22sp" />
 
     <com.facebook.widget.LoginButton
-        android:id="@+id/facebook_button"
+        android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -31,17 +31,33 @@
         android:layout_marginBottom="30dp" />
 
     <Button
-        android:id="@+id/google_button"
-        android:drawableLeft="@drawable/ic_google"
+        android:id="@+id/share_button"
+        android:layout_width="188dp"
+        android:drawableLeft="@drawable/ic_google_plus"
+        android:layout_height="wrap_content"
         android:background="#dd4b39"
-        android:text="Find on Google"
-        style="@style/InviteButton"/>
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:gravity="left|center_vertical"
+        android:drawablePadding="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text="Find on Google"/>
 
     <Button
-        android:id="@+id/email_button"
+        android:id="@+id/emailButton"
+        android:layout_width="188dp"
         android:drawableLeft="@drawable/ic_email"
+        android:layout_height="wrap_content"
         android:background="#fcb422"
-        android:text="Send an Email"
-        style="@style/InviteButton"/>
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        android:textSize="16sp"
+        android:gravity="left|center_vertical"
+        android:drawablePadding="8dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="8dp"
+        android:onClick="chooseRecipients"
+        android:text="Send an Email"/>
 
 </LinearLayout>

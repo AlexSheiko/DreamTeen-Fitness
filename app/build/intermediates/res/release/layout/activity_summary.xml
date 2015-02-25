@@ -101,7 +101,7 @@
             android:drawablePadding="4dp"
             android:gravity="center_vertical"
             android:minHeight="40dp"
-            android:text="@string/resume_button_label"
+            android:text="@string/discard_button_label"
             android:textColor="#246dcc"
             android:textSize="18sp"/>
     </LinearLayout>

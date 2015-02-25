@@ -19,6 +19,7 @@ import butterknife.InjectView;
 public class SummaryActivity extends Activity {
 
     private float mDistance;
+    private int mStepCount;
 
     private SharedPreferences mSharedPrefs;
 
@@ -46,6 +47,7 @@ public class SummaryActivity extends Activity {
         }
         // Get run info
         mDistance = mSharedPrefs.getFloat("Distance", 0);
+        mStepCount = (int) (mDistance * 2000);
 
         // Update UI with run info
         mDistanceLabel.setText(String.format("%.2f", mDistance));

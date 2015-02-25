@@ -84,7 +84,7 @@ public class RunActivity extends Activity
         buildFitnessClient();
 
         LEADERBOARD_STEPS_ID = getResources().getString(R.string.leaderboard_steps_taken);
-        LEADERBOARD_MILES_ID = getResources().getString(R.string.leaderboard_miles_ran);
+        LEADERBOARD_MILES_ID = getResources().getString(R.string.leaderboard_miles_runned);
 
         MapPane mapFragment = new MapPane();
         FragmentTransaction ft = getFragmentManager().beginTransaction();

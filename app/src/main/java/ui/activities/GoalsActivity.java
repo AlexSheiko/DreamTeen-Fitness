@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -290,6 +291,9 @@ public class GoalsActivity extends Activity
             mPbCalories.setVisibility(View.VISIBLE);
             mPbCalories.setMax(caloriesGoal);
             mPbCalories.setProgress(mCaloriesExpended);
+
+            Log.i("TAG", "Max: " + caloriesGoal);
+            Log.i("TAG", "Progress: " + mCaloriesExpended);
 
             if (mCaloriesExpended >= caloriesGoal) {
                 setPbColor(mPbCalories, R.drawable.pb_reached);
