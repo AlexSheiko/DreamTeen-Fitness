@@ -834,7 +834,7 @@ containing a value of this type.
         public static final int durationCounter=0x7f0d004c;
         public static final int durationNotSetLabel=0x7f0d002f;
         public static final int duration_label=0x7f0d006b;
-        public static final int emailButton=0x7f0d0028;
+        public static final int email_button=0x7f0d0028;
         public static final int facebook_button=0x7f0d0026;
         public static final int field=0x7f0d0069;
         public static final int finishButton=0x7f0d004e;

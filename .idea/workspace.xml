@@ -65,13 +65,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e838e63-aa6c-41fc-a81b-f5c1e2df2628" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_21_0_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_0.xml" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\.idea\libraries\support_annotations_21_0_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\.idea\libraries\support_v4_21_0_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\java\ui\utils\adapters\StatsListAdapter.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\java\ui\utils\helpers\Constants.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/bellamica/tech/dreamteenfitness/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/bellamica/tech/dreamteenfitness/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/release/bellamica/tech/dreamteenfitness/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/release/bellamica/tech/dreamteenfitness/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/test/debug/bellamica/tech/dreamteenfitness/test/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/test/debug/bellamica/tech/dreamteenfitness/test/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/model/Exercise.java" afterPath="$PROJECT_DIR$/app/src/main/java/model/Exercise.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/GoalsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/GoalsActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/bellamica/tech/dreamteenfitness/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/bellamica/tech/dreamteenfitness/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/fragments/MapPane.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/fragments/MapPane.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/release/bellamica/tech/dreamteenfitness/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/release/bellamica/tech/dreamteenfitness/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_friends.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_friends.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/tmp/dex/debug/inputList.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/tmp/dex/debug/inputList.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/tmp/dex/release/inputList.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/tmp/dex/release/inputList.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="D:\DreamTeen-Fitness\app\src\main\java\ui\utils\SquareImageView.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/adapters/SquareImageView.java" />
+      <change type="MOVED" beforePath="D:\DreamTeen-Fitness\app\src\main\java\ui\utils\adapters\NavigationAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/adapters/NavigationAdapter.java" />
     </list>
     <ignored path="DreamFit.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -94,30 +111,94 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="396" max-vertical-offset="10098">
-              <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+            <state vertical-scroll-proportion="16.203833" vertical-offset="1290" max-vertical-offset="11118">
+              <caret line="642" column="32" selection-start-line="642" selection-start-column="32" selection-end-line="642" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#11697#11755#0" expanded="true" />
+                <element signature="e#21334#21354#0" expanded="true" />
+                <element signature="e#21423#21444#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapPane.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/fragments/MapPane.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1314" max-vertical-offset="4964">
+              <caret line="219" column="0" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#5380#5413#0" expanded="true" />
+                <element signature="e#5914#5945#0" expanded="true" />
+                <element signature="e#6188#6220#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FriendsActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3043">
+              <caret line="75" column="69" selection-start-line="75" selection-start-column="69" selection-end-line="75" selection-end-column="69" />
+              <folding>
+                <element signature="e#2605#2643#0" expanded="true" />
+                <element signature="e#2889#2890#0" expanded="true" />
+                <element signature="e#4853#5670#0" expanded="true" />
+                <element signature="e#5651#5652#0" expanded="true" />
+                <element signature="e#5764#6270#0" expanded="true" />
+                <element signature="e#6251#6252#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
+              <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FriendsActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.0351493" vertical-offset="559" max-vertical-offset="3060">
-              <caret line="129" column="29" selection-start-line="129" selection-start-column="29" selection-end-line="129" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2261">
+              <caret line="80" column="19" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="19" />
               <folding>
-                <element signature="e#2317#2908#0" expanded="true" />
-                <element signature="e#2605#2643#0" expanded="true" />
-                <element signature="e#2889#2890#0" expanded="true" />
-                <element signature="e#4913#5730#0" expanded="true" />
-                <element signature="e#5711#5712#0" expanded="true" />
-                <element signature="e#5824#6330#0" expanded="true" />
-                <element signature="e#6311#6312#0" expanded="true" />
+                <element signature="e#886#904#0" expanded="true" />
+                <element signature="e#1086#1110#0" expanded="true" />
+                <element signature="e#1278#1306#0" expanded="true" />
+                <element signature="e#1693#1725#0" expanded="true" />
+                <element signature="e#2160#2192#0" expanded="true" />
+                <element signature="e#2577#2609#0" expanded="true" />
+                <element signature="e#2997#3030#0" expanded="true" />
+                <element signature="e#3463#3481#0" expanded="true" />
+                <element signature="e#3712#3730#0" expanded="true" />
+                <element signature="e#4223#4255#0" expanded="true" />
+                <element signature="e#4646#4676#0" expanded="true" />
+                <element signature="e#5066#5105#0" expanded="true" />
+                <element signature="e#5367#5383#0" expanded="true" />
+                <element signature="e#5489#5514#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Exercise.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/model/Exercise.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969">
+              <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -936,6 +1017,16 @@
                 <option name="name" value="lintRelease" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Runs lint on just the fatal issues in the Debug build" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="lintVitalDebug" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Runs lint on just the fatal issues in the DebugTest build" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
+                <option name="name" value="lintVitalDebugTest" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="description" value="Runs lint on just the fatal issues in the Release build" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
                 <option name="name" value="lintVitalRelease" />
@@ -1005,9 +1096,9 @@
                 <option name="name" value="preReleaseBuild" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Prepare com.android.support:support-v4:21.0.3" />
+                <option name="description" value="Prepare com.android.support:support-v4:21.0.0" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/app" />
-                <option name="name" value="prepareComAndroidSupportSupportV42103Library" />
+                <option name="name" value="prepareComAndroidSupportSupportV42100Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Prepare com.facebook.android:facebook-android-sdk:3.21.1" />
@@ -1107,7 +1198,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4274535084000" />
+        <entry key="$PROJECT_DIR$" value="4274578505495" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1261,12 +1352,12 @@
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar" />
-                            <option value="D:/android-sdk/extras/android/m2repository/com/android/support/support-v4/21.0.3/support-v4-21.0.3.aar" />
-                            <option value="D:/android-sdk/extras/google/m2repository/com/google/android/gms/play-services/6.5.87/play-services-6.5.87.aar" />
                             <option value="D:/Android/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/6.0.0/3a10b25b6820e19102e118711afe6a66c0bae123/butterknife-6.0.0.jar" />
+                            <option value="D:/android-sdk/extras/google/m2repository/com/google/android/gms/play-services/6.5.87/play-services-6.5.87.aar" />
                             <option value="D:/Android/.gradle/caches/modules-2/files-2.1/com.facebook.android/facebook-android-sdk/3.21.1/6d0e59564ed631b39f8ba3ef5a4d3cda7a003f06/facebook-android-sdk-3.21.1.aar" />
-                            <option value="D:/android-sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar" />
+                            <option value="D:/android-sdk/extras/android/m2repository/com/android/support/support-v4/21.0.0/support-v4-21.0.0.aar" />
                             <option value="D:/Android/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.2/91c20388c9a45f62b5ed8fe0502bb76ff6251fc7/bolts-android-1.1.2.jar" />
+                            <option value="D:/android-sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.0/support-annotations-21.0.0.jar" />
                           </list>
                         </option>
                         <option name="path" value="$PROJECT_DIR$/app" />
@@ -1422,7 +1513,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/model/Exercise.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_workout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_challenge.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/fragments/ChallengeFragment.java" />
@@ -1442,7 +1532,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_challenges.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/ChallengesActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/fragments/ChallengeGoalDialog.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ui/fragments/MapPane.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_run.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" />
@@ -1461,18 +1550,20 @@
         <option value="$PROJECT_DIR$/app/src/main/java/ui/utils/SquareImageView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/utils/adapters/NavigationAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values-mw600dp/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/button_calories.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_goals.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/fragments/GoalSetDialog.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/scores_list_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/GoalsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_friends.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/model/Exercise.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ui/fragments/MapPane.java" />
       </list>
     </option>
   </component>
@@ -1515,7 +1606,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator currentView="AndroidView" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -1563,8 +1654,40 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="drawable" />
+              <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamTeen-Fitness" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamTeen-Fitness" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2103,7 +2226,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2117,15 +2240,15 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30983606" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5426229" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.647541" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25567323" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4737705" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25567323" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.013114754" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -2183,7 +2306,20 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="2244">
           <caret line="2" column="50" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="50" />
           <folding>
-            <element signature="e#5228#5258#0" expanded="true" />
+            <element signature="e#886#904#0" expanded="true" />
+            <element signature="e#1086#1110#0" expanded="true" />
+            <element signature="e#1278#1306#0" expanded="true" />
+            <element signature="e#1693#1725#0" expanded="true" />
+            <element signature="e#2160#2192#0" expanded="true" />
+            <element signature="e#2577#2609#0" expanded="true" />
+            <element signature="e#2997#3030#0" expanded="true" />
+            <element signature="e#3463#3481#0" expanded="true" />
+            <element signature="e#3712#3730#0" expanded="true" />
+            <element signature="e#4223#4255#0" expanded="true" />
+            <element signature="e#4646#4676#0" expanded="true" />
+            <element signature="e#5066#5105#0" expanded="true" />
+            <element signature="e#5367#5383#0" expanded="true" />
+            <element signature="e#5489#5514#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2193,7 +2329,20 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="2380">
           <caret line="8" column="69" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="69" />
           <folding>
-            <element signature="e#5228#5258#0" expanded="true" />
+            <element signature="e#886#904#0" expanded="true" />
+            <element signature="e#1086#1110#0" expanded="true" />
+            <element signature="e#1278#1306#0" expanded="true" />
+            <element signature="e#1693#1725#0" expanded="true" />
+            <element signature="e#2160#2192#0" expanded="true" />
+            <element signature="e#2577#2609#0" expanded="true" />
+            <element signature="e#2997#3030#0" expanded="true" />
+            <element signature="e#3463#3481#0" expanded="true" />
+            <element signature="e#3712#3730#0" expanded="true" />
+            <element signature="e#4223#4255#0" expanded="true" />
+            <element signature="e#4646#4676#0" expanded="true" />
+            <element signature="e#5066#5105#0" expanded="true" />
+            <element signature="e#5367#5383#0" expanded="true" />
+            <element signature="e#5489#5514#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2281,13 +2430,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/fragments/MapPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.035714" vertical-offset="1910" max-vertical-offset="4437">
-          <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/SettingsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
@@ -2363,21 +2505,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/utils/helpers/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
-          <caret line="4" column="62" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/model/Exercise.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="200" max-vertical-offset="884">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/utils/SquareImageView.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/adapters/SquareImageView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
           <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
@@ -2391,7 +2519,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/utils/adapters/NavigationAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/adapters/NavigationAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23163842" vertical-offset="115" max-vertical-offset="680">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
@@ -2402,16 +2530,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="977" max-vertical-offset="1581">
           <caret line="49" column="37" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1683" max-vertical-offset="2261">
-          <caret line="119" column="48" selection-start-line="119" selection-start-column="48" selection-end-line="119" selection-end-column="48" />
-          <folding>
-            <element signature="e#5228#5258#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2492,13 +2610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="59" max-vertical-offset="663">
-          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/container.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
@@ -2525,14 +2636,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.296296" vertical-offset="76" max-vertical-offset="510">
           <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/utils/adapters/StatsListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36300173" vertical-offset="438" max-vertical-offset="1020">
-          <caret line="54" column="51" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
           <folding />
         </state>
       </provider>
@@ -2564,26 +2667,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="396" max-vertical-offset="10098">
-          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3043">
+          <caret line="75" column="69" selection-start-line="75" selection-start-column="69" selection-end-line="75" selection-end-column="69" />
+          <folding>
+            <element signature="e#2605#2643#0" expanded="true" />
+            <element signature="e#2889#2890#0" expanded="true" />
+            <element signature="e#4853#5670#0" expanded="true" />
+            <element signature="e#5651#5652#0" expanded="true" />
+            <element signature="e#5764#6270#0" expanded="true" />
+            <element signature="e#6251#6252#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.0351493" vertical-offset="559" max-vertical-offset="3060">
-          <caret line="129" column="29" selection-start-line="129" selection-start-column="29" selection-end-line="129" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2261">
+          <caret line="80" column="19" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="19" />
           <folding>
-            <element signature="e#2317#2908#0" expanded="true" />
-            <element signature="e#2605#2643#0" expanded="true" />
-            <element signature="e#2889#2890#0" expanded="true" />
-            <element signature="e#4913#5730#0" expanded="true" />
-            <element signature="e#5711#5712#0" expanded="true" />
-            <element signature="e#5824#6330#0" expanded="true" />
-            <element signature="e#6311#6312#0" expanded="true" />
+            <element signature="e#886#904#0" expanded="true" />
+            <element signature="e#1086#1110#0" expanded="true" />
+            <element signature="e#1278#1306#0" expanded="true" />
+            <element signature="e#1693#1725#0" expanded="true" />
+            <element signature="e#2160#2192#0" expanded="true" />
+            <element signature="e#2577#2609#0" expanded="true" />
+            <element signature="e#2997#3030#0" expanded="true" />
+            <element signature="e#3463#3481#0" expanded="true" />
+            <element signature="e#3712#3730#0" expanded="true" />
+            <element signature="e#4223#4255#0" expanded="true" />
+            <element signature="e#4646#4676#0" expanded="true" />
+            <element signature="e#5066#5105#0" expanded="true" />
+            <element signature="e#5367#5383#0" expanded="true" />
+            <element signature="e#5489#5514#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/model/Exercise.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969">
+          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/fragments/MapPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1314" max-vertical-offset="4964">
+          <caret line="219" column="0" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5380#5413#0" expanded="true" />
+            <element signature="e#5914#5945#0" expanded="true" />
+            <element signature="e#6188#6220#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="16.203833" vertical-offset="1290" max-vertical-offset="11118">
+          <caret line="642" column="32" selection-start-line="642" selection-start-column="32" selection-end-line="642" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#11697#11755#0" expanded="true" />
+            <element signature="e#21334#21354#0" expanded="true" />
+            <element signature="e#21423#21444#0" expanded="true" />
           </folding>
         </state>
       </provider>

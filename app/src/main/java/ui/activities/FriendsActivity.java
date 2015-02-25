@@ -119,7 +119,6 @@ public class FriendsActivity extends Activity implements OnClickListener {
     private String[] mRecipientNames;
 
     private void inviteEmail() {
-        //following code will be in your activity.java file
 
         mEmailList = getFriendsEmails();
 
@@ -188,7 +187,7 @@ public class FriendsActivity extends Activity implements OnClickListener {
                 null);
         if (cursor.moveToFirst()) {
             do {
-                String emailAddress = cursor.getString(3);
+                String emailAddress = cursor.getString(0);
                 // keep unique only
                 if (emlRecsHS.add(emailAddress.toLowerCase())) {
                     emlRecs.add(emailAddress);

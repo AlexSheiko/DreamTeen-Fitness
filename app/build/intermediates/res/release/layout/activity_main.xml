@@ -31,7 +31,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ui.utils.SquareImageView
+                    <ui.adapters.SquareImageView
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:layout_width="wrap_content"
@@ -39,7 +39,7 @@
                         android:focusable="true"
                         android:onClick="navigateToAerobic"/>
 
-                    <ui.utils.SquareImageView
+                    <ui.adapters.SquareImageView
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:layout_width="wrap_content"

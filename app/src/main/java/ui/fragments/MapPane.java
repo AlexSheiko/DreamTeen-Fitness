@@ -29,7 +29,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import bellamica.tech.dreamteenfitness.R;
-import ui.utils.helpers.Constants;
 
 public class MapPane extends Fragment
         implements OnClickListener {
@@ -125,6 +124,8 @@ public class MapPane extends Fragment
             mDistanceUnitsLabel.setText("miles");
     }
 
+    private static final int JUST_PAUSE = 0;
+    private static final int STOP = 1;
 
     @Override
     public void onClick(View view) {
@@ -142,7 +143,7 @@ public class MapPane extends Fragment
 
                 updateUiOnPause();
 
-                stopUiStopwatch(Constants.Timer.JUST_PAUSE);
+                stopUiStopwatch(JUST_PAUSE);
 
                 break;
             case R.id.finishButton:
@@ -217,13 +218,14 @@ public class MapPane extends Fragment
             timerTask = null;
         }
 
-        if (pauseOrStop == Constants.Timer.STOP)
+        if (pauseOrStop == STOP)
             elapsedSeconds = 0;
     }
 
     private void disableMapUiControls(Fragment fragment) {
         mMap = ((MapFragment) fragment).getMap();
         if (mMap == null) return;
+
         mMap.setMyLocationEnabled(true);
         mMap.setBuildingsEnabled(false);
         mMap.getUiSettings().setCompassEnabled(false);

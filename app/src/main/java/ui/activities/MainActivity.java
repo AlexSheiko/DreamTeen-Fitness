@@ -57,9 +57,8 @@ import java.util.concurrent.TimeUnit;
 import bellamica.tech.dreamteenfitness.R;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import ui.adapters.NavigationAdapter;
 import ui.fragments.GoalSetDialog;
-import ui.utils.adapters.NavigationAdapter;
-import ui.utils.helpers.Constants;
 
 
 public class MainActivity extends Activity {
@@ -626,6 +625,8 @@ public class MainActivity extends Activity {
         }
     }
 
+    public static final String SESSION_NAME = "Afternoon run";
+
     private void readWeeklyDuration() {
         // [START build_read_session_request]
         // Set a start and end time for our query, using a start time of 1 week before this moment.
@@ -639,7 +640,7 @@ public class MainActivity extends Activity {
         // Build a session read request
         SessionReadRequest readRequest = new Builder()
                 .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS)
-                .setSessionName(Constants.SESSION_NAME)
+                .setSessionName(SESSION_NAME)
                 .build();
         // [END build_read_session_request]
 

@@ -45,7 +45,7 @@
         android:text="Find on Google"/>
 
     <Button
-        android:id="@+id/emailButton"
+        android:id="@+id/email_button"
         android:layout_width="188dp"
         android:drawableLeft="@drawable/ic_email"
         android:layout_height="wrap_content"
@@ -57,7 +57,6 @@
         android:drawablePadding="8dp"
         android:paddingLeft="10dp"
         android:paddingRight="8dp"
-        android:onClick="chooseRecipients"
         android:text="Send an Email"/>
 
 </LinearLayout>

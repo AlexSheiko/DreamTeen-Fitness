@@ -349,7 +349,7 @@ int id durationContainer 0x7f0d002d
 int id durationCounter 0x7f0d004c
 int id durationNotSetLabel 0x7f0d002f
 int id duration_label 0x7f0d006b
-int id emailButton 0x7f0d0028
+int id email_button 0x7f0d0028
 int id facebook_button 0x7f0d0026
 int id field 0x7f0d0069
 int id finishButton 0x7f0d004e
