@@ -8,7 +8,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
         <!-- Main container -->
         <LinearLayout
@@ -128,7 +129,7 @@
                         android:layout_marginRight="5dp"
                         android:textColor="#22282c"
                         android:textSize="16sp"
-                        android:visibility="gone"/>
+                        android:visibility="visible"/>
 
                     <ProgressBar
                         android:id="@+id/progressBar"
@@ -140,7 +141,7 @@
                         android:paddingRight="0dp"
                         android:progress="0"
                         android:progressDrawable="@drawable/pb_calories"
-                        />
+                        android:visibility="gone"/>
 
                 </LinearLayout>
 

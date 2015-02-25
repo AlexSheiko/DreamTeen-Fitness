@@ -65,14 +65,14 @@ import ui.utils.helpers.Constants;
 public class MainActivity extends Activity {
 
     private static final int REQUEST_OAUTH = 1;
+    private static final String AUTH_PENDING = "auth_state_pending";
 
     private GoogleApiClient mClient;
     private OnDataPointListener mStepsListener;
+    private boolean authInProgress = false;
 
-    private int mCaloriesExpended = 0;
-    private int mStepsTaken = 0;
-
-    private int mDailySteps;
+    private int mCaloriesExpended;
+    private int mStepsTaken;
     private long mDailyDuration;
 
     private SharedPreferences mSharedPrefs;
@@ -101,6 +101,10 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
+
+        if (savedInstanceState != null) {
+            authInProgress = savedInstanceState.getBoolean(AUTH_PENDING);
+        }
 
         buildFitnessClient();
 
@@ -145,11 +149,14 @@ public class MainActivity extends Activity {
                                             MainActivity.this, 0).show();
                                     return;
                                 }
-                                // The failure has a resolution. Resolve it.
-                                try {
-                                    result.startResolutionForResult(MainActivity.this,
-                                            REQUEST_OAUTH);
-                                } catch (IntentSender.SendIntentException ignored) {
+                                if (!authInProgress) {
+                                    // The failure has a resolution. Resolve it.
+                                    try {
+                                        authInProgress = true;
+                                        result.startResolutionForResult(MainActivity.this,
+                                                REQUEST_OAUTH);
+                                    } catch (IntentSender.SendIntentException ignored) {
+                                    }
                                 }
                             }
                         }
@@ -213,6 +220,8 @@ public class MainActivity extends Activity {
     }
 
     private void unregisterStepsListener() {
+        if (!mClient.isConnected()) return;
+
         // Unregister steps listener
         Fitness.SensorsApi.remove(mClient, mStepsListener);
 
@@ -453,6 +462,7 @@ public class MainActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_OAUTH) {
             if (resultCode == RESULT_OK) {
+                authInProgress = false;
                 // Make sure the app is not already connected or attempting to connect
                 if (!mClient.isConnected() && !mClient.isConnecting()) {
                     mClient.connect();
@@ -500,6 +510,12 @@ public class MainActivity extends Activity {
             mCaloriesContainer.setVisibility(View.GONE);
         if (!mSharedPrefs.getBoolean("pref_track_steps", true))
             mStepsContainer.setVisibility(View.GONE);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(AUTH_PENDING, authInProgress);
     }
 
     // Navigation drawer

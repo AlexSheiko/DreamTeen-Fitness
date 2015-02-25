@@ -929,7 +929,7 @@ containing a value of this type.
         public static final int grid_item_category=0x7f03001a;
         public static final int nav_item=0x7f03001b;
         public static final int nav_item_small=0x7f03001c;
-        public static final int scores_list_item=0x7f03001d;
+        public static final int list_item_scores =0x7f03001d;
         public static final int spinner_item=0x7f03001e;
     }
     public static final class menu {

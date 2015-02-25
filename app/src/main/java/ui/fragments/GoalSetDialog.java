@@ -36,10 +36,7 @@ public class GoalSetDialog extends DialogFragment {
         try {
             // Instantiate the NoticeDialogListener so we can send events to the host
             mCallback = (OnGoalChanged) activity;
-        } catch (ClassCastException e) {
-            // The activity doesn't implement the interface, throw exception
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnGoalChanged");
+        } catch (ClassCastException ignored) {
         }
     }
 
@@ -93,7 +90,7 @@ public class GoalSetDialog extends DialogFragment {
         String title = null;
         switch (key) {
             case "steps":
-                title = "Daily step count goal";
+                title = "Daily step goal";
                 break;
             case "duration":
                 title = "Weekly run duration, min";
@@ -182,7 +179,9 @@ public class GoalSetDialog extends DialogFragment {
                                 startActivity(new Intent(getActivity(), AerobicActivity.class));
                                 break;
                         }
-                        mCallback.onGoalChanged();
+                        if (mCallback != null) {
+                            mCallback.onGoalChanged();
+                        }
                         GoalSetDialog.this.getDialog().cancel();
                     }
                 });
