@@ -55,7 +55,7 @@ public class FriendsActivity extends Activity implements OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.facebook_button:
-                // TODO Invite Facebook
+                inviteFacebook();
                 break;
             case R.id.google_button:
                 inviteGoogle();

@@ -103,7 +103,7 @@
                             android:layout_marginTop="16dp"
                             android:fontFamily="sans-serif-light"
                             android:gravity="bottom"
-                            android:text="@string/calories_default_value"
+                            android:text="0"
                             android:textColor="@color/black"
                             android:textSize="28sp"/>
 
