@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="action_titles">
-        <item>@string/action_dashboard</item>
+        <item>Dashboard</item>
         <item>@string/action_invite_friends</item>
-        <item>@string/action_leaderboard</item>
-        <item>@string/action_goals</item>
-        <item>@string/action_settings</item>
+        <item>Leaderboards</item>
+        <item>Goals</item>
+        <item>Settings</item>
     </string-array>
     <string-array name="pref_units">
         <item>Imperial</item>
