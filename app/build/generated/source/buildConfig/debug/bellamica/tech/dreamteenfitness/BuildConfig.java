@@ -4,7 +4,7 @@
 package bellamica.tech.dreamteenfitness;
 
 public final class BuildConfig {
-  public static final boolean DEBUG = false;
+  public static final boolean DEBUG = Boolean.parseBoolean("true");
   public static final String APPLICATION_ID = "bellamica.tech.dreamteenfitness";
   public static final String BUILD_TYPE = "debug";
   public static final String FLAVOR = "";

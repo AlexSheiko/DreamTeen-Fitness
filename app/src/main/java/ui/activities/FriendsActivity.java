@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract.CommonDataKinds.Email;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -18,6 +19,9 @@ import android.widget.Toast;
 
 import com.facebook.FacebookException;
 import com.facebook.Session;
+import com.facebook.SessionState;
+import com.facebook.UiLifecycleHelper;
+import com.facebook.widget.LoginButton;
 import com.facebook.widget.WebDialog;
 import com.facebook.widget.WebDialog.Builder;
 import com.facebook.widget.WebDialog.OnCompleteListener;
@@ -34,7 +38,7 @@ import butterknife.InjectView;
 public class FriendsActivity extends Activity implements OnClickListener {
 
     @InjectView(R.id.facebook_button)
-    Button mFacebookButton;
+    LoginButton mFacebookButton;
     @InjectView(R.id.google_button)
     Button mGoogleButton;
     @InjectView(R.id.email_button)
@@ -46,6 +50,8 @@ public class FriendsActivity extends Activity implements OnClickListener {
         setContentView(R.layout.activity_friends);
         ButterKnife.inject(this);
 
+        new UiLifecycleHelper(this, callback);
+
         mFacebookButton.setOnClickListener(this);
         mGoogleButton.setOnClickListener(this);
         mEmailButton.setOnClickListener(this);
@@ -55,7 +61,9 @@ public class FriendsActivity extends Activity implements OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.facebook_button:
-                inviteFacebook();
+                if (Session.getActiveSession() != null && Session.getActiveSession().isOpened()) {
+                    inviteFacebook(Session.getActiveSession());
+                }
                 break;
             case R.id.google_button:
                 inviteGoogle();
@@ -66,19 +74,33 @@ public class FriendsActivity extends Activity implements OnClickListener {
         }
     }
 
-    private void inviteFacebook() {
+    private Session.StatusCallback callback =
+            new Session.StatusCallback() {
+                @Override
+                public void call(Session session,
+                                 SessionState state, Exception exception) {
+                    if (exception == null && session != null && session.isOpened()) {
+                        inviteFacebook(session);
+                    }
+                }
+            };
+
+    private void inviteFacebook(Session session) {
         Bundle params = new Bundle();
         params.putString("message", "DreamTeen Fitness is pretty cool. Check it out on Google Play. See if you can beat my score! http://goo.gl/YdMFVk");
+
+        Toast.makeText(this, "inviteFacebook() called", Toast.LENGTH_SHORT).show();
+        Log.i("TAG", "inviteFacebook() called");
 
         WebDialog dialog = new Builder(this, Session.getActiveSession(), "apprequests", params).
                 setOnCompleteListener(new OnCompleteListener() {
                     @Override
                     public void onComplete(Bundle values, FacebookException error) {
-                        if (error == null) {
-                            Toast.makeText(FriendsActivity.this,
-                                    getString(R.string.request_sent_toast), Toast.LENGTH_SHORT).show();
+                        if (error != null) {
+                            /* Toast.makeText(FriendsActivity.this, getResources()
+                                    .getString(R.string.network_error), Toast.LENGTH_SHORT).show(); */
                         } else {
-                            error.printStackTrace();
+                            Toast.makeText(FriendsActivity.this, getString(R.string.request_sent_toast), Toast.LENGTH_SHORT).show();
                         }
                         Session.getActiveSession().closeAndClearTokenInformation();
                     }
@@ -177,7 +199,7 @@ public class FriendsActivity extends Activity implements OnClickListener {
         ArrayList<String> emlRecs = new ArrayList<>();
         HashSet<String> emlRecsHS = new HashSet<>();
         ContentResolver resolver = this.getContentResolver();
-        String[] projection = new String[] {Email.DATA};
+        String[] projection = new String[]{Email.DATA};
         String filter = Email.DATA + " NOT LIKE ''";
         Cursor cursor = resolver.query(
                 Email.CONTENT_URI,

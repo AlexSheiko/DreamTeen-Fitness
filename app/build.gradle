@@ -17,7 +17,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt')
         }
         debug {
-            debuggable false
+            debuggable true
         }
     }
 }
