@@ -2,6 +2,13 @@
 <items version="2" >
 
     <item
+        jar="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\3.21.1\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="0285ad8da812e92dda76ed5d0dcba05724c7911d">
+        <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\classes-d9932ba7a3a66e977f24b37d6745a54e244f0089.jar" />
+    </item>
+    <item
         jar="D:\Android\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.1.2\91c20388c9a45f62b5ed8fe0502bb76ff6251fc7\bolts-android-1.1.2.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -16,25 +23,25 @@
         <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\classes-2baa6ad3d7ec2a22b00e61193b3222e8091eb281.jar" />
     </item>
     <item
-        jar="D:\android-sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\support-annotations-21.0.3-d468e72c8ea79625b7615186601440b8d5bb481e.jar" />
-    </item>
-    <item
-        jar="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\3.21.1\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="0285ad8da812e92dda76ed5d0dcba05724c7911d">
-        <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\classes-d9932ba7a3a66e977f24b37d6745a54e244f0089.jar" />
-    </item>
-    <item
         jar="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
         <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\classes-3b3066a9b90fbcf50803f55664cbd363ff413d3c.jar" />
+    </item>
+    <item
+        jar="D:\DreamTeen-Fitness\app\libs\simple.facebook-2.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="3e80d7a67d99151098e1a0686713852b3ad62173">
+        <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\simple.facebook-2.2-d778d99b971d8d3a5f98ea214db5cd1464e05c1a.jar" />
+    </item>
+    <item
+        jar="D:\android-sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\support-annotations-21.0.3-d468e72c8ea79625b7615186601440b8d5bb481e.jar" />
     </item>
     <item
         jar="D:\Android\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\6.0.0\3a10b25b6820e19102e118711afe6a66c0bae123\butterknife-6.0.0.jar"

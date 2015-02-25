@@ -18,7 +18,7 @@
         android:textColor="#34495e"
         android:textSize="22sp" />
 
-    <com.facebook.widget.LoginButton
+    <Button
         android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,8 +26,7 @@
         android:layout_marginTop="45dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        custom:login_text="Find on Facebook"
-        custom:logout_text="Find on Facebook"
+        android:text="Find on Facebook"
         android:layout_marginBottom="30dp" />
 
     <Button

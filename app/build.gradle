@@ -30,4 +30,5 @@ dependencies {
     compile 'com.google.android.gms:play-services:6.5.87'
     compile 'com.jakewharton:butterknife:6.0.0'
     compile 'com.facebook.android:facebook-android-sdk:3.21.1'
+    compile files('libs/simple.facebook-2.2.jar')
 }

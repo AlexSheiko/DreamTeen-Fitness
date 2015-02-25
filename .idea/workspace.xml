@@ -60,55 +60,23 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="tag" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="INFO" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: bellamica.tech.dreamteenfitness" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e838e63-aa6c-41fc-a81b-f5c1e2df2628" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_21_0_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_3.xml" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\aidl\android\support\v4\app\INotificationSideChannel.aidl" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\classes.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\libs\internal_impl-21.0.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\java\ui\adapters\NavigationAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\java\ui\adapters\SquareImageView.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\res\drawable-xhdpi\ic_facebook.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\res\drawable-xhdpi\ic_google.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/model_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/model_data.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/bellamica/tech/dreamteenfitness/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/bellamica/tech/dreamteenfitness/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/release/bellamica/tech/dreamteenfitness/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/release/bellamica/tech/dreamteenfitness/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/test/debug/bellamica/tech/dreamteenfitness/test/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/test/debug/bellamica/tech/dreamteenfitness/test/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/model/Exercise.java" afterPath="$PROJECT_DIR$/app/src/main/java/model/Exercise.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/simple.facebook-2.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/simple_facebook_2_2.xml" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\.idea\libraries\support_annotations_21_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\.idea\libraries\support_v4_21_0_0.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/GoalsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/GoalsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/fragments/MapPane.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/fragments/MapPane.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/bellamica/tech/dreamteenfitness/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/bellamica/tech/dreamteenfitness/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/facebook/android/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/facebook/android/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/google/android/gms/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/google/android/gms/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/release/bellamica/tech/dreamteenfitness/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/release/bellamica/tech/dreamteenfitness/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/release/com/facebook/android/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/release/com/facebook/android/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/release/com/google/android/gms/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/release/com/google/android/gms/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/RunActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/SplashActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/SplashActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/activities/SummaryActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_friends.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_friends.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_summary.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_summary.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/bolts_android_1_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/bolts_android_1_1_2.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/facebook_android_sdk_3_21_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/facebook_android_sdk_3_21_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/tmp/dex/debug/inputList.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/tmp/dex/debug/inputList.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/tmp/dex/release/inputList.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/tmp/dex/release/inputList.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_21_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_21_0_3.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_21_0_3.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DreamFit.iws" />
@@ -135,11 +103,25 @@
       <file leaf-file-name="FriendsActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6572935" vertical-offset="170" max-vertical-offset="3825">
-              <caret line="63" column="76" selection-start-line="63" selection-start-column="76" selection-end-line="63" selection-end-column="76" />
+            <state vertical-scroll-proportion="0.30931458" vertical-offset="1303" max-vertical-offset="4199">
+              <caret line="119" column="9" selection-start-line="119" selection-start-column="9" selection-end-line="119" selection-end-column="9" />
               <folding>
-                <element signature="e#1867#2343#0" expanded="true" />
-                <element signature="e#2328#2329#0" expanded="true" />
+                <element signature="e#1737#1772#0" expanded="true" />
+                <element signature="e#2142#2752#0" expanded="true" />
+                <element signature="e#2741#2742#0" expanded="true" />
+                <element signature="e#3635#3636#0" expanded="true" />
+                <element signature="e#3678#3679#0" expanded="true" />
+                <element signature="e#3736#3737#0" expanded="true" />
+                <element signature="e#3809#3810#0" expanded="true" />
+                <element signature="e#4688#5425#0" expanded="true" />
+                <element signature="e#5169#5207#0" expanded="true" />
+                <element signature="e#5406#5407#0" expanded="true" />
+                <element signature="e#7601#8415#0" expanded="true" />
+                <element signature="e#8396#8397#0" expanded="true" />
+                <element signature="e#8509#9001#0" expanded="true" />
+                <element signature="e#8982#8983#0" expanded="true" />
+                <element signature="e#9867#9875#0" expanded="true" />
+                <element signature="e#9926#9934#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -148,8 +130,8 @@
       <file leaf-file-name="activity_friends.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_friends.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.296296" vertical-offset="170" max-vertical-offset="1173">
-              <caret line="20" column="36" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="36" />
+            <state vertical-scroll-proportion="-11.888889" vertical-offset="172" max-vertical-offset="1156">
+              <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -1020,7 +1002,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4274543772000" />
+        <entry key="$PROJECT_DIR$" value="4274598068140" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1180,6 +1162,7 @@
                             <option value="D:/Android/.gradle/caches/modules-2/files-2.1/com.facebook.android/facebook-android-sdk/3.21.1/6d0e59564ed631b39f8ba3ef5a4d3cda7a003f06/facebook-android-sdk-3.21.1.aar" />
                             <option value="D:/android-sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar" />
                             <option value="D:/Android/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.2/91c20388c9a45f62b5ed8fe0502bb76ff6251fc7/bolts-android-1.1.2.jar" />
+                            <option value="$MODULE_DIR$/libs/simple.facebook-2.2.jar" />
                           </list>
                         </option>
                         <option name="path" value="$PROJECT_DIR$/app" />
@@ -1335,7 +1318,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/WorkoutActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/model/Exercise.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_workout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_challenge.xml" />
@@ -1385,6 +1367,7 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/scores_list_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/GoalsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_friends.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java" />
       </list>
     </option>
@@ -1428,7 +1411,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="AndroidView" proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -1840,7 +1823,7 @@
     <property name="ExportApk.BuildType" value="release" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/DreamTeen-Fitness/app/src/main/java/ui/activities/RunActivity.java" />
-    <property name="android.project.structure.last.selected" value="facebook" />
+    <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
   </component>
   <component name="RecentsManager">
@@ -1850,11 +1833,11 @@
       <recent name="utils" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\DreamTeen-Fitness\app\libs" />
       <recent name="D:\DreamTeen-Fitness\app\src\main\res\drawable" />
       <recent name="D:\DreamTeen-Fitness\app\src\main\res\raw" />
       <recent name="D:\DreamTeen-Fitness\app\src\main\res\drawable-xhdpi" />
       <recent name="D:\DreamTeen-Fitness\app\src\main\res\layout" />
-      <recent name="D:\DreamTeen-Fitness\app\libs" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="bellamica.tech.dreamfit.utils" />
@@ -1865,17 +1848,17 @@
       <recent name="bellamica.tech" />
       <recent name="bellamica.tech.dreamfit" />
     </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="ui" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\DreamTeen-Fitness\app\src\main\res\drawable" />
+      <recent name="D:\Android\Projects\DreamFit\app\src\main\res\drawable-xhdpi" />
     </key>
     <key name="android.template.parentActivityClass">
       <recent name="" />
       <recent name="ui.activities.FriendsActivity" />
       <recent name="ui.MainActivity" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\DreamTeen-Fitness\app\src\main\res\drawable" />
-      <recent name="D:\Android\Projects\DreamFit\app\src\main\res\drawable-xhdpi" />
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="ui" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.app">
@@ -2069,7 +2052,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2084,7 +2067,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30983606" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43442622" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7327869" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2529,8 +2512,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_friends.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.296296" vertical-offset="170" max-vertical-offset="1173">
-          <caret line="20" column="36" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="36" />
+        <state vertical-scroll-proportion="-11.888889" vertical-offset="172" max-vertical-offset="1156">
+          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -2540,11 +2523,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/activities/FriendsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6572935" vertical-offset="170" max-vertical-offset="3825">
-          <caret line="63" column="76" selection-start-line="63" selection-start-column="76" selection-end-line="63" selection-end-column="76" />
+        <state vertical-scroll-proportion="0.30931458" vertical-offset="1303" max-vertical-offset="4199">
+          <caret line="119" column="9" selection-start-line="119" selection-start-column="9" selection-end-line="119" selection-end-column="9" />
           <folding>
-            <element signature="e#1867#2343#0" expanded="true" />
-            <element signature="e#2328#2329#0" expanded="true" />
+            <element signature="e#1737#1772#0" expanded="true" />
+            <element signature="e#2142#2752#0" expanded="true" />
+            <element signature="e#2741#2742#0" expanded="true" />
+            <element signature="e#3635#3636#0" expanded="true" />
+            <element signature="e#3678#3679#0" expanded="true" />
+            <element signature="e#3736#3737#0" expanded="true" />
+            <element signature="e#3809#3810#0" expanded="true" />
+            <element signature="e#4688#5425#0" expanded="true" />
+            <element signature="e#5169#5207#0" expanded="true" />
+            <element signature="e#5406#5407#0" expanded="true" />
+            <element signature="e#7601#8415#0" expanded="true" />
+            <element signature="e#8396#8397#0" expanded="true" />
+            <element signature="e#8509#9001#0" expanded="true" />
+            <element signature="e#8982#8983#0" expanded="true" />
+            <element signature="e#9867#9875#0" expanded="true" />
+            <element signature="e#9926#9934#0" expanded="true" />
           </folding>
         </state>
       </provider>
