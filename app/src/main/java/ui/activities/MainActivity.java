@@ -39,13 +39,11 @@ import com.google.android.gms.fitness.data.DataType;
 import com.google.android.gms.fitness.data.Field;
 import com.google.android.gms.fitness.data.Session;
 import com.google.android.gms.fitness.request.DataReadRequest;
-import com.google.android.gms.fitness.request.DataSourcesRequest;
 import com.google.android.gms.fitness.request.OnDataPointListener;
 import com.google.android.gms.fitness.request.SensorRequest;
 import com.google.android.gms.fitness.request.SessionReadRequest;
 import com.google.android.gms.fitness.request.SessionReadRequest.Builder;
 import com.google.android.gms.fitness.result.DataReadResult;
-import com.google.android.gms.fitness.result.DataSourcesResult;
 import com.google.android.gms.fitness.result.SessionReadResult;
 import com.google.android.gms.games.Games;
 import com.google.android.gms.plus.Plus;
@@ -108,16 +106,10 @@ public class MainActivity extends Activity {
         buildFitnessClient();
 
         addSideNavigation();
-
         mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
     }
 
-    /**
-     * Build a GoogleApiClient that will authenticate the user and allow the application
-     * to connect to Fitness APIs
-     */
     private void buildFitnessClient() {
-        // Create the Google API Client
         mClient = new GoogleApiClient.Builder(this)
                 .addApi(Fitness.API).addScope(Fitness.SCOPE_ACTIVITY_READ_WRITE).addScope(Fitness.SCOPE_LOCATION_READ)
                 .addApi(Plus.API).addScope(Plus.SCOPE_PLUS_LOGIN)
@@ -126,9 +118,10 @@ public class MainActivity extends Activity {
                         new ConnectionCallbacks() {
                             @Override
                             public void onConnected(Bundle bundle) {
-                                // Now make calls to the APIs
-                                readDailyStepsAndCalories();
-                                readWeeklyDuration();
+
+                                readStepsAndCalories();
+                                readDuration();
+
                                 registerStepsListener();
                             }
 
@@ -139,21 +132,16 @@ public class MainActivity extends Activity {
                 )
                 .addOnConnectionFailedListener(
                         new GoogleApiClient.OnConnectionFailedListener() {
-                            // Called whenever the API client fails to connect.
                             @Override
                             public void onConnectionFailed(ConnectionResult result) {
                                 if (!result.hasResolution()) {
-                                    // Show the localized error dialog
-                                    GooglePlayServicesUtil.getErrorDialog(result.getErrorCode(),
-                                            MainActivity.this, 0).show();
+                                    GooglePlayServicesUtil.getErrorDialog(result.getErrorCode(), MainActivity.this, 0).show();
                                     return;
                                 }
                                 if (!authInProgress) {
-                                    // The failure has a resolution. Resolve it.
                                     try {
                                         authInProgress = true;
-                                        result.startResolutionForResult(MainActivity.this,
-                                                REQUEST_OAUTH);
+                                        result.startResolutionForResult(MainActivity.this, REQUEST_OAUTH);
                                     } catch (IntentSender.SendIntentException ignored) {
                                     }
                                 }
@@ -163,73 +151,83 @@ public class MainActivity extends Activity {
                 .build();
     }
 
-    private void registerStepsListener() {
-        Fitness.SensorsApi.findDataSources(mClient, new DataSourcesRequest.Builder()
-                .setDataTypes(DataType.TYPE_STEP_COUNT_DELTA)
-                .setDataSourceTypes(DataSource.TYPE_DERIVED)
-                .build())
-                .setResultCallback(new ResultCallback<DataSourcesResult>() {
-                    @Override
-                    public void onResult(DataSourcesResult dataSourcesResult) {
-                        for (DataSource dataSource : dataSourcesResult.getDataSources()) {
-                            //Let's register a listener to receive Activity data!
-                            try {
-                                if (dataSource.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)
-                                        && mStepsListener == null) {
-                                    startListeningSteps(dataSource,
-                                            DataType.TYPE_STEP_COUNT_DELTA);
-                                }
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                });
+    @Override
+    protected void onResume() {
+        super.onResume();
 
-        // Subscribe to steps data
-        Fitness.RecordingApi.subscribe(mClient, DataType.TYPE_STEP_COUNT_DELTA);
+        mClient.connect();
+
+        if (!mSharedPrefs.getBoolean("pref_track_calories", true))
+            mCaloriesContainer.setVisibility(View.GONE);
+        if (!mSharedPrefs.getBoolean("pref_track_steps", true))
+            mStepsContainer.setVisibility(View.GONE);
     }
 
-    /**
-     * Register a listener with the Sensors API for the provided {@link DataSource} and
-     * {@link DataType} combo.
-     */
-    private void startListeningSteps(DataSource dataSource, DataType dataType) {
-        // [START register_data_listener]
-        // Register steps listener
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        unregisterStepsListener();
+
+        if (mClient.isConnected()) {
+            mClient.disconnect();
+        }
+    }
+
+    private void registerStepsListener() {
         mStepsListener = new OnDataPointListener() {
             @Override
             public void onDataPoint(DataPoint dataPoint) {
                 for (Field field : dataPoint.getDataType().getFields()) {
                     int increment = dataPoint.getValue(field).asInt();
+                    insertSteps(increment);
                     mStepsTaken += increment;
-                    mStepsTakenLabel.setText(mStepsTaken + "");
+                    mStepsTakenLabel.setText(
+                            String.format("%s", mStepsTaken));
                 }
             }
         };
 
-        Fitness.SensorsApi.add(
-                mClient,
-                new SensorRequest.Builder()
-                        .setDataSource(dataSource) // Optional but recommended for custom data sets.
-                        .setDataType(dataType) // Can't be omitted.
+        Fitness.SensorsApi.add(mClient, new SensorRequest.Builder()
+                        .setDataType(DataType.TYPE_STEP_COUNT_DELTA)
                         .setSamplingRate(1, TimeUnit.SECONDS)
                         .build(),
                 mStepsListener);
-        // [END register_data_listener]
     }
 
     private void unregisterStepsListener() {
-        if (!mClient.isConnected()) return;
-
-        // Unregister steps listener
-        Fitness.SensorsApi.remove(mClient, mStepsListener);
-
-        // Unsubscribe from steps data
-        Fitness.RecordingApi.unsubscribe(mClient, DataType.TYPE_STEP_COUNT_DELTA);
+        if (mClient != null && mStepsListener != null && mClient.isConnected()) {
+            Fitness.SensorsApi.remove(mClient, mStepsListener);
+        }
     }
 
-    private void readDailyStepsAndCalories() {
+    private void insertSteps(int increment) {
+        Calendar cal = Calendar.getInstance();
+        Date now = new Date();
+        cal.setTime(now);
+        long endTime = cal.getTimeInMillis();
+        cal.add(Calendar.SECOND, -1);
+        long startTime = cal.getTimeInMillis();
+
+        // Create a data source
+        DataSource dataSource = new DataSource.Builder()
+                .setAppPackageName(this)
+                .setDataType(DataType.TYPE_STEP_COUNT_DELTA)
+                .setName("Steps taken")
+                .setType(DataSource.TYPE_DERIVED)
+                .build();
+
+        DataSet dataSet = DataSet.create(dataSource);
+        DataPoint dataPoint = dataSet.createDataPoint()
+                .setTimeInterval(startTime, endTime, TimeUnit.MILLISECONDS);
+        dataPoint.getValue(Field.FIELD_STEPS).setInt(increment);
+        dataSet.add(dataPoint);
+
+        // Invoke the History API to insert the data
+        Fitness.HistoryApi.insertData(mClient, dataSet);
+    }
+
+    private void readStepsAndCalories() {
         // Setting a start and end date using a range of 1 week before this moment.
         Calendar cal = Calendar.getInstance();
         Date now = new Date();
@@ -471,43 +469,6 @@ public class MainActivity extends Activity {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        // Connect to the Fitness API
-        mClient.connect();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        unregisterStepsListener();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if (mClient.isConnected()) {
-            mClient.disconnect();
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        registerStepsListener();
-
-        if (mClient != null && mClient.isConnected()) {
-            registerStepsListener();
-        }
-        if (!mSharedPrefs.getBoolean("pref_track_calories", true))
-            mCaloriesContainer.setVisibility(View.GONE);
-        if (!mSharedPrefs.getBoolean("pref_track_steps", true))
-            mStepsContainer.setVisibility(View.GONE);
-    }
-
-    @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean(AUTH_PENDING, authInProgress);
@@ -625,7 +586,7 @@ public class MainActivity extends Activity {
         }
     }
 
-    private void readWeeklyDuration() {
+    private void readDuration() {
         // [START build_read_session_request]
         // Set a start and end time for our query, using a start time of 1 week before this moment.
         Calendar cal = Calendar.getInstance();
