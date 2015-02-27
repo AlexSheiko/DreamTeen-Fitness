@@ -117,6 +117,8 @@ public class FriendsActivity extends Activity implements OnClickListener {
             super.onActivityResult(requestCode, resultCode, data);
         } catch (Exception e) {
             Log.w(TAG, e.getMessage());
+        } finally {
+            mSimpleFacebook.login(onLoginListener);
         }
     }
 

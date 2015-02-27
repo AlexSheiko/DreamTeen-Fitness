@@ -256,4 +256,16 @@
         <item name="android:onClick">addGoal</item>
     </style>
 
+    <style name="InviteButton">
+        <item name="android:layout_width">188dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">30dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">8dp</item>
+    </style>
+
 </resources>

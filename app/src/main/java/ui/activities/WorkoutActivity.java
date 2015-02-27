@@ -252,7 +252,7 @@ public class WorkoutActivity extends Activity {
                 .build();
 
         // Create a data set
-        float caloriesExpanded = 4 * (mDuration / 60);
+        float caloriesExpanded = mDuration * 0.27f;
 
         DataSet dataSet = DataSet.create(dataSource);
         DataPoint dataPoint = dataSet.createDataPoint()

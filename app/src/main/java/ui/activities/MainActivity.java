@@ -100,7 +100,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         ButterKnife.inject(this);
 
         if (savedInstanceState != null) {
@@ -175,7 +174,8 @@ public class MainActivity extends Activity {
                         for (DataSource dataSource : dataSourcesResult.getDataSources()) {
                             //Let's register a listener to receive Activity data!
                             try {
-                                if (dataSource.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)) {
+                                if (dataSource.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)
+                                        && mStepsListener == null) {
                                     startListeningSteps(dataSource,
                                             DataType.TYPE_STEP_COUNT_DELTA);
                                 }
@@ -252,11 +252,9 @@ public class MainActivity extends Activity {
                     public void onResult(DataReadResult result) {
                         for (DataSet dataSet : result.getDataSets()) {
 
-                            if (dataSet.getDataType()
-                                    .equals(DataType.TYPE_CALORIES_EXPENDED)) {
+                            if (dataSet.getDataType().equals(DataType.TYPE_CALORIES_EXPENDED)) {
                                 dumpCalories(dataSet);
-                            } else if (dataSet.getDataType()
-                                    .equals(DataType.TYPE_STEP_COUNT_DELTA)) {
+                            } else if (dataSet.getDataType().equals(DataType.TYPE_STEP_COUNT_DELTA)) {
                                 dumpSteps(dataSet);
                             }
                         }
