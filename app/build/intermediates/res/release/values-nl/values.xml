@@ -16,12 +16,14 @@
     <string msgid="4983316348021735578" name="common_google_play_services_invalid_account_text">"Het gespecificeerde account bestaat niet op dit apparaat. Kies een ander account."</string>
     <string msgid="1066672360770936753" name="common_google_play_services_invalid_account_title">"Ongeldig account"</string>
     <string msgid="2583358409598976717" name="common_google_play_services_needs_enabling_title">"Google Play-services moet zijn ingeschakeld voor een app."</string>
-    <string msgid="9038847255613537209" name="common_google_play_services_network_error_text">"Er is een gegevensverbinding nodig om verbinding te kunnen maken met Google Play-services."</string>
+    <string msgid="9038847255613537209" name="common_google_play_services_network_error_text">"Er is
+        een gegevensverbinding nodig om verbinding te kunnen maken met Google Play-service."</string>
     <string msgid="3827284619958211114" name="common_google_play_services_network_error_title">"Netwerkfout"</string>
     <string msgid="8120534356798772974" name="common_google_play_services_notification_needs_installation_title">"Google Play-services moet zijn geïnstalleerd voor een app."</string>
     <string msgid="1388129345631079938" name="common_google_play_services_notification_needs_update_title">"Google Play-services moet worden geüpdatet voor een app."</string>
     <string msgid="1852570676146674985" name="common_google_play_services_notification_ticker">"Fout met Google Play-services"</string>
-    <string msgid="4762332809710093730" name="common_google_play_services_unknown_issue">"Onbekend probleem met Google Play-services."</string>
+    <string msgid="4762332809710093730" name="common_google_play_services_unknown_issue">"Onbekend
+        probleem met Google Play-service."</string>
     <string msgid="3542578567569488671" name="common_google_play_services_unsupported_text">"Google Play-services, dat vereist is voor een aantal van uw applicaties, wordt niet ondersteund door uw apparaat. Neem contact op met de fabrikant voor ondersteuning."</string>
     <string msgid="6334768798839376943" name="common_google_play_services_unsupported_title">"Google Play-services"</string>
     <string msgid="8932944190611227642" name="common_google_play_services_update_button">"Updaten"</string>
