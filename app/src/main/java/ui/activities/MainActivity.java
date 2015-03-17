@@ -12,6 +12,8 @@ import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.PowerManager;
+import android.os.PowerManager.WakeLock;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.NotificationCompat;
@@ -94,6 +96,8 @@ public class MainActivity extends Activity {
     @InjectView(R.id.caloriesNotSetLabel)
     TextView mCalNotSetLabel;
 
+    private WakeLock mWakeLock;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,7 +115,9 @@ public class MainActivity extends Activity {
 
     private void buildFitnessClient() {
         mClient = new GoogleApiClient.Builder(this)
-                .addApi(Fitness.API).addScope(Fitness.SCOPE_ACTIVITY_READ_WRITE).addScope(Fitness.SCOPE_LOCATION_READ)
+                .addApi(Fitness.API)
+                .addScope(Fitness.SCOPE_ACTIVITY_READ_WRITE)
+                .addScope(Fitness.SCOPE_LOCATION_READ)
                 .addApi(Plus.API).addScope(Plus.SCOPE_PLUS_LOGIN)
                 .addApi(Games.API).addScope(Games.SCOPE_GAMES)
                 .addConnectionCallbacks(
@@ -135,7 +141,8 @@ public class MainActivity extends Activity {
                             @Override
                             public void onConnectionFailed(ConnectionResult result) {
                                 if (!result.hasResolution()) {
-                                    GooglePlayServicesUtil.getErrorDialog(result.getErrorCode(), MainActivity.this, 0).show();
+                                    GooglePlayServicesUtil.getErrorDialog(result.getErrorCode(),
+                                            MainActivity.this, 0).show();
                                     return;
                                 }
                                 if (!authInProgress) {
@@ -163,9 +170,8 @@ public class MainActivity extends Activity {
             mStepsContainer.setVisibility(View.GONE);
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
+    @Override protected void onDestroy() {
+        super.onDestroy();
 
         unregisterStepsListener();
 
@@ -175,6 +181,11 @@ public class MainActivity extends Activity {
     }
 
     private void registerStepsListener() {
+        PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
+        mWakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
+                "MyWakelockTag");
+        mWakeLock.acquire();
+
         mStepsListener = new OnDataPointListener() {
             @Override
             public void onDataPoint(DataPoint dataPoint) {
@@ -196,6 +207,10 @@ public class MainActivity extends Activity {
     }
 
     private void unregisterStepsListener() {
+        if (mWakeLock != null && mWakeLock.isHeld()) {
+            mWakeLock.release();
+        }
+
         if (mClient != null && mStepsListener != null && mClient.isConnected()) {
             Fitness.SensorsApi.remove(mClient, mStepsListener);
         }
