@@ -2,7 +2,7 @@
     style="@style/InputBackground"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="bellamica.tech.dreamteenfitness.ui.activities.SummaryActivity">
+    tools:context="bellamica.tech.dreamteenfitness.ui.SummaryActivity">
 
 
     <LinearLayout
