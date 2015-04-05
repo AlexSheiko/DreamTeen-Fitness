@@ -89,7 +89,7 @@ ADDED from AndroidManifest.xml:33:9
 		ADDED from AndroidManifest.xml:34:13
 	android:value
 		ADDED from AndroidManifest.xml:35:13
-activity#ui.activities.MainActivity
+activity#ui.MainActivity
 ADDED from AndroidManifest.xml:37:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:40:13
@@ -97,7 +97,7 @@ ADDED from AndroidManifest.xml:37:9
 		ADDED from AndroidManifest.xml:39:13
 	android:name
 		ADDED from AndroidManifest.xml:38:13
-activity#ui.activities.RunActivity
+activity#ui.RunActivity
 ADDED from AndroidManifest.xml:42:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:46:13
@@ -113,7 +113,7 @@ ADDED from AndroidManifest.xml:47:13
 		ADDED from AndroidManifest.xml:48:17
 	android:value
 		ADDED from AndroidManifest.xml:49:17
-activity#ui.activities.AerobicActivity
+activity#ui.AerobicActivity
 ADDED from AndroidManifest.xml:51:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:55:13
@@ -125,7 +125,7 @@ ADDED from AndroidManifest.xml:51:9
 		ADDED from AndroidManifest.xml:54:13
 	android:name
 		ADDED from AndroidManifest.xml:52:13
-activity#ui.activities.SummaryActivity
+activity#ui.SummaryActivity
 ADDED from AndroidManifest.xml:61:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:65:13
@@ -135,7 +135,7 @@ ADDED from AndroidManifest.xml:61:9
 		ADDED from AndroidManifest.xml:64:13
 	android:name
 		ADDED from AndroidManifest.xml:62:13
-activity#ui.activities.FriendsActivity
+activity#ui.FriendsActivity
 ADDED from AndroidManifest.xml:70:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:74:13
@@ -145,7 +145,7 @@ ADDED from AndroidManifest.xml:70:9
 		ADDED from AndroidManifest.xml:73:13
 	android:name
 		ADDED from AndroidManifest.xml:71:13
-activity#ui.activities.SettingsActivity
+activity#ui.SettingsActivity
 ADDED from AndroidManifest.xml:79:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:83:13
@@ -167,7 +167,7 @@ ADDED from AndroidManifest.xml:89:9
 		ADDED from AndroidManifest.xml:93:13
 	android:name
 		ADDED from AndroidManifest.xml:90:13
-activity#ui.activities.SplashActivity
+activity#ui.SplashActivity
 ADDED from AndroidManifest.xml:95:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:98:13
@@ -187,7 +187,7 @@ category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:103:17
 	android:name
 		ADDED from AndroidManifest.xml:103:27
-activity#ui.activities.WorkoutActivity
+activity#ui.WorkoutActivity
 ADDED from AndroidManifest.xml:106:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:111:13
@@ -199,7 +199,7 @@ ADDED from AndroidManifest.xml:106:9
 		ADDED from AndroidManifest.xml:110:13
 	android:name
 		ADDED from AndroidManifest.xml:107:13
-activity#ui.activities.GoalsActivity
+activity#ui.GoalsActivity
 ADDED from AndroidManifest.xml:116:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:120:13
@@ -209,6 +209,16 @@ ADDED from AndroidManifest.xml:116:9
 		ADDED from AndroidManifest.xml:119:13
 	android:name
 		ADDED from AndroidManifest.xml:117:13
+activity#ui.UserListActivity
+ADDED from AndroidManifest.xml:125:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:129:13
+	android:label
+		ADDED from AndroidManifest.xml:127:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:128:13
+	android:name
+		ADDED from AndroidManifest.xml:126:13
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.android.support:support-v4:22.0.0:20:5

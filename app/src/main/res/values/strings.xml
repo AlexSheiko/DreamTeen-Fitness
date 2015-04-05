@@ -85,5 +85,7 @@
     <string name="add_button_label">Add</string>
     <string name="run_duration_label">Run duration</string>
     <string name="calories_label">Calories burned</string>
+    <string name="action_search">Search friends</string>
+    <string name="title_activity_user_list">Find friends</string>
 
 </resources>

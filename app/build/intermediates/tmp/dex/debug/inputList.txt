@@ -1,9 +1,0 @@
-D:\DreamTeen-Fitness\app\build\intermediates\classes\debug
-D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-22080f363661580b3def978d4499c8f6b02232ed.jar
-D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\bolts-android-1.1.2-99665d04ee78dc7c0f65cf6cc9ed00e9c339105d.jar
-D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\butterknife-6.0.0-b13eeaab2d9e5b3db09537865002d135c0c09018.jar
-D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\simple.facebook-2.2-d778d99b971d8d3a5f98ea214db5cd1464e05c1a.jar
-D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-298f6bfd25afa2838ed336c4f54a9506d814c996.jar
-D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\classes-d9932ba7a3a66e977f24b37d6745a54e244f0089.jar
-D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\classes-0d12d96f33b8dc236b88674a02bad44d15d9ad22.jar
-D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\classes-2baa6ad3d7ec2a22b00e61193b3222e8091eb281.jar

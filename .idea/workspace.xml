@@ -1,198 +1,198 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="775f7c4c-4e0d-4eb0-9b0b-901544576ed5" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\.idea\dictionaries\.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\.idea\encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\.idea\inspectionProfiles\Project_Default.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\.idea\inspectionProfiles\profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\.idea\libraries\support_annotations_21_0_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\.idea\libraries\support_v4_21_0_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\.idea\scopes\scope_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\AerobicActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\FriendsActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\FriendsActivity$2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\FriendsActivity$3.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\FriendsActivity$4.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\FriendsActivity$5.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\FriendsActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\GoalsActivity$$ViewInjector.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\GoalsActivity$$ViewInjector.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\GoalsActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\GoalsActivity$2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\GoalsActivity$3.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\GoalsActivity$4.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\GoalsActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\MainActivity$$ViewInjector.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\MainActivity$$ViewInjector.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\MainActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\MainActivity$2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\MainActivity$3.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\MainActivity$4.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\MainActivity$5.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\MainActivity$6.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\MainActivity$DrawerItemClickListener.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\MainActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\RunActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\RunActivity$2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\RunActivity$3.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\RunActivity$4.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\RunActivity$5.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\RunActivity$6.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\RunActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\SettingsActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\SplashActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\SplashActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\SummaryActivity$$ViewInjector.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\SummaryActivity$$ViewInjector.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\SummaryActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\SummaryActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\WorkoutActivity$$ViewInjector.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\WorkoutActivity$$ViewInjector.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\WorkoutActivity$1$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\WorkoutActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\WorkoutActivity$2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\WorkoutActivity$3.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\WorkoutActivity$4.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\WorkoutActivity$5.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\activities\WorkoutActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\fragments\GoalSetDialog$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\fragments\GoalSetDialog$OnGoalChanged.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\fragments\GoalSetDialog.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\fragments\MapPane$1$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\fragments\MapPane$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\fragments\MapPane$2.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\fragments\MapPane$WorkoutStateListener.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\fragments\MapPane.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\utils\adapters\NavigationAdapter.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\utils\adapters\StatsListAdapter$1.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\utils\adapters\StatsListAdapter$ViewHolder.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\utils\adapters\StatsListAdapter.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\utils\helpers\Constants$Timer.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\release\ui\utils\helpers\Constants.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\classes-3b3066a9b90fbcf50803f55664cbd363ff413d3c.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-60e595f84a74d9d669b1fb9a27c84c27cf2a569f.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-d468e72c8ea79625b7615186601440b8d5bb481e.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\bolts-android-1.1.2-99665d04ee78dc7c0f65cf6cc9ed00e9c339105d.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\butterknife-6.0.0-b13eeaab2d9e5b3db09537865002d135c0c09018.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\classes-3b3066a9b90fbcf50803f55664cbd363ff413d3c.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\internal_impl-21.0.3-60e595f84a74d9d669b1fb9a27c84c27cf2a569f.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\support-annotations-21.0.3-d468e72c8ea79625b7615186601440b8d5bb481e.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\java\ui\activities\AerobicActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\java\ui\activities\FriendsActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\java\ui\activities\GoalsActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\java\ui\activities\MainActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\java\ui\activities\RunActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\java\ui\activities\SettingsActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\java\ui\activities\SplashActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\java\ui\activities\SummaryActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\java\ui\activities\WorkoutActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\java\ui\fragments\GoalSetDialog.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\java\ui\fragments\MapPane.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\java\ui\utils\adapters\NavigationAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\java\ui\utils\adapters\StatsListAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\src\main\java\ui\utils\helpers\Constants.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/bellamica/tech/dreamteenfitness/BuildConfig.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/bellamica/tech/dreamteenfitness/BuildConfig.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/Parse-1.9.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/bolts-android-1.1.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Parse_1_9_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/ui/UserListActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_user_list.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_friends.xml" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\bellamica\tech\dreamteenfitness\BuildConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\bellamica\tech\dreamteenfitness\R$array.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\bellamica\tech\dreamteenfitness\R$attr.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\bellamica\tech\dreamteenfitness\R$color.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\bellamica\tech\dreamteenfitness\R$dimen.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\bellamica\tech\dreamteenfitness\R$drawable.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\bellamica\tech\dreamteenfitness\R$id.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\bellamica\tech\dreamteenfitness\R$integer.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\bellamica\tech\dreamteenfitness\R$layout.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\bellamica\tech\dreamteenfitness\R$menu.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\bellamica\tech\dreamteenfitness\R$raw.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\bellamica\tech\dreamteenfitness\R$string.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\bellamica\tech\dreamteenfitness\R$style.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\bellamica\tech\dreamteenfitness\R$styleable.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\bellamica\tech\dreamteenfitness\R$xml.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\bellamica\tech\dreamteenfitness\R.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\com\facebook\android\R$attr.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\com\facebook\android\R$color.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\com\facebook\android\R$dimen.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\com\facebook\android\R$drawable.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\com\facebook\android\R$id.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\com\facebook\android\R$layout.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\com\facebook\android\R$string.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\com\facebook\android\R$style.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\com\facebook\android\R$styleable.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\com\facebook\android\R.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\com\google\android\gms\R$attr.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\com\google\android\gms\R$color.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\com\google\android\gms\R$drawable.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\com\google\android\gms\R$id.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\com\google\android\gms\R$integer.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\com\google\android\gms\R$raw.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\com\google\android\gms\R$string.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\com\google\android\gms\R$style.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\com\google\android\gms\R$styleable.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\com\google\android\gms\R.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\model\Exercise.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\AerobicActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\FriendsActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\FriendsActivity$2.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\FriendsActivity$3.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\FriendsActivity$4.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\FriendsActivity$5.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\FriendsActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\GoalsActivity$$ViewInjector.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\GoalsActivity$$ViewInjector.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\GoalsActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\GoalsActivity$2.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\GoalsActivity$3.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\GoalsActivity$4.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\GoalsActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\MainActivity$$ViewInjector.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\MainActivity$$ViewInjector.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\MainActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\MainActivity$2.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\MainActivity$3.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\MainActivity$4.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\MainActivity$5.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\MainActivity$6.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\MainActivity$DrawerItemClickListener.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\MainActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\RunActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\RunActivity$2.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\RunActivity$3.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\RunActivity$4.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\RunActivity$5.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\RunActivity$6.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\RunActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\SettingsActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\SplashActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\SplashActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\SummaryActivity$$ViewInjector.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\SummaryActivity$$ViewInjector.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\SummaryActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\SummaryActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\WorkoutActivity$$ViewInjector.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\WorkoutActivity$$ViewInjector.java" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\WorkoutActivity$1$1.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\WorkoutActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\WorkoutActivity$2.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\WorkoutActivity$3.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\WorkoutActivity$4.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\WorkoutActivity$5.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\activities\WorkoutActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\fragments\GoalSetDialog$1.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\fragments\GoalSetDialog$OnGoalChanged.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\fragments\GoalSetDialog.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\fragments\MapPane$1$1.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\fragments\MapPane$1.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\fragments\MapPane$2.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\fragments\MapPane$WorkoutStateListener.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\fragments\MapPane.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\utils\SquareImageView.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\utils\adapters\NavigationAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\utils\adapters\StatsListAdapter$1.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\utils\adapters\StatsListAdapter$ViewHolder.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\utils\adapters\StatsListAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\utils\helpers\Constants$Timer.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\classes\debug\ui\utils\helpers\Constants.class" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\dex\debug\classes.dex" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\AndroidManifest.xml" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\aidl\android\support\v4\app\INotificationSideChannel.aidl" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\bolts-android-1.1.2-99665d04ee78dc7c0f65cf6cc9ed00e9c339105d.jar" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\butterknife-6.0.0-b13eeaab2d9e5b3db09537865002d135c0c09018.jar" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\classes-2baa6ad3d7ec2a22b00e61193b3222e8091eb281.jar" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\classes-d9932ba7a3a66e977f24b37d6745a54e244f0089.jar" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\debug\simple.facebook-2.2-d778d99b971d8d3a5f98ea214db5cd1464e05c1a.jar" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\intermediates\tmp\dex\debug\inputList.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\outputs\apk\app-debug-unaligned.apk" afterPath="" />
+      <change type="DELETED" beforePath="D:\DreamTeen-Fitness\app\build\outputs\apk\app-debug.apk" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/BuildConfig.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/BuildConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/MainActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/MainActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/MainActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/MainActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/MainActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/MainActivity$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/MainActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/MainActivity$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/MainActivity$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/MainActivity$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/MainActivity$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/MainActivity$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/MainActivity$DrawerItemClickListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/MainActivity$DrawerItemClickListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/MainActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/MainActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/RunActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/RunActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/RunActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/RunActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/RunActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/RunActivity$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/RunActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/RunActivity$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/RunActivity$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/RunActivity$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/RunActivity$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/RunActivity$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/RunActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/ui/activities/RunActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/facebook/android/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/facebook/android/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/google/android/gms/R$drawable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/google/android/gms/R$drawable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/R$id.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/R$id.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/R$integer.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/R$integer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/facebook/android/R$layout.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/facebook/android/R$layout.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/R$menu.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/R$menu.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/R$raw.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/R$raw.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/facebook/android/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/facebook/android/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/google/android/gms/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/com/google/android/gms/R$string.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/R$style.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/R$style.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/R$styleable.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/R$xml.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/R$xml.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/R.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/bellamica/tech/dreamteenfitness/R.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/release/ui/utils/SquareImageView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/release/ui/utils/SquareImageView.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-release-unaligned.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-release-unaligned.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/release/classes-2baa6ad3d7ec2a22b00e61193b3222e8091eb281.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/release/classes-2baa6ad3d7ec2a22b00e61193b3222e8091eb281.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/release/classes-d9932ba7a3a66e977f24b37d6745a54e244f0089.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/release/classes-d9932ba7a3a66e977f24b37d6745a54e244f0089.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/dex/release/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/release/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/drawable-xhdpi-v4/ic_category_ab.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/drawable-xhdpi-v4/ic_category_ab.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/release/drawable-xhdpi-v4/ic_category_ab.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/release/drawable-xhdpi-v4/ic_category_ab.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_category_ab.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_category_ab.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/drawable-xhdpi-v4/ic_category_arm.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/drawable-xhdpi-v4/ic_category_arm.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/release/drawable-xhdpi-v4/ic_category_arm.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/release/drawable-xhdpi-v4/ic_category_arm.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_category_arm.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_category_arm.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/drawable-xhdpi-v4/ic_category_glutes.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/drawable-xhdpi-v4/ic_category_glutes.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/release/drawable-xhdpi-v4/ic_category_glutes.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/release/drawable-xhdpi-v4/ic_category_glutes.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_category_glutes.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_category_glutes.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/drawable-xhdpi-v4/ic_category_leg.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/drawable-xhdpi-v4/ic_category_leg.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/release/drawable-xhdpi-v4/ic_category_leg.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/release/drawable-xhdpi-v4/ic_category_leg.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_category_leg.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_category_leg.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/drawable-xhdpi-v4/ic_nav_friends.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/drawable-xhdpi-v4/ic_nav_friends.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/release/drawable-xhdpi-v4/ic_nav_friends.png" afterPath="$PROJECT_DIR$/app/build/intermediates/res/release/drawable-xhdpi-v4/ic_nav_friends.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_nav_friends.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_nav_friends.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/model_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/model_data.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug-test.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug-test.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-release.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-release.ap_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/release/simple.facebook-2.2-d778d99b971d8d3a5f98ea214db5cd1464e05c1a.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/pre-dexed/release/simple.facebook-2.2-d778d99b971d8d3a5f98ea214db5cd1464e05c1a.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/release/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/release/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/test/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/test/debug/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/bellamica/tech/dreamteenfitness/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/bellamica/tech/dreamteenfitness/BuildConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/release/bellamica/tech/dreamteenfitness/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/release/bellamica/tech/dreamteenfitness/BuildConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/test/debug/bellamica/tech/dreamteenfitness/test/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/test/debug/bellamica/tech/dreamteenfitness/test/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DreamTeen-Fitness.iml" afterPath="$PROJECT_DIR$/DreamTeen-Fitness.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ui/utils/SquareImageView.java" afterPath="$PROJECT_DIR$/app/src/main/java/ui/utils/SquareImageView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/activity_aerobic.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/activity_aerobic.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_aerobic.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_aerobic.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/activity_friends.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/activity_friends.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_friends.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_friends.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/activity_goals.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/activity_goals.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_goals.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_goals.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/activity_run.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/activity_run.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_run.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_run.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/activity_summary.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/activity_summary.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_summary.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_summary.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/activity_workout.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/release/layout/activity_workout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_workout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_workout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/bellamica/tech/dreamteenfitness/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/bellamica/tech/dreamteenfitness/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/facebook/android/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/facebook/android/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/google/android/gms/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/google/android/gms/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/release/bellamica/tech/dreamteenfitness/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/release/bellamica/tech/dreamteenfitness/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/release/com/facebook/android/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/release/com/facebook/android/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/release/com/google/android/gms/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/release/com/google/android/gms/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/release/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/release/R.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_aerobic.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_aerobic.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_friends.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_friends.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_goals.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_goals.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_run.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_run.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_summary.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_summary.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_workout.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/layout/activity_workout.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/bolts_android_1_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/bolts_android_1_1_2.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/butterknife_6_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/butterknife_6_0_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/facebook_android_sdk_3_21_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/facebook_android_sdk_3_21_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/tmp/dex/debug/inputList.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/tmp/dex/debug/inputList.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/tmp/dex/release/inputList.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/tmp/dex/release/inputList.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/lint-results-release-fatal.html" afterPath="$PROJECT_DIR$/app/build/outputs/lint-results-release-fatal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/lint-results-release-fatal.xml" afterPath="$PROJECT_DIR$/app/build/outputs/lint-results-release-fatal.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/apk/manifest-merger-debug-report.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/release/menu/menu_summary.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/release/menu/menu_summary.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_summary.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_summary.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/menu/menu_summary.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/menu/menu_summary.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeAssets/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeAssets/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeAssets/release/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeAssets/release/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/release/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/release/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_6_5_87.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_6_5_87.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/simple_facebook_2_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/simple_facebook_2_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_22_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_22_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_22_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_22_0_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-en-rGB/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-en-rGB/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-en-rIN/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-en-rIN/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-nl/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-nl/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/release/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/release/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/release/values-en-rGB/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/release/values-en-rGB/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/release/values-en-rIN/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/release/values-en-rIN/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/release/values-nl/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/release/values-nl/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DreamTeen-Fitness.iws" />
@@ -213,7 +213,91 @@
     <favorites_list name="DreamTeen-Fitness" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="menu_friends.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_friends.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="40" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FriendsActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/FriendsActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="59" column="65" selection-start-line="59" selection-start-column="65" selection-end-line="59" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="8" column="67" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserListActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/UserListActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3770795">
+              <caret line="179" column="28" selection-start-line="179" selection-start-column="28" selection-end-line="179" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoalsActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/GoalsActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="99" column="31" selection-start-line="99" selection-start-column="24" selection-end-line="99" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_user_list.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_user_list.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="resourceFile" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="GenerateSignedApkSettings">
     <option name="KEY_STORE_PATH" value="C:\DreamFit.jks" />
@@ -659,7 +743,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4280415863458" />
+        <entry key="$PROJECT_DIR$" value="4281193208896" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -820,6 +904,7 @@
                             <option value="D:/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.2/91c20388c9a45f62b5ed8fe0502bb76ff6251fc7/bolts-android-1.1.2.jar" />
                             <option value="$MODULE_DIR$/libs/simple.facebook-2.2.jar" />
+                            <option value="$MODULE_DIR$/libs/Parse-1.9.0.jar" />
                           </list>
                         </option>
                         <option name="path" value="$PROJECT_DIR$/app" />
@@ -902,6 +987,14 @@
       <list>
         <option value="$PROJECT_DIR$/app/src/main/java/ui/utils/Constants.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ui/utils/SquareImageView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_friends.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ui/FriendsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ui/UserListActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_user_list.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ui/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
   </component>
@@ -921,11 +1014,11 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="AndroidView" proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -937,14 +1030,16 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="DreamTeen-Fitness" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -955,6 +1050,46 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamTeen-Fitness" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="menu" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamTeen-Fitness" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -993,20 +1128,108 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamTeen-Fitness" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manifests" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamTeen-Fitness" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamTeen-Fitness" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamTeen-Fitness" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamTeen-Fitness" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamTeen-Fitness" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamTeen-Fitness" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamTeen-Fitness" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DreamTeen-Fitness" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="D:/OurCroydon" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="ExportApk.ApkPath" value="C:\Users\Алексей\Desktop" />
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="release" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="192.168.146.101:5555" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_21_x86" />
+    <property name="FullScreen" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\DreamTeen-Fitness\app\libs" />
+      <recent name="D:\DreamTeen-Fitness\app\src\main\res\layout" />
+    </key>
+    <key name="android.template.parentActivityClass">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunManager" selected="Android Application.app">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -1015,6 +1238,31 @@
       <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SELECTED_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_PROJECT_ID" value="" />
+      <option name="IS_VALID_CLOUD_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_SELECTION_ERROR" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
@@ -1048,6 +1296,22 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -1067,6 +1331,12 @@
       </option>
       <envs />
       <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="JAR_PATH" value="$PROJECT_DIR$/app/libs/bolts-android-1.1.4.jar" />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -1160,35 +1430,73 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31345826" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.030664396" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5315162" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.8637138" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -1198,11 +1506,63 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_friends.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="40" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/FriendsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="65" selection-start-line="59" selection-start-column="65" selection-end-line="59" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="67" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/UserListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="183" column="0" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_user_list.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/model/Exercise.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15205725">
           <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1210,7 +1570,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5474061">
           <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1218,6 +1577,82 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.060822897">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71348315">
+          <caret line="87" column="39" selection-start-line="87" selection-start-column="39" selection-end-line="87" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_friends.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="40" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/FriendsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="65" selection-start-line="59" selection-start-column="65" selection-end-line="59" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/UserListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_user_list.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="67" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/GoalsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="99" column="31" selection-start-line="99" selection-start-column="24" selection-end-line="99" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4990758">
+          <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ui/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3770795">
+          <caret line="179" column="28" selection-start-line="179" selection-start-column="28" selection-end-line="179" selection-end-column="28" />
           <folding />
         </state>
       </provider>

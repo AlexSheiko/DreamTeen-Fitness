@@ -5,5 +5,6 @@ D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\butterknife-6.0.0
 D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\simple.facebook-2.2-d778d99b971d8d3a5f98ea214db5cd1464e05c1a.jar
 D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\internal_impl-22.0.0-298f6bfd25afa2838ed336c4f54a9506d814c996.jar
 D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\classes-d9932ba7a3a66e977f24b37d6745a54e244f0089.jar
+D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\Parse-1.9.0-7612f21cdf4116ecf4350f14a90d2f10be34ab2b.jar
 D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\classes-0d12d96f33b8dc236b88674a02bad44d15d9ad22.jar
 D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\classes-2baa6ad3d7ec2a22b00e61193b3222e8091eb281.jar

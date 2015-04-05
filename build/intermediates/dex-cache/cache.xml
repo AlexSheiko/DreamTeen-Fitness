@@ -57,5 +57,19 @@
         sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
         <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\support-annotations-22.0.0-80f931b3b46d1910cf722fa387aa37f2729c9eeb.jar" />
     </item>
+    <item
+        jar="D:\DreamTeen-Fitness\app\libs\bolts-android-1.1.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="129874135e6081269ace2312092031558865de12">
+        <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\bolts-android-1.1.4-288380cf9469f375442b7c5ff60f196667f24e78.jar" />
+    </item>
+    <item
+        jar="D:\DreamTeen-Fitness\app\libs\Parse-1.9.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5811138d4e6cb9d45030e133ef1a61b935154c3a">
+        <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\Parse-1.9.0-7612f21cdf4116ecf4350f14a90d2f10be34ab2b.jar" />
+    </item>
 
 </items>

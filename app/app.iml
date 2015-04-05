@@ -91,6 +91,7 @@
     <orderEntry type="library" exported="" name="facebook-android-sdk-3.21.1" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-22.0.0" level="project" />
     <orderEntry type="library" exported="" name="butterknife-6.0.0" level="project" />
+    <orderEntry type="library" exported="" name="Parse-1.9.0" level="project" />
     <orderEntry type="library" exported="" name="simple.facebook-2.2" level="project" />
     <orderEntry type="library" exported="" name="bolts-android-1.1.2" level="project" />
   </component>

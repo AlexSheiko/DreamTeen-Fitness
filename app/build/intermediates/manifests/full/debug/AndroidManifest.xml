@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="bellamica.tech.dreamteenfitness"
-    android:versionCode="6"
-    android:versionName="1.5" >
+    android:versionCode="7"
+    android:versionName="1.6" >
 
     <uses-sdk
         android:minSdkVersion="15"
@@ -41,56 +41,56 @@
             android:value="@string/facebook_app_id" />
 
         <activity
-            android:name="ui.activities.MainActivity"
+            android:name="ui.MainActivity"
             android:label="@string/track_exercise"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="ui.activities.RunActivity"
+            android:name="ui.RunActivity"
             android:label="@string/run_activity_title"
-            android:parentActivityName="ui.activities.MainActivity"
+            android:parentActivityName="ui.MainActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ui.activities.MainActivity" />
+                android:value="ui.MainActivity" />
         </activity>
         <activity
-            android:name="ui.activities.AerobicActivity"
+            android:name="ui.AerobicActivity"
             android:label="@string/aerobic_activity_title"
-            android:parentActivityName="ui.activities.MainActivity"
+            android:parentActivityName="ui.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AerobicTheme" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ui.activities.MainActivity" />
+                android:value="ui.MainActivity" />
         </activity>
         <activity
-            android:name="ui.activities.SummaryActivity"
+            android:name="ui.SummaryActivity"
             android:label="@string/title_activity_summary"
-            android:parentActivityName="ui.activities.RunActivity"
+            android:parentActivityName="ui.RunActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ui.activities.RunActivity" />
+                android:value="ui.RunActivity" />
         </activity>
         <activity
-            android:name="ui.activities.FriendsActivity"
+            android:name="ui.FriendsActivity"
             android:label="@string/title_activity_friends"
-            android:parentActivityName="ui.activities.MainActivity"
+            android:parentActivityName="ui.MainActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ui.activities.MainActivity" />
+                android:value="ui.MainActivity" />
         </activity>
         <activity
-            android:name="ui.activities.SettingsActivity"
+            android:name="ui.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName="ui.activities.MainActivity"
+            android:parentActivityName="ui.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SettingsTheme" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ui.activities.MainActivity" />
+                android:value="ui.MainActivity" />
         </activity>
         <activity
             android:name="com.facebook.LoginActivity"
@@ -99,7 +99,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         </activity>
         <activity
-            android:name="ui.activities.SplashActivity"
+            android:name="ui.SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
@@ -110,23 +110,32 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ui.activities.WorkoutActivity"
+            android:name="ui.WorkoutActivity"
             android:hardwareAccelerated="true"
             android:label="@string/title_activity_workout"
-            android:parentActivityName="ui.activities.AerobicActivity"
+            android:parentActivityName="ui.AerobicActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ui.activities.AerobicActivity" />
+                android:value="ui.AerobicActivity" />
         </activity>
         <activity
-            android:name="ui.activities.GoalsActivity"
+            android:name="ui.GoalsActivity"
             android:label="@string/title_activity_goals"
-            android:parentActivityName="ui.activities.MainActivity"
+            android:parentActivityName="ui.MainActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ui.activities.MainActivity" />
+                android:value="ui.MainActivity" />
+        </activity>
+        <activity
+            android:name="ui.UserListActivity"
+            android:label="@string/title_activity_user_list"
+            android:parentActivityName="ui.FriendsActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ui.FriendsActivity" />
         </activity>
     </application>
 
