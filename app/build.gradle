@@ -31,4 +31,5 @@ dependencies {
     compile 'com.facebook.android:facebook-android-sdk:3.21.1'
     compile files('libs/simple.facebook-2.2.jar')
     compile files('libs/Parse-1.9.0.jar')
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }

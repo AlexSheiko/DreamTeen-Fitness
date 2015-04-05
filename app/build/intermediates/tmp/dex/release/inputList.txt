@@ -2,6 +2,7 @@ D:\DreamTeen-Fitness\app\build\intermediates\classes\release
 D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\support-annotations-22.0.0-80f931b3b46d1910cf722fa387aa37f2729c9eeb.jar
 D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\bolts-android-1.1.2-93cf667b0b3c239d0b5c5f6f98c41de16ee7bf44.jar
 D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\butterknife-6.0.0-ab378cb7433163f2b1433c7af7372ca89a9f8c46.jar
+D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\picasso-2.5.2-3c5a115d3186f7ca467dd37bdfd041ada5c522d5.jar
 D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\simple.facebook-2.2-d778d99b971d8d3a5f98ea214db5cd1464e05c1a.jar
 D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\internal_impl-22.0.0-298f6bfd25afa2838ed336c4f54a9506d814c996.jar
 D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\classes-d9932ba7a3a66e977f24b37d6745a54e244f0089.jar

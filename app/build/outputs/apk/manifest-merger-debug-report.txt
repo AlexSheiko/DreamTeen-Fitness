@@ -29,7 +29,7 @@ uses-permission#android.permission.READ_CONTACTS
 ADDED from AndroidManifest.xml:8:5
 	android:name
 		ADDED from AndroidManifest.xml:8:22
-uses-permission#android.permission.ACCOUNT_MANAGER
+uses-permission#android.permission.GET_ACCOUNTS
 ADDED from AndroidManifest.xml:9:5
 	android:name
 		ADDED from AndroidManifest.xml:9:22

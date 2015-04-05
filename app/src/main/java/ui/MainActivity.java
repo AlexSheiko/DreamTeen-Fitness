@@ -119,6 +119,8 @@ public class MainActivity extends Activity {
 
         addSideNavigation();
         mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        login();
     }
 
     private void buildFitnessClient() {
@@ -172,22 +174,41 @@ public class MainActivity extends Activity {
         if (Plus.PeopleApi.getCurrentPerson(mClient) == null) return;
 
         Person currentPerson = Plus.PeopleApi.getCurrentPerson(mClient);
+        String email = Plus.AccountApi.getAccountName(mClient);
         final String personName = currentPerson.getDisplayName();
         final String avatarUrl = currentPerson.getImage().getUrl();
 
-        ParseUser.logInInBackground(personName, "123", new LogInCallback() {
+        mSharedPrefs.edit()
+                .putString("email", email)
+                .putString("personName", personName)
+                .putString("avatarUrl", avatarUrl)
+                .apply();
+
+        login();
+    }
+
+    private void login() {
+        String username = mSharedPrefs.getString("email", "");
+
+        ParseUser.logInInBackground(username, "123", new LogInCallback() {
             public void done(ParseUser user, ParseException e) {
                 if (user == null) {
-                    signUp(personName, avatarUrl);
+                    signUp();
                 }
             }
         });
     }
 
-    private void signUp(String personName, String avatarUrl) {
+    private void signUp() {
+        String email = mSharedPrefs.getString("email", "");
+        String personName = mSharedPrefs.getString("personName", "");
+        String avatarUrl = mSharedPrefs.getString("avatarUrl", "");
+
         ParseUser user = new ParseUser();
-        user.setUsername(personName);
+        user.setUsername(email);
         user.setPassword("123");
+
+        user.put("personName", personName);
         user.put("avatarUrl", avatarUrl);
 
         user.signUpInBackground(new SignUpCallback() {
