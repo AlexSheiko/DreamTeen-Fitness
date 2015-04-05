@@ -87,5 +87,6 @@
     <string name="calories_label">Calories burned</string>
     <string name="action_search">Search friends</string>
     <string name="title_activity_user_list">Find friends</string>
+    <string name="no_users">No other registered users yet.\nPlease wait for anybody to sign up.</string>
 
 </resources>

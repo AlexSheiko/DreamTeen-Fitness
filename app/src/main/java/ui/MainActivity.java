@@ -173,20 +173,22 @@ public class MainActivity extends Activity {
 
         Person currentPerson = Plus.PeopleApi.getCurrentPerson(mClient);
         final String personName = currentPerson.getDisplayName();
+        final String avatarUrl = currentPerson.getImage().getUrl();
 
         ParseUser.logInInBackground(personName, "123", new LogInCallback() {
             public void done(ParseUser user, ParseException e) {
                 if (user == null) {
-                    signUp(personName);
+                    signUp(personName, avatarUrl);
                 }
             }
         });
     }
 
-    private void signUp(String personName) {
+    private void signUp(String personName, String avatarUrl) {
         ParseUser user = new ParseUser();
         user.setUsername(personName);
         user.setPassword("123");
+        user.put("avatarUrl", avatarUrl);
 
         user.signUpInBackground(new SignUpCallback() {
             public void done(ParseException e) {

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?android:listPreferredItemHeight"
+    android:gravity="center_vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:id="@android:id/text1"
+    android:textSize="16sp"
+    android:textColor="#d6000000"
+    tools:text="Aleksey Sheyko"/><!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/layout/user_list_item.xml -->

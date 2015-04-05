@@ -2,13 +2,6 @@
 <items version="2" >
 
     <item
-        jar="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\3.21.1\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="0285ad8da812e92dda76ed5d0dcba05724c7911d">
-        <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\classes-d9932ba7a3a66e977f24b37d6745a54e244f0089.jar" />
-    </item>
-    <item
         jar="C:\Users\Алексей\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\6.0.0\3a10b25b6820e19102e118711afe6a66c0bae123\butterknife-6.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -21,20 +14,6 @@
         revision="21.1.2"
         sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
         <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\classes-2baa6ad3d7ec2a22b00e61193b3222e8091eb281.jar" />
-    </item>
-    <item
-        jar="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\libs\internal_impl-22.0.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\internal_impl-22.0.0-298f6bfd25afa2838ed336c4f54a9506d814c996.jar" />
-    </item>
-    <item
-        jar="C:\Users\Алексей\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.1.2\91c20388c9a45f62b5ed8fe0502bb76ff6251fc7\bolts-android-1.1.2.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="91c20388c9a45f62b5ed8fe0502bb76ff6251fc7">
-        <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\bolts-android-1.1.2-93cf667b0b3c239d0b5c5f6f98c41de16ee7bf44.jar" />
     </item>
     <item
         jar="D:\DreamTeen-Fitness\app\libs\simple.facebook-2.2.jar"
@@ -51,18 +30,32 @@
         <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\classes-0d12d96f33b8dc236b88674a02bad44d15d9ad22.jar" />
     </item>
     <item
+        jar="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\3.21.1\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="0285ad8da812e92dda76ed5d0dcba05724c7911d">
+        <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\classes-d9932ba7a3a66e977f24b37d6745a54e244f0089.jar" />
+    </item>
+    <item
+        jar="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\libs\internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
+        <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\internal_impl-22.0.0-298f6bfd25afa2838ed336c4f54a9506d814c996.jar" />
+    </item>
+    <item
+        jar="C:\Users\Алексей\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.1.2\91c20388c9a45f62b5ed8fe0502bb76ff6251fc7\bolts-android-1.1.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="91c20388c9a45f62b5ed8fe0502bb76ff6251fc7">
+        <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\bolts-android-1.1.2-93cf667b0b3c239d0b5c5f6f98c41de16ee7bf44.jar" />
+    </item>
+    <item
         jar="D:\sdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
         <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\support-annotations-22.0.0-80f931b3b46d1910cf722fa387aa37f2729c9eeb.jar" />
-    </item>
-    <item
-        jar="D:\DreamTeen-Fitness\app\libs\bolts-android-1.1.4.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="129874135e6081269ace2312092031558865de12">
-        <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\bolts-android-1.1.4-288380cf9469f375442b7c5ff60f196667f24e78.jar" />
     </item>
     <item
         jar="D:\DreamTeen-Fitness\app\libs\Parse-1.9.0.jar"

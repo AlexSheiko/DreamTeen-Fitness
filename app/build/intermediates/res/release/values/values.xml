@@ -504,6 +504,7 @@
     <string name="log_activity_label">Log workout</string>
     <string name="login_button_label">Connect to Google Fit</string>
     <string name="network_error">Network error</string>
+    <string name="no_users">No other registered users yet.\nPlease wait for anybody to sign up.</string>
     <string name="notes_field_hint">Additional notes</string>
     <string name="pause_label">Paused</string>
     <string name="pause_run_button_label">Pause</string>

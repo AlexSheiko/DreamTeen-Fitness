@@ -22,4 +22,4 @@
         android:textSize="18sp"
         style="@style/ScoreListItemLabel"/>
 
-</LinearLayout><!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/layout/list_item_scores.xml -->
+</LinearLayout><!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/layout/scores_list_item.xml -->
