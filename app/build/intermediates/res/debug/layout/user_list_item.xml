@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="?android:listPreferredItemHeight"
-    android:gravity="center_vertical"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:id="@android:id/text1"
-    android:textSize="16sp"
-    android:textColor="#d6000000"
-    tools:text="Aleksey Sheyko"/><!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/layout/user_list_item.xml -->
+    android:minHeight="?android:listPreferredItemHeightSmall"
+    android:orientation="horizontal"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:id="@android:id/text1"
+        android:gravity="center_vertical"
+        android:textSize="16sp"
+        android:textColor="#d9000000" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_vertical"
+        android:padding="4dp"
+        android:src="@drawable/ic_add"
+        android:background="@null"/>
+
+</LinearLayout>
+<!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/layout/user_list_item.xml -->

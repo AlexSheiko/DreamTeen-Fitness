@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:custom="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:gravity="center_horizontal"
+              android:orientation="vertical"
+              tools:context="ui.FriendsInviteFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center_horizontal"
+        android:text="@string/friends_title"
+        android:textColor="#34495e"
+        android:textSize="22sp" />
+
+    <Button
+        android:id="@+id/login_button"
+        android:drawableLeft="@drawable/ic_facebook"
+        android:background="#4477b2"
+        android:text="Find on Facebook"
+        style="@style/InviteButton" />
+
+    <Button
+        android:id="@+id/share_button"
+        android:drawableLeft="@drawable/ic_google_plus"
+        android:background="#dd4b39"
+        android:text="Find on Google"
+        style="@style/InviteButton"/>
+
+    <Button
+        android:id="@+id/emailButton"
+        android:drawableLeft="@drawable/ic_email"
+        android:background="#fcb422"
+        android:onClick="chooseRecipients"
+        android:text="Send an Email"
+        style="@style/InviteButton"/>
+
+</LinearLayout>

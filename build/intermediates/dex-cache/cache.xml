@@ -44,6 +44,13 @@
         <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\bolts-android-1.1.2-93cf667b0b3c239d0b5c5f6f98c41de16ee7bf44.jar" />
     </item>
     <item
+        jar="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.android.support\support-v13\22.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7f9cca1caa023a880b00c382bcc5c90245ae4895">
+        <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\classes-e326d4445608498e807c0b908e633e38768f41d7.jar" />
+    </item>
+    <item
         jar="D:\DreamTeen-Fitness\app\libs\simple.facebook-2.2.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -70,6 +77,13 @@
         revision="21.1.2"
         sha1="5811138d4e6cb9d45030e133ef1a61b935154c3a">
         <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\Parse-1.9.0-7612f21cdf4116ecf4350f14a90d2f10be34ab2b.jar" />
+    </item>
+    <item
+        jar="D:\DreamTeen-Fitness\app\build\intermediates\exploded-aar\com.android.support\support-v13\22.0.0\libs\internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="def3eff2b7b4774d96ae15b07b3fc0111edbfe24">
+        <dex dex="D:\DreamTeen-Fitness\app\build\intermediates\pre-dexed\release\internal_impl-22.0.0-ca2af610aa6ce4e87abc7457c9d8753602582779.jar" />
     </item>
 
 </items>

@@ -41,186 +41,266 @@ uses-permission#android.permission.ACCESS_FINE_LOCATION
 ADDED from AndroidManifest.xml:12:5
 	android:name
 		ADDED from AndroidManifest.xml:12:22
-uses-feature#0x00020000
+uses-permission#android.permission.VIBRATE
 ADDED from AndroidManifest.xml:14:5
+	android:name
+		ADDED from AndroidManifest.xml:14:22
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from AndroidManifest.xml:15:5
+	android:name
+		ADDED from AndroidManifest.xml:15:22
+permission#bellamica.tech.dreamteenfitness.permission.C2D_MESSAGE
+ADDED from AndroidManifest.xml:16:5
+	android:protectionLevel
+		ADDED from AndroidManifest.xml:16:87
+	android:name
+		ADDED from AndroidManifest.xml:16:17
+uses-permission#bellamica.tech.dreamteenfitness.permission.C2D_MESSAGE
+ADDED from AndroidManifest.xml:17:5
+	android:name
+		ADDED from AndroidManifest.xml:17:22
+uses-feature#0x00020000
+ADDED from AndroidManifest.xml:19:5
 	android:required
-		ADDED from AndroidManifest.xml:16:9
+		ADDED from AndroidManifest.xml:21:9
 	android:glEsVersion
-		ADDED from AndroidManifest.xml:15:9
+		ADDED from AndroidManifest.xml:20:9
 application
-ADDED from AndroidManifest.xml:18:5
+ADDED from AndroidManifest.xml:23:5
+MERGED from com.android.support:support-v4:22.0.0:22:5
+MERGED from com.android.support:support-v13:22.0.0:22:5
 MERGED from com.android.support:support-v4:22.0.0:22:5
 MERGED from com.google.android.gms:play-services:6.5.87:20:5
 MERGED from com.android.support:support-v4:22.0.0:22:5
 MERGED from com.facebook.android:facebook-android-sdk:3.21.1:24:5
 MERGED from com.android.support:support-v4:22.0.0:22:5
 	android:label
-		ADDED from AndroidManifest.xml:21:9
+		ADDED from AndroidManifest.xml:26:9
 	android:allowBackup
-		ADDED from AndroidManifest.xml:19:9
+		ADDED from AndroidManifest.xml:24:9
 	android:icon
-		ADDED from AndroidManifest.xml:20:9
+		ADDED from AndroidManifest.xml:25:9
 	android:theme
-		ADDED from AndroidManifest.xml:23:9
+		ADDED from AndroidManifest.xml:28:9
 	android:logo
-		ADDED from AndroidManifest.xml:22:9
+		ADDED from AndroidManifest.xml:27:9
 meta-data#com.google.android.gms.version
-ADDED from AndroidManifest.xml:24:9
+ADDED from AndroidManifest.xml:29:9
 MERGED from com.google.android.gms:play-services:6.5.87:21:9
 	android:name
-		ADDED from AndroidManifest.xml:25:13
+		ADDED from AndroidManifest.xml:30:13
 	android:value
-		ADDED from AndroidManifest.xml:26:13
-meta-data#com.google.android.maps.v2.API_KEY
-ADDED from AndroidManifest.xml:27:9
-	android:name
-		ADDED from AndroidManifest.xml:28:13
-	android:value
-		ADDED from AndroidManifest.xml:29:13
-meta-data#com.google.android.gms.games.APP_ID
-ADDED from AndroidManifest.xml:30:9
-	android:name
 		ADDED from AndroidManifest.xml:31:13
-	android:value
-		ADDED from AndroidManifest.xml:32:13
-meta-data#com.facebook.sdk.ApplicationId
-ADDED from AndroidManifest.xml:33:9
+meta-data#com.google.android.maps.v2.API_KEY
+ADDED from AndroidManifest.xml:32:9
 	android:name
+		ADDED from AndroidManifest.xml:33:13
+	android:value
 		ADDED from AndroidManifest.xml:34:13
-	android:value
-		ADDED from AndroidManifest.xml:35:13
-activity#ui.MainActivity
-ADDED from AndroidManifest.xml:37:9
-	android:screenOrientation
-		ADDED from AndroidManifest.xml:40:13
-	android:label
-		ADDED from AndroidManifest.xml:39:13
+meta-data#com.google.android.gms.games.APP_ID
+ADDED from AndroidManifest.xml:35:9
 	android:name
-		ADDED from AndroidManifest.xml:38:13
-activity#ui.RunActivity
+		ADDED from AndroidManifest.xml:36:13
+	android:value
+		ADDED from AndroidManifest.xml:37:13
+meta-data#com.facebook.sdk.ApplicationId
+ADDED from AndroidManifest.xml:38:9
+	android:name
+		ADDED from AndroidManifest.xml:39:13
+	android:value
+		ADDED from AndroidManifest.xml:40:13
+activity#ui.MainActivity
 ADDED from AndroidManifest.xml:42:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:46:13
+		ADDED from AndroidManifest.xml:45:13
 	android:label
 		ADDED from AndroidManifest.xml:44:13
-	android:parentActivityName
-		ADDED from AndroidManifest.xml:45:13
 	android:name
 		ADDED from AndroidManifest.xml:43:13
+activity#ui.RunActivity
+ADDED from AndroidManifest.xml:47:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:51:13
+	android:label
+		ADDED from AndroidManifest.xml:49:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:50:13
+	android:name
+		ADDED from AndroidManifest.xml:48:13
 meta-data#android.support.PARENT_ACTIVITY
-ADDED from AndroidManifest.xml:47:13
+ADDED from AndroidManifest.xml:52:13
 	android:name
-		ADDED from AndroidManifest.xml:48:17
+		ADDED from AndroidManifest.xml:53:17
 	android:value
-		ADDED from AndroidManifest.xml:49:17
+		ADDED from AndroidManifest.xml:54:17
 activity#ui.AerobicActivity
-ADDED from AndroidManifest.xml:51:9
+ADDED from AndroidManifest.xml:56:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:55:13
+		ADDED from AndroidManifest.xml:60:13
 	android:label
-		ADDED from AndroidManifest.xml:53:13
+		ADDED from AndroidManifest.xml:58:13
 	android:theme
-		ADDED from AndroidManifest.xml:56:13
+		ADDED from AndroidManifest.xml:61:13
 	android:parentActivityName
-		ADDED from AndroidManifest.xml:54:13
+		ADDED from AndroidManifest.xml:59:13
 	android:name
-		ADDED from AndroidManifest.xml:52:13
+		ADDED from AndroidManifest.xml:57:13
 activity#ui.SummaryActivity
-ADDED from AndroidManifest.xml:61:9
+ADDED from AndroidManifest.xml:66:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:65:13
+		ADDED from AndroidManifest.xml:70:13
 	android:label
-		ADDED from AndroidManifest.xml:63:13
+		ADDED from AndroidManifest.xml:68:13
 	android:parentActivityName
-		ADDED from AndroidManifest.xml:64:13
+		ADDED from AndroidManifest.xml:69:13
 	android:name
-		ADDED from AndroidManifest.xml:62:13
-activity#ui.FriendsActivity
-ADDED from AndroidManifest.xml:70:9
+		ADDED from AndroidManifest.xml:67:13
+activity#ui.FriendsInviteFragment
+ADDED from AndroidManifest.xml:75:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:74:13
+		ADDED from AndroidManifest.xml:79:13
 	android:label
-		ADDED from AndroidManifest.xml:72:13
+		ADDED from AndroidManifest.xml:77:13
 	android:parentActivityName
-		ADDED from AndroidManifest.xml:73:13
+		ADDED from AndroidManifest.xml:78:13
 	android:name
-		ADDED from AndroidManifest.xml:71:13
+		ADDED from AndroidManifest.xml:76:13
 activity#ui.SettingsActivity
-ADDED from AndroidManifest.xml:79:9
+ADDED from AndroidManifest.xml:84:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:83:13
+		ADDED from AndroidManifest.xml:88:13
 	android:label
-		ADDED from AndroidManifest.xml:81:13
+		ADDED from AndroidManifest.xml:86:13
 	android:theme
-		ADDED from AndroidManifest.xml:84:13
+		ADDED from AndroidManifest.xml:89:13
 	android:parentActivityName
-		ADDED from AndroidManifest.xml:82:13
+		ADDED from AndroidManifest.xml:87:13
 	android:name
-		ADDED from AndroidManifest.xml:80:13
+		ADDED from AndroidManifest.xml:85:13
 activity#com.facebook.LoginActivity
-ADDED from AndroidManifest.xml:89:9
+ADDED from AndroidManifest.xml:94:9
 	android:noHistory
-		ADDED from AndroidManifest.xml:92:13
-	android:label
-		ADDED from AndroidManifest.xml:91:13
-	android:theme
-		ADDED from AndroidManifest.xml:93:13
-	android:name
-		ADDED from AndroidManifest.xml:90:13
-activity#ui.SplashActivity
-ADDED from AndroidManifest.xml:95:9
-	android:screenOrientation
-		ADDED from AndroidManifest.xml:98:13
-	android:label
 		ADDED from AndroidManifest.xml:97:13
-	android:theme
-		ADDED from AndroidManifest.xml:99:13
-	android:name
+	android:label
 		ADDED from AndroidManifest.xml:96:13
+	android:theme
+		ADDED from AndroidManifest.xml:98:13
+	android:name
+		ADDED from AndroidManifest.xml:95:13
+activity#ui.SplashActivity
+ADDED from AndroidManifest.xml:100:9
+	android:screenOrientation
+		ADDED from AndroidManifest.xml:103:13
+	android:label
+		ADDED from AndroidManifest.xml:102:13
+	android:theme
+		ADDED from AndroidManifest.xml:104:13
+	android:name
+		ADDED from AndroidManifest.xml:101:13
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:100:13
+ADDED from AndroidManifest.xml:105:13
 action#android.intent.action.MAIN
-ADDED from AndroidManifest.xml:101:17
+ADDED from AndroidManifest.xml:106:17
 	android:name
-		ADDED from AndroidManifest.xml:101:25
+		ADDED from AndroidManifest.xml:106:25
 category#android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:103:17
+ADDED from AndroidManifest.xml:108:17
 	android:name
-		ADDED from AndroidManifest.xml:103:27
+		ADDED from AndroidManifest.xml:108:27
 activity#ui.WorkoutActivity
-ADDED from AndroidManifest.xml:106:9
+ADDED from AndroidManifest.xml:111:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:111:13
+		ADDED from AndroidManifest.xml:116:13
 	android:label
-		ADDED from AndroidManifest.xml:109:13
+		ADDED from AndroidManifest.xml:114:13
 	android:hardwareAccelerated
-		ADDED from AndroidManifest.xml:108:13
+		ADDED from AndroidManifest.xml:113:13
 	android:parentActivityName
-		ADDED from AndroidManifest.xml:110:13
+		ADDED from AndroidManifest.xml:115:13
 	android:name
-		ADDED from AndroidManifest.xml:107:13
+		ADDED from AndroidManifest.xml:112:13
 activity#ui.GoalsActivity
-ADDED from AndroidManifest.xml:116:9
+ADDED from AndroidManifest.xml:121:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:120:13
+		ADDED from AndroidManifest.xml:125:13
 	android:label
-		ADDED from AndroidManifest.xml:118:13
+		ADDED from AndroidManifest.xml:123:13
 	android:parentActivityName
-		ADDED from AndroidManifest.xml:119:13
+		ADDED from AndroidManifest.xml:124:13
 	android:name
-		ADDED from AndroidManifest.xml:117:13
-activity#ui.UserListActivity
-ADDED from AndroidManifest.xml:125:9
+		ADDED from AndroidManifest.xml:122:13
+activity#ui.FriendsActivity
+ADDED from AndroidManifest.xml:130:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:129:13
+		ADDED from AndroidManifest.xml:134:13
 	android:label
-		ADDED from AndroidManifest.xml:127:13
+		ADDED from AndroidManifest.xml:132:13
 	android:parentActivityName
-		ADDED from AndroidManifest.xml:128:13
+		ADDED from AndroidManifest.xml:133:13
 	android:name
-		ADDED from AndroidManifest.xml:126:13
+		ADDED from AndroidManifest.xml:131:13
+receiver#com.parse.ParsePushBroadcastReceiver
+ADDED from AndroidManifest.xml:140:9
+	android:exported
+		ADDED from AndroidManifest.xml:141:13
+	android:name
+		ADDED from AndroidManifest.xml:140:19
+intent-filter#com.parse.push.intent.DELETE+com.parse.push.intent.OPEN+com.parse.push.intent.RECEIVE
+ADDED from AndroidManifest.xml:142:13
+action#com.parse.push.intent.RECEIVE
+ADDED from AndroidManifest.xml:143:17
+	android:name
+		ADDED from AndroidManifest.xml:143:25
+action#com.parse.push.intent.OPEN
+ADDED from AndroidManifest.xml:144:17
+	android:name
+		ADDED from AndroidManifest.xml:144:25
+action#com.parse.push.intent.DELETE
+ADDED from AndroidManifest.xml:145:17
+	android:name
+		ADDED from AndroidManifest.xml:145:25
+service#com.parse.PushService
+ADDED from AndroidManifest.xml:148:9
+	android:name
+		ADDED from AndroidManifest.xml:148:18
+receiver#com.parse.GcmBroadcastReceiver
+ADDED from AndroidManifest.xml:149:9
+	android:permission
+		ADDED from AndroidManifest.xml:149:65
+	android:name
+		ADDED from AndroidManifest.xml:149:19
+intent-filter#bellamica.tech.dreamteenfitness+com.google.android.c2dm.intent.RECEIVE+com.google.android.c2dm.intent.REGISTRATION
+ADDED from AndroidManifest.xml:150:13
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from AndroidManifest.xml:151:17
+	android:name
+		ADDED from AndroidManifest.xml:151:25
+action#com.google.android.c2dm.intent.REGISTRATION
+ADDED from AndroidManifest.xml:152:17
+	android:name
+		ADDED from AndroidManifest.xml:152:25
+category#bellamica.tech.dreamteenfitness
+ADDED from AndroidManifest.xml:153:17
+	android:name
+		ADDED from AndroidManifest.xml:153:27
+receiver#com.parse.ParseBroadcastReceiver
+ADDED from AndroidManifest.xml:156:9
+	android:name
+		ADDED from AndroidManifest.xml:156:19
+intent-filter#android.intent.action.BOOT_COMPLETED+android.intent.action.USER_PRESENT
+ADDED from AndroidManifest.xml:157:13
+action#android.intent.action.BOOT_COMPLETED
+ADDED from AndroidManifest.xml:158:17
+	android:name
+		ADDED from AndroidManifest.xml:158:25
+action#android.intent.action.USER_PRESENT
+ADDED from AndroidManifest.xml:159:17
+	android:name
+		ADDED from AndroidManifest.xml:159:25
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
+MERGED from com.android.support:support-v4:22.0.0:20:5
+MERGED from com.android.support:support-v13:22.0.0:20:5
 MERGED from com.android.support:support-v4:22.0.0:20:5
 MERGED from com.google.android.gms:play-services:6.5.87:18:5
 MERGED from com.android.support:support-v4:22.0.0:20:5

@@ -95,5 +95,6 @@
     <orderEntry type="library" exported="" name="simple.facebook-2.2" level="project" />
     <orderEntry type="library" exported="" name="picasso-2.5.2" level="project" />
     <orderEntry type="library" exported="" name="bolts-android-1.1.2" level="project" />
+    <orderEntry type="library" exported="" name="support-v13-22.0.0" level="project" />
   </component>
 </module>

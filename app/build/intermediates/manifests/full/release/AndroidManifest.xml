@@ -83,7 +83,7 @@
                 android:value="ui.RunActivity" />
         </activity>
         <activity
-            android:name="ui.FriendsInviteActivity"
+            android:name="ui.FriendsInviteFragment"
             android:label="@string/title_activity_friends"
             android:parentActivityName="ui.MainActivity"
             android:screenOrientation="portrait" >
@@ -138,32 +138,13 @@
                 android:value="ui.MainActivity" />
         </activity>
         <activity
-            android:name="ui.UserSearchActivity"
-            android:label="@string/title_activity_friends_add"
-            android:parentActivityName="ui.FriendsInviteActivity"
+            android:name="ui.FriendsActivity"
+            android:label="@string/title_activity_friends"
+            android:parentActivityName="ui.MainActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ui.FriendsInviteActivity" />
-        </activity>
-        <activity
-            android:name="ui.FriendsListActivity"
-            android:label="@string/title_activity_friends_list"
-            android:parentActivityName="ui.FriendsInviteActivity"
-            android:screenOrientation="portrait" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ui.FriendsInviteActivity" />
-        </activity>
-        <activity
-            android:name="ui.SendMessageActivity"
-            android:label="@string/title_activity_send_message"
-            android:parentActivityName="ui.FriendsListActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysVisible" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ui.FriendsListActivity" />
+                android:value="ui.MainActivity" />
         </activity>
 
         <receiver

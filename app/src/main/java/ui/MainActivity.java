@@ -618,7 +618,7 @@ public class MainActivity extends Activity {
             if (position == 0) {
                 mDrawerLayout.closeDrawers();
             } else if (position == 1) {
-                startActivity(new Intent(MainActivity.this, FriendsInviteActivity.class));
+                startActivity(new Intent(MainActivity.this, FriendsActivity.class));
             } else if (position == 2) {
                 if (mClient != null && mClient.isConnected()) {
                     final int REQUEST_LEADERBOARD = 2;
