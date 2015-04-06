@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -28,6 +29,7 @@ public class UserSearchActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_user_search);
 
         mUserListAdapter = new ArrayAdapter<>(this,
@@ -37,6 +39,7 @@ public class UserSearchActivity extends ListActivity {
 
         setListAdapter(mUserListAdapter);
 
+        setProgressBarIndeterminateVisibility(true);
         queryUsers();
     }
 
@@ -58,10 +61,13 @@ public class UserSearchActivity extends ListActivity {
         query.whereNotEqualTo("username", email);
         if (friends != null) {
             query.whereNotContainedIn("username", friends);
+        } else {
+            setProgressBarIndeterminateVisibility(false);
         }
         query.findInBackground(new FindCallback<ParseUser>() {
             public void done(List<ParseUser> users, ParseException e) {
                 if (e == null) {
+                    setProgressBarIndeterminateVisibility(false);
                     mUsers = users;
                     for (ParseUser user : users) {
                         mUserListAdapter.add(user.getString("personName"));
