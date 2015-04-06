@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,9 +34,7 @@ public class FriendsListAdapter extends ArrayAdapter<ParseUser> {
         rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),
-                        "View " + user.getString("personName") + "'s stats",
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Send message to " + user.getString("personName"), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -50,14 +47,6 @@ public class FriendsListAdapter extends ArrayAdapter<ParseUser> {
 
         TextView name = (TextView) rootView.findViewById(android.R.id.text1);
         name.setText(user.getString("personName"));
-
-        ImageButton sendMessage = (ImageButton) rootView.findViewById(android.R.id.button1);
-        sendMessage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getContext(), "Send message to " + user.getString("personName"), Toast.LENGTH_SHORT).show();
-            }
-        });
 
         return rootView;
     }

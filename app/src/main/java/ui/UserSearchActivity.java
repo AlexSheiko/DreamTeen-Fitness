@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
+import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
@@ -36,11 +37,19 @@ public class UserSearchActivity extends ListActivity {
 
         setListAdapter(mUserListAdapter);
 
+        queryUsers();
+    }
+
+    private void queryUsers() {
         SharedPreferences sharedPrefs =
                 PreferenceManager.getDefaultSharedPreferences(this);
 
 
         ParseUser currentUser = ParseUser.getCurrentUser();
+        if (currentUser == null) {
+            login();
+            return;
+        }
         List<String> friends = currentUser.getList("friends");
 
         String email = sharedPrefs.getString("email", "");
@@ -57,6 +66,23 @@ public class UserSearchActivity extends ListActivity {
                     for (ParseUser user : users) {
                         mUserListAdapter.add(user.getString("personName"));
                     }
+                } else {
+                    login();
+                }
+            }
+        });
+    }
+
+    private void login() {
+        String username =
+                PreferenceManager.getDefaultSharedPreferences(this)
+                        .getString("email", "");
+
+        ParseUser.logInInBackground(username, "123", new LogInCallback() {
+            @Override
+            public void done(ParseUser parseUser, ParseException e) {
+                if (e == null) {
+                    queryUsers();
                 }
             }
         });
