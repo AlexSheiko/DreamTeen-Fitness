@@ -86,7 +86,10 @@
     <string name="run_duration_label">Run duration</string>
     <string name="calories_label">Calories burned</string>
     <string name="action_search">Search friends</string>
-    <string name="title_activity_user_list">Find friends</string>
+    <string name="title_activity_friends_add">Find friends</string>
     <string name="no_users">No other registered users yet.\nPlease wait for anybody to sign up.</string>
+    <string name="no_friends">No added friends yet.\nPlease pick anybody from\nsearch screen.</string>
+    <string name="title_activity_friends_list">My friends</string>
+    <string name="action_my_friends">My Friends</string>
 
 </resources>

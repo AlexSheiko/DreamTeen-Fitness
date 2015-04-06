@@ -6,7 +6,7 @@
               android:background="@color/white"
               android:gravity="center_horizontal"
               android:orientation="vertical"
-              tools:context="ui.FriendsActivity">
+              tools:context="ui.FriendsInviteActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -41,3 +41,4 @@
         style="@style/InviteButton"/>
 
 </LinearLayout>
+<!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/layout/activity_friends_invite.xml -->

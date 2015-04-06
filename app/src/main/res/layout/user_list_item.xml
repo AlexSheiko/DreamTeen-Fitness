@@ -1,29 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="?android:listPreferredItemHeight"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin">
-
-    <ImageView
-        android:id="@android:id/icon1"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center_vertical" />
-
-    <TextView
-        android:id="@android:id/text1"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="#d6000000"
-        tools:text="Aleksey Sheyko"
-        android:layout_marginLeft="12dp"
-        android:layout_gravity="center_vertical" />
-
-</LinearLayout>
+    android:padding="16dp"
+    android:textSize="16sp"
+    android:textColor="#d9000000" />

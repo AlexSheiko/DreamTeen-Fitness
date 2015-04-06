@@ -904,13 +904,13 @@ containing a value of this type.
     }
     public static final class layout {
         public static final int activity_aerobic=0x7f030000;
-        public static final int activity_friends=0x7f030001;
+        public static final int activity_friends_invite =0x7f030001;
         public static final int activity_goals=0x7f030002;
         public static final int activity_main=0x7f030003;
         public static final int activity_run=0x7f030004;
         public static final int activity_splash=0x7f030005;
         public static final int activity_summary=0x7f030006;
-        public static final int activity_user_list=0x7f030007;
+        public static final int activity_friends_search =0x7f030007;
         public static final int activity_workout=0x7f030008;
         public static final int com_facebook_friendpickerfragment=0x7f030009;
         public static final int com_facebook_login_activity_layout=0x7f03000a;
@@ -935,10 +935,10 @@ containing a value of this type.
         public static final int nav_item_small=0x7f03001d;
         public static final int scores_list_item=0x7f03001e;
         public static final int spinner_item=0x7f03001f;
-        public static final int user_list_item=0x7f030020;
+        public static final int friend_list_item =0x7f030020;
     }
     public static final class menu {
-        public static final int menu_friends=0x7f0c0000;
+        public static final int menu_friends_invite =0x7f0c0000;
         public static final int menu_run=0x7f0c0001;
         public static final int menu_summary=0x7f0c0002;
     }
@@ -1133,7 +1133,7 @@ containing a value of this type.
         public static final int title_activity_history=0x7f0a00b7;
         public static final int title_activity_settings=0x7f0a00b8;
         public static final int title_activity_summary=0x7f0a00b9;
-        public static final int title_activity_user_list=0x7f0a00ba;
+        public static final int title_activity_friends_add =0x7f0a00ba;
         public static final int title_activity_workout=0x7f0a00bb;
         public static final int title_facebook_login=0x7f0a00bc;
         public static final int track_exercise=0x7f0a00bd;

@@ -4,7 +4,7 @@ import android.app.ListActivity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
+import android.widget.ArrayAdapter;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -15,21 +15,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bellamica.tech.dreamteenfitness.R;
-import ui.adapters.UserAdapter;
 
-public class UserListActivity extends ListActivity {
+public class FriendsSearchActivity extends ListActivity {
 
-    public String LOG_TAG = UserListActivity.class.getSimpleName();
+    private ArrayAdapter<String> mUserListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_list);
+        setContentView(R.layout.activity_friends_search);
 
-        final UserAdapter adapter = new UserAdapter(this,
-                new ArrayList<ParseUser>());
+        mUserListAdapter = new ArrayAdapter<>(this,
+                R.layout.user_list_item,
+                android.R.id.text1,
+                new ArrayList<String>());
 
-        setListAdapter(adapter);
+        setListAdapter(mUserListAdapter);
 
         SharedPreferences sharedPrefs =
                 PreferenceManager.getDefaultSharedPreferences(this);
@@ -42,8 +43,7 @@ public class UserListActivity extends ListActivity {
             public void done(List<ParseUser> users, ParseException e) {
                 if (e == null) {
                     for (ParseUser user : users) {
-                        Log.v(LOG_TAG, user.getUsername());
-                        adapter.add(user);
+                        mUserListAdapter.add(user.getString("personName"));
                     }
                 }
             }

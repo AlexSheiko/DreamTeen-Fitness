@@ -5,7 +5,7 @@
     android:background="@color/white"
     android:layout_marginTop="@dimen/activity_vertical_margin"
     android:layout_marginBottom="@dimen/activity_vertical_margin"
-    tools:context="ui.UserListActivity">
+    tools:context="ui.FriendsSearchActivity">
 
     <ListView
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="40dp"
         android:gravity="center_horizontal"
-        android:text="@string/no_users"
+        android:text="@string/no_friends"
         android:textSize="16sp"/>
 
-</FrameLayout><!-- From: file:/D:/DreamTeen-Fitness/app/src/main/res/layout/activity_user_list.xml -->
+</FrameLayout>

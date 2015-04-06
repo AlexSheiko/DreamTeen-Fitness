@@ -37,9 +37,9 @@ import java.util.HashSet;
 import bellamica.tech.dreamteenfitness.R;
 
 
-public class FriendsActivity extends Activity implements OnClickListener {
+public class FriendsInviteActivity extends Activity implements OnClickListener {
 
-    protected static final String TAG = FriendsActivity.class.getSimpleName();
+    protected static final String TAG = FriendsInviteActivity.class.getSimpleName();
 
     private ArrayList<String> mEmails;
     private String[] mRecipients;
@@ -48,7 +48,7 @@ public class FriendsActivity extends Activity implements OnClickListener {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_friends, menu);
+        getMenuInflater().inflate(R.menu.menu_friends_invite, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -56,8 +56,11 @@ public class FriendsActivity extends Activity implements OnClickListener {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
-        if (id == R.id.action_search) {
-            startActivity(new Intent(this, UserListActivity.class));
+        if (id == R.id.action_my_friends) {
+            startActivity(new Intent(this, FriendsListActivity.class));
+            return true;
+        } else if (id == R.id.action_search) {
+            startActivity(new Intent(this, FriendsSearchActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -66,7 +69,7 @@ public class FriendsActivity extends Activity implements OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_friends);
+        setContentView(R.layout.activity_friends_invite);
 
         SimpleFacebookConfiguration configuration = new SimpleFacebookConfiguration.Builder()
                 .setAppId(getString(R.string.facebook_app_id))
@@ -155,10 +158,10 @@ public class FriendsActivity extends Activity implements OnClickListener {
                     @Override
                     public void onComplete(Bundle values, FacebookException error) {
                         if (error != null) {
-                            /* Toast.makeText(FriendsActivity.this, getResources()
+                            /* Toast.makeText(FriendsInviteActivity.this, getResources()
                                     .getString(R.string.network_error), Toast.LENGTH_SHORT).show(); */
                         } else {
-                            Toast.makeText(FriendsActivity.this, getString(R.string.request_sent_toast), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(FriendsInviteActivity.this, getString(R.string.request_sent_toast), Toast.LENGTH_SHORT).show();
                         }
                         dialog = null;
                         Session.getActiveSession().closeAndClearTokenInformation();
