@@ -60,7 +60,7 @@ public class FriendsInviteActivity extends Activity implements OnClickListener {
             startActivity(new Intent(this, FriendsListActivity.class));
             return true;
         } else if (id == R.id.action_search) {
-            startActivity(new Intent(this, FriendsSearchActivity.class));
+            startActivity(new Intent(this, UserSearchActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);

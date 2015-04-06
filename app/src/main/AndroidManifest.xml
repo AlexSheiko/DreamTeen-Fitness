@@ -123,7 +123,7 @@
                 android:value="ui.MainActivity"/>
         </activity>
         <activity
-            android:name="ui.FriendsSearchActivity"
+            android:name="ui.UserSearchActivity"
             android:label="@string/title_activity_friends_add"
             android:parentActivityName="ui.FriendsInviteActivity"
             android:screenOrientation="portrait">

@@ -910,7 +910,7 @@ containing a value of this type.
         public static final int activity_run=0x7f030004;
         public static final int activity_splash=0x7f030005;
         public static final int activity_summary=0x7f030006;
-        public static final int activity_friends_search =0x7f030007;
+        public static final int activity_user_search =0x7f030007;
         public static final int activity_workout=0x7f030008;
         public static final int com_facebook_friendpickerfragment=0x7f030009;
         public static final int com_facebook_login_activity_layout=0x7f03000a;
