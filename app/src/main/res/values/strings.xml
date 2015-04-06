@@ -91,5 +91,6 @@
     <string name="no_friends">No added friends yet.\nPlease pick anybody from\nsearch screen.</string>
     <string name="title_activity_friends_list">My friends</string>
     <string name="action_my_friends">My Friends</string>
+    <string name="title_activity_send_message">Send Message</string>
 
 </resources>

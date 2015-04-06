@@ -1,13 +1,13 @@
 package ui.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.parse.ParseUser;
 import com.squareup.picasso.Picasso;
@@ -15,6 +15,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import bellamica.tech.dreamteenfitness.R;
+import ui.SendMessageActivity;
 import ui.utils.CircleTransform;
 
 public class FriendsListAdapter extends ArrayAdapter<ParseUser> {
@@ -34,7 +35,9 @@ public class FriendsListAdapter extends ArrayAdapter<ParseUser> {
         rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "Send message to " + user.getString("personName"), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(), SendMessageActivity.class);
+                intent.putExtra(Intent.EXTRA_EMAIL, user.getUsername());
+                getContext().startActivity(intent);
             }
         });
 

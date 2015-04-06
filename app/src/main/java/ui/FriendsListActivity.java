@@ -40,6 +40,9 @@ public class FriendsListActivity extends ListActivity {
             return;
         }
         List<String> friends = currentUser.getList("friends");
+        if (friends == null) {
+            friends = new ArrayList<>();
+        }
 
         ParseQuery<ParseUser> query = ParseUser.getQuery();
         query.whereContainedIn("username", friends);

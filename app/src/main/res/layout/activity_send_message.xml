@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<EditText xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:textColor="@android:color/black"
+    android:textSize="18sp"
+    android:hint="Write a message..."
+    android:gravity="top"
+    android:imeOptions="actionSend"
+    android:id="@+id/message"
+    android:inputType="textNoSuggestions|textCapSentences"
+    />

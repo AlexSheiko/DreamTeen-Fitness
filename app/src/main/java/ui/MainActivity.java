@@ -54,6 +54,7 @@ import com.google.android.gms.plus.model.people.Person;
 import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
+import com.parse.ParsePush;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
@@ -69,6 +70,8 @@ import ui.utils.Constants;
 
 
 public class MainActivity extends Activity {
+
+    public String LOG_TAG = MainActivity.class.getSimpleName();
 
     private static final int REQUEST_OAUTH = 1;
     private static final String AUTH_PENDING = "auth_state_pending";
@@ -144,7 +147,8 @@ public class MainActivity extends Activity {
                             }
 
                             @Override
-                            public void onConnectionSuspended(int i) {
+                            public void onConnectionSuspended(int cause) {
+                                Log.w(LOG_TAG, "Connection suspended. Error code: " + cause);
                             }
                         }
                 )
@@ -152,6 +156,10 @@ public class MainActivity extends Activity {
                         new GoogleApiClient.OnConnectionFailedListener() {
                             @Override
                             public void onConnectionFailed(ConnectionResult result) {
+                                Log.w(LOG_TAG, "Client connection failed. "
+                                        + "Error code: " + result.getErrorCode()
+                                        + ", resolution: " + result.getResolution());
+
                                 if (!result.hasResolution()) {
                                     GooglePlayServicesUtil.getErrorDialog(result.getErrorCode(),
                                             MainActivity.this, 0).show();
@@ -185,6 +193,7 @@ public class MainActivity extends Activity {
                 .apply();
 
         login();
+        ParsePush.subscribeInBackground(email);
     }
 
     private void login() {
@@ -214,7 +223,7 @@ public class MainActivity extends Activity {
         user.signUpInBackground(new SignUpCallback() {
             public void done(ParseException e) {
                 if (e != null) {
-                    Log.w("MainActivity", "Failed to sign up with Parse");
+                    Log.w(LOG_TAG, "Failed to sign up with Parse");
                 }
             }
         });
