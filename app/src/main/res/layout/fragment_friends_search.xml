@@ -24,6 +24,7 @@
         android:layout_marginTop="40dp"
         android:gravity="center_horizontal"
         android:text="@string/no_users"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        android:textColor="#71000000"/>
 
 </FrameLayout>
